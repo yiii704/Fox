@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>狐狸🦊</title>
+
+  <style>
+    /* =========================
+       基本設定
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 32px 18px;
+      background: #faf8ff;
+      color: #4f4660;
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    h1 {
+      margin-bottom: 28px;
+      color: #6b46c1;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 22px;
+      color: #6b46c1;
+      font-size: 23px;
+      text-align: center;
+    }
+
+    /* =========================
+       頁面
+    ========================= */
+
+    .page {
+      display: none;
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      animation: pageIn 0.25s ease;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       膠囊按鈕
+    ========================= */
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 145px));
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .pill-button {
+      min-height: 42px;
+      padding: 8px 14px;
+      background: #ffffff;
+      color: #6b46c1;
+      border: 2px solid #d9c8ff;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(126, 92, 190, 0.10);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .pill-button:hover {
+      background: #f7f2ff;
+    }
+
+    .pill-button:active {
+      transform: scale(0.97);
+    }
+
+    .pill-button.selected {
+      background: #dccfff;
+      border-color: #b99bf5;
+      color: #59349e;
+    }
+
+    /* =========================
+       返回按鈕
+    ========================= */
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      background: #ffffff;
+      color: #6b46c1;
+      border: 2px solid #d9c8ff;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .back-button:active {
+      background: #eee5ff;
+    }
+
+    /* =========================
+       卡片
+    ========================= */
+
+    .card {
+      margin-bottom: 16px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #eee6ff;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(116, 82, 165, 0.09);
+    }
+
+    .card-title {
+      margin-bottom: 12px;
+      color: #6b46c1;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .card p {
+      line-height: 1.8;
+    }
+
+    .notice-list {
+      padding-left: 22px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       空白狀態
+    ========================= */
+
+    .empty-message {
+      padding: 24px;
+      color: #8b8295;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       表單
+    ========================= */
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #5f4b87;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .required {
+      color: #be4b78;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: #ffffff;
+      color: #4f4660;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #9f7aea;
+      box-shadow: 0 0 0 3px rgba(159, 122, 234, 0.13);
+    }
+
+    textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .product-placeholder {
+      padding: 18px;
+      color: #8b8295;
+      background: #faf8ff;
+      border: 1px dashed #cdb9f6;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .product-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 12px 14px;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 15px;
+    }
+
+    .product-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .product-left input {
+      width: 18px;
+      height: 18px;
+      accent-color: #9f7aea;
+    }
+
+    .product-price {
+      color: #6b46c1;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .total-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: #eee6ff;
+      border-radius: 16px;
+      color: #59349e;
+      font-weight: 700;
+    }
+
+    /* =========================
+       匯款帳號
+    ========================= */
+
+    .bank-account {
+      margin-bottom: 11px;
+      padding: 13px 15px;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 15px;
+      line-height: 1.7;
+    }
+
+    .bank-account strong {
+      color: #6b46c1;
+    }
+
+    /* =========================
+       送出按鈕
+    ========================= */
+
+    .submit-button {
+      width: 100%;
+      padding: 13px;
+      background: #cbb8f5;
+      color: #4c2e83;
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-button:active {
+      transform: scale(0.98);
+    }
+
+    /* =========================
+       對帳篩選
+    ========================= */
+
+    .filter-label {
+      margin: 14px 0 8px;
+      color: #8b8295;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-button {
+      padding: 8px 14px;
+      background: #ffffff;
+      color: #6b46c1;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .filter-button.selected {
+      background: #dccfff;
+      border-color: #b99bf5;
+    }
+
+    .search-input {
+      margin-top: 7px;
+    }
+
+    /* =========================
+       對帳資料
+    ========================= */
+
+    .progress-card {
+      margin-bottom: 14px;
+      padding: 18px;
+      background: #ffffff;
+      border: 1px solid #eee6ff;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(116, 82, 165, 0.08);
+    }
+
+    .progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .progress-title {
+      color: #5f4b87;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .progress-row {
+      display: grid;
+      grid-template-columns: minmax(80px, 1fr) auto auto;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .name-pill,
+    .status-pill,
+    .stage-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .name-pill {
+      justify-content: flex-start;
+      background: #f5f1fb;
+      color: #594d68;
+    }
+
+    .status-paid {
+      background: #dff4e6;
+      color: #287747;
+    }
+
+    .status-unpaid {
+      background: #ffe7e7;
+      color: #b34545;
+    }
+
+    .status-waiting {
+      background: #fff1d6;
+      color: #9b691b;
+    }
+
+    .stage-processing {
+      background: #eee3ff;
+      color: #6842b3;
+    }
+
+    .stage-complete {
+      background: #dfeeff;
+      color: #35649a;
+    }
+
+    .activity-pill {
+      padding: 7px 12px;
+      background: #e7dcff;
+      color: #6842b3;
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       手機版
+    ========================= */
+
+    @media (max-width: 480px) {
+      body {
+        padding: 24px 14px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pill-button {
+        min-height: 40px;
+        padding: 7px 8px;
+        font-size: 13px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .progress-row {
+        grid-template-columns: 1fr;
+      }
+
+      .name-pill,
+      .status-pill,
+      .stage-pill {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>狐狸🦊</h1>
+
+  <!-- =========================
+       首頁
+  ========================== -->
+
+  <main id="homePage" class="page active-page">
+
+    <div class="menu-grid">
+
+      <button class="pill-button navigation-button" data-target="groupPage">
+        📦 團務
+      </button>
+
+      <button class="pill-button navigation-button" data-target="noticePage">
+        📌 注意事項
+      </button>
+
+      <button class="pill-button navigation-button" data-target="paymentPage">
+        💰 匯款表單
+      </button>
+
+      <button class="pill-button navigation-button" data-target="progressPage">
+        📊 對帳表＆進度表
+      </button>
+
+    </div>
+
+  </main>
+
+  <!-- =========================
+       團務
+  ========================== -->
+
+  <section id="groupPage" class="page">
+
+    <button class="back-button" data-target="homePage">
+      ← 返回首頁
+    </button>
+
+    <h2>📦 團務</h2>
+
+    <div class="menu-grid">
+
+      <button class="pill-button navigation-button" data-target="proxyPage">
+        代購
+      </button>
+
+      <button class="pill-button navigation-button" data-target="benefitPage">
+        單特典
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       代購
+  ========================== -->
+
+  <section id="proxyPage" class="page">
+
+    <button class="back-button" data-target="groupPage">
+      ← 返回團務
+    </button>
+
+    <h2>🛒 代購</h2>
+
+    <div class="card empty-message">
+      目前暫無團務 🦊
+    </div>
+
+  </section>
+
+  <!-- =========================
+       單特典
+  ========================== -->
+
+  <section id="benefitPage" class="page">
+
+    <button class="back-button" data-target="groupPage">
+      ← 返回團務
+    </button>
+
+    <h2>📸 單特典</h2>
+
+    <div class="menu-grid">
+
+      <button class="pill-button navigation-button" data-target="twsPage">
+        TWS
+      </button>
+
+      <button class="pill-button navigation-button" data-target="skzPage">
+        Stray Kids
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       TWS
+  ========================== -->
+
+  <section id="twsPage" class="page">
+
+    <button class="back-button" data-target="benefitPage">
+      ← 返回單特典
+    </button>
+
+    <h2>TWS</h2>
+
+    <div class="card empty-message">
+      目前暫無團務 🦊
+    </div>
+
+  </section>
+
+  <!-- =========================
+       Stray Kids
+  ========================== -->
+
+  <section id="skzPage" class="page">
+
+    <button class="back-button" data-target="benefitPage">
+      ← 返回單特典
+    </button>
+
+    <h2>Stray Kids</h2>
+
+    <div class="card empty-message">
+      目前暫無團務 🦊
+    </div>
+
+  </section>
+
+  <!-- =========================
+       注意事項
+  ========================== -->
+
+  <section id="noticePage" class="page">
+
+    <button class="back-button" data-target="homePage">
+      ← 返回首頁
+    </button>
+
+    <h2>📌 注意事項</h2>
+
+    <article class="card">
+
+      <div class="card-title">
+        📍下單規則
+      </div>
+
+      <p>
+        所有團物皆為
+        <strong>收齊全部車員款項後</strong>
+        才會統一下單。
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="card-title">
+        📍關於二補
+      </div>
+
+      <p>
+        若商品需要二補，
+        將於商品全部到貨後透過賣貨便收取二補。
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="card-title">
+        📍寄送方式
+      </div>
+
+      <p>
+        全部商品皆使用賣貨便寄出，
+        並酌收包材費 10 元＋手續費 10 元。
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="card-title">
+        📍商品須知
+      </div>
+
+      <p>
+        商品皆默認接受：
+      </p>
+
+      <ul class="notice-list">
+        <li>廠損</li>
+        <li>運輸損傷</li>
+        <li>商品瑕疵</li>
+        <li>不湊套（專卡、滿額卡及隨機商品等）</li>
+      </ul>
+
+      <p style="margin-top:12px;">
+        以上情況恕無法退換貨。
+      </p>
+
+    </article>
+
+  </section>
+
+  <!-- =========================
+       匯款表單
+  ========================== -->
+
+  <section id="paymentPage" class="page">
+
+    <button class="back-button" data-target="homePage">
+      ← 返回首頁
+    </button>
+
+    <h2>💰 匯款表單</h2>
+
+    <form id="paymentForm">
+
+      <!-- 基本資料 -->
+
+      <div class="card">
+
+        <div class="card-title">
+          基本資料與商品
+        </div>
+
+        <div class="form-group">
+
+          <label for="communitySelect">
+
+            社群名稱／團務
+
+            <span class="required">*</span>
+
+          </label>
+
+          <select id="communitySelect" required>
+
+            <option value="">
+              目前暫無開放中的團務
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="facebookName">
+
+            Facebook 名稱
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="facebookName"
+            type="text"
+            placeholder="請輸入 Facebook 名稱"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            商品名稱與價錢
+          </label>
+
+          <div id="productContainer">
+
+            <div class="product-placeholder">
+              目前暫無商品
+            </div>
+
+          </div>
+
+          <div class="total-box">
+
+            <span>
+              商品總金額
+            </span>
+
+            <span id="calculatedTotal">
+              NT$ 0
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- =========================
+           匯款帳號
+      ========================== -->
+
+      <div class="card">
+
+        <div class="card-title">
+          匯款帳號
+        </div>
+
+        <div class="bank-account">
+
+          <strong>
+            連線銀行（824）
+          </strong>
+
+          <br>
+
+          111019094603
+
+        </div>
+
+        <div class="bank-account">
+
+          <strong>
+            台新銀行（812）
+          </strong>
+
+          <br>
+
+          20741000262603
+
+        </div>
+
+        <div class="bank-account">
+
+          <strong>
+            中國信託（822）
+          </strong>
+
+          <br>
+
+          901567959612
+
+        </div>
+
+      </div>
+
+      <!-- =========================
+           匯款資料
+      ========================== -->
+
+      <div class="card">
+
+        <div class="card-title">
+          匯款資料
+        </div>
+
+        <!-- 匯款日期 -->
+
+        <div class="form-group">
+
+          <label for="paymentDate">
+
+            匯款日期
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentDate"
+            type="date"
+            required
+          >
+
+        </div>
+
+        <!-- 匯款時間 -->
+
+        <div class="form-group">
+
+          <label for="paymentTime">
+
+            匯款時間
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentTime"
+            type="time"
+            required
+          >
+
+        </div>
+
+        <!-- 匯款銀行 -->
+
+        <div class="form-group">
+
+          <label for="paymentBank">
+
+            匯款銀行
+
+            <span class="required">*</span>
+
+          </label>
+
+          <select id="paymentBank" required>
+
+            <option value="">
+              請選擇匯款銀行
+            </option>
+
+            <option value="連線銀行">
+              連線銀行
+            </option>
+
+            <option value="台新銀行">
+              台新銀行
+            </option>
+
+            <option value="中國信託">
+              中國信託
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- 匯款金額 -->
+
+        <div class="form-group">
+
+          <label for="paymentAmount">
+
+            匯款金額
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentAmount"
+            type="number"
+            min="0"
+            placeholder="商品開放後會自動計算"
+            required
+          >
+
+        </div>
+
+        <!-- 後五碼 -->
+
+        <div class="form-group">
+
+          <label for="accountLastFive">
+
+            匯款帳號後五碼
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="accountLastFive"
+            type="text"
+            inputmode="numeric"
+            maxlength="5"
+            pattern="[0-9]{5}"
+            placeholder="請輸入 5 位數字"
+            required
+          >
+
+        </div>
+
+        <!-- 備註 -->
+
+        <div class="form-group">
+
+          <label for="note">
+            備註
+          </label>
+
+          <textarea
+            id="note"
+            placeholder="沒有備註可以留空"
+          ></textarea>
+
+        </div>
+
+        <button
+          class="submit-button"
+          type="submit"
+        >
+          送出匯款資料
+        </button>
+
+      </div>
+
+    </form>
+
+  </section>
+
+  <!-- =========================
+       對帳表
+  ========================== -->
+
+  <section id="progressPage" class="page">
+
+    <button class="back-button" data-target="homePage">
+      ← 返回首頁
+    </button>
+
+    <h2>
+      📊 對帳表＆進度表
+    </h2>
+
+    <div class="card">
+
+      <div class="filter-label">
+        依團務
+      </div>
+
+      <div class="filter-row" id="typeFilters">
+
+        <button
+          class="filter-button selected"
+          data-filter="all"
+        >
+          全部
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="單特典"
+        >
+          單特典
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="代購"
+        >
+          代購
+        </button>
+
+      </div>
+
+      <div class="filter-label">
+        依團體
+      </div>
+
+      <div class="filter-row" id="groupFilters">
+
+        <button
+          class="filter-button selected"
+          data-filter="all"
+        >
+          全部
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="TWS"
+        >
+          TWS
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="Stray Kids"
+        >
+          Stray Kids
+        </button>
+
+      </div>
+
+      <div class="filter-label">
+        依社群名稱
+      </div>
+
+      <input
+        id="communitySearch"
+        class="search-input"
+        type="search"
+        placeholder="輸入社群名稱"
+      >
+
+    </div>
+
+    <div id="progressList"></div>
+
+  </section>
+
+  <script>
+    /* =========================
+       頁面切換
+    ========================= */
+
+    const pages =
+      document.querySelectorAll(".page");
+
+    function showPage(pageId) {
+
+      pages.forEach((page) => {
+        page.classList.remove("active-page");
+      });
+
+      const selectedPage =
+        document.getElementById(pageId);
+
+      if (selectedPage) {
+
+        selectedPage.classList.add("active-page");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    }
+
+    document
+      .querySelectorAll("[data-target]")
+      .forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+          showPage(
+            button.dataset.target
+          );
+
+        });
+
+      });
+
+    /* =========================
+       膠囊按鈕選取
+    ========================= */
+
+    document
+      .querySelectorAll(".menu-grid")
+      .forEach((menu) => {
+
+        const buttons =
+          menu.querySelectorAll(".pill-button");
+
+        buttons.forEach((button) => {
+
+          button.addEventListener("click", () => {
+
+            buttons.forEach((item) => {
+
+              item.classList.remove("selected");
+
+            });
+
+            button.classList.add("selected");
+
+          });
+
+        });
+
+      });
+
+    /* =========================
+       商品資料
+       目前沒有團務
+    ========================= */
+
+    const productData = {};
+
+    const communitySelect =
+      document.getElementById("communitySelect");
+
+    const productContainer =
+      document.getElementById("productContainer");
+
+    const calculatedTotal =
+      document.getElementById("calculatedTotal");
+
+    const paymentAmount =
+      document.getElementById("paymentAmount");
+
+    /* =========================
+       自動計算金額
+    ========================= */
+
+    function updateTotal() {
+
+      const selectedProducts =
+        productContainer.querySelectorAll(
+          ".product-checkbox:checked"
+        );
+
+      let total = 0;
+
+      selectedProducts.forEach((checkbox) => {
+
+        total += Number(
+          checkbox.dataset.price
+        );
+
+      });
+
+      calculatedTotal.textContent =
+        `NT$ ${total.toLocaleString("zh-TW")}`;
+
+      paymentAmount.value =
+        total > 0 ? total : "";
+
+    }
+
+    /* =========================
+       商品顯示
+    ========================= */
+
+    function renderProducts(groupId) {
+
+      productContainer.innerHTML = "";
+
+      const products =
+        productData[groupId];
+
+      if (
+        !products ||
+        products.length === 0
+      ) {
+
+        productContainer.innerHTML = `
+          <div class="product-placeholder">
+            目前暫無商品
+          </div>
+        `;
+
+        updateTotal();
+
+        return;
+      }
+
+      products.forEach((product) => {
+
+        const productRow =
+          document.createElement("label");
+
+        productRow.className =
+          "product-option";
+
+        productRow.innerHTML = `
+          <span class="product-left">
+
+            <input
+              class="product-checkbox"
+              type="checkbox"
+              value="${product.name}"
+              data-price="${product.price}"
+            >
+
+            <span>
+              ${product.name}
+            </span>
+
+          </span>
+
+          <span class="product-price">
+            NT$
+            ${product.price.toLocaleString("zh-TW")}
+          </span>
+        `;
+
+        productContainer.appendChild(
+          productRow
+        );
+
+      });
+
+      productContainer
+        .querySelectorAll(".product-checkbox")
+        .forEach((checkbox) => {
+
+          checkbox.addEventListener(
+            "change",
+            updateTotal
+          );
+
+        });
+
+      updateTotal();
+
+    }
+
+    communitySelect.addEventListener(
+      "change",
+      () => {
+
+        renderProducts(
+          communitySelect.value
+        );
+
+      }
+    );
+
+    /* =========================
+       匯款表單
+    ========================= */
+
+    const paymentForm =
+      document.getElementById("paymentForm");
+
+    paymentForm.addEventListener(
+      "submit",
+      (event) => {
+
+        event.preventDefault();
+
+        if (!communitySelect.value) {
+
+          alert(
+            "目前暫無開放中的團務。"
+          );
+
+          return;
+        }
+
+        const selectedProducts = [
+          ...document.querySelectorAll(
+            ".product-checkbox:checked"
+          )
+        ];
+
+        if (
+          selectedProducts.length === 0
+        ) {
+
+          alert(
+            "請至少勾選一項商品。"
+          );
+
+          return;
+        }
+
+        const paymentDate =
+          document.getElementById(
+            "paymentDate"
+          ).value;
+
+        const paymentTime =
+          document.getElementById(
+            "paymentTime"
+          ).value;
+
+        const paymentBank =
+          document.getElementById(
+            "paymentBank"
+          ).value;
+
+        const amount =
+          paymentAmount.value;
+
+        const lastFive =
+          document.getElementById(
+            "accountLastFive"
+          ).value;
+
+        alert(
+          "匯款資料已送出。"
+        );
+
+      }
+    );
+
+    /* =========================
+       對帳資料
+       目前沒有資料
+    ========================= */
+
+    const defaultProgressData = [];
+
+    let currentTypeFilter = "all";
+    let currentGroupFilter = "all";
+
+    const progressList =
+      document.getElementById(
+        "progressList"
+      );
+
+    const communitySearch =
+      document.getElementById(
+        "communitySearch"
+      );
+
+    function renderProgress() {
+
+      const searchText =
+        communitySearch.value
+          .trim()
+          .toLowerCase();
+
+      const filteredData =
+        defaultProgressData.filter(
+          (item) => {
+
+            const matchesType =
+              currentTypeFilter === "all" ||
+              item.type === currentTypeFilter;
+
+            const matchesGroup =
+              currentGroupFilter === "all" ||
+              item.group === currentGroupFilter;
+
+            const matchesSearch =
+              !searchText ||
+              item.communityName
+                .toLowerCase()
+                .includes(searchText);
+
+            return (
+              matchesType &&
+              matchesGroup &&
+              matchesSearch
+            );
+
+          }
+        );
+
+      progressList.innerHTML = "";
+
+      if (
+        filteredData.length === 0
+      ) {
+
+        progressList.innerHTML = `
+          <div class="card empty-message">
+            目前暫無團務資料 🦊
+          </div>
+        `;
+
+        return;
+      }
+
+    }
+
+    /* =========================
+       依團務篩選
+    ========================= */
+
+    document
+      .querySelectorAll(
+        "#typeFilters .filter-button"
+      )
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                "#typeFilters .filter-button"
+              )
+              .forEach((item) => {
+
+                item.classList.remove("selected");
+
+              });
+
+            button.classList.add("selected");
+
+            currentTypeFilter =
+              button.dataset.filter;
+
+            renderProgress();
+
+          }
+        );
+
+      });
+
+    /* =========================
+       依團體篩選
+    ========================= */
+
+    document
+      .querySelectorAll(
+        "#groupFilters .filter-button"
+      )
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                "#groupFilters .filter-button"
+              )
+              .forEach((item) => {
+
+                item.classList.remove("selected");
+
+              });
+
+            button.classList.add("selected");
+
+            currentGroupFilter =
+              button.dataset.filter;
+
+            renderProgress();
+
+          }
+        );
+
+      });
+
+    /* =========================
+       搜尋
+    ========================= */
+
+    communitySearch.addEventListener(
+      "input",
+      renderProgress
+    );
+
+    /* 第一次載入 */
+    renderProgress();
+
+  </script>
+
+</body>
+</html>
