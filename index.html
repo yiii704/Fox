@@ -460,6 +460,17 @@ a[href^="tel:"] {
       white-space: nowrap;
     }
 
+.progress-person {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.facebook-name {
+  color: #4f4660;
+  font-size: 14px;
+  font-weight: 600;
+}
     /* =========================
        手機版
     ========================= */
@@ -1929,29 +1940,33 @@ async function loadPublicProgress() {
 
                   ? "stage-complete"
 
-                  : "stage-processing";
-
-
               return `
 
-                <div class="progress-row">
+  <div class="progress-row">
 
-                  <div class="name-pill">
-                    ${community}
-                  </div>
+    <div class="progress-person">
 
-                  <div class="${paymentClass}">
-                    ${paymentStatus}
-                  </div>
+      <div class="facebook-name">
+        ${item.facebookName || "未填 Facebook 名稱"}
+      </div>
 
-                  <div class="${progressClass}">
-                    ${progress}
-                  </div>
+      <div class="name-pill">
+        ${community}
+      </div>
 
-                </div>
+    </div>
 
-              `;
+    <div class="${paymentClass}">
+      ${paymentStatus}
+    </div>
 
+    <div class="${progressClass}">
+      ${progress}
+    </div>
+
+  </div>
+
+`;
             }
           )
           .join("");
