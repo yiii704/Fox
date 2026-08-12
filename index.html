@@ -10,7 +10,6 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- 防止 iPhone 把銀行帳號辨識成電話 -->
   <meta
     name="format-detection"
     content="telephone=no"
@@ -438,90 +437,100 @@
     }
 
 
-    /* =========================
-       對帳資料
-    ========================= */
+    /* =====================================================
+       新版對帳表格式
+       只改排版，不改原本顏色
+    ===================================================== */
 
-    .progress-card {
-      margin-bottom: 14px;
-      padding: 18px;
+    .progress-group {
+      margin-bottom: 18px;
+      overflow: hidden;
       background: #ffffff;
       border: 1px solid #eee6ff;
-      border-radius: 20px;
+      border-radius: 22px;
       box-shadow:
-        0 5px 15px
-        rgba(116, 82, 165, 0.08);
+        0 6px 18px
+        rgba(116, 82, 165, 0.09);
     }
 
-    .progress-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
 
-    .progress-title {
+    /* 團務名稱標題 */
+
+    .progress-group-header {
+      padding: 15px 18px;
+      background: #f5f1fb;
       color: #5f4b87;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
+      border-bottom: 1px solid #eee6ff;
     }
 
-    .activity-pill {
-      padding: 7px 12px;
-      background: #e7dcff;
-      color: #6842b3;
-      border-radius: 999px;
-      font-size: 12px;
-      white-space: nowrap;
+
+    /* 裡面資料區 */
+
+    .progress-group-body {
+      padding: 12px 16px 16px;
     }
 
-    .progress-row {
+
+    /* 每一位團員 */
+
+    .progress-member-row {
       display: grid;
       grid-template-columns:
-        minmax(120px, 1fr) auto auto;
+        minmax(130px, 1fr)
+        105px
+        105px;
       align-items: center;
       gap: 8px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f1ebfa;
+      min-height: 48px;
+      padding: 7px 0;
     }
 
-    .progress-row:last-child {
-      border-bottom: none;
-    }
 
-    .progress-person {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* 左邊姓名 */
+
+    .progress-member-info {
       min-width: 0;
+      padding-right: 6px;
     }
 
     .facebook-name {
       color: #4f4660;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       word-break: break-word;
     }
 
-    .name-pill,
-    .status-pill,
-    .stage-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 32px;
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      text-align: center;
+    .community-small {
+      margin-top: 3px;
+      color: #8b8295;
+      font-size: 11px;
+      word-break: break-word;
     }
 
-    .name-pill {
-      justify-content: flex-start;
-      background: #f5f1fb;
-      color: #594d68;
+
+    /* =========================
+       狀態 Pills
+    ========================= */
+
+    .status-pill,
+    .stage-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
     }
+
+
+    /* 匯款狀態 */
 
     .status-paid {
       background: #dff4e6;
@@ -537,6 +546,9 @@
       background: #fff1d6;
       color: #9b691b;
     }
+
+
+    /* 團務進度 */
 
     .stage-processing {
       background: #eee3ff;
@@ -578,19 +590,55 @@
         padding: 17px;
       }
 
-      .progress-row {
-        grid-template-columns: 1fr;
+
+      /* 對帳表手機仍維持三欄 */
+
+      .progress-member-row {
+        grid-template-columns:
+          minmax(105px, 1fr)
+          92px
+          92px;
+        gap: 5px;
       }
 
-      .name-pill,
-      .status-pill,
-      .stage-pill {
-        width: 100%;
-        justify-content: center;
+      .progress-group-body {
+        padding:
+          11px 12px
+          15px;
       }
 
       .facebook-name {
-        text-align: center;
+        font-size: 13px;
+      }
+
+      .community-small {
+        font-size: 10px;
+      }
+
+      .status-pill,
+      .stage-pill {
+        min-height: 30px;
+        padding: 5px 7px;
+        font-size: 11px;
+      }
+
+    }
+
+
+    /* 特別窄的手機 */
+
+    @media (max-width: 370px) {
+
+      .progress-member-row {
+        grid-template-columns:
+          minmax(90px, 1fr)
+          82px
+          82px;
+      }
+
+      .status-pill,
+      .stage-pill {
+        font-size: 10px;
       }
 
     }
@@ -891,12 +939,23 @@
       </p>
 
       <ul class="notice-list">
-        <li>廠損</li>
-        <li>運輸損傷</li>
-        <li>商品瑕疵</li>
+
+        <li>
+          廠損
+        </li>
+
+        <li>
+          運輸損傷
+        </li>
+
+        <li>
+          商品瑕疵
+        </li>
+
         <li>
           不湊套（專卡、滿額卡及隨機商品等）
         </li>
+
       </ul>
 
       <p style="margin-top:12px;">
@@ -925,15 +984,15 @@
       ← 返回首頁
     </button>
 
-    <h2>💰 匯款表單</h2>
+    <h2>
+      💰 匯款表單
+    </h2>
 
 
     <form id="paymentForm">
 
 
-      <!-- =========================
-           基本資料與商品
-      ========================== -->
+      <!-- 基本資料 -->
 
       <div class="card">
 
@@ -1037,8 +1096,6 @@
         </div>
 
 
-        <!-- 連線銀行 -->
-
         <div class="bank-account">
 
           <strong>
@@ -1064,8 +1121,6 @@
         </div>
 
 
-        <!-- 台新銀行 -->
-
         <div class="bank-account">
 
           <strong>
@@ -1090,8 +1145,6 @@
 
         </div>
 
-
-        <!-- 中國信託 -->
 
         <div class="bank-account">
 
@@ -1309,8 +1362,9 @@
     </h2>
 
 
-    <div class="card">
+    <!-- 篩選 -->
 
+    <div class="card">
 
       <div class="filter-label">
         依團務
@@ -1398,6 +1452,8 @@
     </div>
 
 
+    <!-- 自動產生對帳資料 -->
+
     <div id="progressList"></div>
 
   </section>
@@ -1424,7 +1480,9 @@
       );
 
 
-    function showPage(pageId) {
+    function showPage(
+      pageId
+    ) {
 
       pages.forEach(
         (page) => {
@@ -1553,12 +1611,14 @@
         ) {
 
           await navigator.clipboard
-            .writeText(account);
+            .writeText(
+              account
+            );
 
         } else {
 
           throw new Error(
-            "Clipboard API unavailable"
+            "Clipboard unavailable"
           );
 
         }
@@ -1570,13 +1630,16 @@
             "textarea"
           );
 
+
         textarea.value =
           account;
+
 
         textarea.setAttribute(
           "readonly",
           ""
         );
+
 
         textarea.style.position =
           "fixed";
@@ -1587,22 +1650,27 @@
         textarea.style.top =
           "0";
 
+
         document.body.appendChild(
           textarea
         );
 
+
         textarea.focus();
 
         textarea.select();
+
 
         textarea.setSelectionRange(
           0,
           textarea.value.length
         );
 
+
         document.execCommand(
           "copy"
         );
+
 
         textarea.remove();
 
@@ -1611,6 +1679,7 @@
 
       button.textContent =
         "✓ 已複製";
+
 
       button.classList.add(
         "copied"
@@ -1622,6 +1691,7 @@
 
           button.textContent =
             originalText;
+
 
           button.classList.remove(
             "copied"
@@ -1657,17 +1727,21 @@
     };
 
 
-    /*
-      每個團務的分類資料。
-      正式新增團務時可以在這裡設定。
-    */
+    /* 團務分類 */
 
     const groupMeta = {
 
       "test-group": {
-        groupType: "單特典",
-        group: "TWS",
-        activity: "狐狸測試團"
+
+        groupType:
+          "單特典",
+
+        group:
+          "TWS",
+
+        activity:
+          "狐狸測試團"
+
       }
 
     };
@@ -1678,15 +1752,18 @@
         "communitySelect"
       );
 
+
     const productContainer =
       document.getElementById(
         "productContainer"
       );
 
+
     const calculatedTotal =
       document.getElementById(
         "calculatedTotal"
       );
+
 
     const paymentAmount =
       document.getElementById(
@@ -1695,7 +1772,7 @@
 
 
     /* =====================================================
-       自動計算商品金額
+       計算商品金額
     ===================================================== */
 
     function updateTotal() {
@@ -1707,22 +1784,26 @@
           );
 
 
-      let total = 0;
+      let total =
+        0;
 
 
       selectedProducts.forEach(
         (checkbox) => {
 
-          total += Number(
-            checkbox.dataset.price
-          );
+          total +=
+            Number(
+              checkbox.dataset.price
+            );
 
         }
       );
 
 
       calculatedTotal.textContent =
-        `NT$ ${total.toLocaleString("zh-TW")}`;
+        `NT$ ${total.toLocaleString(
+          "zh-TW"
+        )}`;
 
 
       paymentAmount.value =
@@ -1734,7 +1815,7 @@
 
 
     /* =====================================================
-       顯示商品
+       商品顯示
     ===================================================== */
 
     function renderProducts(
@@ -1746,7 +1827,9 @@
 
 
       const products =
-        productData[groupId];
+        productData[
+          groupId
+        ];
 
 
       if (
@@ -1755,10 +1838,13 @@
       ) {
 
         productContainer.innerHTML = `
+
           <div class="product-placeholder">
             目前暫無商品
           </div>
+
         `;
+
 
         updateTotal();
 
@@ -1863,12 +1949,12 @@
 
     paymentForm.addEventListener(
       "submit",
-      async (event) => {
+      async (
+        event
+      ) => {
 
         event.preventDefault();
 
-
-        /* 團務 */
 
         if (
           !communitySelect.value
@@ -1883,17 +1969,18 @@
         }
 
 
-        /* 商品 */
-
         const selectedProducts = [
+
           ...document.querySelectorAll(
             ".product-checkbox:checked"
           )
+
         ];
 
 
         if (
-          selectedProducts.length === 0
+          selectedProducts.length ===
+          0
         ) {
 
           alert(
@@ -1904,8 +1991,6 @@
 
         }
 
-
-        /* 後五碼再次檢查 */
 
         const accountLastFive =
           document
@@ -1943,8 +2028,6 @@
           ] || {};
 
 
-        /* 整理資料 */
-
         const formData = {
 
           facebookName:
@@ -1956,7 +2039,8 @@
               .trim(),
 
           community:
-            selectedOption.textContent
+            selectedOption
+              .textContent
               .trim(),
 
           groupType:
@@ -1969,12 +2053,15 @@
 
           activity:
             meta.activity ||
-            selectedOption.textContent
+            selectedOption
+              .textContent
               .trim(),
 
           products:
             selectedProducts.map(
-              (checkbox) => ({
+              (
+                checkbox
+              ) => ({
 
                 name:
                   checkbox.value,
@@ -2027,8 +2114,6 @@
         };
 
 
-        /* 送出按鈕 */
-
         const submitButton =
           paymentForm
             .querySelector(
@@ -2038,6 +2123,7 @@
 
         submitButton.disabled =
           true;
+
 
         submitButton.textContent =
           "送出中…";
@@ -2054,8 +2140,10 @@
                   "POST",
 
                 headers: {
+
                   "Content-Type":
                     "application/json"
+
                 },
 
                 body:
@@ -2085,9 +2173,11 @@
 
 
             productContainer.innerHTML = `
+
               <div class="product-placeholder">
                 請先選擇社群名稱／團務
               </div>
+
             `;
 
 
@@ -2099,8 +2189,6 @@
               "";
 
 
-            /* 同時重新讀取公開進度 */
-
             loadPublicProgress();
 
           } else {
@@ -2109,21 +2197,28 @@
               result
             );
 
+
             alert(
+
               "送出失敗：" +
+
               (
                 result.message ||
                 "請稍後再試"
               )
+
             );
 
           }
 
-        } catch (error) {
+        } catch (
+          error
+        ) {
 
           console.error(
             error
           );
+
 
           alert(
             "目前無法送出資料，請確認網路後再試。"
@@ -2133,6 +2228,7 @@
 
           submitButton.disabled =
             false;
+
 
           submitButton.textContent =
             "送出匯款資料";
@@ -2144,14 +2240,16 @@
 
 
     /* =====================================================
-       公開進度資料
+       對帳資料
     ===================================================== */
 
     let defaultProgressData =
       [];
 
+
     let currentTypeFilter =
       "all";
+
 
     let currentGroupFilter =
       "all";
@@ -2162,6 +2260,7 @@
         "progressList"
       );
 
+
     const communitySearch =
       document.getElementById(
         "communitySearch"
@@ -2169,7 +2268,7 @@
 
 
     /* =====================================================
-       HTML 安全處理
+       防止文字被當 HTML
     ===================================================== */
 
     function escapeHTML(
@@ -2210,9 +2309,11 @@
     async function loadPublicProgress() {
 
       progressList.innerHTML = `
+
         <div class="card empty-message">
           讀取進度中… 🦊
         </div>
+
       `;
 
 
@@ -2223,7 +2324,8 @@
             WORKER_URL +
             "/public/list",
             {
-              cache: "no-store"
+              cache:
+                "no-store"
             }
           );
 
@@ -2256,7 +2358,9 @@
         renderProgress();
 
 
-      } catch (error) {
+      } catch (
+        error
+      ) {
 
         console.error(
           error
@@ -2264,9 +2368,11 @@
 
 
         progressList.innerHTML = `
+
           <div class="card empty-message">
             暫時無法讀取進度 🦊
           </div>
+
         `;
 
       }
@@ -2275,7 +2381,7 @@
 
 
     /* =====================================================
-       顯示進度
+       顯示新版對帳表
     ===================================================== */
 
     function renderProgress() {
@@ -2287,9 +2393,15 @@
           .toLowerCase();
 
 
+      /* =========================
+         篩選
+      ========================= */
+
       const filteredData =
         defaultProgressData.filter(
-          (item) => {
+          (
+            item
+          ) => {
 
 
             const itemType =
@@ -2367,13 +2479,16 @@
 
 
       if (
-        filteredData.length === 0
+        filteredData.length ===
+        0
       ) {
 
         progressList.innerHTML = `
+
           <div class="card empty-message">
             目前暫無團務資料 🦊
           </div>
+
         `;
 
         return;
@@ -2382,14 +2497,17 @@
 
 
       /* =========================
-         按活動分組
+         按活動名稱分組
       ========================= */
 
-      const groupedData = {};
+      const groupedData =
+        {};
 
 
       filteredData.forEach(
-        (item) => {
+        (
+          item
+        ) => {
 
 
           const activityName =
@@ -2406,7 +2524,8 @@
 
             groupedData[
               activityName
-            ] = [];
+            ] =
+              [];
 
           }
 
@@ -2422,7 +2541,7 @@
 
 
       /* =========================
-         顯示每個團務
+         每個團務區塊
       ========================= */
 
       Object.entries(
@@ -2437,21 +2556,27 @@
           ) => {
 
 
-            const card =
+            const groupElement =
               document
                 .createElement(
                   "div"
                 );
 
 
-            card.className =
-              "progress-card";
+            groupElement.className =
+              "progress-group";
 
+
+            /* =====================
+               每一位團員
+            ===================== */
 
             const rowsHTML =
               items
                 .map(
-                  (item) => {
+                  (
+                    item
+                  ) => {
 
 
                     const facebookName =
@@ -2474,7 +2599,9 @@
                       "已登記";
 
 
-                    /* 匯款狀態 */
+                    /* =================
+                       匯款狀態顏色
+                    ================= */
 
                     let paymentClass =
                       "status-unpaid";
@@ -2499,7 +2626,9 @@
                     }
 
 
-                    /* 團務進度 */
+                    /* =================
+                       進度顏色
+                    ================= */
 
                     const progressClass =
                       (
@@ -2514,41 +2643,58 @@
 
                     return `
 
-                      <div class="progress-row">
+                      <div class="progress-member-row">
 
-                        <div class="progress-person">
+
+                        <!-- Facebook＋社群 -->
+
+                        <div class="progress-member-info">
 
                           <div class="facebook-name">
+
                             ${escapeHTML(
                               facebookName
                             )}
+
                           </div>
 
-                          <div class="name-pill">
+
+                          <div class="community-small">
+
                             ${escapeHTML(
                               community
                             )}
+
                           </div>
 
                         </div>
 
+
+                        <!-- 匯款狀態 -->
 
                         <div
                           class="status-pill ${paymentClass}"
                         >
+
                           ${escapeHTML(
                             paymentStatus
                           )}
+
                         </div>
 
+
+                        <!-- 團務進度 -->
 
                         <div
                           class="stage-pill ${progressClass}"
                         >
+
                           ${escapeHTML(
                             progress
                           )}
+
                         </div>
+
 
                       </div>
 
@@ -2559,29 +2705,32 @@
                 .join("");
 
 
-            card.innerHTML = `
+            /* =====================
+               完整團務區塊
+            ===================== */
 
-              <div class="progress-header">
+            groupElement.innerHTML = `
 
-                <div class="progress-title">
-                  ${escapeHTML(
-                    activityName
-                  )}
-                </div>
+              <div class="progress-group-header">
 
-                <div class="activity-pill">
-                  ${items.length} 筆
-                </div>
+                ${escapeHTML(
+                  activityName
+                )}
 
               </div>
 
-              ${rowsHTML}
+
+              <div class="progress-group-body">
+
+                ${rowsHTML}
+
+              </div>
 
             `;
 
 
             progressList.appendChild(
-              card
+              groupElement
             );
 
           }
@@ -2599,7 +2748,9 @@
         "#typeFilters .filter-button"
       )
       .forEach(
-        (button) => {
+        (
+          button
+        ) => {
 
           button.addEventListener(
             "click",
@@ -2611,7 +2762,9 @@
                   "#typeFilters .filter-button"
                 )
                 .forEach(
-                  (item) => {
+                  (
+                    item
+                  ) => {
 
                     item.classList.remove(
                       "selected"
@@ -2648,7 +2801,9 @@
         "#groupFilters .filter-button"
       )
       .forEach(
-        (button) => {
+        (
+          button
+        ) => {
 
           button.addEventListener(
             "click",
@@ -2660,7 +2815,9 @@
                   "#groupFilters .filter-button"
                 )
                 .forEach(
-                  (item) => {
+                  (
+                    item
+                  ) => {
 
                     item.classList.remove(
                       "selected"
