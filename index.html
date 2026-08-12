@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- 防止 iPhone 把銀行帳號辨識成電話 -->
+  <meta
+    name="format-detection"
+    content="telephone=no"
+  >
+
   <title>狐狸🦊</title>
 
+
   <style>
+
     /* =========================
        基本設定
     ========================= */
@@ -23,7 +36,10 @@
       padding: 32px 18px;
       background: #faf8ff;
       color: #4f4660;
-      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family:
+        "PingFang TC",
+        "Microsoft JhengHei",
+        sans-serif;
     }
 
     button,
@@ -31,6 +47,10 @@
     select,
     textarea {
       font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     h1 {
@@ -46,6 +66,7 @@
       font-size: 23px;
       text-align: center;
     }
+
 
     /* =========================
        頁面
@@ -64,6 +85,7 @@
     }
 
     @keyframes pageIn {
+
       from {
         opacity: 0;
         transform: translateY(8px);
@@ -73,7 +95,9 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
+
 
     /* =========================
        膠囊按鈕
@@ -81,7 +105,8 @@
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 145px));
+      grid-template-columns:
+        repeat(2, minmax(0, 145px));
       justify-content: center;
       gap: 12px;
     }
@@ -93,8 +118,9 @@
       color: #6b46c1;
       border: 2px solid #d9c8ff;
       border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(126, 92, 190, 0.10);
-      cursor: pointer;
+      box-shadow:
+        0 4px 12px
+        rgba(126, 92, 190, 0.10);
       transition: 0.2s ease;
     }
 
@@ -112,6 +138,7 @@
       color: #59349e;
     }
 
+
     /* =========================
        返回按鈕
     ========================= */
@@ -125,35 +152,13 @@
       color: #6b46c1;
       border: 2px solid #d9c8ff;
       border-radius: 999px;
-      cursor: pointer;
     }
 
     .back-button:active {
       background: #eee5ff;
     }
 
-    .bank-number-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 8px;
-    }
 
-    .copy-button {
-      flex-shrink: 0;
-      padding: 7px 14px;
-      background: #f1eaff;
-      border: 1.5px solid #d9c8ff;
-      border-radius: 999px;
-      color: #6b46c1;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .copy-button:active {
-      transform: scale(0.96);
-    }
     /* =========================
        卡片
     ========================= */
@@ -164,7 +169,9 @@
       background: #ffffff;
       border: 1px solid #eee6ff;
       border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(116, 82, 165, 0.09);
+      box-shadow:
+        0 6px 18px
+        rgba(116, 82, 165, 0.09);
     }
 
     .card-title {
@@ -183,16 +190,19 @@
       line-height: 1.9;
     }
 
+
     /* =========================
        空白狀態
     ========================= */
 
-    .empty-message {
+    .empty-message,
+    .empty-state {
       padding: 24px;
       color: #8b8295;
       text-align: center;
       line-height: 1.8;
     }
+
 
     /* =========================
        表單
@@ -230,13 +240,20 @@
     select:focus,
     textarea:focus {
       border-color: #9f7aea;
-      box-shadow: 0 0 0 3px rgba(159, 122, 234, 0.13);
+      box-shadow:
+        0 0 0 3px
+        rgba(159, 122, 234, 0.13);
     }
 
     textarea {
       min-height: 95px;
       resize: vertical;
     }
+
+
+    /* =========================
+       商品
+    ========================= */
 
     .product-placeholder {
       padding: 18px;
@@ -289,6 +306,7 @@
       font-weight: 700;
     }
 
+
     /* =========================
        匯款帳號
     ========================= */
@@ -302,23 +320,65 @@
       line-height: 1.7;
     }
 
+    .bank-account:last-child {
+      margin-bottom: 0;
+    }
+
     .bank-account strong {
       color: #6b46c1;
     }
 
-.bank-number {
-  color: #4f4660;
-  text-decoration: none;
-  font-variant-numeric: tabular-nums;
-  user-select: all;
-  -webkit-user-select: all;
-}
+    .bank-number-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 6px;
+    }
 
-a[href^="tel:"] {
-  color: inherit !important;
-  text-decoration: none !important;
-  pointer-events: none;
-}
+    .bank-number {
+      color: #4f4660 !important;
+      text-decoration: none !important;
+      font-variant-numeric: tabular-nums;
+      user-select: all;
+      -webkit-user-select: all;
+      cursor: text;
+    }
+
+    a[href^="tel:"] {
+      color: inherit !important;
+      text-decoration: none !important;
+      pointer-events: none !important;
+    }
+
+
+    /* =========================
+       複製按鈕
+    ========================= */
+
+    .copy-button {
+      flex-shrink: 0;
+      padding: 7px 14px;
+      background: #f1eaff;
+      color: #6b46c1;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.15s ease;
+    }
+
+    .copy-button:active {
+      transform: scale(0.96);
+    }
+
+    .copy-button.copied {
+      background: #e4f5e8;
+      border-color: #b8dfc4;
+      color: #287747;
+    }
+
+
     /* =========================
        送出按鈕
     ========================= */
@@ -331,12 +391,17 @@ a[href^="tel:"] {
       border: none;
       border-radius: 999px;
       font-weight: 700;
-      cursor: pointer;
     }
 
     .submit-button:active {
       transform: scale(0.98);
     }
+
+    .submit-button:disabled {
+      opacity: 0.65;
+      cursor: default;
+    }
+
 
     /* =========================
        對帳篩選
@@ -361,7 +426,6 @@ a[href^="tel:"] {
       color: #6b46c1;
       border: 1.5px solid #d9c8ff;
       border-radius: 999px;
-      cursor: pointer;
     }
 
     .filter-button.selected {
@@ -373,6 +437,7 @@ a[href^="tel:"] {
       margin-top: 7px;
     }
 
+
     /* =========================
        對帳資料
     ========================= */
@@ -383,7 +448,9 @@ a[href^="tel:"] {
       background: #ffffff;
       border: 1px solid #eee6ff;
       border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(116, 82, 165, 0.08);
+      box-shadow:
+        0 5px 15px
+        rgba(116, 82, 165, 0.08);
     }
 
     .progress-header {
@@ -400,11 +467,41 @@ a[href^="tel:"] {
       font-weight: 700;
     }
 
+    .activity-pill {
+      padding: 7px 12px;
+      background: #e7dcff;
+      color: #6842b3;
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
     .progress-row {
       display: grid;
-      grid-template-columns: minmax(80px, 1fr) auto auto;
+      grid-template-columns:
+        minmax(120px, 1fr) auto auto;
       align-items: center;
       gap: 8px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1ebfa;
+    }
+
+    .progress-row:last-child {
+      border-bottom: none;
+    }
+
+    .progress-person {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .facebook-name {
+      color: #4f4660;
+      font-size: 14px;
+      font-weight: 700;
+      word-break: break-word;
     }
 
     .name-pill,
@@ -451,31 +548,13 @@ a[href^="tel:"] {
       color: #35649a;
     }
 
-    .activity-pill {
-      padding: 7px 12px;
-      background: #e7dcff;
-      color: #6842b3;
-      border-radius: 999px;
-      font-size: 12px;
-      white-space: nowrap;
-    }
 
-.progress-person {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.facebook-name {
-  color: #4f4660;
-  font-size: 14px;
-  font-weight: 600;
-}
     /* =========================
        手機版
     ========================= */
 
     @media (max-width: 480px) {
+
       body {
         padding: 24px 14px;
       }
@@ -485,7 +564,8 @@ a[href^="tel:"] {
       }
 
       .menu-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
       }
 
       .pill-button {
@@ -508,35 +588,63 @@ a[href^="tel:"] {
         width: 100%;
         justify-content: center;
       }
+
+      .facebook-name {
+        text-align: center;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
   <h1>狐狸🦊</h1>
 
+
   <!-- =========================
        首頁
   ========================== -->
 
-  <main id="homePage" class="page active-page">
+  <main
+    id="homePage"
+    class="page active-page"
+  >
 
     <div class="menu-grid">
 
-      <button class="pill-button navigation-button" data-target="groupPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="groupPage"
+      >
         📦 團務
       </button>
 
-      <button class="pill-button navigation-button" data-target="noticePage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="noticePage"
+      >
         📌 注意事項
       </button>
 
-      <button class="pill-button navigation-button" data-target="paymentPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="paymentPage"
+      >
         💰 匯款表單
       </button>
 
-      <button class="pill-button navigation-button" data-target="progressPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="progressPage"
+      >
         📊 對帳表＆進度表
       </button>
 
@@ -544,13 +652,21 @@ a[href^="tel:"] {
 
   </main>
 
+
   <!-- =========================
        團務
   ========================== -->
 
-  <section id="groupPage" class="page">
+  <section
+    id="groupPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="homePage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
       ← 返回首頁
     </button>
 
@@ -558,11 +674,19 @@ a[href^="tel:"] {
 
     <div class="menu-grid">
 
-      <button class="pill-button navigation-button" data-target="proxyPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="proxyPage"
+      >
         代購
       </button>
 
-      <button class="pill-button navigation-button" data-target="benefitPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="benefitPage"
+      >
         單特典
       </button>
 
@@ -570,13 +694,21 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        代購
   ========================== -->
 
-  <section id="proxyPage" class="page">
+  <section
+    id="proxyPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="groupPage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="groupPage"
+    >
       ← 返回團務
     </button>
 
@@ -588,13 +720,21 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        單特典
   ========================== -->
 
-  <section id="benefitPage" class="page">
+  <section
+    id="benefitPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="groupPage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="groupPage"
+    >
       ← 返回團務
     </button>
 
@@ -602,11 +742,19 @@ a[href^="tel:"] {
 
     <div class="menu-grid">
 
-      <button class="pill-button navigation-button" data-target="twsPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="twsPage"
+      >
         TWS
       </button>
 
-      <button class="pill-button navigation-button" data-target="skzPage">
+      <button
+        type="button"
+        class="pill-button navigation-button"
+        data-target="skzPage"
+      >
         Stray Kids
       </button>
 
@@ -614,13 +762,21 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        TWS
   ========================== -->
 
-  <section id="twsPage" class="page">
+  <section
+    id="twsPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="benefitPage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="benefitPage"
+    >
       ← 返回單特典
     </button>
 
@@ -632,13 +788,21 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        Stray Kids
   ========================== -->
 
-  <section id="skzPage" class="page">
+  <section
+    id="skzPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="benefitPage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="benefitPage"
+    >
       ← 返回單特典
     </button>
 
@@ -650,17 +814,26 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        注意事項
   ========================== -->
 
-  <section id="noticePage" class="page">
+  <section
+    id="noticePage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="homePage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
       ← 返回首頁
     </button>
 
     <h2>📌 注意事項</h2>
+
 
     <article class="card">
 
@@ -670,11 +843,14 @@ a[href^="tel:"] {
 
       <p>
         所有團物皆為
-        <strong>收齊全部車員款項後</strong>
+        <strong>
+          收齊全部車員款項後
+        </strong>
         才會統一下單。
       </p>
 
     </article>
+
 
     <article class="card">
 
@@ -689,6 +865,7 @@ a[href^="tel:"] {
 
     </article>
 
+
     <article class="card">
 
       <div class="card-title">
@@ -701,6 +878,7 @@ a[href^="tel:"] {
       </p>
 
     </article>
+
 
     <article class="card">
 
@@ -716,7 +894,9 @@ a[href^="tel:"] {
         <li>廠損</li>
         <li>運輸損傷</li>
         <li>商品瑕疵</li>
-        <li>不湊套（專卡、滿額卡及隨機商品等）</li>
+        <li>
+          不湊套（專卡、滿額卡及隨機商品等）
+        </li>
       </ul>
 
       <p style="margin-top:12px;">
@@ -727,21 +907,33 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        匯款表單
   ========================== -->
 
-  <section id="paymentPage" class="page">
+  <section
+    id="paymentPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="homePage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
       ← 返回首頁
     </button>
 
     <h2>💰 匯款表單</h2>
 
+
     <form id="paymentForm">
 
-      <!-- 基本資料 -->
+
+      <!-- =========================
+           基本資料與商品
+      ========================== -->
 
       <div class="card">
 
@@ -749,25 +941,36 @@ a[href^="tel:"] {
           基本資料與商品
         </div>
 
+
         <div class="form-group">
 
           <label for="communitySelect">
 
             社群名稱／團務
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
-          <select id="communitySelect" required>
-  <option value="">請選擇社群名稱／團務</option>
+          <select
+            id="communitySelect"
+            required
+          >
 
-  <option value="test-group">
-    狐狸測試團
-  </option>
-</select>
+            <option value="">
+              請選擇社群名稱／團務
+            </option>
+
+            <option value="test-group">
+              狐狸測試團
+            </option>
+
+          </select>
 
         </div>
+
 
         <div class="form-group">
 
@@ -775,7 +978,9 @@ a[href^="tel:"] {
 
             Facebook 名稱
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -788,6 +993,7 @@ a[href^="tel:"] {
 
         </div>
 
+
         <div class="form-group">
 
           <label>
@@ -797,10 +1003,11 @@ a[href^="tel:"] {
           <div id="productContainer">
 
             <div class="product-placeholder">
-              目前暫無商品
+              請先選擇社群名稱／團務
             </div>
 
           </div>
+
 
           <div class="total-box">
 
@@ -818,6 +1025,7 @@ a[href^="tel:"] {
 
       </div>
 
+
       <!-- =========================
            匯款帳號
       ========================== -->
@@ -828,77 +1036,89 @@ a[href^="tel:"] {
           匯款帳號
         </div>
 
-        <div class="bank-account">
 
-  <strong>
-    連線銀行（824）
-  </strong>
-
-  <div class="bank-number-row">
-
-    <span class="bank-number">
-      111019094603
-    </span>
-
-    <button
-      type="button"
-      class="copy-button"
-      onclick="copyBankAccount('111019094603', this)"
-    >
-      複製
-    </button>
-
-  </div>
-
-</div>
+        <!-- 連線銀行 -->
 
         <div class="bank-account">
 
-  <strong>
-    台新銀行（812）
-  </strong>
+          <strong>
+            連線銀行（824）
+          </strong>
 
-  <div class="bank-number-row">
+          <div class="bank-number-row">
 
-    <span class="bank-number">
-      20741000262603
-    </span>
+            <span class="bank-number">
+              111019094603
+            </span>
 
-    <button
-      type="button"
-      class="copy-button"
-      onclick="copyBankAccount('20741000262603', this)"
-    >
-      複製
-    </button>
+            <button
+              type="button"
+              class="copy-button"
+              onclick="copyBankAccount('111019094603', this)"
+            >
+              複製
+            </button>
 
-  </div>
+          </div>
 
-</div>
+        </div>
+
+
+        <!-- 台新銀行 -->
 
         <div class="bank-account">
 
-  <strong>
-    中國信託（822）
-  </strong>
+          <strong>
+            台新銀行（812）
+          </strong>
 
-  <div class="bank-number-row">
+          <div class="bank-number-row">
 
-    <span class="bank-number">
-      901567959612
-    </span>
+            <span class="bank-number">
+              20741000262603
+            </span>
 
-    <button
-      type="button"
-      class="copy-button"
-      onclick="copyBankAccount('901567959612', this)"
-    >
-      複製
-    </button>
+            <button
+              type="button"
+              class="copy-button"
+              onclick="copyBankAccount('20741000262603', this)"
+            >
+              複製
+            </button>
 
-  </div>
+          </div>
 
-</div>
+        </div>
+
+
+        <!-- 中國信託 -->
+
+        <div class="bank-account">
+
+          <strong>
+            中國信託（822）
+          </strong>
+
+          <div class="bank-number-row">
+
+            <span class="bank-number">
+              901567959612
+            </span>
+
+            <button
+              type="button"
+              class="copy-button"
+              onclick="copyBankAccount('901567959612', this)"
+            >
+              複製
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
 
       <!-- =========================
            匯款資料
@@ -910,7 +1130,6 @@ a[href^="tel:"] {
           匯款資料
         </div>
 
-        <!-- 匯款日期 -->
 
         <div class="form-group">
 
@@ -918,7 +1137,9 @@ a[href^="tel:"] {
 
             匯款日期
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -930,7 +1151,6 @@ a[href^="tel:"] {
 
         </div>
 
-        <!-- 匯款時間 -->
 
         <div class="form-group">
 
@@ -938,7 +1158,9 @@ a[href^="tel:"] {
 
             匯款時間
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -950,7 +1172,6 @@ a[href^="tel:"] {
 
         </div>
 
-        <!-- 匯款銀行 -->
 
         <div class="form-group">
 
@@ -958,11 +1179,16 @@ a[href^="tel:"] {
 
             匯款銀行
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
-          <select id="paymentBank" required>
+          <select
+            id="paymentBank"
+            required
+          >
 
             <option value="">
               請選擇匯款銀行
@@ -984,7 +1210,6 @@ a[href^="tel:"] {
 
         </div>
 
-        <!-- 匯款金額 -->
 
         <div class="form-group">
 
@@ -992,7 +1217,9 @@ a[href^="tel:"] {
 
             匯款金額
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -1006,7 +1233,6 @@ a[href^="tel:"] {
 
         </div>
 
-        <!-- 後五碼 -->
 
         <div class="form-group">
 
@@ -1014,7 +1240,9 @@ a[href^="tel:"] {
 
             匯款帳號後五碼
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -1030,7 +1258,6 @@ a[href^="tel:"] {
 
         </div>
 
-        <!-- 備註 -->
 
         <div class="form-group">
 
@@ -1045,6 +1272,7 @@ a[href^="tel:"] {
 
         </div>
 
+
         <button
           class="submit-button"
           type="submit"
@@ -1058,13 +1286,21 @@ a[href^="tel:"] {
 
   </section>
 
+
   <!-- =========================
        對帳表
   ========================== -->
 
-  <section id="progressPage" class="page">
+  <section
+    id="progressPage"
+    class="page"
+  >
 
-    <button class="back-button" data-target="homePage">
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
       ← 返回首頁
     </button>
 
@@ -1072,15 +1308,21 @@ a[href^="tel:"] {
       📊 對帳表＆進度表
     </h2>
 
+
     <div class="card">
+
 
       <div class="filter-label">
         依團務
       </div>
 
-      <div class="filter-row" id="typeFilters">
+      <div
+        class="filter-row"
+        id="typeFilters"
+      >
 
         <button
+          type="button"
           class="filter-button selected"
           data-filter="all"
         >
@@ -1088,6 +1330,7 @@ a[href^="tel:"] {
         </button>
 
         <button
+          type="button"
           class="filter-button"
           data-filter="單特典"
         >
@@ -1095,6 +1338,7 @@ a[href^="tel:"] {
         </button>
 
         <button
+          type="button"
           class="filter-button"
           data-filter="代購"
         >
@@ -1103,13 +1347,18 @@ a[href^="tel:"] {
 
       </div>
 
+
       <div class="filter-label">
         依團體
       </div>
 
-      <div class="filter-row" id="groupFilters">
+      <div
+        class="filter-row"
+        id="groupFilters"
+      >
 
         <button
+          type="button"
           class="filter-button selected"
           data-filter="all"
         >
@@ -1117,6 +1366,7 @@ a[href^="tel:"] {
         </button>
 
         <button
+          type="button"
           class="filter-button"
           data-filter="TWS"
         >
@@ -1124,6 +1374,7 @@ a[href^="tel:"] {
         </button>
 
         <button
+          type="button"
           class="filter-button"
           data-filter="Stray Kids"
         >
@@ -1132,169 +1383,371 @@ a[href^="tel:"] {
 
       </div>
 
+
       <div class="filter-label">
-        依社群名稱
+        依社群名稱／Facebook 名稱
       </div>
 
       <input
         id="communitySearch"
         class="search-input"
         type="search"
-        placeholder="輸入社群名稱"
+        placeholder="輸入社群名稱或 Facebook 名稱"
       >
 
     </div>
+
 
     <div id="progressList"></div>
 
   </section>
 
+
+
   <script>
-    /* =========================
+
+    /* =====================================================
+       Cloudflare Worker
+    ===================================================== */
+
+    const WORKER_URL =
+      "https://fox-form-api.a0983707826.workers.dev";
+
+
+    /* =====================================================
        頁面切換
-    ========================= */
+    ===================================================== */
 
     const pages =
-      document.querySelectorAll(".page");
+      document.querySelectorAll(
+        ".page"
+      );
+
 
     function showPage(pageId) {
 
-      pages.forEach((page) => {
-        page.classList.remove("active-page");
-      });
+      pages.forEach(
+        (page) => {
 
-      const selectedPage =
-        document.getElementById(pageId);
-
-      if (selectedPage) {
-
-        selectedPage.classList.add("active-page");
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-    }
-
-    document
-      .querySelectorAll("[data-target]")
-      .forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-          showPage(
-            button.dataset.target
+          page.classList.remove(
+            "active-page"
           );
 
-        });
+        }
+      );
 
+
+      const selectedPage =
+        document.getElementById(
+          pageId
+        );
+
+
+      if (!selectedPage) {
+        return;
+      }
+
+
+      selectedPage.classList.add(
+        "active-page"
+      );
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
 
-    /* =========================
-       膠囊按鈕選取
-    ========================= */
+    }
+
 
     document
-      .querySelectorAll(".menu-grid")
-      .forEach((menu) => {
+      .querySelectorAll(
+        "[data-target]"
+      )
+      .forEach(
+        (button) => {
 
-        const buttons =
-          menu.querySelectorAll(".pill-button");
+          button.addEventListener(
+            "click",
+            () => {
 
-        buttons.forEach((button) => {
+              showPage(
+                button.dataset.target
+              );
 
-          button.addEventListener("click", () => {
+            }
+          );
 
-            buttons.forEach((item) => {
+        }
+      );
 
-              item.classList.remove("selected");
 
-            });
+    /* =====================================================
+       膠囊按鈕選取
+    ===================================================== */
 
-            button.classList.add("selected");
+    document
+      .querySelectorAll(
+        ".menu-grid"
+      )
+      .forEach(
+        (menu) => {
 
-          });
+          const buttons =
+            menu.querySelectorAll(
+              ".pill-button"
+            );
 
-        });
 
-      });
+          buttons.forEach(
+            (button) => {
 
-    /* =========================
+              button.addEventListener(
+                "click",
+                () => {
+
+                  buttons.forEach(
+                    (item) => {
+
+                      item.classList.remove(
+                        "selected"
+                      );
+
+                    }
+                  );
+
+
+                  button.classList.add(
+                    "selected"
+                  );
+
+                }
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       複製銀行帳號
+    ===================================================== */
+
+    async function copyBankAccount(
+      account,
+      button
+    ) {
+
+      const originalText =
+        button.textContent;
+
+
+      try {
+
+        if (
+          navigator.clipboard &&
+          window.isSecureContext
+        ) {
+
+          await navigator.clipboard
+            .writeText(account);
+
+        } else {
+
+          throw new Error(
+            "Clipboard API unavailable"
+          );
+
+        }
+
+      } catch (error) {
+
+        const textarea =
+          document.createElement(
+            "textarea"
+          );
+
+        textarea.value =
+          account;
+
+        textarea.setAttribute(
+          "readonly",
+          ""
+        );
+
+        textarea.style.position =
+          "fixed";
+
+        textarea.style.left =
+          "-9999px";
+
+        textarea.style.top =
+          "0";
+
+        document.body.appendChild(
+          textarea
+        );
+
+        textarea.focus();
+
+        textarea.select();
+
+        textarea.setSelectionRange(
+          0,
+          textarea.value.length
+        );
+
+        document.execCommand(
+          "copy"
+        );
+
+        textarea.remove();
+
+      }
+
+
+      button.textContent =
+        "✓ 已複製";
+
+      button.classList.add(
+        "copied"
+      );
+
+
+      setTimeout(
+        () => {
+
+          button.textContent =
+            originalText;
+
+          button.classList.remove(
+            "copied"
+          );
+
+        },
+        1200
+      );
+
+    }
+
+
+    /* =====================================================
        商品資料
-       目前沒有團務
-    ========================= */
+    ===================================================== */
 
     const productData = {
 
-  "test-group": [
+      "test-group": [
 
-    {
-      name: "測試商品 A",
-      price: 100
-    },
+        {
+          name: "測試商品 A",
+          price: 100
+        },
 
-    {
-      name: "測試商品 B",
-      price: 200
-    }
+        {
+          name: "測試商品 B",
+          price: 200
+        }
 
-  ]
+      ]
 
-};
+    };
+
+
+    /*
+      每個團務的分類資料。
+      正式新增團務時可以在這裡設定。
+    */
+
+    const groupMeta = {
+
+      "test-group": {
+        groupType: "單特典",
+        group: "TWS",
+        activity: "狐狸測試團"
+      }
+
+    };
+
 
     const communitySelect =
-      document.getElementById("communitySelect");
+      document.getElementById(
+        "communitySelect"
+      );
 
     const productContainer =
-      document.getElementById("productContainer");
+      document.getElementById(
+        "productContainer"
+      );
 
     const calculatedTotal =
-      document.getElementById("calculatedTotal");
+      document.getElementById(
+        "calculatedTotal"
+      );
 
     const paymentAmount =
-      document.getElementById("paymentAmount");
+      document.getElementById(
+        "paymentAmount"
+      );
 
-    /* =========================
-       自動計算金額
-    ========================= */
+
+    /* =====================================================
+       自動計算商品金額
+    ===================================================== */
 
     function updateTotal() {
 
       const selectedProducts =
-        productContainer.querySelectorAll(
-          ".product-checkbox:checked"
-        );
+        productContainer
+          .querySelectorAll(
+            ".product-checkbox:checked"
+          );
+
 
       let total = 0;
 
-      selectedProducts.forEach((checkbox) => {
 
-        total += Number(
-          checkbox.dataset.price
-        );
+      selectedProducts.forEach(
+        (checkbox) => {
 
-      });
+          total += Number(
+            checkbox.dataset.price
+          );
+
+        }
+      );
+
 
       calculatedTotal.textContent =
         `NT$ ${total.toLocaleString("zh-TW")}`;
 
+
       paymentAmount.value =
-        total > 0 ? total : "";
+        total > 0
+          ? total
+          : "";
 
     }
 
-    /* =========================
-       商品顯示
-    ========================= */
 
-    function renderProducts(groupId) {
+    /* =====================================================
+       顯示商品
+    ===================================================== */
 
-      productContainer.innerHTML = "";
+    function renderProducts(
+      groupId
+    ) {
+
+      productContainer.innerHTML =
+        "";
+
 
       const products =
         productData[groupId];
+
 
       if (
         !products ||
@@ -1310,58 +1763,81 @@ a[href^="tel:"] {
         updateTotal();
 
         return;
+
       }
 
-      products.forEach((product) => {
 
-        const productRow =
-          document.createElement("label");
+      products.forEach(
+        (product) => {
 
-        productRow.className =
-          "product-option";
+          const productRow =
+            document.createElement(
+              "label"
+            );
 
-        productRow.innerHTML = `
-          <span class="product-left">
 
-            <input
-              class="product-checkbox"
-              type="checkbox"
-              value="${product.name}"
-              data-price="${product.price}"
-            >
+          productRow.className =
+            "product-option";
 
-            <span>
-              ${product.name}
+
+          productRow.innerHTML = `
+
+            <span class="product-left">
+
+              <input
+                class="product-checkbox"
+                type="checkbox"
+                value="${product.name}"
+                data-price="${product.price}"
+              >
+
+              <span>
+                ${product.name}
+              </span>
+
             </span>
 
-          </span>
 
-          <span class="product-price">
-            NT$
-            ${product.price.toLocaleString("zh-TW")}
-          </span>
-        `;
+            <span class="product-price">
 
-        productContainer.appendChild(
-          productRow
-        );
+              NT$
+              ${product.price.toLocaleString(
+                "zh-TW"
+              )}
 
-      });
+            </span>
 
-      productContainer
-        .querySelectorAll(".product-checkbox")
-        .forEach((checkbox) => {
+          `;
 
-          checkbox.addEventListener(
-            "change",
-            updateTotal
+
+          productContainer.appendChild(
+            productRow
           );
 
-        });
+        }
+      );
+
+
+      productContainer
+        .querySelectorAll(
+          ".product-checkbox"
+        )
+        .forEach(
+          (checkbox) => {
+
+            checkbox.addEventListener(
+              "change",
+              updateTotal
+            );
+
+          }
+        );
+
 
       updateTotal();
 
     }
+
 
     communitySelect.addEventListener(
       "change",
@@ -1374,375 +1850,312 @@ a[href^="tel:"] {
       }
     );
 
-    /* =========================
-   Cloudflare Worker 網址
-========================= */
 
-const WORKER_URL =
-  "https://fox-form-api.a0983707826.workers.dev";
+    /* =====================================================
+       匯款表單
+    ===================================================== */
 
-
-/* =========================
-   匯款表單
-========================= */
-
-const paymentForm =
-  document.getElementById(
-    "paymentForm"
-  );
-
-paymentForm.addEventListener(
-  "submit",
-  async (event) => {
-
-    event.preventDefault();
-
-
-    /* =========================
-       檢查團務
-    ========================= */
-
-    if (!communitySelect.value) {
-
-      alert(
-        "目前暫無開放中的團務。"
+    const paymentForm =
+      document.getElementById(
+        "paymentForm"
       );
 
-      return;
-    }
+
+    paymentForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
 
 
-    /* =========================
-       取得勾選商品
-    ========================= */
+        /* 團務 */
 
-    const selectedProducts = [
-      ...document.querySelectorAll(
-        ".product-checkbox:checked"
-      )
-    ];
+        if (
+          !communitySelect.value
+        ) {
 
+          alert(
+            "請先選擇社群名稱／團務。"
+          );
 
-    if (
-      selectedProducts.length === 0
-    ) {
+          return;
 
-      alert(
-        "請至少勾選一項商品。"
-      );
-
-      return;
-    }
+        }
 
 
-    /* =========================
-       取得社群／團務名稱
-    ========================= */
+        /* 商品 */
 
-    const selectedOption =
-      communitySelect.options[
-        communitySelect.selectedIndex
-      ];
-
-
-    /* =========================
-       整理送出的資料
-    ========================= */
-
-    const formData = {
-
-      facebookName:
-        document
-          .getElementById(
-            "facebookName"
+        const selectedProducts = [
+          ...document.querySelectorAll(
+            ".product-checkbox:checked"
           )
-          .value
-          .trim(),
+        ];
 
-      community:
-        selectedOption.text,
 
-      products:
-        selectedProducts.map(
-          (checkbox) => {
+        if (
+          selectedProducts.length === 0
+        ) {
 
-            return {
+          alert(
+            "請至少勾選一項商品。"
+          );
 
-              name:
-                checkbox.value,
+          return;
 
-              price:
-                Number(
-                  checkbox.dataset.price
-                )
+        }
 
-            };
 
-          }
-        ),
+        /* 後五碼再次檢查 */
 
-      paymentDate:
-        document
-          .getElementById(
-            "paymentDate"
-          )
-          .value,
-
-      paymentBank:
-        document
-          .getElementById(
-            "paymentBank"
-          )
-          .value,
-
-      paymentAmount:
-        Number(
+        const accountLastFive =
           document
             .getElementById(
-              "paymentAmount"
+              "accountLastFive"
             )
             .value
-        ),
+            .trim();
 
-      accountLastFive:
-        document
-          .getElementById(
-            "accountLastFive"
+
+        if (
+          !/^\d{5}$/.test(
+            accountLastFive
           )
-          .value,
+        ) {
 
-      note:
-        document
-          .getElementById(
-            "note"
-          )
-          .value
-          .trim()
+          alert(
+            "匯款帳號後五碼必須是 5 位數字。"
+          );
 
-    };
+          return;
+
+        }
 
 
-    /* =========================
-       送出中
-    ========================= */
-
-    const submitButton =
-      paymentForm.querySelector(
-        ".submit-button"
-      );
-
-    submitButton.disabled = true;
-
-    submitButton.textContent =
-      "送出中…";
+        const selectedOption =
+          communitySelect.options[
+            communitySelect.selectedIndex
+          ];
 
 
-    try {
+        const meta =
+          groupMeta[
+            communitySelect.value
+          ] || {};
 
-      /* =========================
-         傳送到 Cloudflare
-      ========================= */
 
-      const response =
-        await fetch(
-          WORKER_URL,
-          {
+        /* 整理資料 */
 
-            method: "POST",
+        const formData = {
 
-            headers: {
-
-              "Content-Type":
-                "application/json"
-
-            },
-
-            body:
-              JSON.stringify(
-                formData
+          facebookName:
+            document
+              .getElementById(
+                "facebookName"
               )
+              .value
+              .trim(),
+
+          community:
+            selectedOption.textContent
+              .trim(),
+
+          groupType:
+            meta.groupType ||
+            "",
+
+          group:
+            meta.group ||
+            "",
+
+          activity:
+            meta.activity ||
+            selectedOption.textContent
+              .trim(),
+
+          products:
+            selectedProducts.map(
+              (checkbox) => ({
+
+                name:
+                  checkbox.value,
+
+                price:
+                  Number(
+                    checkbox.dataset.price
+                  )
+
+              })
+            ),
+
+          paymentDate:
+            document
+              .getElementById(
+                "paymentDate"
+              )
+              .value,
+
+          paymentTime:
+            document
+              .getElementById(
+                "paymentTime"
+              )
+              .value,
+
+          paymentBank:
+            document
+              .getElementById(
+                "paymentBank"
+              )
+              .value,
+
+          paymentAmount:
+            Number(
+              paymentAmount.value
+            ),
+
+          accountLastFive:
+            accountLastFive,
+
+          note:
+            document
+              .getElementById(
+                "note"
+              )
+              .value
+              .trim()
+
+        };
+
+
+        /* 送出按鈕 */
+
+        const submitButton =
+          paymentForm
+            .querySelector(
+              ".submit-button"
+            );
+
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "送出中…";
+
+
+        try {
+
+          const response =
+            await fetch(
+              WORKER_URL,
+              {
+
+                method:
+                  "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                },
+
+                body:
+                  JSON.stringify(
+                    formData
+                  )
+
+              }
+            );
+
+
+          const result =
+            await response.json();
+
+
+          if (
+            response.ok &&
+            result.success
+          ) {
+
+            alert(
+              "匯款資料已成功送出 🦊"
+            );
+
+
+            paymentForm.reset();
+
+
+            productContainer.innerHTML = `
+              <div class="product-placeholder">
+                請先選擇社群名稱／團務
+              </div>
+            `;
+
+
+            calculatedTotal.textContent =
+              "NT$ 0";
+
+
+            paymentAmount.value =
+              "";
+
+
+            /* 同時重新讀取公開進度 */
+
+            loadPublicProgress();
+
+          } else {
+
+            console.error(
+              result
+            );
+
+            alert(
+              "送出失敗：" +
+              (
+                result.message ||
+                "請稍後再試"
+              )
+            );
 
           }
-        );
 
+        } catch (error) {
 
-      const result =
-        await response.json();
+          console.error(
+            error
+          );
 
+          alert(
+            "目前無法送出資料，請確認網路後再試。"
+          );
 
-      /* =========================
-         成功
-      ========================= */
+        } finally {
 
-      if (
-        response.ok &&
-        result.success
-      ) {
+          submitButton.disabled =
+            false;
 
-        alert(
-          "匯款資料已成功送出 🦊"
-        );
+          submitButton.textContent =
+            "送出匯款資料";
 
-
-        /* 清空表單 */
-
-        paymentForm.reset();
-
-
-        /* 清空商品 */
-
-        productContainer.innerHTML = `
-          <div class="product-placeholder">
-            請先選擇社群名稱／團務
-          </div>
-        `;
-
-
-        /* 金額歸零 */
-
-        calculatedTotal.textContent =
-          "NT$ 0";
-
-        paymentAmount.value =
-          "";
+        }
 
       }
-
-
-      /* =========================
-         GitHub / Worker 錯誤
-      ========================= */
-
-      else {
-
-        console.log(result);
-
-        alert(
-          "送出失敗：" +
-          (
-            result.message ||
-            "請稍後再試"
-          )
-        );
-
-      }
-
-    }
-
-
-    /* =========================
-       網路錯誤
-    ========================= */
-
-    catch (error) {
-
-      console.error(error);
-
-      alert(
-        "目前無法送出資料，請確認網路後再試。"
-      );
-
-    }
-
-
-    /* =========================
-       恢復按鈕
-    ========================= */
-
-    finally {
-
-      submitButton.disabled =
-        false;
-
-      submitButton.textContent =
-        "送出匯款資料";
-
-    }
-
-  }
-);
-
-    /* =========================
-       對帳資料
-       目前沒有資料
-    ========================= */
-
-    let defaultProgressData = [];
-/* =========================
-   讀取公開對帳／進度資料
-========================= */
-
-async function loadPublicProgress() {
-
-  const progressContainer =
-    document.getElementById("progressList");
-
-  if (progressContainer) {
-    progressContainer.innerHTML = `
-      <div class="empty-state">
-        讀取進度中… 🦊
-      </div>
-    `;
-  }
-
-  try {
-
-    const response = await fetch(
-      WORKER_URL + "/public/list"
     );
 
-    const result = await response.json();
 
-    if (
-      !response.ok ||
-      !result.success
-    ) {
+    /* =====================================================
+       公開進度資料
+    ===================================================== */
 
-      throw new Error(
-        result.message ||
-        "讀取進度失敗"
-      );
+    let defaultProgressData =
+      [];
 
-    }
+    let currentTypeFilter =
+      "all";
 
+    let currentGroupFilter =
+      "all";
 
-    defaultProgressData =
-      Array.isArray(result.submissions)
-        ? result.submissions
-        : [];
-
-
-    /* 如果你原本有 renderProgress()
-       就重新顯示資料 */
-
-    if (
-      typeof renderProgress ===
-      "function"
-    ) {
-
-      renderProgress();
-
-    }
-
-  } catch (error) {
-
-    console.error(error);
-
-    if (progressContainer) {
-
-      progressContainer.innerHTML = `
-        <div class="empty-state">
-          暫時無法讀取進度 🦊
-        </div>
-      `;
-
-    }
-
-  }
-
-}
-    let currentTypeFilter = "all";
-    let currentGroupFilter = "all";
 
     const progressList =
       document.getElementById(
@@ -1754,402 +2167,547 @@ async function loadPublicProgress() {
         "communitySearch"
       );
 
-    function renderProgress() {
 
-  const searchText =
-    communitySearch.value
-      .trim()
-      .toLowerCase();
+    /* =====================================================
+       HTML 安全處理
+    ===================================================== */
 
+    function escapeHTML(
+      value
+    ) {
 
-  /* =========================
-     篩選資料
-  ========================= */
-
-  const filteredData =
-    defaultProgressData.filter(
-      (item) => {
-
-        const itemType =
-          item.groupType ||
-          item.type ||
-          "";
-
-        const itemGroup =
-          item.group ||
-          "";
-
-        const itemCommunity =
-          item.community ||
-          item.communityName ||
-          "";
-
-
-        const matchesType =
-          currentTypeFilter === "all" ||
-          itemType === currentTypeFilter;
-
-
-        const matchesGroup =
-          currentGroupFilter === "all" ||
-          itemGroup === currentGroupFilter;
-
-
-        const matchesSearch =
-          !searchText ||
-          itemCommunity
-            .toLowerCase()
-            .includes(searchText);
-
-
-        return (
-          matchesType &&
-          matchesGroup &&
-          matchesSearch
+      return String(
+        value ?? ""
+      )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
         );
-
-      }
-    );
-
-
-  /* =========================
-     清空舊資料
-  ========================= */
-
-  progressList.innerHTML = "";
-
-
-  /* =========================
-     沒有資料
-  ========================= */
-
-  if (
-    filteredData.length === 0
-  ) {
-
-    progressList.innerHTML = `
-      <div class="card empty-message">
-        目前暫無團務資料 🦊
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  /* =========================
-     依活動名稱分組
-  ========================= */
-
-  const groupedData = {};
-
-
-  filteredData.forEach(
-    (item) => {
-
-      const activityName =
-        item.activity ||
-        item.community ||
-        "團務進度";
-
-
-      if (
-        !groupedData[
-          activityName
-        ]
-      ) {
-
-        groupedData[
-          activityName
-        ] = [];
-
-      }
-
-
-      groupedData[
-        activityName
-      ].push(item);
 
     }
-  );
 
 
-  /* =========================
-     顯示團務
-  ========================= */
+    /* =====================================================
+       讀取公開進度
+    ===================================================== */
 
-  Object.entries(
-    groupedData
-  ).forEach(
-    ([activityName, items]) => {
+    async function loadPublicProgress() {
 
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      card.className =
-        "card progress-card";
-
-
-      /* 每一位團員 */
-
-      const rowsHTML =
-        items
-          .map(
-            (item) => {
-
-              const community =
-                item.community ||
-                "未設定社群名稱";
-
-
-              const paymentStatus =
-                item.paymentStatus ||
-                "待對帳";
-
-
-              const progress =
-                item.progress ||
-                "已登記";
-
-
-              /* 匯款狀態顏色 */
-
-              const paymentClass =
-                paymentStatus ===
-                "已匯款"
-
-                  ? "status-paid"
-
-                  : "status-unpaid";
-
-
-              /* 進度顏色 */
-
-              const progressClass =
-                (
-                  progress ===
-                    "已完成" ||
-                  progress ===
-                    "已寄出"
-                )
-
-                  ? "stage-complete"
-
-              return `
-
-  <div class="progress-row">
-
-    <div class="progress-person">
-
-      <div class="facebook-name">
-        ${item.facebookName || "未填 Facebook 名稱"}
-      </div>
-
-      <div class="name-pill">
-        ${community}
-      </div>
-
-    </div>
-
-    <div class="${paymentClass}">
-      ${paymentStatus}
-    </div>
-
-    <div class="${progressClass}">
-      ${progress}
-    </div>
-
-  </div>
-
-`;
-            }
-          )
-          .join("");
-
-
-      card.innerHTML = `
-
-        <div class="progress-card-title">
-          ${activityName}
+      progressList.innerHTML = `
+        <div class="card empty-message">
+          讀取進度中… 🦊
         </div>
-
-        ${rowsHTML}
-
       `;
 
 
-      progressList.appendChild(
-        card
-      );
+      try {
+
+        const response =
+          await fetch(
+            WORKER_URL +
+            "/public/list",
+            {
+              cache: "no-store"
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !result.success
+        ) {
+
+          throw new Error(
+            result.message ||
+            "讀取進度失敗"
+          );
+
+        }
+
+
+        defaultProgressData =
+          Array.isArray(
+            result.submissions
+          )
+            ? result.submissions
+            : [];
+
+
+        renderProgress();
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        progressList.innerHTML = `
+          <div class="card empty-message">
+            暫時無法讀取進度 🦊
+          </div>
+        `;
+
+      }
 
     }
-  );
 
-}
-    /* =========================
+
+    /* =====================================================
+       顯示進度
+    ===================================================== */
+
+    function renderProgress() {
+
+      const searchText =
+        communitySearch
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const filteredData =
+        defaultProgressData.filter(
+          (item) => {
+
+
+            const itemType =
+              String(
+                item.groupType ||
+                item.type ||
+                ""
+              );
+
+
+            const itemGroup =
+              String(
+                item.group ||
+                ""
+              );
+
+
+            const itemCommunity =
+              String(
+                item.community ||
+                item.communityName ||
+                ""
+              );
+
+
+            const itemFacebook =
+              String(
+                item.facebookName ||
+                ""
+              );
+
+
+            const matchesType =
+              currentTypeFilter ===
+                "all" ||
+              itemType ===
+                currentTypeFilter;
+
+
+            const matchesGroup =
+              currentGroupFilter ===
+                "all" ||
+              itemGroup ===
+                currentGroupFilter;
+
+
+            const matchesSearch =
+              !searchText ||
+
+              itemCommunity
+                .toLowerCase()
+                .includes(
+                  searchText
+                ) ||
+
+              itemFacebook
+                .toLowerCase()
+                .includes(
+                  searchText
+                );
+
+
+            return (
+              matchesType &&
+              matchesGroup &&
+              matchesSearch
+            );
+
+          }
+        );
+
+
+      progressList.innerHTML =
+        "";
+
+
+      if (
+        filteredData.length === 0
+      ) {
+
+        progressList.innerHTML = `
+          <div class="card empty-message">
+            目前暫無團務資料 🦊
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      /* =========================
+         按活動分組
+      ========================= */
+
+      const groupedData = {};
+
+
+      filteredData.forEach(
+        (item) => {
+
+
+          const activityName =
+            item.activity ||
+            item.community ||
+            "團務進度";
+
+
+          if (
+            !groupedData[
+              activityName
+            ]
+          ) {
+
+            groupedData[
+              activityName
+            ] = [];
+
+          }
+
+
+          groupedData[
+            activityName
+          ].push(
+            item
+          );
+
+        }
+      );
+
+
+      /* =========================
+         顯示每個團務
+      ========================= */
+
+      Object.entries(
+        groupedData
+      )
+        .forEach(
+          (
+            [
+              activityName,
+              items
+            ]
+          ) => {
+
+
+            const card =
+              document
+                .createElement(
+                  "div"
+                );
+
+
+            card.className =
+              "progress-card";
+
+
+            const rowsHTML =
+              items
+                .map(
+                  (item) => {
+
+
+                    const facebookName =
+                      item.facebookName ||
+                      "未填 Facebook 名稱";
+
+
+                    const community =
+                      item.community ||
+                      "未設定社群名稱";
+
+
+                    const paymentStatus =
+                      item.paymentStatus ||
+                      "待對帳";
+
+
+                    const progress =
+                      item.progress ||
+                      "已登記";
+
+
+                    /* 匯款狀態 */
+
+                    let paymentClass =
+                      "status-unpaid";
+
+
+                    if (
+                      paymentStatus ===
+                      "已匯款"
+                    ) {
+
+                      paymentClass =
+                        "status-paid";
+
+                    } else if (
+                      paymentStatus ===
+                      "需確認"
+                    ) {
+
+                      paymentClass =
+                        "status-waiting";
+
+                    }
+
+
+                    /* 團務進度 */
+
+                    const progressClass =
+                      (
+                        progress ===
+                          "已寄出" ||
+                        progress ===
+                          "已完成"
+                      )
+                        ? "stage-complete"
+                        : "stage-processing";
+
+
+                    return `
+
+                      <div class="progress-row">
+
+                        <div class="progress-person">
+
+                          <div class="facebook-name">
+                            ${escapeHTML(
+                              facebookName
+                            )}
+                          </div>
+
+                          <div class="name-pill">
+                            ${escapeHTML(
+                              community
+                            )}
+                          </div>
+
+                        </div>
+
+
+                        <div
+                          class="status-pill ${paymentClass}"
+                        >
+                          ${escapeHTML(
+                            paymentStatus
+                          )}
+                        </div>
+
+
+                        <div
+                          class="stage-pill ${progressClass}"
+                        >
+                          ${escapeHTML(
+                            progress
+                          )}
+                        </div>
+
+                      </div>
+
+                    `;
+
+                  }
+                )
+                .join("");
+
+
+            card.innerHTML = `
+
+              <div class="progress-header">
+
+                <div class="progress-title">
+                  ${escapeHTML(
+                    activityName
+                  )}
+                </div>
+
+                <div class="activity-pill">
+                  ${items.length} 筆
+                </div>
+
+              </div>
+
+              ${rowsHTML}
+
+            `;
+
+
+            progressList.appendChild(
+              card
+            );
+
+          }
+        );
+
+    }
+
+
+    /* =====================================================
        依團務篩選
-    ========================= */
+    ===================================================== */
 
     document
       .querySelectorAll(
         "#typeFilters .filter-button"
       )
-      .forEach((button) => {
+      .forEach(
+        (button) => {
 
-        button.addEventListener(
-          "click",
-          () => {
+          button.addEventListener(
+            "click",
+            () => {
 
-            document
-              .querySelectorAll(
-                "#typeFilters .filter-button"
-              )
-              .forEach((item) => {
 
-                item.classList.remove("selected");
+              document
+                .querySelectorAll(
+                  "#typeFilters .filter-button"
+                )
+                .forEach(
+                  (item) => {
 
-              });
+                    item.classList.remove(
+                      "selected"
+                    );
 
-            button.classList.add("selected");
+                  }
+                );
 
-            currentTypeFilter =
-              button.dataset.filter;
 
-            renderProgress();
+              button.classList.add(
+                "selected"
+              );
 
-          }
-        );
 
-      });
+              currentTypeFilter =
+                button.dataset.filter;
 
-    /* =========================
+
+              renderProgress();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
        依團體篩選
-    ========================= */
+    ===================================================== */
 
     document
       .querySelectorAll(
         "#groupFilters .filter-button"
       )
-      .forEach((button) => {
+      .forEach(
+        (button) => {
 
-        button.addEventListener(
-          "click",
-          () => {
+          button.addEventListener(
+            "click",
+            () => {
 
-            document
-              .querySelectorAll(
-                "#groupFilters .filter-button"
-              )
-              .forEach((item) => {
 
-                item.classList.remove("selected");
+              document
+                .querySelectorAll(
+                  "#groupFilters .filter-button"
+                )
+                .forEach(
+                  (item) => {
 
-              });
+                    item.classList.remove(
+                      "selected"
+                    );
 
-            button.classList.add("selected");
+                  }
+                );
 
-            currentGroupFilter =
-              button.dataset.filter;
 
-            renderProgress();
+              button.classList.add(
+                "selected"
+              );
 
-          }
-        );
 
-      });
+              currentGroupFilter =
+                button.dataset.filter;
 
-    /* =========================
+
+              renderProgress();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
        搜尋
-    ========================= */
+    ===================================================== */
 
     communitySearch.addEventListener(
       "input",
       renderProgress
     );
 
-    /* 第一次載入 */
+
+    /* =====================================================
+       第一次載入
+    ===================================================== */
+
     renderProgress();
-    
+
     loadPublicProgress();
-    
-    document
-  .querySelectorAll(".copy-button")
-  .forEach((button) => {
 
-    button.addEventListener(
-      "click",
-      async () => {
-
-        const account =
-          button.dataset.account;
-
-        const oldHTML =
-          button.innerHTML;
-
-        try {
-
-          await navigator.clipboard.writeText(
-            account
-          );
-
-          button.innerHTML = "✓";
-
-          setTimeout(
-            () => {
-              button.innerHTML = oldHTML;
-            },
-            1200
-          );
-
-        } catch (error) {
-
-          const textarea =
-            document.createElement(
-              "textarea"
-            );
-
-          textarea.value =
-            account;
-
-          textarea.style.position =
-            "fixed";
-
-          textarea.style.opacity =
-            "0";
-
-          document.body.appendChild(
-            textarea
-          );
-
-          textarea.select();
-
-          document.execCommand(
-            "copy"
-          );
-
-          textarea.remove();
-
-          button.innerHTML = "✓";
-
-          setTimeout(
-            () => {
-              button.innerHTML = oldHTML;
-            },
-            1200
-          );
-
-        }
-
-      }
-    );
-
-  });
   </script>
 
 </body>
+
 </html>
