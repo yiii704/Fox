@@ -1586,8 +1586,80 @@ paymentForm.addEventListener(
        目前沒有資料
     ========================= */
 
-    const defaultProgressData = [];
+    let defaultProgressData = [];
+/* =========================
+   讀取公開對帳／進度資料
+========================= */
 
+async function loadPublicProgress() {
+
+  const progressContainer =
+    document.getElementById("progressList");
+
+  if (progressContainer) {
+    progressContainer.innerHTML = `
+      <div class="empty-state">
+        讀取進度中… 🦊
+      </div>
+    `;
+  }
+
+  try {
+
+    const response = await fetch(
+      WORKER_URL + "/public/list"
+    );
+
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      !result.success
+    ) {
+
+      throw new Error(
+        result.message ||
+        "讀取進度失敗"
+      );
+
+    }
+
+
+    defaultProgressData =
+      Array.isArray(result.submissions)
+        ? result.submissions
+        : [];
+
+
+    /* 如果你原本有 renderProgress()
+       就重新顯示資料 */
+
+    if (
+      typeof renderProgress ===
+      "function"
+    ) {
+
+      renderProgress();
+
+    }
+
+  } catch (error) {
+
+    console.error(error);
+
+    if (progressContainer) {
+
+      progressContainer.innerHTML = `
+        <div class="empty-state">
+          暫時無法讀取進度 🦊
+        </div>
+      `;
+
+    }
+
+  }
+
+}
     let currentTypeFilter = "all";
     let currentGroupFilter = "all";
 
@@ -1603,55 +1675,237 @@ paymentForm.addEventListener(
 
     function renderProgress() {
 
-      const searchText =
-        communitySearch.value
-          .trim()
-          .toLowerCase();
+  const searchText =
+    communitySearch.value
+      .trim()
+      .toLowerCase();
 
-      const filteredData =
-        defaultProgressData.filter(
-          (item) => {
 
-            const matchesType =
-              currentTypeFilter === "all" ||
-              item.type === currentTypeFilter;
+  /* =========================
+     篩選資料
+  ========================= */
 
-            const matchesGroup =
-              currentGroupFilter === "all" ||
-              item.group === currentGroupFilter;
+  const filteredData =
+    defaultProgressData.filter(
+      (item) => {
 
-            const matchesSearch =
-              !searchText ||
-              item.communityName
-                .toLowerCase()
-                .includes(searchText);
+        const itemType =
+          item.groupType ||
+          item.type ||
+          "";
 
-            return (
-              matchesType &&
-              matchesGroup &&
-              matchesSearch
-            );
+        const itemGroup =
+          item.group ||
+          "";
 
-          }
+        const itemCommunity =
+          item.community ||
+          item.communityName ||
+          "";
+
+
+        const matchesType =
+          currentTypeFilter === "all" ||
+          itemType === currentTypeFilter;
+
+
+        const matchesGroup =
+          currentGroupFilter === "all" ||
+          itemGroup === currentGroupFilter;
+
+
+        const matchesSearch =
+          !searchText ||
+          itemCommunity
+            .toLowerCase()
+            .includes(searchText);
+
+
+        return (
+          matchesType &&
+          matchesGroup &&
+          matchesSearch
         );
 
-      progressList.innerHTML = "";
+      }
+    );
+
+
+  /* =========================
+     清空舊資料
+  ========================= */
+
+  progressList.innerHTML = "";
+
+
+  /* =========================
+     沒有資料
+  ========================= */
+
+  if (
+    filteredData.length === 0
+  ) {
+
+    progressList.innerHTML = `
+      <div class="card empty-message">
+        目前暫無團務資料 🦊
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  /* =========================
+     依活動名稱分組
+  ========================= */
+
+  const groupedData = {};
+
+
+  filteredData.forEach(
+    (item) => {
+
+      const activityName =
+        item.activity ||
+        item.community ||
+        "團務進度";
+
 
       if (
-        filteredData.length === 0
+        !groupedData[
+          activityName
+        ]
       ) {
 
-        progressList.innerHTML = `
-          <div class="card empty-message">
-            目前暫無團務資料 🦊
-          </div>
-        `;
+        groupedData[
+          activityName
+        ] = [];
 
-        return;
       }
 
-    }
 
+      groupedData[
+        activityName
+      ].push(item);
+
+    }
+  );
+
+
+  /* =========================
+     顯示團務
+  ========================= */
+
+  Object.entries(
+    groupedData
+  ).forEach(
+    ([activityName, items]) => {
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "card progress-card";
+
+
+      /* 每一位團員 */
+
+      const rowsHTML =
+        items
+          .map(
+            (item) => {
+
+              const community =
+                item.community ||
+                "未設定社群名稱";
+
+
+              const paymentStatus =
+                item.paymentStatus ||
+                "待對帳";
+
+
+              const progress =
+                item.progress ||
+                "已登記";
+
+
+              /* 匯款狀態顏色 */
+
+              const paymentClass =
+                paymentStatus ===
+                "已匯款"
+
+                  ? "status-paid"
+
+                  : "status-unpaid";
+
+
+              /* 進度顏色 */
+
+              const progressClass =
+                (
+                  progress ===
+                    "已完成" ||
+                  progress ===
+                    "已寄出"
+                )
+
+                  ? "stage-complete"
+
+                  : "stage-processing";
+
+
+              return `
+
+                <div class="progress-row">
+
+                  <div class="name-pill">
+                    ${community}
+                  </div>
+
+                  <div class="${paymentClass}">
+                    ${paymentStatus}
+                  </div>
+
+                  <div class="${progressClass}">
+                    ${progress}
+                  </div>
+
+                </div>
+
+              `;
+
+            }
+          )
+          .join("");
+
+
+      card.innerHTML = `
+
+        <div class="progress-card-title">
+          ${activityName}
+        </div>
+
+        ${rowsHTML}
+
+      `;
+
+
+      progressList.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
     /* =========================
        依團務篩選
     ========================= */
@@ -1735,7 +1989,9 @@ paymentForm.addEventListener(
 
     /* 第一次載入 */
     renderProgress();
-
+    
+    loadPublicProgress();
+    
   </script>
 
 </body>
