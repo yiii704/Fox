@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="format-detection" content="telephone=no">
+  
   <title>狐狸🦊</title>
 
   <style>
@@ -131,6 +132,28 @@
       background: #eee5ff;
     }
 
+    .bank-number-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .copy-button {
+      flex-shrink: 0;
+      padding: 7px 14px;
+      background: #f1eaff;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 999px;
+      color: #6b46c1;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .copy-button:active {
+      transform: scale(0.96);
+    }
     /* =========================
        卡片
     ========================= */
@@ -283,6 +306,19 @@
       color: #6b46c1;
     }
 
+.bank-number {
+  color: #4f4660;
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+a[href^="tel:"] {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none;
+}
     /* =========================
        送出按鈕
     ========================= */
@@ -783,41 +819,75 @@
 
         <div class="bank-account">
 
-          <strong>
-            連線銀行（824）
-          </strong>
+  <strong>
+    連線銀行（824）
+  </strong>
 
-          <br>
+  <div class="bank-number-row">
 
-          111019094603
+    <span class="bank-number">
+      111019094603
+    </span>
 
-        </div>
+    <button
+      type="button"
+      class="copy-button"
+      onclick="copyBankAccount('111019094603', this)"
+    >
+      複製
+    </button>
+
+  </div>
+
+</div>
 
         <div class="bank-account">
 
-          <strong>
-            台新銀行（812）
-          </strong>
+  <strong>
+    台新銀行（812）
+  </strong>
 
-          <br>
+  <div class="bank-number-row">
 
-          20741000262603
+    <span class="bank-number">
+      20741000262603
+    </span>
 
-        </div>
+    <button
+      type="button"
+      class="copy-button"
+      onclick="copyBankAccount('20741000262603', this)"
+    >
+      複製
+    </button>
+
+  </div>
+
+</div>
 
         <div class="bank-account">
 
-          <strong>
-            中國信託（822）
-          </strong>
+  <strong>
+    中國信託（822）
+  </strong>
 
-          <br>
+  <div class="bank-number-row">
 
-          901567959612
+    <span class="bank-number">
+      901567959612
+    </span>
 
-        </div>
+    <button
+      type="button"
+      class="copy-button"
+      onclick="copyBankAccount('901567959612', this)"
+    >
+      複製
+    </button>
 
-      </div>
+  </div>
+
+</div>
 
       <!-- =========================
            匯款資料
@@ -1992,6 +2062,73 @@ async function loadPublicProgress() {
     
     loadPublicProgress();
     
+    async function copyBankAccount(
+  account,
+  button
+) {
+
+  try {
+
+    await navigator.clipboard.writeText(
+      account
+    );
+
+    const oldText =
+      button.textContent;
+
+    button.textContent =
+      "✓ 已複製";
+
+    setTimeout(
+      () => {
+        button.textContent =
+          oldText;
+      },
+      1200
+    );
+
+  } catch (error) {
+
+    const textarea =
+      document.createElement(
+        "textarea"
+      );
+
+    textarea.value =
+      account;
+
+    textarea.style.position =
+      "fixed";
+
+    textarea.style.opacity =
+      "0";
+
+    document.body.appendChild(
+      textarea
+    );
+
+    textarea.select();
+
+    document.execCommand(
+      "copy"
+    );
+
+    textarea.remove();
+
+    button.textContent =
+      "✓ 已複製";
+
+    setTimeout(
+      () => {
+        button.textContent =
+          "複製";
+      },
+      1200
+    );
+
+  }
+
+}
   </script>
 
 </body>
