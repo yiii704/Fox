@@ -2077,73 +2077,78 @@ async function loadPublicProgress() {
     
     loadPublicProgress();
     
-    async function copyBankAccount(
-  account,
-  button
-) {
+    document
+  .querySelectorAll(".copy-button")
+  .forEach((button) => {
 
-  try {
+    button.addEventListener(
+      "click",
+      async () => {
 
-    await navigator.clipboard.writeText(
-      account
+        const account =
+          button.dataset.account;
+
+        const oldHTML =
+          button.innerHTML;
+
+        try {
+
+          await navigator.clipboard.writeText(
+            account
+          );
+
+          button.innerHTML = "✓";
+
+          setTimeout(
+            () => {
+              button.innerHTML = oldHTML;
+            },
+            1200
+          );
+
+        } catch (error) {
+
+          const textarea =
+            document.createElement(
+              "textarea"
+            );
+
+          textarea.value =
+            account;
+
+          textarea.style.position =
+            "fixed";
+
+          textarea.style.opacity =
+            "0";
+
+          document.body.appendChild(
+            textarea
+          );
+
+          textarea.select();
+
+          document.execCommand(
+            "copy"
+          );
+
+          textarea.remove();
+
+          button.innerHTML = "✓";
+
+          setTimeout(
+            () => {
+              button.innerHTML = oldHTML;
+            },
+            1200
+          );
+
+        }
+
+      }
     );
 
-    const oldText =
-      button.textContent;
-
-    button.textContent =
-      "✓ 已複製";
-
-    setTimeout(
-      () => {
-        button.textContent =
-          oldText;
-      },
-      1200
-    );
-
-  } catch (error) {
-
-    const textarea =
-      document.createElement(
-        "textarea"
-      );
-
-    textarea.value =
-      account;
-
-    textarea.style.position =
-      "fixed";
-
-    textarea.style.opacity =
-      "0";
-
-    document.body.appendChild(
-      textarea
-    );
-
-    textarea.select();
-
-    document.execCommand(
-      "copy"
-    );
-
-    textarea.remove();
-
-    button.textContent =
-      "✓ 已複製";
-
-    setTimeout(
-      () => {
-        button.textContent =
-          "複製";
-      },
-      1200
-    );
-
-  }
-
-}
+  });
   </script>
 
 </body>
