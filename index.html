@@ -438,8 +438,7 @@
 
 
     /* =====================================================
-       新版對帳表格式
-       只改排版，不改原本顏色
+       對帳表格式
     ===================================================== */
 
     .progress-group {
@@ -454,8 +453,6 @@
     }
 
 
-    /* 團務名稱標題 */
-
     .progress-group-header {
       padding: 15px 18px;
       background: #f5f1fb;
@@ -466,14 +463,10 @@
     }
 
 
-    /* 裡面資料區 */
-
     .progress-group-body {
       padding: 12px 16px 16px;
     }
 
-
-    /* 每一位團員 */
 
     .progress-member-row {
       display: grid;
@@ -487,8 +480,6 @@
       padding: 7px 0;
     }
 
-
-    /* 左邊姓名 */
 
     .progress-member-info {
       min-width: 0;
@@ -530,34 +521,77 @@
     }
 
 
-    /* 匯款狀態 */
+    /* =====================================================
+       匯款狀態顏色
+    ===================================================== */
+
+
+    /* 已匯款 → 綠色 */
 
     .status-paid {
       background: #dff4e6;
       color: #287747;
     }
 
+
+    /* 待對帳 → 紅色 */
+
     .status-unpaid {
       background: #ffe7e7;
       color: #b34545;
     }
 
+
+    /* 需確認 → 灰色 */
+
     .status-waiting {
-      background: #fff1d6;
-      color: #9b691b;
+      background: #eeeeF2;
+      color: #686572;
     }
 
 
-    /* 團務進度 */
+    /* =====================================================
+       團務進度顏色
+    ===================================================== */
 
-    .stage-processing {
+
+    /* 已登記 → 紫色 */
+
+    .stage-registered {
       background: #eee3ff;
       color: #6842b3;
     }
 
-    .stage-complete {
+
+    /* 已下單 → 橘色 */
+
+    .stage-ordered {
+      background: #ffead8;
+      color: #b86421;
+    }
+
+
+    /* 已到貨 → 黃色 */
+
+    .stage-arrived {
+      background: #fff4cc;
+      color: #98731c;
+    }
+
+
+    /* 已寄出 → 藍色 */
+
+    .stage-shipped {
       background: #dfeeff;
       color: #35649a;
+    }
+
+
+    /* 已完成 → 粉色 */
+
+    .stage-complete {
+      background: #ffe3ef;
+      color: #a94d78;
     }
 
 
@@ -590,8 +624,6 @@
         padding: 17px;
       }
 
-
-      /* 對帳表手機仍維持三欄 */
 
       .progress-member-row {
         grid-template-columns:
@@ -1362,8 +1394,6 @@
     </h2>
 
 
-    <!-- 篩選 -->
-
     <div class="card">
 
       <div class="filter-label">
@@ -1451,8 +1481,6 @@
 
     </div>
 
-
-    <!-- 自動產生對帳資料 -->
 
     <div id="progressList"></div>
 
@@ -2381,7 +2409,7 @@
 
 
     /* =====================================================
-       顯示新版對帳表
+       顯示對帳表
     ===================================================== */
 
     function renderProgress() {
@@ -2392,10 +2420,6 @@
           .trim()
           .toLowerCase();
 
-
-      /* =========================
-         篩選
-      ========================= */
 
       const filteredData =
         defaultProgressData.filter(
@@ -2567,10 +2591,6 @@
               "progress-group";
 
 
-            /* =====================
-               每一位團員
-            ===================== */
-
             const rowsHTML =
               items
                 .map(
@@ -2599,9 +2619,9 @@
                       "已登記";
 
 
-                    /* =================
+                    /* =================================================
                        匯款狀態顏色
-                    ================= */
+                    ================================================= */
 
                     let paymentClass =
                       "status-unpaid";
@@ -2626,27 +2646,53 @@
                     }
 
 
-                    /* =================
-                       進度顏色
-                    ================= */
+                    /* =================================================
+                       團務進度顏色
+                    ================================================= */
 
-                    const progressClass =
-                      (
-                        progress ===
-                          "已寄出" ||
-                        progress ===
-                          "已完成"
-                      )
-                        ? "stage-complete"
-                        : "stage-processing";
+                    let progressClass =
+                      "stage-registered";
+
+
+                    if (
+                      progress ===
+                      "已下單"
+                    ) {
+
+                      progressClass =
+                        "stage-ordered";
+
+                    } else if (
+                      progress ===
+                      "已到貨"
+                    ) {
+
+                      progressClass =
+                        "stage-arrived";
+
+                    } else if (
+                      progress ===
+                      "已寄出"
+                    ) {
+
+                      progressClass =
+                        "stage-shipped";
+
+                    } else if (
+                      progress ===
+                      "已完成"
+                    ) {
+
+                      progressClass =
+                        "stage-complete";
+
+                    }
 
 
                     return `
 
                       <div class="progress-member-row">
 
-
-                        <!-- Facebook＋社群 -->
 
                         <div class="progress-member-info">
 
@@ -2670,8 +2716,6 @@
                         </div>
 
 
-                        <!-- 匯款狀態 -->
-
                         <div
                           class="status-pill ${paymentClass}"
                         >
@@ -2682,8 +2726,6 @@
 
                         </div>
 
-
-                        <!-- 團務進度 -->
 
                         <div
                           class="stage-pill ${progressClass}"
@@ -2704,10 +2746,6 @@
                 )
                 .join("");
 
-
-            /* =====================
-               完整團務區塊
-            ===================== */
 
             groupElement.innerHTML = `
 
