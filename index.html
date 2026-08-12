@@ -1278,73 +1278,292 @@
     );
 
     /* =========================
-       匯款表單
+   Cloudflare Worker 網址
+========================= */
+
+const WORKER_URL =
+  "https://fox-form-api.a0983707826.workers.dev";
+
+
+/* =========================
+   匯款表單
+========================= */
+
+const paymentForm =
+  document.getElementById(
+    "paymentForm"
+  );
+
+paymentForm.addEventListener(
+  "submit",
+  async (event) => {
+
+    event.preventDefault();
+
+
+    /* =========================
+       檢查團務
     ========================= */
 
-    const paymentForm =
-      document.getElementById("paymentForm");
+    if (!communitySelect.value) {
 
-    paymentForm.addEventListener(
-      "submit",
-      (event) => {
+      alert(
+        "目前暫無開放中的團務。"
+      );
 
-        event.preventDefault();
+      return;
+    }
 
-        if (!communitySelect.value) {
 
-          alert(
-            "目前暫無開放中的團務。"
-          );
+    /* =========================
+       取得勾選商品
+    ========================= */
 
-          return;
-        }
+    const selectedProducts = [
+      ...document.querySelectorAll(
+        ".product-checkbox:checked"
+      )
+    ];
 
-        const selectedProducts = [
-          ...document.querySelectorAll(
-            ".product-checkbox:checked"
+
+    if (
+      selectedProducts.length === 0
+    ) {
+
+      alert(
+        "請至少勾選一項商品。"
+      );
+
+      return;
+    }
+
+
+    /* =========================
+       取得社群／團務名稱
+    ========================= */
+
+    const selectedOption =
+      communitySelect.options[
+        communitySelect.selectedIndex
+      ];
+
+
+    /* =========================
+       整理送出的資料
+    ========================= */
+
+    const formData = {
+
+      facebookName:
+        document
+          .getElementById(
+            "facebookName"
           )
-        ];
+          .value
+          .trim(),
 
-        if (
-          selectedProducts.length === 0
-        ) {
+      community:
+        selectedOption.text,
 
-          alert(
-            "請至少勾選一項商品。"
-          );
+      products:
+        selectedProducts.map(
+          (checkbox) => {
 
-          return;
-        }
+            return {
 
-        const paymentDate =
-          document.getElementById(
+              name:
+                checkbox.value,
+
+              price:
+                Number(
+                  checkbox.dataset.price
+                )
+
+            };
+
+          }
+        ),
+
+      paymentDate:
+        document
+          .getElementById(
             "paymentDate"
-          ).value;
+          )
+          .value,
 
-        const paymentTime =
-          document.getElementById(
-            "paymentTime"
-          ).value;
-
-        const paymentBank =
-          document.getElementById(
+      paymentBank:
+        document
+          .getElementById(
             "paymentBank"
-          ).value;
+          )
+          .value,
 
-        const amount =
-          paymentAmount.value;
+      paymentAmount:
+        Number(
+          document
+            .getElementById(
+              "paymentAmount"
+            )
+            .value
+        ),
 
-        const lastFive =
-          document.getElementById(
+      accountLastFive:
+        document
+          .getElementById(
             "accountLastFive"
-          ).value;
+          )
+          .value,
+
+      note:
+        document
+          .getElementById(
+            "note"
+          )
+          .value
+          .trim()
+
+    };
+
+
+    /* =========================
+       送出中
+    ========================= */
+
+    const submitButton =
+      paymentForm.querySelector(
+        ".submit-button"
+      );
+
+    submitButton.disabled = true;
+
+    submitButton.textContent =
+      "送出中…";
+
+
+    try {
+
+      /* =========================
+         傳送到 Cloudflare
+      ========================= */
+
+      const response =
+        await fetch(
+          WORKER_URL,
+          {
+
+            method: "POST",
+
+            headers: {
+
+              "Content-Type":
+                "application/json"
+
+            },
+
+            body:
+              JSON.stringify(
+                formData
+              )
+
+          }
+        );
+
+
+      const result =
+        await response.json();
+
+
+      /* =========================
+         成功
+      ========================= */
+
+      if (
+        response.ok &&
+        result.success
+      ) {
 
         alert(
-          "匯款資料已送出。"
+          "匯款資料已成功送出 🦊"
+        );
+
+
+        /* 清空表單 */
+
+        paymentForm.reset();
+
+
+        /* 清空商品 */
+
+        productContainer.innerHTML = `
+          <div class="product-placeholder">
+            請先選擇社群名稱／團務
+          </div>
+        `;
+
+
+        /* 金額歸零 */
+
+        calculatedTotal.textContent =
+          "NT$ 0";
+
+        paymentAmount.value =
+          "";
+
+      }
+
+
+      /* =========================
+         GitHub / Worker 錯誤
+      ========================= */
+
+      else {
+
+        console.log(result);
+
+        alert(
+          "送出失敗：" +
+          (
+            result.message ||
+            "請稍後再試"
+          )
         );
 
       }
-    );
+
+    }
+
+
+    /* =========================
+       網路錯誤
+    ========================= */
+
+    catch (error) {
+
+      console.error(error);
+
+      alert(
+        "目前無法送出資料，請確認網路後再試。"
+      );
+
+    }
+
+
+    /* =========================
+       恢復按鈕
+    ========================= */
+
+    finally {
+
+      submitButton.disabled =
+        false;
+
+      submitButton.textContent =
+        "送出匯款資料";
+
+    }
+
+  }
+);
 
     /* =========================
        對帳資料
