@@ -52,7 +52,7 @@
 
     .container {
       width: 100%;
-      max-width: 760px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -77,7 +77,7 @@
 
 
     /* =========================
-       卡片
+       基本卡片
     ========================= */
 
     .card {
@@ -218,72 +218,104 @@
     }
 
 
+    /* =====================================================
+       新版：匯款資料並排
+    ===================================================== */
+
+    #submissionList {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+
     /* =========================
        匯款資料卡
     ========================= */
 
     .submission-card {
       position: relative;
+      min-width: 0;
+      margin-bottom: 0;
+      padding: 16px;
+      border-radius: 20px;
     }
+
+
+    /* =========================
+       卡片最上方
+    ========================= */
 
     .submission-header {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 8px;
+      margin-bottom: 13px;
+    }
+
+    .submission-header > div:first-child {
+      width: 100%;
+      min-width: 0;
     }
 
     .person-name {
       color: #59349e;
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 700;
+      line-height: 1.35;
+      word-break: break-word;
     }
 
     .community-name {
       margin-top: 4px;
       color: #92859f;
-      font-size: 13px;
+      font-size: 11px;
+      line-height: 1.4;
+      word-break: break-word;
     }
 
     .amount-pill {
       flex-shrink: 0;
-      padding: 7px 12px;
+      padding: 6px 10px;
       background: #f1eaff;
       border-radius: 999px;
       color: #6b46c1;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
     }
 
 
     /* =========================
-       資料列
+       日期／銀行／後五碼
     ========================= */
 
     .info-grid {
       display: grid;
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
+      grid-template-columns: 1fr;
+      gap: 7px;
+      margin-bottom: 11px;
     }
 
     .info-item {
-      padding: 12px 14px;
+      min-width: 0;
+      padding: 9px 10px;
       background: #fbf9ff;
-      border-radius: 16px;
+      border-radius: 13px;
     }
 
     .info-label {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       color: #a095ac;
-      font-size: 11px;
+      font-size: 10px;
     }
 
     .info-value {
       color: #554b62;
-      font-size: 14px;
+      font-size: 12px;
+      line-height: 1.45;
       word-break: break-word;
     }
 
@@ -293,22 +325,24 @@
     ========================= */
 
     .product-box {
-      margin-bottom: 16px;
-      padding: 13px 15px;
+      margin-bottom: 11px;
+      padding: 10px 11px;
       background: #fbf9ff;
-      border-radius: 16px;
+      border-radius: 13px;
     }
 
     .product-title {
-      margin-bottom: 7px;
+      margin-bottom: 6px;
       color: #998ca4;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .product-line {
-      padding: 3px 0;
+      padding: 2px 0;
       color: #554b62;
-      font-size: 14px;
+      font-size: 12px;
+      line-height: 1.55;
+      word-break: break-word;
     }
 
 
@@ -317,22 +351,24 @@
     ========================= */
 
     .note-box {
-      margin-bottom: 16px;
-      padding: 13px 15px;
+      margin-bottom: 11px;
+      padding: 10px 11px;
       background: #fffafc;
-      border-radius: 16px;
+      border-radius: 13px;
     }
 
     .note-title {
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       color: #a58b98;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .note-text {
       color: #62545c;
-      font-size: 14px;
+      font-size: 12px;
+      line-height: 1.5;
       white-space: pre-wrap;
+      word-break: break-word;
     }
 
 
@@ -342,23 +378,36 @@
 
     .status-area {
       display: grid;
-      grid-template-columns:
-        1fr 1fr;
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .status-area label {
+      margin-bottom: 4px;
+      font-size: 11px;
     }
 
     .status-area select {
-      margin-top: 6px;
+      margin-top: 0;
+      padding: 9px 8px;
+      border-radius: 12px;
+      font-size: 12px;
     }
+
+
+    /* =========================
+       儲存按鈕
+    ========================= */
 
     .save-button {
       width: 100%;
-      margin-top: 14px;
-      padding: 11px;
+      margin-top: 11px;
+      padding: 9px 7px;
       background: #dccfff;
       border: 1.5px solid #b99bf5;
       border-radius: 999px;
       color: #59349e;
+      font-size: 12px;
       font-weight: 700;
     }
 
@@ -373,6 +422,8 @@
     ========================= */
 
     .empty-box {
+      grid-column: 1 / -1;
+      width: 100%;
       padding: 45px 20px;
       color: #9a8da7;
       text-align: center;
@@ -380,16 +431,29 @@
 
 
     /* =========================
+       平板／電腦
+    ========================= */
+
+    @media (min-width: 760px) {
+
+      #submissionList {
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+    }
+
+
+    /* =========================
        手機
     ========================= */
 
-    @media (
-      max-width: 560px
-    ) {
+    @media (max-width: 560px) {
 
       body {
         padding:
-          24px 14px 50px;
+          24px 12px 50px;
       }
 
       h1 {
@@ -397,16 +461,106 @@
       }
 
       .card {
-        padding: 18px;
         border-radius: 21px;
       }
 
-      .info-grid {
-        grid-template-columns: 1fr;
+      .summary-card {
+        padding: 17px;
       }
 
-      .status-area {
-        grid-template-columns: 1fr;
+      /*
+        手機仍維持一排兩張
+      */
+
+      #submissionList {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .submission-card {
+        padding: 12px;
+        border-radius: 17px;
+      }
+
+      .person-name {
+        font-size: 14px;
+      }
+
+      .community-name {
+        font-size: 10px;
+      }
+
+      .amount-pill {
+        padding: 5px 8px;
+        font-size: 11px;
+      }
+
+      .info-item {
+        padding: 8px;
+      }
+
+      .info-label {
+        font-size: 9px;
+      }
+
+      .info-value {
+        font-size: 11px;
+      }
+
+      .product-box,
+      .note-box {
+        padding: 8px;
+      }
+
+      .product-title,
+      .note-title {
+        font-size: 9px;
+      }
+
+      .product-line,
+      .note-text {
+        font-size: 11px;
+      }
+
+      .status-area label {
+        font-size: 10px;
+      }
+
+      .status-area select {
+        padding: 8px 5px;
+        font-size: 11px;
+      }
+
+      .save-button {
+        padding: 8px 5px;
+        font-size: 11px;
+      }
+
+    }
+
+
+    /* =========================
+       特別窄的手機
+    ========================= */
+
+    @media (max-width: 360px) {
+
+      body {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      #submissionList {
+        gap: 7px;
+      }
+
+      .submission-card {
+        padding: 10px;
+      }
+
+      .person-name {
+        font-size: 13px;
       }
 
     }
@@ -565,7 +719,7 @@
   <script>
 
     /* =====================================================
-       ！！！這裡換成你自己的 Worker 網址！！！
+       Cloudflare Worker
     ===================================================== */
 
     const WORKER_URL =
@@ -638,7 +792,7 @@
 
 
     /* =====================================================
-       避免團員填的文字被當成 HTML
+       避免文字被當成 HTML
     ===================================================== */
 
     function escapeHTML(value) {
@@ -677,7 +831,9 @@
     function formatMoney(value) {
 
       const number =
-        Number(value || 0);
+        Number(
+          value || 0
+        );
 
       return (
         "NT$ " +
@@ -696,11 +852,17 @@
     function formatDate(value) {
 
       if (!value) {
+
         return "—";
+
       }
 
+
       const date =
-        new Date(value);
+        new Date(
+          value
+        );
+
 
       if (
         Number.isNaN(
@@ -712,9 +874,11 @@
 
       }
 
+
       return new Intl.DateTimeFormat(
         "zh-TW",
         {
+
           timeZone:
             "Asia/Taipei",
 
@@ -732,8 +896,11 @@
 
           minute:
             "2-digit"
+
         }
-      ).format(date);
+      ).format(
+        date
+      );
 
     }
 
@@ -756,13 +923,18 @@
                 ? "selected"
                 : "";
 
+
             return `
+
               <option
                 value="${escapeHTML(option)}"
                 ${isSelected}
               >
+
                 ${escapeHTML(option)}
+
               </option>
+
             `;
 
           }
@@ -782,15 +954,20 @@
 
         event.preventDefault();
 
+
         loginError.textContent =
           "";
+
 
         adminPassword =
           passwordInput
             .value
             .trim();
 
-        if (!adminPassword) {
+
+        if (
+          !adminPassword
+        ) {
 
           loginError.textContent =
             "請輸入管理員密碼";
@@ -799,8 +976,10 @@
 
         }
 
+
         loginButton.disabled =
           true;
+
 
         loginButton.textContent =
           "登入中…";
@@ -812,13 +991,17 @@
           );
 
 
-        if (success) {
+        if (
+          success
+        ) {
 
           loginPage.style.display =
             "none";
 
+
           adminPage.style.display =
             "block";
+
 
           passwordInput.value =
             "";
@@ -828,6 +1011,7 @@
 
         loginButton.disabled =
           false;
+
 
         loginButton.textContent =
           "登入";
@@ -849,7 +1033,7 @@
         const response =
           await fetch(
             WORKER_URL +
-              "/admin/list",
+            "/admin/list",
             {
 
               method:
@@ -882,13 +1066,16 @@
         ) {
 
           if (
-            response.status === 401
+            response.status ===
+            401
           ) {
 
             loginError.textContent =
               "管理員密碼錯誤";
 
-            adminPassword = "";
+
+            adminPassword =
+              "";
 
           } else {
 
@@ -898,6 +1085,7 @@
             );
 
           }
+
 
           return false;
 
@@ -918,14 +1106,22 @@
 
         renderSubmissions();
 
+
         return true;
 
 
-      } catch (error) {
+      } catch (
+        error
+      ) {
 
-        console.error(error);
+        console.error(
+          error
+        );
 
-        if (isLogin) {
+
+        if (
+          isLogin
+        ) {
 
           loginError.textContent =
             "無法連線到後台";
@@ -937,6 +1133,7 @@
           );
 
         }
+
 
         return false;
 
@@ -962,24 +1159,40 @@
         submissions.filter(
           item => {
 
+
             const text =
               (
+
                 String(
                   item.facebookName ||
                   ""
-                ) +
-                " " +
+                )
+
+                +
+
+                " "
+
+                +
+
                 String(
                   item.community ||
                   ""
-                ) +
-                " " +
+                )
+
+                +
+
+                " "
+
+                +
+
                 String(
                   item.activity ||
                   ""
                 )
+
               )
                 .toLowerCase();
+
 
             return text.includes(
               keyword
@@ -990,14 +1203,18 @@
 
 
       if (
-        filtered.length === 0
+        filtered.length ===
+        0
       ) {
 
         submissionList.innerHTML = `
+
           <div class="card empty-box">
             目前沒有符合的匯款資料 🦊
           </div>
+
         `;
+
 
         return;
 
@@ -1009,13 +1226,16 @@
           .map(
             item => {
 
+
               const realIndex =
                 submissions.indexOf(
                   item
                 );
 
 
-              /* 商品 */
+              /* =====================
+                 商品
+              ===================== */
 
               const products =
                 Array.isArray(
@@ -1026,46 +1246,65 @@
 
 
               const productsHTML =
-                products.length > 0
+                products.length >
+                0
 
                   ? products
                       .map(
                         product => `
+
                           <div class="product-line">
+
                             ${escapeHTML(
                               product.name
                             )}
+
                             ・
+
                             ${formatMoney(
                               product.price
                             )}
+
                           </div>
+
                         `
                       )
                       .join("")
 
                   : `
+
                     <div class="product-line">
                       無商品資料
                     </div>
+
                   `;
 
 
               const paymentOptions =
                 [
+
                   "待對帳",
+
                   "已匯款",
+
                   "需確認"
+
                 ];
 
 
               const progressOptions =
                 [
+
                   "已登記",
+
                   "已下單",
+
                   "已到貨",
+
                   "已寄出",
+
                   "已完成"
+
                 ];
 
 
@@ -1076,37 +1315,54 @@
                   data-index="${realIndex}"
                 >
 
+
+                  <!-- =================
+                       Facebook＋金額
+                  ================== -->
+
                   <div class="submission-header">
 
                     <div>
 
                       <div class="person-name">
+
                         ${escapeHTML(
                           item.facebookName ||
                           "未填名稱"
                         )}
+
                       </div>
 
+
                       <div class="community-name">
+
                         ${escapeHTML(
                           item.community ||
                           "未填團務"
                         )}
+
                       </div>
 
                     </div>
 
 
                     <div class="amount-pill">
+
                       ${formatMoney(
                         item.paymentAmount
                       )}
+
                     </div>
 
                   </div>
 
 
+                  <!-- =================
+                       匯款資料
+                  ================== -->
+
                   <div class="info-grid">
+
 
                     <div class="info-item">
 
@@ -1115,10 +1371,12 @@
                       </div>
 
                       <div class="info-value">
+
                         ${escapeHTML(
                           item.paymentDate ||
                           "—"
                         )}
+
                       </div>
 
                     </div>
@@ -1131,10 +1389,12 @@
                       </div>
 
                       <div class="info-value">
+
                         ${escapeHTML(
                           item.paymentBank ||
                           "—"
                         )}
+
                       </div>
 
                     </div>
@@ -1147,10 +1407,12 @@
                       </div>
 
                       <div class="info-value">
+
                         ${escapeHTML(
                           item.accountLastFive ||
                           "—"
                         )}
+
                       </div>
 
                     </div>
@@ -1163,17 +1425,24 @@
                       </div>
 
                       <div class="info-value">
+
                         ${escapeHTML(
                           formatDate(
                             item.submittedAt
                           )
                         )}
+
                       </div>
 
                     </div>
 
+
                   </div>
 
+
+                  <!-- =================
+                       商品
+                  ================== -->
 
                   <div class="product-box">
 
@@ -1185,6 +1454,10 @@
 
                   </div>
 
+
+                  <!-- =================
+                       備註
+                  ================== -->
 
                   ${
                     item.note
@@ -1209,7 +1482,12 @@
                   }
 
 
+                  <!-- =================
+                       狀態
+                  ================== -->
+
                   <div class="status-area">
+
 
                     <div>
 
@@ -1252,6 +1530,7 @@
 
                     </div>
 
+
                   </div>
 
 
@@ -1260,8 +1539,11 @@
                     type="button"
                     data-index="${realIndex}"
                   >
+
                     儲存狀態
+
                   </button>
+
 
                 </div>
 
@@ -1282,14 +1564,19 @@
       "click",
       async event => {
 
+
         const button =
           event.target.closest(
             ".save-button"
           );
 
 
-        if (!button) {
+        if (
+          !button
+        ) {
+
           return;
+
         }
 
 
@@ -1300,11 +1587,17 @@
 
 
         const item =
-          submissions[index];
+          submissions[
+            index
+          ];
 
 
-        if (!item) {
+        if (
+          !item
+        ) {
+
           return;
+
         }
 
 
@@ -1329,6 +1622,7 @@
         button.disabled =
           true;
 
+
         button.textContent =
           "儲存中…";
 
@@ -1338,7 +1632,7 @@
           const response =
             await fetch(
               WORKER_URL +
-                "/admin/update",
+              "/admin/update",
               {
 
                 method:
@@ -1384,12 +1678,15 @@
               "更新失敗"
             );
 
+
             return;
 
           }
 
 
-          submissions[index] = {
+          submissions[
+            index
+          ] = {
 
             ...item,
 
@@ -1399,7 +1696,8 @@
 
             updatedAt:
               result.submission
-                ?.updatedAt ||
+                ?.updatedAt
+              ||
               new Date()
                 .toISOString()
 
@@ -1421,13 +1719,19 @@
           );
 
 
-        } catch (error) {
+        } catch (
+          error
+        ) {
 
-          console.error(error);
+          console.error(
+            error
+          );
+
 
           alert(
             "目前無法更新資料"
           );
+
 
         } finally {
 
@@ -1458,16 +1762,21 @@
       "click",
       async () => {
 
+
         refreshButton.disabled =
           true;
+
 
         refreshButton.textContent =
           "讀取中…";
 
+
         await loadSubmissions();
+
 
         refreshButton.disabled =
           false;
+
 
         refreshButton.textContent =
           "↻ 重新整理";
@@ -1484,24 +1793,34 @@
       "click",
       () => {
 
-        adminPassword = "";
 
-        submissions = [];
+        adminPassword =
+          "";
+
+
+        submissions =
+          [];
+
 
         submissionList.innerHTML =
           "";
 
+
         submissionCount.textContent =
           "0";
+
 
         searchInput.value =
           "";
 
+
         adminPage.style.display =
           "none";
 
+
         loginPage.style.display =
           "block";
+
 
         passwordInput.focus();
 
