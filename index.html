@@ -713,12 +713,12 @@
           </label>
 
           <select id="communitySelect" required>
+  <option value="">請選擇社群名稱／團務</option>
 
-            <option value="">
-              目前暫無開放中的團務
-            </option>
-
-          </select>
+  <option value="test-group">
+    狐狸測試團
+  </option>
+</select>
 
         </div>
 
@@ -1145,7 +1145,23 @@
        目前沒有團務
     ========================= */
 
-    const productData = {};
+    const productData = {
+
+  "test-group": [
+
+    {
+      name: "測試商品 A",
+      price: 100
+    },
+
+    {
+      name: "測試商品 B",
+      price: 200
+    }
+
+  ]
+
+};
 
     const communitySelect =
       document.getElementById("communitySelect");
