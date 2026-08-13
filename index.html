@@ -452,7 +452,6 @@
         rgba(116, 82, 165, 0.09);
     }
 
-
     .progress-group-header {
       padding: 15px 18px;
       background: #f5f1fb;
@@ -462,11 +461,9 @@
       border-bottom: 1px solid #eee6ff;
     }
 
-
     .progress-group-body {
       padding: 12px 16px 16px;
     }
-
 
     .progress-member-row {
       display: grid;
@@ -479,7 +476,6 @@
       min-height: 48px;
       padding: 7px 0;
     }
-
 
     .progress-member-info {
       min-width: 0;
@@ -521,73 +517,49 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        匯款狀態顏色
-    ===================================================== */
-
-
-    /* 已匯款 → 綠色 */
+    ========================= */
 
     .status-paid {
       background: #dff4e6;
       color: #287747;
     }
 
-
-    /* 待對帳 → 紅色 */
-
     .status-unpaid {
       background: #ffe7e7;
       color: #b34545;
     }
 
-
-    /* 需確認 → 灰色 */
-
     .status-waiting {
-      background: #eeeeF2;
+      background: #eeeef2;
       color: #686572;
     }
 
 
-    /* =====================================================
+    /* =========================
        團務進度顏色
-    ===================================================== */
-
-
-    /* 已登記 → 紫色 */
+    ========================= */
 
     .stage-registered {
       background: #eee3ff;
       color: #6842b3;
     }
 
-
-    /* 已下單 → 橘色 */
-
     .stage-ordered {
       background: #ffead8;
       color: #b86421;
     }
-
-
-    /* 已到貨 → 黃色 */
 
     .stage-arrived {
       background: #fff4cc;
       color: #98731c;
     }
 
-
-    /* 已寄出 → 藍色 */
-
     .stage-shipped {
       background: #dfeeff;
       color: #35649a;
     }
-
-
-    /* 已完成 → 粉色 */
 
     .stage-complete {
       background: #ffe3ef;
@@ -624,7 +596,6 @@
         padding: 17px;
       }
 
-
       .progress-member-row {
         grid-template-columns:
           minmax(105px, 1fr)
@@ -656,8 +627,6 @@
 
     }
 
-
-    /* 特別窄的手機 */
 
     @media (max-width: 370px) {
 
@@ -972,17 +941,11 @@
 
       <ul class="notice-list">
 
-        <li>
-          廠損
-        </li>
+        <li>廠損</li>
 
-        <li>
-          運輸損傷
-        </li>
+        <li>運輸損傷</li>
 
-        <li>
-          商品瑕疵
-        </li>
+        <li>商品瑕疵</li>
 
         <li>
           不湊套（專卡、滿額卡及隨機商品等）
@@ -1051,11 +1014,7 @@
           >
 
             <option value="">
-              請選擇社群名稱／團務
-            </option>
-
-            <option value="test-group">
-              狐狸測試團
+              目前暫無開放中的團務
             </option>
 
           </select>
@@ -1094,7 +1053,7 @@
           <div id="productContainer">
 
             <div class="product-placeholder">
-              請先選擇社群名稱／團務
+              目前暫無商品
             </div>
 
           </div>
@@ -1734,45 +1693,18 @@
 
     /* =====================================================
        商品資料
+       目前暫無團務
     ===================================================== */
 
-    const productData = {
-
-      "test-group": [
-
-        {
-          name: "測試商品 A",
-          price: 100
-        },
-
-        {
-          name: "測試商品 B",
-          price: 200
-        }
-
-      ]
-
-    };
+    const productData = {};
 
 
-    /* 團務分類 */
+    /* =====================================================
+       團務分類
+       目前暫無團務
+    ===================================================== */
 
-    const groupMeta = {
-
-      "test-group": {
-
-        groupType:
-          "單特典",
-
-        group:
-          "TWS",
-
-        activity:
-          "狐狸測試團"
-
-      }
-
-    };
+    const groupMeta = {};
 
 
     const communitySelect =
@@ -1989,7 +1921,7 @@
         ) {
 
           alert(
-            "請先選擇社群名稱／團務。"
+            "目前暫無開放中的團務。"
           );
 
           return;
@@ -2203,7 +2135,7 @@
             productContainer.innerHTML = `
 
               <div class="product-placeholder">
-                請先選擇社群名稱／團務
+                目前暫無商品
               </div>
 
             `;
@@ -2520,10 +2452,6 @@
       }
 
 
-      /* =========================
-         按活動名稱分組
-      ========================= */
-
       const groupedData =
         {};
 
@@ -2563,10 +2491,6 @@
         }
       );
 
-
-      /* =========================
-         每個團務區塊
-      ========================= */
 
       Object.entries(
         groupedData
@@ -2619,9 +2543,9 @@
                       "已登記";
 
 
-                    /* =================================================
+                    /* =========================
                        匯款狀態顏色
-                    ================================================= */
+                    ========================= */
 
                     let paymentClass =
                       "status-unpaid";
@@ -2646,9 +2570,9 @@
                     }
 
 
-                    /* =================================================
+                    /* =========================
                        團務進度顏色
-                    ================================================= */
+                    ========================= */
 
                     let progressClass =
                       "stage-registered";
