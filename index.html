@@ -2,6 +2,7 @@
 <html lang="zh-TW">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -16,10 +17,12 @@
 
   <title>狐狸🦊</title>
 
+
   <style>
-    /* =========================
+
+    /* =====================================================
        基本設定
-    ========================= */
+    ===================================================== */
 
     * {
       box-sizing: border-box;
@@ -64,9 +67,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        頁面
-    ========================= */
+    ===================================================== */
 
     .page {
       display: none;
@@ -81,6 +84,7 @@
     }
 
     @keyframes pageIn {
+
       from {
         opacity: 0;
         transform: translateY(8px);
@@ -90,12 +94,13 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
 
-    /* =========================
+    /* =====================================================
        膠囊按鈕
-    ========================= */
+    ===================================================== */
 
     .menu-grid {
       display: grid;
@@ -133,9 +138,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        返回按鈕
-    ========================= */
+    ===================================================== */
 
     .back-button {
       display: inline-flex;
@@ -153,9 +158,9 @@
     }
 
 
-    /* =========================
-       一般卡片
-    ========================= */
+    /* =====================================================
+       卡片
+    ===================================================== */
 
     .card {
       margin-bottom: 16px;
@@ -185,9 +190,9 @@
     }
 
 
-    /* =========================
-       空白
-    ========================= */
+    /* =====================================================
+       空白狀態
+    ===================================================== */
 
     .empty-message,
     .empty-state {
@@ -198,9 +203,9 @@
     }
 
 
-    /* =========================
-       正式團務卡片
-    ========================= */
+    /* =====================================================
+       團務卡片
+    ===================================================== */
 
     .order-card {
       overflow: hidden;
@@ -251,9 +256,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        表單
-    ========================= */
+    ===================================================== */
 
     .form-group {
       margin-bottom: 17px;
@@ -298,9 +303,117 @@
     }
 
 
-    /* =========================
-       商品區
-    ========================= */
+    /* =====================================================
+       商品圖鑑
+    ===================================================== */
+
+    .catalog-note {
+      margin-bottom: 13px;
+      color: #8b8295;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .catalog-warning {
+      margin-bottom: 14px;
+      padding: 10px 12px;
+      background: #fff8e8;
+      color: #8a6a24;
+      border-radius: 13px;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .catalog-gallery {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .catalog-image-card {
+      overflow: hidden;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 14px;
+    }
+
+    .catalog-image {
+      display: block;
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      object-position: top;
+      cursor: zoom-in;
+    }
+
+    .catalog-caption {
+      padding: 7px;
+      color: #7b6d89;
+      font-size: 10px;
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       圖片放大
+    ===================================================== */
+
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      padding: 18px;
+      background: rgba(35, 29, 45, 0.82);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      max-height: 92vh;
+      overflow: auto;
+      background: #ffffff;
+      border-radius: 18px;
+    }
+
+    .image-modal-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .image-close {
+      position: sticky;
+      z-index: 2;
+      top: 10px;
+      float: right;
+      width: 38px;
+      height: 38px;
+      margin:
+        10px
+        10px
+        -48px
+        0;
+      background: rgba(255, 255, 255, 0.92);
+      color: #59349e;
+      border: 1px solid #d9c8ff;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       商品
+    ===================================================== */
 
     .product-placeholder {
       padding: 18px;
@@ -342,7 +455,6 @@
       flex-shrink: 0;
       color: #9f7aea;
       font-size: 18px;
-      font-weight: 500;
     }
 
     details[open] > .product-summary::after {
@@ -351,6 +463,7 @@
 
     .product-summary-left {
       min-width: 0;
+      flex: 1;
     }
 
     .product-name {
@@ -379,6 +492,11 @@
         0 12px
         12px;
     }
+
+
+    /* =====================================================
+       商品選項
+    ===================================================== */
 
     .product-choice {
       display: grid;
@@ -426,9 +544,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        數量
-    ========================= */
+    ===================================================== */
 
     .quantity-control {
       display: flex;
@@ -485,9 +603,9 @@
     }
 
 
-    /* =========================
-       金額
-    ========================= */
+    /* =====================================================
+       總金額
+    ===================================================== */
 
     .total-box {
       display: flex;
@@ -502,9 +620,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        匯款帳號
-    ========================= */
+    ===================================================== */
 
     .bank-account {
       margin-bottom: 11px;
@@ -547,9 +665,9 @@
     }
 
 
-    /* =========================
-       複製按鈕
-    ========================= */
+    /* =====================================================
+       複製
+    ===================================================== */
 
     .copy-button {
       flex-shrink: 0;
@@ -560,7 +678,6 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
-      transition: 0.15s ease;
     }
 
     .copy-button:active {
@@ -574,9 +691,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        送出
-    ========================= */
+    ===================================================== */
 
     .submit-button {
       width: 100%;
@@ -598,9 +715,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        對帳篩選
-    ========================= */
+    ===================================================== */
 
     .filter-label {
       margin: 14px 0 8px;
@@ -633,9 +750,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        對帳表
-    ========================= */
+    ===================================================== */
 
     .progress-group {
       margin-bottom: 18px;
@@ -708,9 +825,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        匯款狀態
-    ========================= */
+    ===================================================== */
 
     .status-paid {
       background: #dff4e6;
@@ -728,9 +845,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        團務進度
-    ========================= */
+    ===================================================== */
 
     .stage-registered {
       background: #eee3ff;
@@ -758,9 +875,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        手機
-    ========================= */
+    ===================================================== */
 
     @media (max-width: 480px) {
 
@@ -791,10 +908,11 @@
         padding: 0;
       }
 
+      .catalog-image {
+        height: 145px;
+      }
+
       .product-choice {
-        grid-template-columns:
-          minmax(0, 1fr)
-          auto;
         gap: 6px;
         padding: 9px 8px;
       }
@@ -843,10 +961,15 @@
         padding: 5px 7px;
         font-size: 11px;
       }
+
     }
 
 
     @media (max-width: 370px) {
+
+      .catalog-image {
+        height: 125px;
+      }
 
       .progress-member-row {
         grid-template-columns:
@@ -867,6 +990,7 @@
       .quantity-control {
         justify-content: flex-end;
       }
+
     }
 
   </style>
@@ -879,9 +1003,9 @@
   <h1>狐狸🦊</h1>
 
 
-  <!-- =========================
+  <!-- =====================================================
        首頁
-  ========================== -->
+  ====================================================== -->
 
   <main
     id="homePage"
@@ -927,9 +1051,9 @@
   </main>
 
 
-  <!-- =========================
+  <!-- =====================================================
        團務
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="groupPage"
@@ -969,9 +1093,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        代購
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="proxyPage"
@@ -1009,6 +1133,7 @@
 
       </div>
 
+
       <button
         type="button"
         class="order-action"
@@ -1022,9 +1147,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        單特典
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="benefitPage"
@@ -1064,9 +1189,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        TWS
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="twsPage"
@@ -1090,9 +1215,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        Stray Kids 單特典
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="skzPage"
@@ -1116,9 +1241,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        注意事項
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="noticePage"
@@ -1144,7 +1269,9 @@
 
       <p>
         所有團物皆為
-        <strong>收齊全部車員款項後</strong>
+        <strong>
+          收齊全部車員款項後
+        </strong>
         才會統一下單。
       </p>
 
@@ -1212,9 +1339,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        匯款表單
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="paymentPage"
@@ -1235,7 +1362,9 @@
     <form id="paymentForm">
 
 
-      <!-- 基本資料 -->
+      <!-- =================================================
+           基本資料
+      ================================================== -->
 
       <div class="card">
 
@@ -1250,7 +1379,9 @@
 
             社群名稱／團務
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -1278,7 +1409,9 @@
 
             Facebook 名稱
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -1291,37 +1424,71 @@
 
         </div>
 
+      </div>
 
-        <div class="form-group">
 
-          <label>
-            商品名稱與價錢
-          </label>
+      <!-- =================================================
+           商品圖鑑
+      ================================================== -->
 
-          <div id="productContainer">
+      <div class="card">
 
-            <div class="product-placeholder">
-              請先選擇社群名稱／團務
+        <div class="card-title">
+          🖼️ 商品圖鑑
+        </div>
+
+        <div class="catalog-note">
+          點擊圖片可以放大查看商品款式。
+        </div>
+
+        <div class="catalog-warning">
+          圖片中的 ¥ 為官方日本定價，實際跟團價格請以本頁面標示的 NT$ 金額為準。
+        </div>
+
+
+        <div class="catalog-gallery">
+
+          <div class="catalog-image-card">
+
+            <img
+              class="catalog-image"
+              src="0274BBA9-788D-4A0A-B71C-42B9E61B07A1.jpeg"
+              alt="RUN IT JAPAN 商品圖 1"
+            >
+
+            <div class="catalog-caption">
+              商品圖 1
             </div>
 
           </div>
 
-          <div
-            class="selected-summary"
-            id="selectedSummary"
-          >
-            已選 0 項
+
+          <div class="catalog-image-card">
+
+            <img
+              class="catalog-image"
+              src="1E9EB6A9-4976-441D-A21F-6A4D76D86169.jpeg"
+              alt="RUN IT JAPAN 商品圖 2"
+            >
+
+            <div class="catalog-caption">
+              商品圖 2
+            </div>
+
           </div>
 
-          <div class="total-box">
 
-            <span>
-              商品總金額
-            </span>
+          <div class="catalog-image-card">
 
-            <span id="calculatedTotal">
-              NT$ 0
-            </span>
+            <img
+              class="catalog-image"
+              src="E0B46464-D8AC-48C8-AE4B-36DB0992A70E.jpeg"
+              alt="RUN IT JAPAN 商品圖 3"
+            >
+
+            <div class="catalog-caption">
+              商品圖 3
+            </div>
 
           </div>
 
@@ -1330,9 +1497,52 @@
       </div>
 
 
-      <!-- =========================
+      <!-- =================================================
+           商品選擇
+      ================================================== -->
+
+      <div class="card">
+
+        <div class="card-title">
+          商品名稱與價錢
+        </div>
+
+
+        <div id="productContainer">
+
+          <div class="product-placeholder">
+            請先選擇社群名稱／團務
+          </div>
+
+        </div>
+
+
+        <div
+          class="selected-summary"
+          id="selectedSummary"
+        >
+          已選 0 件商品
+        </div>
+
+
+        <div class="total-box">
+
+          <span>
+            商品總金額
+          </span>
+
+          <span id="calculatedTotal">
+            NT$ 0
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
            匯款帳號
-      ========================== -->
+      ================================================== -->
 
       <div class="card">
 
@@ -1418,9 +1628,9 @@
       </div>
 
 
-      <!-- =========================
+      <!-- =================================================
            匯款資料
-      ========================== -->
+      ================================================== -->
 
       <div class="card">
 
@@ -1575,9 +1785,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        對帳表
-  ========================== -->
+  ====================================================== -->
 
   <section
     id="progressPage"
@@ -1690,6 +1900,36 @@
   </section>
 
 
+  <!-- =====================================================
+       圖片放大視窗
+  ====================================================== -->
+
+  <div
+    class="image-modal"
+    id="imageModal"
+  >
+
+    <div class="image-modal-content">
+
+      <button
+        type="button"
+        class="image-close"
+        id="imageClose"
+      >
+        ×
+      </button>
+
+      <img
+        id="modalImage"
+        src=""
+        alt="商品圖"
+      >
+
+    </div>
+
+  </div>
+
+
 
   <script>
 
@@ -1706,16 +1946,20 @@
     ===================================================== */
 
     const pages =
-      document.querySelectorAll(".page");
+      document.querySelectorAll(
+        ".page"
+      );
 
 
     function showPage(pageId) {
 
       pages.forEach(
         page => {
+
           page.classList.remove(
             "active-page"
           );
+
         }
       );
 
@@ -1767,7 +2011,7 @@
 
 
     /* =====================================================
-       膠囊選取
+       膠囊按鈕選取
     ===================================================== */
 
     document
@@ -1792,11 +2036,14 @@
 
                   buttons.forEach(
                     item => {
+
                       item.classList.remove(
                         "selected"
                       );
+
                     }
                   );
+
 
                   button.classList.add(
                     "selected"
@@ -1810,6 +2057,95 @@
 
         }
       );
+
+
+    /* =====================================================
+       圖片放大
+    ===================================================== */
+
+    const imageModal =
+      document.getElementById(
+        "imageModal"
+      );
+
+    const modalImage =
+      document.getElementById(
+        "modalImage"
+      );
+
+    const imageClose =
+      document.getElementById(
+        "imageClose"
+      );
+
+
+    document
+      .querySelectorAll(
+        ".catalog-image"
+      )
+      .forEach(
+        image => {
+
+          image.addEventListener(
+            "click",
+            () => {
+
+              modalImage.src =
+                image.src;
+
+              modalImage.alt =
+                image.alt;
+
+              imageModal.classList.add(
+                "open"
+              );
+
+              document.body.style.overflow =
+                "hidden";
+
+            }
+          );
+
+        }
+      );
+
+
+    function closeImageModal() {
+
+      imageModal.classList.remove(
+        "open"
+      );
+
+      modalImage.src =
+        "";
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    imageClose.addEventListener(
+      "click",
+      closeImageModal
+    );
+
+
+    imageModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          imageModal
+        ) {
+
+          closeImageModal();
+
+        }
+
+      }
+    );
 
 
     /* =====================================================
@@ -1833,7 +2169,9 @@
         ) {
 
           await navigator.clipboard
-            .writeText(account);
+            .writeText(
+              account
+            );
 
         } else {
 
@@ -1874,6 +2212,7 @@
         );
 
         textarea.focus();
+
         textarea.select();
 
         textarea.setSelectionRange(
@@ -1920,6 +2259,7 @@
     ===================================================== */
 
     const skzMembers = [
+
       "Bang Chan",
       "Lee Know",
       "Changbin",
@@ -1928,40 +2268,54 @@
       "Felix",
       "Seungmin",
       "I.N"
+
     ];
 
 
     /* =====================================================
-       幫 T-shirt 建立
-       成員 × 尺寸
+       T-shirt 成員 × 尺寸
     ===================================================== */
 
     const tShirtVariants =
       skzMembers.flatMap(
         member => [
+
           `${member} / M`,
+
           `${member} / L`
+
         ]
       );
 
 
     /* =====================================================
-       正式商品資料
+       商品資料
     ===================================================== */
 
     const productData = {
 
       "run-it-japan": [
 
-        {
-          name: "T-shirt",
-          price: 990,
-          variants: tShirtVariants
-        },
 
         {
-          name: "Photo T-shirt",
-          price: 990,
+          name:
+            "T-shirt",
+
+          price:
+            990,
+
+          variants:
+            tShirtVariants
+        },
+
+
+        {
+          name:
+            "照片 T-shirt",
+
+          price:
+            990,
+
           variants: [
             "M",
             "L",
@@ -1969,149 +2323,275 @@
           ]
         },
 
+
         {
-          name: "Windbreaker",
-          price: 2090,
+          name:
+            "防風外套",
+
+          price:
+            2090,
+
           variants: [
             "M",
             "L"
           ]
         },
 
-        {
-          name: "Muffler towel",
-          price: 615,
-          variants: skzMembers
-        },
 
         {
-          name: "扇子",
-          price: 180,
-          variants: skzMembers
+          name:
+            "應援毛巾",
+
+          price:
+            615,
+
+          variants:
+            skzMembers
         },
 
-        {
-          name: "Random trading card",
-          price: 120
-        },
 
         {
-          name: "隨機迷你壓克力吊飾",
-          price: 180
+          name:
+            "扇子",
+
+          price:
+            180,
+
+          variants:
+            skzMembers
         },
 
-        {
-          name: "壓克力立牌",
-          price: 350,
-          variants: skzMembers
-        },
 
         {
-          name: "照片徽章",
-          price: 140,
-          variants: skzMembers
+          name:
+            "隨機小卡",
+
+          price:
+            120
         },
 
+
         {
-          name: "照片組",
-          price: 310,
+          name:
+            "隨機迷你壓克力立牌吊飾",
+
+          price:
+            180
+        },
+
+
+        {
+          name:
+            "壓克力立牌",
+
+          price:
+            350,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "照片徽章",
+
+          price:
+            140,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "小卡組",
+
+          price:
+            310,
+
           variants: [
             "A",
             "B"
           ]
         },
 
-        {
-          name: "Photo face towel",
-          price: 550,
-          variants: skzMembers
-        },
 
         {
-          name: "Shopping Bag",
-          price: 550
+          name:
+            "肖像應援毛巾",
+
+          price:
+            550,
+
+          variants:
+            skzMembers
         },
 
-        {
-          name: "Profile card set",
-          price: 220
-        },
 
         {
-          name: "成員設計徽章組",
-          price: 330,
-          variants: skzMembers
+          name:
+            "購物袋",
+
+          price:
+            550
         },
 
-        {
-          name: "Multi case",
-          price: 570
-        },
 
         {
-          name: "Magnetic card case",
-          price: 550
+          name:
+            "個人資料卡組",
+
+          price:
+            220
         },
 
-        {
-          name: "Random key ring",
-          price: 310
-        },
 
         {
-          name: "Random key holder charm",
-          price: 220
+          name:
+            "成員設計徽章組",
+
+          price:
+            330,
+
+          variants:
+            skzMembers
         },
 
-        {
-          name: "Shoulder pouch",
-          price: 700,
-          variants: skzMembers
-        },
 
         {
-          name: "Carabiner pouch",
-          price: 620,
-          variants: skzMembers
+          name:
+            "收納套",
+
+          price:
+            570
         },
 
-        {
-          name: "Multi strap",
-          price: 660,
-          variants: skzMembers
-        },
 
         {
-          name: "髮圈",
-          price: 660,
-          variants: skzMembers
+          name:
+            "磁吸卡套",
+
+          price:
+            550
         },
 
-        {
-          name: "Multi pouch",
-          price: 990
-        },
 
         {
-          name: "Trading card case",
-          price: 990
+          name:
+            "隨機鑰匙圈",
+
+          price:
+            310
         },
 
-        {
-          name: "耳環",
-          price: 450,
-          variants: skzMembers
-        },
 
         {
-          name: "Towel holder",
-          price: 330
+          name:
+            "隨機鑰匙圈吊飾",
+
+          price:
+            220
         },
 
+
         {
-          name: "扇套",
-          price: 660,
-          variants: skzMembers
+          name:
+            "肩背包",
+
+          price:
+            700,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "登山扣收納包",
+
+          price:
+            620,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "多功能掛繩",
+
+          price:
+            660,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "髮圈",
+
+          price:
+            660,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "手燈收納包",
+
+          price:
+            990
+        },
+
+
+        {
+          name:
+            "小卡冊",
+
+          price:
+            990
+        },
+
+
+        {
+          name:
+            "耳環",
+
+          price:
+            450,
+
+          variants:
+            skzMembers
+        },
+
+
+        {
+          name:
+            "毛巾掛帶",
+
+          price:
+            330
+        },
+
+
+        {
+          name:
+            "扇套",
+
+          price:
+            660,
+
+          variants:
+            skzMembers
         }
 
       ]
@@ -2120,7 +2600,7 @@
 
 
     /* =====================================================
-       團務分類
+       團務資料
     ===================================================== */
 
     const groupMeta = {
@@ -2150,20 +2630,24 @@
         "communitySelect"
       );
 
+
     const productContainer =
       document.getElementById(
         "productContainer"
       );
+
 
     const calculatedTotal =
       document.getElementById(
         "calculatedTotal"
       );
 
+
     const selectedSummary =
       document.getElementById(
         "selectedSummary"
       );
+
 
     const paymentAmount =
       document.getElementById(
@@ -2172,7 +2656,7 @@
 
 
     /* =====================================================
-       對 HTML 特殊字元處理
+       防止文字被當成 HTML
     ===================================================== */
 
     function escapeHTML(value) {
@@ -2205,7 +2689,7 @@
 
 
     /* =====================================================
-       商品選項 HTML
+       商品選項
     ===================================================== */
 
     function createChoiceHTML(
@@ -2237,7 +2721,11 @@
             >
 
             <span class="choice-label">
-              ${escapeHTML(label)}
+
+              ${escapeHTML(
+                label
+              )}
+
             </span>
 
           </label>
@@ -2253,6 +2741,7 @@
               −
             </button>
 
+
             <input
               class="qty-input"
               type="number"
@@ -2262,6 +2751,7 @@
               value="1"
               disabled
             >
+
 
             <button
               class="qty-button qty-plus"
@@ -2281,17 +2771,21 @@
 
 
     /* =====================================================
-       商品顯示
+       顯示商品
     ===================================================== */
 
-    function renderProducts(groupId) {
+    function renderProducts(
+      groupId
+    ) {
 
       productContainer.innerHTML =
         "";
 
 
       const products =
-        productData[groupId];
+        productData[
+          groupId
+        ];
 
 
       if (
@@ -2307,6 +2801,7 @@
 
         `;
 
+
         updateTotal();
 
         return;
@@ -2316,6 +2811,7 @@
 
       products.forEach(
         product => {
+
 
           const variants =
             Array.isArray(
@@ -2343,12 +2839,18 @@
                 );
 
 
-          const hint =
+          let hint =
+            "可選數量";
+
+
+          if (
             variants.length > 0
+          ) {
 
-              ? `${variants.length} 個選項・可複選`
+            hint =
+              `${variants.length} 個選項・可複選`;
 
-              : "可選數量";
+          }
 
 
           const productCard =
@@ -2368,13 +2870,20 @@
               <div class="product-summary-left">
 
                 <div class="product-name">
+
                   ${escapeHTML(
                     product.name
                   )}
+
                 </div>
 
+
                 <div class="product-hint">
-                  ${hint}
+
+                  ${escapeHTML(
+                    hint
+                  )}
+
                 </div>
 
               </div>
@@ -2431,20 +2940,24 @@
         .forEach(
           row => {
 
+
             const checkbox =
               row.querySelector(
                 ".product-checkbox"
               );
+
 
             const qtyInput =
               row.querySelector(
                 ".qty-input"
               );
 
+
             const minusButton =
               row.querySelector(
                 ".qty-minus"
               );
+
 
             const plusButton =
               row.querySelector(
@@ -2452,9 +2965,14 @@
               );
 
 
+            /* =====================
+               勾選
+            ===================== */
+
             checkbox.addEventListener(
               "change",
               () => {
+
 
                 const enabled =
                   checkbox.checked;
@@ -2463,16 +2981,20 @@
                 qtyInput.disabled =
                   !enabled;
 
+
                 minusButton.disabled =
                   !enabled;
+
 
                 plusButton.disabled =
                   !enabled;
 
 
                 if (!enabled) {
+
                   qtyInput.value =
                     "1";
+
                 }
 
 
@@ -2488,9 +3010,14 @@
             );
 
 
+            /* =====================
+               減少
+            ===================== */
+
             minusButton.addEventListener(
               "click",
               () => {
+
 
                 let quantity =
                   Number(
@@ -2516,9 +3043,14 @@
             );
 
 
+            /* =====================
+               增加
+            ===================== */
+
             plusButton.addEventListener(
               "click",
               () => {
+
 
                 let quantity =
                   Number(
@@ -2544,9 +3076,14 @@
             );
 
 
+            /* =====================
+               手動輸入數量
+            ===================== */
+
             qtyInput.addEventListener(
               "input",
               () => {
+
 
                 let quantity =
                   Number(
@@ -2561,7 +3098,8 @@
                   quantity < 1
                 ) {
 
-                  quantity = 1;
+                  quantity =
+                    1;
 
                 }
 
@@ -2570,7 +3108,8 @@
                   quantity > 99
                 ) {
 
-                  quantity = 99;
+                  quantity =
+                    99;
 
                 }
 
@@ -2608,12 +3147,14 @@
       let total =
         0;
 
+
       let totalQuantity =
         0;
 
 
       checkedProducts.forEach(
         checkbox => {
+
 
           const row =
             checkbox.closest(
@@ -2645,7 +3186,8 @@
 
 
           total +=
-            price * quantity;
+            price *
+            quantity;
 
 
           totalQuantity +=
@@ -2690,7 +3232,7 @@
 
 
     /* =====================================================
-       代購頁 → 前往表單
+       代購頁直接前往表單
     ===================================================== */
 
     document
@@ -2700,6 +3242,7 @@
       .addEventListener(
         "click",
         () => {
+
 
           communitySelect.value =
             "run-it-japan";
@@ -2719,7 +3262,7 @@
 
 
     /* =====================================================
-       匯款表單
+       匯款表單送出
     ===================================================== */
 
     const paymentForm =
@@ -2731,6 +3274,7 @@
     paymentForm.addEventListener(
       "submit",
       async event => {
+
 
         event.preventDefault();
 
@@ -2749,10 +3293,12 @@
 
 
         const checkedProducts = [
+
           ...productContainer
             .querySelectorAll(
               ".product-checkbox:checked"
             )
+
         ];
 
 
@@ -2806,13 +3352,14 @@
           ] || {};
 
 
-        /* =========================
-           整理商品＋數量
-        ========================= */
+        /* =================================================
+           整理商品
+        ================================================= */
 
         const selectedProducts =
           checkedProducts.map(
             checkbox => {
+
 
               const row =
                 checkbox.closest(
@@ -2859,7 +3406,9 @@
                 productName;
 
 
-              if (variant) {
+              if (
+                variant
+              ) {
 
                 displayName +=
                   `｜${variant}`;
@@ -2897,9 +3446,9 @@
           );
 
 
-        /* =========================
+        /* =================================================
            表單資料
-        ========================= */
+        ================================================= */
 
         const formData = {
 
@@ -2974,19 +3523,22 @@
 
 
         const submitButton =
-          paymentForm.querySelector(
-            ".submit-button"
-          );
+          paymentForm
+            .querySelector(
+              ".submit-button"
+            );
 
 
         submitButton.disabled =
           true;
+
 
         submitButton.textContent =
           "送出中…";
 
 
         try {
+
 
           const response =
             await fetch(
@@ -2997,8 +3549,10 @@
                   "POST",
 
                 headers: {
+
                   "Content-Type":
                     "application/json"
+
                 },
 
                 body:
@@ -3018,6 +3572,7 @@
             response.ok &&
             result.success
           ) {
+
 
             alert(
               "匯款資料已成功送出 🦊"
@@ -3041,7 +3596,7 @@
 
 
             selectedSummary.textContent =
-              "已選 0 項";
+              "已選 0 件商品";
 
 
             paymentAmount.value =
@@ -3050,7 +3605,9 @@
 
             loadPublicProgress();
 
+
           } else {
+
 
             console.error(
               result
@@ -3067,7 +3624,9 @@
 
           }
 
+
         } catch (error) {
+
 
           console.error(
             error
@@ -3078,7 +3637,9 @@
             "目前無法送出資料，請確認網路後再試。"
           );
 
+
         } finally {
+
 
           submitButton.disabled =
             false;
@@ -3100,8 +3661,10 @@
     let defaultProgressData =
       [];
 
+
     let currentTypeFilter =
       "all";
+
 
     let currentGroupFilter =
       "all";
@@ -3125,6 +3688,7 @@
 
     async function loadPublicProgress() {
 
+
       progressList.innerHTML = `
 
         <div class="card empty-message">
@@ -3136,13 +3700,16 @@
 
       try {
 
+
         const response =
           await fetch(
             WORKER_URL +
             "/public/list",
             {
+
               cache:
                 "no-store"
+
             }
           );
 
@@ -3174,7 +3741,9 @@
 
         renderProgress();
 
+
       } catch (error) {
+
 
         console.error(
           error
@@ -3200,6 +3769,7 @@
 
     function renderProgress() {
 
+
       const searchText =
         communitySearch
           .value
@@ -3210,6 +3780,7 @@
       const filteredData =
         defaultProgressData.filter(
           item => {
+
 
             const itemType =
               String(
@@ -3286,7 +3857,8 @@
 
 
       if (
-        filteredData.length === 0
+        filteredData.length ===
+        0
       ) {
 
         progressList.innerHTML = `
@@ -3302,12 +3874,17 @@
       }
 
 
+      /* =================================================
+         依活動名稱分組
+      ================================================= */
+
       const groupedData =
         {};
 
 
       filteredData.forEach(
         item => {
+
 
           const activityName =
             item.activity ||
@@ -3323,7 +3900,8 @@
 
             groupedData[
               activityName
-            ] = [];
+            ] =
+              [];
 
           }
 
@@ -3338,6 +3916,10 @@
       );
 
 
+      /* =================================================
+         顯示每一團
+      ================================================= */
+
       Object.entries(
         groupedData
       )
@@ -3348,6 +3930,7 @@
               items
             ]
           ) => {
+
 
             const groupElement =
               document.createElement(
@@ -3363,6 +3946,7 @@
               items
                 .map(
                   item => {
+
 
                     const facebookName =
                       item.facebookName ||
@@ -3384,7 +3968,9 @@
                       "已登記";
 
 
-                    /* 匯款狀態 */
+                    /* =====================
+                       匯款狀態
+                    ===================== */
 
                     let paymentClass =
                       "status-unpaid";
@@ -3409,7 +3995,9 @@
                     }
 
 
-                    /* 團務進度 */
+                    /* =====================
+                       團務進度
+                    ===================== */
 
                     let progressClass =
                       "stage-registered";
@@ -3454,19 +4042,27 @@
 
                       <div class="progress-member-row">
 
+
                         <div class="progress-member-info">
 
+
                           <div class="facebook-name">
+
                             ${escapeHTML(
                               facebookName
                             )}
+
                           </div>
 
+
                           <div class="community-small">
+
                             ${escapeHTML(
                               community
                             )}
+
                           </div>
+
 
                         </div>
 
@@ -3474,19 +4070,24 @@
                         <div
                           class="status-pill ${paymentClass}"
                         >
+
                           ${escapeHTML(
                             paymentStatus
                           )}
+
                         </div>
 
 
                         <div
                           class="stage-pill ${progressClass}"
                         >
+
                           ${escapeHTML(
                             progress
                           )}
+
                         </div>
+
 
                       </div>
 
@@ -3528,7 +4129,7 @@
 
 
     /* =====================================================
-       依團務
+       依團務篩選
     ===================================================== */
 
     document
@@ -3538,9 +4139,11 @@
       .forEach(
         button => {
 
+
           button.addEventListener(
             "click",
             () => {
+
 
               document
                 .querySelectorAll(
@@ -3576,7 +4179,7 @@
 
 
     /* =====================================================
-       依團體
+       依團體篩選
     ===================================================== */
 
     document
@@ -3586,9 +4189,11 @@
       .forEach(
         button => {
 
+
           button.addEventListener(
             "click",
             () => {
+
 
               document
                 .querySelectorAll(
