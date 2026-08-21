@@ -2,7 +2,6 @@
 <html lang="zh-TW">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -17,9 +16,7 @@
 
   <title>狐狸🦊</title>
 
-
   <style>
-
     /* =========================
        基本設定
     ========================= */
@@ -84,7 +81,6 @@
     }
 
     @keyframes pageIn {
-
       from {
         opacity: 0;
         transform: translateY(8px);
@@ -94,7 +90,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
 
@@ -159,7 +154,7 @@
 
 
     /* =========================
-       卡片
+       一般卡片
     ========================= */
 
     .card {
@@ -191,7 +186,7 @@
 
 
     /* =========================
-       空白狀態
+       空白
     ========================= */
 
     .empty-message,
@@ -200,6 +195,59 @@
       color: #8b8295;
       text-align: center;
       line-height: 1.8;
+    }
+
+
+    /* =========================
+       正式團務卡片
+    ========================= */
+
+    .order-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .order-top {
+      padding: 20px;
+    }
+
+    .order-group {
+      margin-bottom: 7px;
+      color: #927ead;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .order-name {
+      color: #59349e;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .order-status {
+      display: inline-flex;
+      margin-top: 12px;
+      padding: 6px 11px;
+      background: #e4f5e8;
+      color: #287747;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .order-action {
+      width: 100%;
+      padding: 13px;
+      background: #f1eaff;
+      color: #6842b3;
+      border: none;
+      border-top: 1px solid #e5dafb;
+      font-weight: 700;
+    }
+
+    .order-action:active {
+      background: #e7dcff;
     }
 
 
@@ -251,7 +299,7 @@
 
 
     /* =========================
-       商品
+       商品區
     ========================= */
 
     .product-placeholder {
@@ -263,35 +311,183 @@
       text-align: center;
     }
 
-    .product-option {
+    .product-card {
+      margin-bottom: 11px;
+      overflow: hidden;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 16px;
+    }
+
+    .product-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .product-summary {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
-      padding: 12px 14px;
-      background: #faf8ff;
-      border: 1px solid #eee6ff;
-      border-radius: 15px;
+      padding: 14px;
+      cursor: pointer;
+      list-style: none;
     }
 
-    .product-left {
-      display: flex;
-      align-items: center;
-      gap: 9px;
+    .product-summary::-webkit-details-marker {
+      display: none;
     }
 
-    .product-left input {
-      width: 18px;
-      height: 18px;
-      accent-color: #9f7aea;
+    .product-summary::after {
+      content: "＋";
+      flex-shrink: 0;
+      color: #9f7aea;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    details[open] > .product-summary::after {
+      content: "－";
+    }
+
+    .product-summary-left {
+      min-width: 0;
+    }
+
+    .product-name {
+      color: #554b62;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .product-hint {
+      margin-top: 3px;
+      color: #9b8fa7;
+      font-size: 10px;
     }
 
     .product-price {
+      flex-shrink: 0;
       color: #6b46c1;
+      font-size: 13px;
       font-weight: 700;
       white-space: nowrap;
     }
+
+    .variant-list {
+      padding:
+        0 12px
+        12px;
+    }
+
+    .product-choice {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+      align-items: center;
+      gap: 10px;
+      margin-top: 7px;
+      padding: 10px;
+      background: #ffffff;
+      border: 1px solid #eee6ff;
+      border-radius: 13px;
+      transition: 0.15s ease;
+    }
+
+    .product-choice.selected-choice {
+      background: #f7f2ff;
+      border-color: #d2bdf9;
+    }
+
+    .choice-main {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      margin: 0 !important;
+      color: #594d68 !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      cursor: pointer;
+    }
+
+    .choice-main input {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      padding: 0;
+      accent-color: #9f7aea;
+    }
+
+    .choice-label {
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       數量
+    ========================= */
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 4px;
+    }
+
+    .qty-button {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: #f1eaff;
+      color: #6842b3;
+      border: 1px solid #d9c8ff;
+      border-radius: 50%;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .qty-button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .qty-input {
+      width: 38px;
+      height: 30px;
+      padding: 2px;
+      background: #ffffff;
+      border: 1px solid #e5daf8;
+      border-radius: 9px;
+      color: #554b62;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .qty-input:disabled {
+      background: #f6f4f8;
+      color: #aca5b3;
+    }
+
+    .qty-input::-webkit-inner-spin-button,
+    .qty-input::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+
+    .selected-summary {
+      margin-top: 12px;
+      color: #8b8295;
+      font-size: 12px;
+      text-align: right;
+    }
+
+
+    /* =========================
+       金額
+    ========================= */
 
     .total-box {
       display: flex;
@@ -379,7 +575,7 @@
 
 
     /* =========================
-       送出按鈕
+       送出
     ========================= */
 
     .submit-button {
@@ -437,9 +633,9 @@
     }
 
 
-    /* =====================================================
-       對帳表格式
-    ===================================================== */
+    /* =========================
+       對帳表
+    ========================= */
 
     .progress-group {
       margin-bottom: 18px;
@@ -496,11 +692,6 @@
       word-break: break-word;
     }
 
-
-    /* =========================
-       狀態 Pills
-    ========================= */
-
     .status-pill,
     .stage-pill {
       display: flex;
@@ -518,7 +709,7 @@
 
 
     /* =========================
-       匯款狀態顏色
+       匯款狀態
     ========================= */
 
     .status-paid {
@@ -538,7 +729,7 @@
 
 
     /* =========================
-       團務進度顏色
+       團務進度
     ========================= */
 
     .stage-registered {
@@ -568,7 +759,7 @@
 
 
     /* =========================
-       手機版
+       手機
     ========================= */
 
     @media (max-width: 480px) {
@@ -594,6 +785,34 @@
 
       .card {
         padding: 17px;
+      }
+
+      .order-card {
+        padding: 0;
+      }
+
+      .product-choice {
+        grid-template-columns:
+          minmax(0, 1fr)
+          auto;
+        gap: 6px;
+        padding: 9px 8px;
+      }
+
+      .choice-main {
+        font-size: 11px !important;
+      }
+
+      .qty-button {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+      }
+
+      .qty-input {
+        width: 34px;
+        height: 28px;
+        font-size: 11px;
       }
 
       .progress-member-row {
@@ -624,7 +843,6 @@
         padding: 5px 7px;
         font-size: 11px;
       }
-
     }
 
 
@@ -642,6 +860,13 @@
         font-size: 10px;
       }
 
+      .product-choice {
+        grid-template-columns: 1fr;
+      }
+
+      .quantity-control {
+        justify-content: flex-end;
+      }
     }
 
   </style>
@@ -667,7 +892,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="groupPage"
       >
         📦 團務
@@ -675,7 +900,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="noticePage"
       >
         📌 注意事項
@@ -683,7 +908,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="paymentPage"
       >
         💰 匯款表單
@@ -691,7 +916,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="progressPage"
       >
         📊 對帳表＆進度表
@@ -725,7 +950,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="proxyPage"
       >
         代購
@@ -733,7 +958,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="benefitPage"
       >
         單特典
@@ -763,8 +988,35 @@
 
     <h2>🛒 代購</h2>
 
-    <div class="card empty-message">
-      目前暫無團務 🦊
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+        <div class="order-name">
+          Stray Kids World Tour
+          ＜RUN IT JAPAN＞
+          OFFICIAL GOODS 線上團
+        </div>
+
+        <div class="order-status">
+          開放中
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="order-action"
+        id="runItOrderButton"
+      >
+        前往匯款表單
+      </button>
+
     </div>
 
   </section>
@@ -793,7 +1045,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="twsPage"
       >
         TWS
@@ -801,7 +1053,7 @@
 
       <button
         type="button"
-        class="pill-button navigation-button"
+        class="pill-button"
         data-target="skzPage"
       >
         Stray Kids
@@ -839,7 +1091,7 @@
 
 
   <!-- =========================
-       Stray Kids
+       Stray Kids 單特典
   ========================== -->
 
   <section
@@ -892,9 +1144,7 @@
 
       <p>
         所有團物皆為
-        <strong>
-          收齊全部車員款項後
-        </strong>
+        <strong>收齊全部車員款項後</strong>
         才會統一下單。
       </p>
 
@@ -979,9 +1229,7 @@
       ← 返回首頁
     </button>
 
-    <h2>
-      💰 匯款表單
-    </h2>
+    <h2>💰 匯款表單</h2>
 
 
     <form id="paymentForm">
@@ -1002,9 +1250,7 @@
 
             社群名稱／團務
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1014,7 +1260,11 @@
           >
 
             <option value="">
-              目前暫無開放中的團務
+              請選擇社群名稱／團務
+            </option>
+
+            <option value="run-it-japan">
+              Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
             </option>
 
           </select>
@@ -1028,9 +1278,7 @@
 
             Facebook 名稱
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1053,11 +1301,17 @@
           <div id="productContainer">
 
             <div class="product-placeholder">
-              目前暫無商品
+              請先選擇社群名稱／團務
             </div>
 
           </div>
 
+          <div
+            class="selected-summary"
+            id="selectedSummary"
+          >
+            已選 0 項
+          </div>
 
           <div class="total-box">
 
@@ -1181,9 +1435,7 @@
 
             匯款日期
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1202,9 +1454,7 @@
 
             匯款時間
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1223,9 +1473,7 @@
 
             匯款銀行
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1261,9 +1509,7 @@
 
             匯款金額
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1271,7 +1517,7 @@
             id="paymentAmount"
             type="number"
             min="0"
-            placeholder="商品開放後會自動計算"
+            placeholder="商品選擇後會自動計算"
             required
           >
 
@@ -1284,9 +1530,7 @@
 
             匯款帳號後五碼
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1462,22 +1706,16 @@
     ===================================================== */
 
     const pages =
-      document.querySelectorAll(
-        ".page"
-      );
+      document.querySelectorAll(".page");
 
 
-    function showPage(
-      pageId
-    ) {
+    function showPage(pageId) {
 
       pages.forEach(
-        (page) => {
-
+        page => {
           page.classList.remove(
             "active-page"
           );
-
         }
       );
 
@@ -1511,7 +1749,7 @@
         "[data-target]"
       )
       .forEach(
-        (button) => {
+        button => {
 
           button.addEventListener(
             "click",
@@ -1529,7 +1767,7 @@
 
 
     /* =====================================================
-       膠囊按鈕選取
+       膠囊選取
     ===================================================== */
 
     document
@@ -1537,7 +1775,7 @@
         ".menu-grid"
       )
       .forEach(
-        (menu) => {
+        menu => {
 
           const buttons =
             menu.querySelectorAll(
@@ -1546,22 +1784,19 @@
 
 
           buttons.forEach(
-            (button) => {
+            button => {
 
               button.addEventListener(
                 "click",
                 () => {
 
                   buttons.forEach(
-                    (item) => {
-
+                    item => {
                       item.classList.remove(
                         "selected"
                       );
-
                     }
                   );
-
 
                   button.classList.add(
                     "selected"
@@ -1578,7 +1813,7 @@
 
 
     /* =====================================================
-       複製銀行帳號
+       複製帳號
     ===================================================== */
 
     async function copyBankAccount(
@@ -1598,9 +1833,7 @@
         ) {
 
           await navigator.clipboard
-            .writeText(
-              account
-            );
+            .writeText(account);
 
         } else {
 
@@ -1621,12 +1854,10 @@
         textarea.value =
           account;
 
-
         textarea.setAttribute(
           "readonly",
           ""
         );
-
 
         textarea.style.position =
           "fixed";
@@ -1642,22 +1873,17 @@
           textarea
         );
 
-
         textarea.focus();
-
         textarea.select();
-
 
         textarea.setSelectionRange(
           0,
           textarea.value.length
         );
 
-
         document.execCommand(
           "copy"
         );
-
 
         textarea.remove();
 
@@ -1666,7 +1892,6 @@
 
       button.textContent =
         "✓ 已複製";
-
 
       button.classList.add(
         "copied"
@@ -1678,7 +1903,6 @@
 
           button.textContent =
             originalText;
-
 
           button.classList.remove(
             "copied"
@@ -1692,38 +1916,254 @@
 
 
     /* =====================================================
-       商品資料
-       目前暫無團務
+       Stray Kids 成員
     ===================================================== */
 
-    const productData = {};
+    const skzMembers = [
+      "Bang Chan",
+      "Lee Know",
+      "Changbin",
+      "Hyunjin",
+      "HAN",
+      "Felix",
+      "Seungmin",
+      "I.N"
+    ];
+
+
+    /* =====================================================
+       幫 T-shirt 建立
+       成員 × 尺寸
+    ===================================================== */
+
+    const tShirtVariants =
+      skzMembers.flatMap(
+        member => [
+          `${member} / M`,
+          `${member} / L`
+        ]
+      );
+
+
+    /* =====================================================
+       正式商品資料
+    ===================================================== */
+
+    const productData = {
+
+      "run-it-japan": [
+
+        {
+          name: "T-shirt",
+          price: 990,
+          variants: tShirtVariants
+        },
+
+        {
+          name: "Photo T-shirt",
+          price: 990,
+          variants: [
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+
+        {
+          name: "Windbreaker",
+          price: 2090,
+          variants: [
+            "M",
+            "L"
+          ]
+        },
+
+        {
+          name: "Muffler towel",
+          price: 615,
+          variants: skzMembers
+        },
+
+        {
+          name: "扇子",
+          price: 180,
+          variants: skzMembers
+        },
+
+        {
+          name: "Random trading card",
+          price: 120
+        },
+
+        {
+          name: "隨機迷你壓克力吊飾",
+          price: 180
+        },
+
+        {
+          name: "壓克力立牌",
+          price: 350,
+          variants: skzMembers
+        },
+
+        {
+          name: "照片徽章",
+          price: 140,
+          variants: skzMembers
+        },
+
+        {
+          name: "照片組",
+          price: 310,
+          variants: [
+            "A",
+            "B"
+          ]
+        },
+
+        {
+          name: "Photo face towel",
+          price: 550,
+          variants: skzMembers
+        },
+
+        {
+          name: "Shopping Bag",
+          price: 550
+        },
+
+        {
+          name: "Profile card set",
+          price: 220
+        },
+
+        {
+          name: "成員設計徽章組",
+          price: 330,
+          variants: skzMembers
+        },
+
+        {
+          name: "Multi case",
+          price: 570
+        },
+
+        {
+          name: "Magnetic card case",
+          price: 550
+        },
+
+        {
+          name: "Random key ring",
+          price: 310
+        },
+
+        {
+          name: "Random key holder charm",
+          price: 220
+        },
+
+        {
+          name: "Shoulder pouch",
+          price: 700,
+          variants: skzMembers
+        },
+
+        {
+          name: "Carabiner pouch",
+          price: 620,
+          variants: skzMembers
+        },
+
+        {
+          name: "Multi strap",
+          price: 660,
+          variants: skzMembers
+        },
+
+        {
+          name: "髮圈",
+          price: 660,
+          variants: skzMembers
+        },
+
+        {
+          name: "Multi pouch",
+          price: 990
+        },
+
+        {
+          name: "Trading card case",
+          price: 990
+        },
+
+        {
+          name: "耳環",
+          price: 450,
+          variants: skzMembers
+        },
+
+        {
+          name: "Towel holder",
+          price: 330
+        },
+
+        {
+          name: "扇套",
+          price: 660,
+          variants: skzMembers
+        }
+
+      ]
+
+    };
 
 
     /* =====================================================
        團務分類
-       目前暫無團務
     ===================================================== */
 
-    const groupMeta = {};
+    const groupMeta = {
 
+      "run-it-japan": {
+
+        groupType:
+          "代購",
+
+        group:
+          "Stray Kids",
+
+        activity:
+          "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
+
+      }
+
+    };
+
+
+    /* =====================================================
+       元素
+    ===================================================== */
 
     const communitySelect =
       document.getElementById(
         "communitySelect"
       );
 
-
     const productContainer =
       document.getElementById(
         "productContainer"
       );
-
 
     const calculatedTotal =
       document.getElementById(
         "calculatedTotal"
       );
 
+    const selectedSummary =
+      document.getElementById(
+        "selectedSummary"
+      );
 
     const paymentAmount =
       document.getElementById(
@@ -1732,12 +2172,433 @@
 
 
     /* =====================================================
-       計算商品金額
+       對 HTML 特殊字元處理
+    ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(
+        value ?? ""
+      )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* =====================================================
+       商品選項 HTML
+    ===================================================== */
+
+    function createChoiceHTML(
+      product,
+      variant = ""
+    ) {
+
+      const label =
+        variant ||
+        "加入此商品";
+
+
+      return `
+
+        <div class="product-choice">
+
+          <label class="choice-main">
+
+            <input
+              class="product-checkbox"
+              type="checkbox"
+              data-product="${escapeHTML(
+                product.name
+              )}"
+              data-variant="${escapeHTML(
+                variant
+              )}"
+              data-price="${product.price}"
+            >
+
+            <span class="choice-label">
+              ${escapeHTML(label)}
+            </span>
+
+          </label>
+
+
+          <div class="quantity-control">
+
+            <button
+              class="qty-button qty-minus"
+              type="button"
+              disabled
+            >
+              −
+            </button>
+
+            <input
+              class="qty-input"
+              type="number"
+              inputmode="numeric"
+              min="1"
+              max="99"
+              value="1"
+              disabled
+            >
+
+            <button
+              class="qty-button qty-plus"
+              type="button"
+              disabled
+            >
+              ＋
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =====================================================
+       商品顯示
+    ===================================================== */
+
+    function renderProducts(groupId) {
+
+      productContainer.innerHTML =
+        "";
+
+
+      const products =
+        productData[groupId];
+
+
+      if (
+        !products ||
+        products.length === 0
+      ) {
+
+        productContainer.innerHTML = `
+
+          <div class="product-placeholder">
+            請先選擇社群名稱／團務
+          </div>
+
+        `;
+
+        updateTotal();
+
+        return;
+
+      }
+
+
+      products.forEach(
+        product => {
+
+          const variants =
+            Array.isArray(
+              product.variants
+            )
+              ? product.variants
+              : [];
+
+
+          const choicesHTML =
+            variants.length > 0
+
+              ? variants
+                  .map(
+                    variant =>
+                      createChoiceHTML(
+                        product,
+                        variant
+                      )
+                  )
+                  .join("")
+
+              : createChoiceHTML(
+                  product
+                );
+
+
+          const hint =
+            variants.length > 0
+
+              ? `${variants.length} 個選項・可複選`
+
+              : "可選數量";
+
+
+          const productCard =
+            document.createElement(
+              "details"
+            );
+
+
+          productCard.className =
+            "product-card";
+
+
+          productCard.innerHTML = `
+
+            <summary class="product-summary">
+
+              <div class="product-summary-left">
+
+                <div class="product-name">
+                  ${escapeHTML(
+                    product.name
+                  )}
+                </div>
+
+                <div class="product-hint">
+                  ${hint}
+                </div>
+
+              </div>
+
+
+              <div class="product-price">
+
+                NT$
+                ${Number(
+                  product.price
+                ).toLocaleString(
+                  "zh-TW"
+                )}
+
+              </div>
+
+            </summary>
+
+
+            <div class="variant-list">
+
+              ${choicesHTML}
+
+            </div>
+
+          `;
+
+
+          productContainer.appendChild(
+            productCard
+          );
+
+        }
+      );
+
+
+      bindProductEvents();
+
+      updateTotal();
+
+    }
+
+
+    /* =====================================================
+       商品事件
+    ===================================================== */
+
+    function bindProductEvents() {
+
+      productContainer
+        .querySelectorAll(
+          ".product-choice"
+        )
+        .forEach(
+          row => {
+
+            const checkbox =
+              row.querySelector(
+                ".product-checkbox"
+              );
+
+            const qtyInput =
+              row.querySelector(
+                ".qty-input"
+              );
+
+            const minusButton =
+              row.querySelector(
+                ".qty-minus"
+              );
+
+            const plusButton =
+              row.querySelector(
+                ".qty-plus"
+              );
+
+
+            checkbox.addEventListener(
+              "change",
+              () => {
+
+                const enabled =
+                  checkbox.checked;
+
+
+                qtyInput.disabled =
+                  !enabled;
+
+                minusButton.disabled =
+                  !enabled;
+
+                plusButton.disabled =
+                  !enabled;
+
+
+                if (!enabled) {
+                  qtyInput.value =
+                    "1";
+                }
+
+
+                row.classList.toggle(
+                  "selected-choice",
+                  enabled
+                );
+
+
+                updateTotal();
+
+              }
+            );
+
+
+            minusButton.addEventListener(
+              "click",
+              () => {
+
+                let quantity =
+                  Number(
+                    qtyInput.value ||
+                    1
+                  );
+
+
+                quantity =
+                  Math.max(
+                    1,
+                    quantity - 1
+                  );
+
+
+                qtyInput.value =
+                  quantity;
+
+
+                updateTotal();
+
+              }
+            );
+
+
+            plusButton.addEventListener(
+              "click",
+              () => {
+
+                let quantity =
+                  Number(
+                    qtyInput.value ||
+                    1
+                  );
+
+
+                quantity =
+                  Math.min(
+                    99,
+                    quantity + 1
+                  );
+
+
+                qtyInput.value =
+                  quantity;
+
+
+                updateTotal();
+
+              }
+            );
+
+
+            qtyInput.addEventListener(
+              "input",
+              () => {
+
+                let quantity =
+                  Number(
+                    qtyInput.value
+                  );
+
+
+                if (
+                  !Number.isFinite(
+                    quantity
+                  ) ||
+                  quantity < 1
+                ) {
+
+                  quantity = 1;
+
+                }
+
+
+                if (
+                  quantity > 99
+                ) {
+
+                  quantity = 99;
+
+                }
+
+
+                qtyInput.value =
+                  Math.floor(
+                    quantity
+                  );
+
+
+                updateTotal();
+
+              }
+            );
+
+          }
+        );
+
+    }
+
+
+    /* =====================================================
+       計算總金額
     ===================================================== */
 
     function updateTotal() {
 
-      const selectedProducts =
+      const checkedProducts =
         productContainer
           .querySelectorAll(
             ".product-checkbox:checked"
@@ -1747,14 +2608,48 @@
       let total =
         0;
 
+      let totalQuantity =
+        0;
 
-      selectedProducts.forEach(
-        (checkbox) => {
+
+      checkedProducts.forEach(
+        checkbox => {
+
+          const row =
+            checkbox.closest(
+              ".product-choice"
+            );
+
+
+          const qtyInput =
+            row.querySelector(
+              ".qty-input"
+            );
+
+
+          const quantity =
+            Math.max(
+              1,
+              Number(
+                qtyInput.value ||
+                1
+              )
+            );
+
+
+          const price =
+            Number(
+              checkbox.dataset.price ||
+              0
+            );
+
 
           total +=
-            Number(
-              checkbox.dataset.price
-            );
+            price * quantity;
+
+
+          totalQuantity +=
+            quantity;
 
         }
       );
@@ -1766,6 +2661,10 @@
         )}`;
 
 
+      selectedSummary.textContent =
+        `已選 ${totalQuantity} 件商品`;
+
+
       paymentAmount.value =
         total > 0
           ? total
@@ -1775,115 +2674,8 @@
 
 
     /* =====================================================
-       商品顯示
+       選擇團務
     ===================================================== */
-
-    function renderProducts(
-      groupId
-    ) {
-
-      productContainer.innerHTML =
-        "";
-
-
-      const products =
-        productData[
-          groupId
-        ];
-
-
-      if (
-        !products ||
-        products.length === 0
-      ) {
-
-        productContainer.innerHTML = `
-
-          <div class="product-placeholder">
-            目前暫無商品
-          </div>
-
-        `;
-
-
-        updateTotal();
-
-        return;
-
-      }
-
-
-      products.forEach(
-        (product) => {
-
-          const productRow =
-            document.createElement(
-              "label"
-            );
-
-
-          productRow.className =
-            "product-option";
-
-
-          productRow.innerHTML = `
-
-            <span class="product-left">
-
-              <input
-                class="product-checkbox"
-                type="checkbox"
-                value="${product.name}"
-                data-price="${product.price}"
-              >
-
-              <span>
-                ${product.name}
-              </span>
-
-            </span>
-
-
-            <span class="product-price">
-
-              NT$
-              ${product.price.toLocaleString(
-                "zh-TW"
-              )}
-
-            </span>
-
-          `;
-
-
-          productContainer.appendChild(
-            productRow
-          );
-
-        }
-      );
-
-
-      productContainer
-        .querySelectorAll(
-          ".product-checkbox"
-        )
-        .forEach(
-          (checkbox) => {
-
-            checkbox.addEventListener(
-              "change",
-              updateTotal
-            );
-
-          }
-        );
-
-
-      updateTotal();
-
-    }
-
 
     communitySelect.addEventListener(
       "change",
@@ -1898,6 +2690,35 @@
 
 
     /* =====================================================
+       代購頁 → 前往表單
+    ===================================================== */
+
+    document
+      .getElementById(
+        "runItOrderButton"
+      )
+      .addEventListener(
+        "click",
+        () => {
+
+          communitySelect.value =
+            "run-it-japan";
+
+
+          renderProducts(
+            "run-it-japan"
+          );
+
+
+          showPage(
+            "paymentPage"
+          );
+
+        }
+      );
+
+
+    /* =====================================================
        匯款表單
     ===================================================== */
 
@@ -1909,9 +2730,7 @@
 
     paymentForm.addEventListener(
       "submit",
-      async (
-        event
-      ) => {
+      async event => {
 
         event.preventDefault();
 
@@ -1921,7 +2740,7 @@
         ) {
 
           alert(
-            "目前暫無開放中的團務。"
+            "請先選擇社群名稱／團務。"
           );
 
           return;
@@ -1929,22 +2748,21 @@
         }
 
 
-        const selectedProducts = [
-
-          ...document.querySelectorAll(
-            ".product-checkbox:checked"
-          )
-
+        const checkedProducts = [
+          ...productContainer
+            .querySelectorAll(
+              ".product-checkbox:checked"
+            )
         ];
 
 
         if (
-          selectedProducts.length ===
+          checkedProducts.length ===
           0
         ) {
 
           alert(
-            "請至少勾選一項商品。"
+            "請至少選擇一項商品。"
           );
 
           return;
@@ -1988,6 +2806,101 @@
           ] || {};
 
 
+        /* =========================
+           整理商品＋數量
+        ========================= */
+
+        const selectedProducts =
+          checkedProducts.map(
+            checkbox => {
+
+              const row =
+                checkbox.closest(
+                  ".product-choice"
+                );
+
+
+              const quantity =
+                Math.max(
+                  1,
+                  Number(
+                    row
+                      .querySelector(
+                        ".qty-input"
+                      )
+                      .value ||
+                    1
+                  )
+                );
+
+
+              const productName =
+                checkbox.dataset.product;
+
+
+              const variant =
+                checkbox.dataset.variant ||
+                "";
+
+
+              const unitPrice =
+                Number(
+                  checkbox.dataset.price ||
+                  0
+                );
+
+
+              const lineTotal =
+                unitPrice *
+                quantity;
+
+
+              let displayName =
+                productName;
+
+
+              if (variant) {
+
+                displayName +=
+                  `｜${variant}`;
+
+              }
+
+
+              displayName +=
+                ` ×${quantity}`;
+
+
+              return {
+
+                name:
+                  displayName,
+
+                price:
+                  lineTotal,
+
+                productName:
+                  productName,
+
+                variant:
+                  variant,
+
+                quantity:
+                  quantity,
+
+                unitPrice:
+                  unitPrice
+
+              };
+
+            }
+          );
+
+
+        /* =========================
+           表單資料
+        ========================= */
+
         const formData = {
 
           facebookName:
@@ -2018,21 +2931,7 @@
               .trim(),
 
           products:
-            selectedProducts.map(
-              (
-                checkbox
-              ) => ({
-
-                name:
-                  checkbox.value,
-
-                price:
-                  Number(
-                    checkbox.dataset.price
-                  )
-
-              })
-            ),
+            selectedProducts,
 
           paymentDate:
             document
@@ -2075,15 +2974,13 @@
 
 
         const submitButton =
-          paymentForm
-            .querySelector(
-              ".submit-button"
-            );
+          paymentForm.querySelector(
+            ".submit-button"
+          );
 
 
         submitButton.disabled =
           true;
-
 
         submitButton.textContent =
           "送出中…";
@@ -2100,10 +2997,8 @@
                   "POST",
 
                 headers: {
-
                   "Content-Type":
                     "application/json"
-
                 },
 
                 body:
@@ -2135,7 +3030,7 @@
             productContainer.innerHTML = `
 
               <div class="product-placeholder">
-                目前暫無商品
+                請先選擇社群名稱／團務
               </div>
 
             `;
@@ -2143,6 +3038,10 @@
 
             calculatedTotal.textContent =
               "NT$ 0";
+
+
+            selectedSummary.textContent =
+              "已選 0 項";
 
 
             paymentAmount.value =
@@ -2159,21 +3058,16 @@
 
 
             alert(
-
               "送出失敗：" +
-
               (
                 result.message ||
                 "請稍後再試"
               )
-
             );
 
           }
 
-        } catch (
-          error
-        ) {
+        } catch (error) {
 
           console.error(
             error
@@ -2206,10 +3100,8 @@
     let defaultProgressData =
       [];
 
-
     let currentTypeFilter =
       "all";
-
 
     let currentGroupFilter =
       "all";
@@ -2225,41 +3117,6 @@
       document.getElementById(
         "communitySearch"
       );
-
-
-    /* =====================================================
-       防止文字被當 HTML
-    ===================================================== */
-
-    function escapeHTML(
-      value
-    ) {
-
-      return String(
-        value ?? ""
-      )
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
-    }
 
 
     /* =====================================================
@@ -2317,10 +3174,7 @@
 
         renderProgress();
 
-
-      } catch (
-        error
-      ) {
+      } catch (error) {
 
         console.error(
           error
@@ -2355,10 +3209,7 @@
 
       const filteredData =
         defaultProgressData.filter(
-          (
-            item
-          ) => {
-
+          item => {
 
             const itemType =
               String(
@@ -2435,8 +3286,7 @@
 
 
       if (
-        filteredData.length ===
-        0
+        filteredData.length === 0
       ) {
 
         progressList.innerHTML = `
@@ -2457,10 +3307,7 @@
 
 
       filteredData.forEach(
-        (
-          item
-        ) => {
-
+        item => {
 
           const activityName =
             item.activity ||
@@ -2476,8 +3323,7 @@
 
             groupedData[
               activityName
-            ] =
-              [];
+            ] = [];
 
           }
 
@@ -2503,12 +3349,10 @@
             ]
           ) => {
 
-
             const groupElement =
-              document
-                .createElement(
-                  "div"
-                );
+              document.createElement(
+                "div"
+              );
 
 
             groupElement.className =
@@ -2518,10 +3362,7 @@
             const rowsHTML =
               items
                 .map(
-                  (
-                    item
-                  ) => {
-
+                  item => {
 
                     const facebookName =
                       item.facebookName ||
@@ -2543,9 +3384,7 @@
                       "已登記";
 
 
-                    /* =========================
-                       匯款狀態顏色
-                    ========================= */
+                    /* 匯款狀態 */
 
                     let paymentClass =
                       "status-unpaid";
@@ -2570,9 +3409,7 @@
                     }
 
 
-                    /* =========================
-                       團務進度顏色
-                    ========================= */
+                    /* 團務進度 */
 
                     let progressClass =
                       "stage-registered";
@@ -2617,24 +3454,18 @@
 
                       <div class="progress-member-row">
 
-
                         <div class="progress-member-info">
 
                           <div class="facebook-name">
-
                             ${escapeHTML(
                               facebookName
                             )}
-
                           </div>
 
-
                           <div class="community-small">
-
                             ${escapeHTML(
                               community
                             )}
-
                           </div>
 
                         </div>
@@ -2643,24 +3474,19 @@
                         <div
                           class="status-pill ${paymentClass}"
                         >
-
                           ${escapeHTML(
                             paymentStatus
                           )}
-
                         </div>
 
 
                         <div
                           class="stage-pill ${progressClass}"
                         >
-
                           ${escapeHTML(
                             progress
                           )}
-
                         </div>
-
 
                       </div>
 
@@ -2702,7 +3528,7 @@
 
 
     /* =====================================================
-       依團務篩選
+       依團務
     ===================================================== */
 
     document
@@ -2710,23 +3536,18 @@
         "#typeFilters .filter-button"
       )
       .forEach(
-        (
-          button
-        ) => {
+        button => {
 
           button.addEventListener(
             "click",
             () => {
-
 
               document
                 .querySelectorAll(
                   "#typeFilters .filter-button"
                 )
                 .forEach(
-                  (
-                    item
-                  ) => {
+                  item => {
 
                     item.classList.remove(
                       "selected"
@@ -2755,7 +3576,7 @@
 
 
     /* =====================================================
-       依團體篩選
+       依團體
     ===================================================== */
 
     document
@@ -2763,23 +3584,18 @@
         "#groupFilters .filter-button"
       )
       .forEach(
-        (
-          button
-        ) => {
+        button => {
 
           button.addEventListener(
             "click",
             () => {
-
 
               document
                 .querySelectorAll(
                   "#groupFilters .filter-button"
                 )
                 .forEach(
-                  (
-                    item
-                  ) => {
+                  item => {
 
                     item.classList.remove(
                       "selected"
