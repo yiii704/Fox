@@ -2223,6 +2223,14 @@ const pages =
 
 function showPage(pageId) {
 
+  /* 先解除首頁的固定狀態，
+     避免目前捲動位置被鎖住 */
+  document.body.classList.remove(
+    "home-mode"
+  );
+
+
+  /* 隱藏全部頁面 */
   pages.forEach(
     page =>
       page.classList.remove(
@@ -2242,26 +2250,37 @@ function showPage(pageId) {
   }
 
 
+  /* 顯示指定頁面 */
   page.classList.add(
     "active-page"
   );
 
 
-  /* 首頁：固定整個螢幕、不允許滑動 */
-  if (pageId === "homePage") {
+  /* ★ 每次切換頁面都強制回到最頂端 */
+  window.scrollTo(
+    0,
+    0
+  );
+
+  document.documentElement.scrollTop =
+    0;
+
+  document.body.scrollTop =
+    0;
+
+
+  /* 如果是首頁，再把首頁鎖定 */
+  if (
+    pageId === "homePage"
+  ) {
 
     document.body.classList.add(
       "home-mode"
     );
 
-  } else {
-
-    /* 其他頁面恢復正常滑動 */
-    document.body.classList.remove(
-      "home-mode"
-    );
-
   }
+
+}
 
 
   window.scrollTo({
