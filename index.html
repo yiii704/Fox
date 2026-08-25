@@ -2223,8 +2223,7 @@ const pages =
 
 function showPage(pageId) {
 
-  /* 先解除首頁的固定狀態，
-     避免目前捲動位置被鎖住 */
+  /* 先解除首頁鎖定 */
   document.body.classList.remove(
     "home-mode"
   );
@@ -2232,13 +2231,15 @@ function showPage(pageId) {
 
   /* 隱藏全部頁面 */
   pages.forEach(
-    page =>
+    page => {
       page.classList.remove(
         "active-page"
-      )
+      );
+    }
   );
 
 
+  /* 找到要顯示的頁面 */
   const page =
     document.getElementById(
       pageId
@@ -2256,7 +2257,7 @@ function showPage(pageId) {
   );
 
 
-  /* ★ 每次切換頁面都強制回到最頂端 */
+  /* 每次切換都先回到最頂端 */
   window.scrollTo(
     0,
     0
@@ -2269,13 +2270,35 @@ function showPage(pageId) {
     0;
 
 
-  /* 如果是首頁，再把首頁鎖定 */
+  /* 回首頁時重新鎖定首頁 */
   if (
     pageId === "homePage"
   ) {
 
-    document.body.classList.add(
-      "home-mode"
+    /*
+      iPhone Safari 有時會在 overflow:hidden
+      加回去時保留舊捲動位置，
+      所以等下一個畫面更新再鎖定。
+    */
+    requestAnimationFrame(
+      () => {
+
+        window.scrollTo(
+          0,
+          0
+        );
+
+        document.documentElement.scrollTop =
+          0;
+
+        document.body.scrollTop =
+          0;
+
+        document.body.classList.add(
+          "home-mode"
+        );
+
+      }
     );
 
   }
@@ -2283,18 +2306,30 @@ function showPage(pageId) {
 }
 
 
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-
-}
-
+/* ========================================
+   一般頁面切換按鈕
+======================================== */
 
 document
   .querySelectorAll(
     "[data-target]"
   )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          showPage(
+            button.dataset.target
+          );
+
+        }
+      );
+
+    }
+  );
   .forEach(
     button => {
 
