@@ -2215,6 +2215,12 @@ const WORKER_URL =
    頁面
 ======================================== */
 
+/* 防止瀏覽器自動恢復舊的捲動位置 */
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+
 const pages =
   document.querySelectorAll(
     ".page"
