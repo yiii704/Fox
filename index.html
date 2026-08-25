@@ -51,7 +51,11 @@
     }
 
     h1 {
+      position: relative;
+      z-index: 5;
+
       margin-bottom: 28px;
+
       color: #6b46c1;
       font-size: 30px;
       text-align: center;
@@ -71,9 +75,14 @@
 
     .page {
       display: none;
+      position: relative;
+      z-index: 2;
+
       width: 100%;
       max-width: 620px;
+
       margin: 0 auto;
+
       animation: pageIn 0.22s ease;
     }
 
@@ -97,50 +106,81 @@
 
 
     /* ========================================
-       首頁滿版照片
+       首頁全螢幕背景
     ======================================== */
 
-    .home-hero {
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-bottom: 28px;
-      overflow: hidden;
-      background: #1f1d24;
+    #homePage {
+      position: relative;
+      z-index: 2;
     }
 
-    .home-hero img {
-      display: block;
-      width: 100%;
-      height: 68vh;
-      min-height: 440px;
-      max-height: 760px;
-      object-fit: cover;
-      object-position: center 72%;
+    .home-background {
+      position: fixed;
+      z-index: -1;
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100vw;
+
+      height: 100vh;
+      height: 100dvh;
+
+      background-image:
+        url("home-banner.JPG");
+
+      background-size:
+        cover;
+
+      background-position:
+        center center;
+
+      background-repeat:
+        no-repeat;
+
+      pointer-events: none;
+    }
+
+    #homePage .menu-grid {
+      position: relative;
+      z-index: 5;
     }
 
 
     /* ========================================
-       首頁選單
+       首頁按鈕
     ======================================== */
 
     .menu-grid {
       display: grid;
+
       grid-template-columns:
         repeat(2, minmax(0, 145px));
+
       justify-content: center;
+
       gap: 12px;
     }
 
     .pill-button {
       min-height: 42px;
+
       padding: 8px 14px;
+
       background: #ffffff;
       color: #6b46c1;
-      border: 2px solid #d9c8ff;
+
+      border:
+        2px solid #d9c8ff;
+
       border-radius: 999px;
+
       box-shadow:
         0 4px 12px
         rgba(126, 92, 190, 0.10);
+
       transition: 0.2s ease;
     }
 
@@ -166,11 +206,17 @@
     .back-button {
       display: inline-flex;
       align-items: center;
+
       margin-bottom: 18px;
+
       padding: 8px 16px;
+
       background: #ffffff;
       color: #6b46c1;
-      border: 2px solid #d9c8ff;
+
+      border:
+        2px solid #d9c8ff;
+
       border-radius: 999px;
     }
 
@@ -185,10 +231,16 @@
 
     .card {
       margin-bottom: 16px;
+
       padding: 20px;
+
       background: #ffffff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 22px;
+
       box-shadow:
         0 6px 18px
         rgba(116, 82, 165, 0.09);
@@ -196,7 +248,9 @@
 
     .card-title {
       margin-bottom: 12px;
+
       color: #6b46c1;
+
       font-size: 17px;
       font-weight: 700;
     }
@@ -212,7 +266,9 @@
 
     .empty-message {
       padding: 24px;
+
       color: #8b8295;
+
       text-align: center;
       line-height: 1.8;
     }
@@ -224,10 +280,15 @@
 
     .notice-image {
       display: block;
+
       width: 100%;
       height: auto;
+
       margin-top: 16px;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 16px;
     }
 
@@ -247,36 +308,51 @@
 
     .order-group {
       margin-bottom: 7px;
+
       color: #927ead;
+
       font-size: 12px;
       font-weight: 700;
     }
 
     .order-name {
       color: #59349e;
+
       font-size: 17px;
       font-weight: 700;
+
       line-height: 1.55;
     }
 
     .order-status {
       display: inline-flex;
+
       margin-top: 12px;
+
       padding: 6px 11px;
+
       background: #e4f5e8;
       color: #287747;
+
       border-radius: 999px;
+
       font-size: 12px;
       font-weight: 700;
     }
 
     .order-action {
       width: 100%;
+
       padding: 13px;
+
       background: #f1eaff;
       color: #6842b3;
+
       border: none;
-      border-top: 1px solid #e5dafb;
+
+      border-top:
+        1px solid #e5dafb;
+
       font-weight: 700;
     }
 
@@ -295,8 +371,11 @@
 
     .form-group label {
       display: block;
+
       margin-bottom: 8px;
+
       color: #5f4b87;
+
       font-size: 14px;
       font-weight: 700;
     }
@@ -309,11 +388,17 @@
     select,
     textarea {
       width: 100%;
+
       padding: 12px 14px;
+
       background: #ffffff;
       color: #4f4660;
-      border: 1.5px solid #d9c8ff;
+
+      border:
+        1.5px solid #d9c8ff;
+
       border-radius: 14px;
+
       outline: none;
     }
 
@@ -321,6 +406,7 @@
     select:focus,
     textarea:focus {
       border-color: #9f7aea;
+
       box-shadow:
         0 0 0 3px
         rgba(159, 122, 234, 0.13);
@@ -342,17 +428,23 @@
 
     .catalog-note {
       margin-bottom: 13px;
+
       color: #8b8295;
+
       font-size: 12px;
       line-height: 1.7;
     }
 
     .catalog-warning {
       margin-bottom: 14px;
+
       padding: 10px 12px;
+
       background: #fff8e8;
       color: #8a6a24;
+
       border-radius: 13px;
+
       font-size: 11px;
       line-height: 1.65;
     }
@@ -378,8 +470,12 @@
 
     .catalog-image-card {
       overflow: hidden;
+
       background: #faf8ff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 14px;
     }
 
@@ -391,10 +487,13 @@
 
     .catalog-image {
       display: block;
+
       width: 100%;
       height: 170px;
+
       object-fit: cover;
       object-position: top;
+
       cursor: zoom-in;
     }
 
@@ -402,12 +501,15 @@
     .catalog-image {
       height: auto;
       max-height: 430px;
+
       object-fit: contain;
     }
 
     .catalog-caption {
       padding: 8px;
+
       color: #7b6d89;
+
       font-size: 11px;
       text-align: center;
     }
@@ -419,27 +521,41 @@
 
     .product-placeholder {
       padding: 18px;
+
       color: #8b8295;
       background: #faf8ff;
-      border: 1px dashed #cdb9f6;
+
+      border:
+        1px dashed #cdb9f6;
+
       border-radius: 15px;
+
       text-align: center;
     }
 
     .product-card {
       margin-bottom: 11px;
+
       overflow: hidden;
+
       background: #faf8ff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 16px;
     }
 
     .product-summary {
       display: flex;
       align-items: center;
+
       gap: 12px;
+
       padding: 14px;
+
       cursor: pointer;
+
       list-style: none;
     }
 
@@ -449,8 +565,11 @@
 
     .product-summary::after {
       content: "＋";
+
       flex-shrink: 0;
+
       color: #9f7aea;
+
       font-size: 20px;
     }
 
@@ -466,22 +585,29 @@
 
     .product-name {
       color: #554b62;
+
       font-size: 14px;
       font-weight: 700;
+
       line-height: 1.45;
     }
 
     .product-hint {
       margin-top: 4px;
+
       color: #9b8fa7;
+
       font-size: 10px;
     }
 
     .product-price {
       flex-shrink: 0;
+
       color: #6b46c1;
+
       font-size: 13px;
       font-weight: 700;
+
       white-space: nowrap;
     }
 
@@ -498,15 +624,24 @@
 
     .product-choice {
       display: grid;
+
       grid-template-columns:
         minmax(0, 1fr)
         auto;
+
       align-items: center;
+
       gap: 10px;
+
       margin-top: 7px;
+
       padding: 10px;
+
       background: #ffffff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 13px;
     }
 
@@ -523,20 +658,29 @@
     .choice-main {
       display: flex !important;
       align-items: center;
+
       gap: 8px;
+
       min-width: 0;
+
       margin: 0 !important;
+
       color: #594d68 !important;
+
       font-size: 12px !important;
       font-weight: 500 !important;
+
       cursor: pointer;
     }
 
     .choice-main input {
       width: 18px;
       height: 18px;
+
       flex-shrink: 0;
+
       padding: 0;
+
       accent-color: #9f7aea;
     }
 
@@ -546,14 +690,19 @@
 
     .choice-label {
       display: block;
+
       line-height: 1.45;
+
       word-break: break-word;
     }
 
     .stock-text {
       display: block;
+
       margin-top: 3px;
+
       color: #9b8fa7;
+
       font-size: 10px;
     }
 
@@ -574,18 +723,26 @@
     .quantity-control {
       display: flex;
       align-items: center;
+
       flex-shrink: 0;
+
       gap: 4px;
     }
 
     .qty-button {
       width: 28px;
       height: 28px;
+
       padding: 0;
+
       background: #f1eaff;
       color: #6842b3;
-      border: 1px solid #d9c8ff;
+
+      border:
+        1px solid #d9c8ff;
+
       border-radius: 50%;
+
       font-size: 17px;
       line-height: 1;
     }
@@ -598,11 +755,18 @@
     .qty-input {
       width: 38px;
       height: 30px;
+
       padding: 2px;
+
       background: #ffffff;
-      border: 1px solid #e5daf8;
+
+      border:
+        1px solid #e5daf8;
+
       border-radius: 9px;
+
       color: #554b62;
+
       font-size: 12px;
       text-align: center;
     }
@@ -620,39 +784,53 @@
 
     .selected-summary {
       margin-top: 12px;
+
       color: #8b8295;
+
       font-size: 12px;
       text-align: right;
     }
 
 
     /* ========================================
-       總計
+       商品總計
     ======================================== */
 
     .total-box {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       margin-top: 14px;
+
       padding: 14px 16px;
+
       background: #eee6ff;
+
       border-radius: 16px;
+
       color: #59349e;
+
       font-weight: 700;
     }
 
 
     /* ========================================
-       銀行
+       銀行帳號
     ======================================== */
 
     .bank-account {
       margin-bottom: 11px;
+
       padding: 13px 15px;
+
       background: #faf8ff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 15px;
+
       line-height: 1.7;
     }
 
@@ -668,14 +846,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 12px;
+
       margin-top: 6px;
     }
 
     .bank-number {
       color: #4f4660 !important;
       text-decoration: none !important;
-      font-variant-numeric: tabular-nums;
+
+      font-variant-numeric:
+        tabular-nums;
+
       user-select: all;
       -webkit-user-select: all;
     }
@@ -688,11 +871,17 @@
 
     .copy-button {
       flex-shrink: 0;
+
       padding: 7px 14px;
+
       background: #f1eaff;
       color: #6b46c1;
-      border: 1.5px solid #d9c8ff;
+
+      border:
+        1.5px solid #d9c8ff;
+
       border-radius: 999px;
+
       font-size: 13px;
       font-weight: 600;
     }
@@ -710,11 +899,16 @@
 
     .submit-button {
       width: 100%;
+
       padding: 13px;
+
       background: #cbb8f5;
       color: #4c2e83;
+
       border: none;
+
       border-radius: 999px;
+
       font-weight: 700;
     }
 
@@ -725,12 +919,16 @@
 
 
     /* ========================================
-       對帳
+       對帳篩選
     ======================================== */
 
     .filter-label {
-      margin: 14px 0 8px;
+      margin:
+        14px 0
+        8px;
+
       color: #8b8295;
+
       font-size: 12px;
       font-weight: 700;
     }
@@ -738,14 +936,19 @@
     .filter-row {
       display: flex;
       flex-wrap: wrap;
+
       gap: 8px;
     }
 
     .filter-button {
       padding: 8px 14px;
+
       background: #ffffff;
       color: #6b46c1;
-      border: 1.5px solid #d9c8ff;
+
+      border:
+        1.5px solid #d9c8ff;
+
       border-radius: 999px;
     }
 
@@ -758,12 +961,23 @@
       margin-top: 7px;
     }
 
+
+    /* ========================================
+       對帳列表
+    ======================================== */
+
     .progress-group {
       margin-bottom: 18px;
+
       overflow: hidden;
+
       background: #ffffff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 22px;
+
       box-shadow:
         0 6px 18px
         rgba(116, 82, 165, 0.09);
@@ -771,40 +985,57 @@
 
     .progress-group-header {
       padding: 15px 18px;
+
       background: #f5f1fb;
+
       color: #5f4b87;
+
       font-size: 17px;
       font-weight: 700;
-      border-bottom: 1px solid #eee6ff;
+
+      border-bottom:
+        1px solid #eee6ff;
     }
 
     .progress-group-body {
-      padding: 12px 16px 16px;
+      padding:
+        12px 16px
+        16px;
     }
 
     .progress-member-row {
       display: grid;
+
       grid-template-columns:
         minmax(130px, 1fr)
         105px
         105px;
+
       align-items: center;
+
       gap: 8px;
+
       min-height: 48px;
+
       padding: 7px 0;
     }
 
     .facebook-name {
       color: #4f4660;
+
       font-size: 14px;
       font-weight: 600;
+
       word-break: break-word;
     }
 
     .community-small {
       margin-top: 3px;
+
       color: #8b8295;
+
       font-size: 11px;
+
       word-break: break-word;
     }
 
@@ -813,12 +1044,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 100%;
       min-height: 32px;
+
       padding: 6px 10px;
+
       border-radius: 999px;
+
       font-size: 12px;
       font-weight: 600;
+
       white-space: nowrap;
     }
 
@@ -869,11 +1105,17 @@
 
     .image-modal {
       display: none;
+
       position: fixed;
       z-index: 9999;
+
       inset: 0;
+
       padding: 18px;
-      background: rgba(35, 29, 45, 0.84);
+
+      background:
+        rgba(35, 29, 45, 0.84);
+
       align-items: center;
       justify-content: center;
     }
@@ -884,16 +1126,21 @@
 
     .image-modal-content {
       position: relative;
+
       width: 100%;
       max-width: 760px;
       max-height: 92vh;
+
       overflow: auto;
+
       background: #ffffff;
+
       border-radius: 18px;
     }
 
     .image-modal-content img {
       display: block;
+
       width: 100%;
       height: auto;
     }
@@ -901,19 +1148,30 @@
     .image-close {
       position: sticky;
       z-index: 5;
+
       top: 10px;
+
       float: right;
+
       width: 38px;
       height: 38px;
+
       margin:
         10px
         10px
         -48px
         0;
-      background: rgba(255,255,255,0.94);
+
+      background:
+        rgba(255,255,255,0.94);
+
       color: #59349e;
-      border: 1px solid #d9c8ff;
+
+      border:
+        1px solid #d9c8ff;
+
       border-radius: 50%;
+
       font-size: 20px;
       font-weight: 700;
     }
@@ -926,17 +1184,20 @@
     @media (max-width: 480px) {
 
       body {
-        padding: 24px 14px;
+        padding:
+          24px 14px;
       }
 
       h1 {
         font-size: 28px;
       }
 
-      .home-hero img {
-        height: 62vh;
-        min-height: 430px;
-        max-height: 650px;
+      .home-background {
+        height: 100vh;
+        height: 100dvh;
+
+        background-position:
+          center center;
       }
 
       .menu-grid {
@@ -967,11 +1228,14 @@
 
       .product-choice {
         gap: 6px;
-        padding: 9px 8px;
+
+        padding:
+          9px 8px;
       }
 
       .choice-main {
-        font-size: 11px !important;
+        font-size:
+          11px !important;
       }
 
       .qty-button {
@@ -989,6 +1253,7 @@
           minmax(105px, 1fr)
           92px
           92px;
+
         gap: 5px;
       }
 
@@ -1003,11 +1268,13 @@
     @media (max-width: 370px) {
 
       .product-choice {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .quantity-control {
-        justify-content: flex-end;
+        justify-content:
+          flex-end;
       }
 
       .progress-member-row {
@@ -1025,870 +1292,887 @@
 
 <body>
 
-<h1>狐狸🦊</h1>
+  <!-- 原本標題位置維持不動 -->
+
+  <h1>狐狸🦊</h1>
 
 
-<!-- ========================================
-     首頁
-======================================== -->
+  <!-- ========================================
+       首頁
+  ========================================= -->
 
-<main
-  id="homePage"
-  class="page active-page"
->
+  <main
+    id="homePage"
+    class="page active-page"
+  >
 
-  <div class="home-hero">
+    <!-- 整個螢幕的背景照片 -->
 
-    <img
-      src="home-banner.JPG"
-      alt="首頁照片"
-    >
-
-  </div>
+    <div
+      class="home-background"
+      aria-hidden="true"
+    ></div>
 
 
-  <div class="menu-grid">
+    <!-- 原本按鈕位置不動 -->
+
+    <div class="menu-grid">
+
+      <button
+        type="button"
+        class="pill-button"
+        data-target="groupPage"
+      >
+        📦 團務
+      </button>
+
+      <button
+        type="button"
+        class="pill-button"
+        data-target="noticePage"
+      >
+        📌 注意事項
+      </button>
+
+      <button
+        type="button"
+        class="pill-button"
+        data-target="paymentPage"
+      >
+        💰 匯款表單
+      </button>
+
+      <button
+        type="button"
+        class="pill-button"
+        data-target="progressPage"
+      >
+        📊 對帳表＆進度表
+      </button>
+
+    </div>
+
+  </main>
+
+
+  <!-- ========================================
+       團務
+  ========================================= -->
+
+  <section
+    id="groupPage"
+    class="page"
+  >
 
     <button
       type="button"
-      class="pill-button"
+      class="back-button"
+      data-target="homePage"
+    >
+      ← 返回首頁
+    </button>
+
+    <h2>📦 團務</h2>
+
+
+    <!-- RUN IT JAPAN -->
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+        <div class="order-name">
+          Stray Kids World Tour
+          ＜RUN IT JAPAN＞
+          OFFICIAL GOODS 線上團
+        </div>
+
+        <div class="order-status">
+          開放中
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="order-action"
+        data-order="run-it-japan"
+      >
+        前往匯款表單
+      </button>
+
+    </div>
+
+
+    <!-- 一番賞 -->
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+        <div class="order-name">
+          Run it JAPAN 一番賞
+        </div>
+
+        <div class="order-status">
+          開放中
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="order-action"
+        data-order="run-it-japan-kuji"
+      >
+        查看剩餘庫存＆填寫表單
+      </button>
+
+    </div>
+
+
+    <!-- THIS & THAT -->
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+        <div class="order-name">
+          [LUCKY DRAW] THIS &amp; THAT
+          (THIS VER., THAT VER.)
+        </div>
+
+        <div class="order-status">
+          開放中
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="order-action"
+        data-order="this-that-lucky-draw"
+      >
+        前往匯款表單
+      </button>
+
+    </div>
+
+
+    <!-- Sony music -->
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+        <div class="order-name">
+          Sony music 通路特典（含專）
+        </div>
+
+        <div class="order-status">
+          開放中
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="order-action"
+        data-order="sony-music-benefit"
+      >
+        前往匯款表單
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
+       注意事項
+  ========================================= -->
+
+  <section
+    id="noticePage"
+    class="page"
+  >
+
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
+      ← 返回首頁
+    </button>
+
+    <h2>📌 注意事項</h2>
+
+
+    <article class="card">
+
+      <div class="card-title">
+        📍下單規則
+      </div>
+
+      <p>
+        所有團物皆為
+        <strong>
+          收齊全部車員款項後
+        </strong>
+        才會統一下單。
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-title">
+        📍關於二補
+      </div>
+
+      <p>
+        若商品需要二補，
+        將於商品全部到貨後透過賣貨便收取二補。
+      </p>
+
+      <img
+        class="notice-image"
+        src="second-payment-info.JPG"
+        alt="二補評估重點項目"
+        loading="lazy"
+      >
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-title">
+        📍寄送方式
+      </div>
+
+      <p>
+        全部商品皆使用賣貨便寄出，
+        並酌收包材費 10 元＋手續費 10 元。
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-title">
+        📍商品須知
+      </div>
+
+      <p>
+        商品皆默認接受：
+      </p>
+
+      <ul class="notice-list">
+
+        <li>廠損</li>
+        <li>運輸損傷</li>
+        <li>商品瑕疵</li>
+
+        <li>
+          不湊套（專卡、滿額卡及隨機商品等）
+        </li>
+
+      </ul>
+
+      <p style="margin-top:12px;">
+        以上情況恕無法退換貨。
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <!-- ========================================
+       匯款表單
+  ========================================= -->
+
+  <section
+    id="paymentPage"
+    class="page"
+  >
+
+    <!-- ★ 返回團務 -->
+
+    <button
+      type="button"
+      class="back-button"
       data-target="groupPage"
     >
-      📦 團務
+      ← 返回團務
     </button>
+
+
+    <h2>💰 匯款表單</h2>
+
+
+    <form id="paymentForm">
+
+
+      <!-- 基本資料 -->
+
+      <div class="card">
+
+        <div class="card-title">
+          基本資料
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="communitySelect">
+
+            社群名稱／團務
+
+            <span class="required">*</span>
+
+          </label>
+
+          <select
+            id="communitySelect"
+            required
+          >
+
+            <option value="">
+              請選擇社群名稱／團務
+            </option>
+
+            <option value="run-it-japan">
+              Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
+            </option>
+
+            <option value="run-it-japan-kuji">
+              Run it JAPAN 一番賞
+            </option>
+
+            <option value="this-that-lucky-draw">
+              [LUCKY DRAW] THIS &amp; THAT (THIS VER., THAT VER.)
+            </option>
+
+            <option value="sony-music-benefit">
+              Sony music 通路特典（含專）
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="facebookName">
+
+            Facebook 名稱
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="facebookName"
+            type="text"
+            placeholder="請輸入 Facebook 名稱"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- 商品圖鑑 -->
+
+      <div
+        class="card"
+        id="catalogCard"
+        style="display:none;"
+      >
+
+        <div class="card-title">
+          🖼️ 商品圖鑑
+        </div>
+
+        <div class="catalog-note">
+          點擊圖片可以放大查看商品款式。
+        </div>
+
+        <div
+          class="catalog-warning"
+          id="catalogWarning"
+        ></div>
+
+        <div
+          class="catalog-gallery"
+          id="catalogGallery"
+        ></div>
+
+      </div>
+
+
+      <!-- 商品 -->
+
+      <div class="card">
+
+        <div class="card-title">
+          商品名稱與價錢
+        </div>
+
+        <div id="productContainer">
+
+          <div class="product-placeholder">
+            請先選擇社群名稱／團務
+          </div>
+
+        </div>
+
+
+        <div
+          id="selectedSummary"
+          class="selected-summary"
+        >
+          已選 0 件商品
+        </div>
+
+
+        <div class="total-box">
+
+          <span>
+            商品總金額
+          </span>
+
+          <span id="calculatedTotal">
+            NT$ 0
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- 匯款帳號 -->
+
+      <div class="card">
+
+        <div class="card-title">
+          匯款帳號
+        </div>
+
+
+        <div class="bank-account">
+
+          <strong>
+            連線銀行（824）
+          </strong>
+
+          <div class="bank-number-row">
+
+            <span class="bank-number">
+              111019094603
+            </span>
+
+            <button
+              type="button"
+              class="copy-button"
+              onclick="
+                copyBankAccount(
+                  '111019094603',
+                  this
+                )
+              "
+            >
+              複製
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="bank-account">
+
+          <strong>
+            台新銀行（812）
+          </strong>
+
+          <div class="bank-number-row">
+
+            <span class="bank-number">
+              20741000262603
+            </span>
+
+            <button
+              type="button"
+              class="copy-button"
+              onclick="
+                copyBankAccount(
+                  '20741000262603',
+                  this
+                )
+              "
+            >
+              複製
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="bank-account">
+
+          <strong>
+            中國信託（822）
+          </strong>
+
+          <div class="bank-number-row">
+
+            <span class="bank-number">
+              901567959612
+            </span>
+
+            <button
+              type="button"
+              class="copy-button"
+              onclick="
+                copyBankAccount(
+                  '901567959612',
+                  this
+                )
+              "
+            >
+              複製
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 匯款資料 -->
+
+      <div class="card">
+
+        <div class="card-title">
+          匯款資料
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentDate">
+
+            匯款日期
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentDate"
+            type="date"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentTime">
+
+            匯款時間
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentTime"
+            type="time"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentBank">
+
+            匯款銀行
+
+            <span class="required">*</span>
+
+          </label>
+
+          <select
+            id="paymentBank"
+            required
+          >
+
+            <option value="">
+              請選擇匯款銀行
+            </option>
+
+            <option value="連線銀行">
+              連線銀行
+            </option>
+
+            <option value="台新銀行">
+              台新銀行
+            </option>
+
+            <option value="中國信託">
+              中國信託
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentAmount">
+
+            匯款金額
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="paymentAmount"
+            type="number"
+            min="0"
+            readonly
+            placeholder="選擇商品後自動計算"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="accountLastFive">
+
+            匯款帳號後五碼
+
+            <span class="required">*</span>
+
+          </label>
+
+          <input
+            id="accountLastFive"
+            type="text"
+            inputmode="numeric"
+            maxlength="5"
+            pattern="[0-9]{5}"
+            placeholder="請輸入 5 位數字"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="note">
+            備註
+          </label>
+
+          <textarea
+            id="note"
+            placeholder="沒有備註可以留空"
+          ></textarea>
+
+        </div>
+
+
+        <button
+          class="submit-button"
+          type="submit"
+        >
+          送出匯款資料
+        </button>
+
+      </div>
+
+    </form>
+
+  </section>
+
+
+  <!-- ========================================
+       對帳表
+  ========================================= -->
+
+  <section
+    id="progressPage"
+    class="page"
+  >
 
     <button
       type="button"
-      class="pill-button"
-      data-target="noticePage"
+      class="back-button"
+      data-target="homePage"
     >
-      📌 注意事項
+      ← 返回首頁
     </button>
 
-    <button
-      type="button"
-      class="pill-button"
-      data-target="paymentPage"
-    >
-      💰 匯款表單
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="progressPage"
-    >
+    <h2>
       📊 對帳表＆進度表
-    </button>
+    </h2>
 
-  </div>
-
-</main>
-
-
-<!-- ========================================
-     團務
-======================================== -->
-
-<section
-  id="groupPage"
-  class="page"
->
-
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
-  <h2>📦 團務</h2>
-
-
-  <!-- RUN IT JAPAN -->
-
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        Stray Kids World Tour
-        ＜RUN IT JAPAN＞
-        OFFICIAL GOODS 線上團
-      </div>
-
-      <div class="order-status">
-        開放中
-      </div>
-
-    </div>
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan"
-    >
-      前往匯款表單
-    </button>
-
-  </div>
-
-
-  <!-- 一番賞 -->
-
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        Run it JAPAN 一番賞
-      </div>
-
-      <div class="order-status">
-        開放中
-      </div>
-
-    </div>
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan-kuji"
-    >
-      查看剩餘庫存＆填寫表單
-    </button>
-
-  </div>
-
-
-  <!-- THIS & THAT -->
-
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        [LUCKY DRAW] THIS &amp; THAT
-        (THIS VER., THAT VER.)
-      </div>
-
-      <div class="order-status">
-        開放中
-      </div>
-
-    </div>
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="this-that-lucky-draw"
-    >
-      前往匯款表單
-    </button>
-
-  </div>
-
-
-  <!-- Sony music -->
-
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        Sony music 通路特典（含專）
-      </div>
-
-      <div class="order-status">
-        開放中
-      </div>
-
-    </div>
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="sony-music-benefit"
-    >
-      前往匯款表單
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ========================================
-     注意事項
-======================================== -->
-
-<section
-  id="noticePage"
-  class="page"
->
-
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
-  <h2>📌 注意事項</h2>
-
-
-  <article class="card">
-
-    <div class="card-title">
-      📍下單規則
-    </div>
-
-    <p>
-      所有團物皆為
-      <strong>
-        收齊全部車員款項後
-      </strong>
-      才會統一下單。
-    </p>
-
-  </article>
-
-
-  <article class="card">
-
-    <div class="card-title">
-      📍關於二補
-    </div>
-
-    <p>
-      若商品需要二補，
-      將於商品全部到貨後透過賣貨便收取二補。
-    </p>
-
-    <img
-      class="notice-image"
-      src="second-payment-info.JPG"
-      alt="二補評估重點項目"
-      loading="lazy"
-    >
-
-  </article>
-
-
-  <article class="card">
-
-    <div class="card-title">
-      📍寄送方式
-    </div>
-
-    <p>
-      全部商品皆使用賣貨便寄出，
-      並酌收包材費 10 元＋手續費 10 元。
-    </p>
-
-  </article>
-
-
-  <article class="card">
-
-    <div class="card-title">
-      📍商品須知
-    </div>
-
-    <p>
-      商品皆默認接受：
-    </p>
-
-    <ul class="notice-list">
-
-      <li>廠損</li>
-      <li>運輸損傷</li>
-      <li>商品瑕疵</li>
-
-      <li>
-        不湊套（專卡、滿額卡及隨機商品等）
-      </li>
-
-    </ul>
-
-    <p style="margin-top:12px;">
-      以上情況恕無法退換貨。
-    </p>
-
-  </article>
-
-</section>
-
-
-<!-- ========================================
-     匯款表單
-======================================== -->
-
-<section
-  id="paymentPage"
-  class="page"
->
-
-  <!-- ★ 匯款表單直接返回團務 -->
-
-  <button
-    type="button"
-    class="back-button"
-    data-target="groupPage"
-  >
-    ← 返回團務
-  </button>
-
-
-  <h2>💰 匯款表單</h2>
-
-
-  <form id="paymentForm">
-
-
-    <!-- 基本資料 -->
 
     <div class="card">
 
-      <div class="card-title">
-        基本資料
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="communitySelect">
-
-          社群名稱／團務
-
-          <span class="required">*</span>
-
-        </label>
-
-        <select
-          id="communitySelect"
-          required
-        >
-
-          <option value="">
-            請選擇社群名稱／團務
-          </option>
-
-          <option value="run-it-japan">
-            Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
-          </option>
-
-          <option value="run-it-japan-kuji">
-            Run it JAPAN 一番賞
-          </option>
-
-          <option value="this-that-lucky-draw">
-            [LUCKY DRAW] THIS &amp; THAT (THIS VER., THAT VER.)
-          </option>
-
-          <option value="sony-music-benefit">
-            Sony music 通路特典（含專）
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="facebookName">
-
-          Facebook 名稱
-
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          id="facebookName"
-          type="text"
-          placeholder="請輸入 Facebook 名稱"
-          required
-        >
-
-      </div>
-
-    </div>
-
-
-    <!-- 商品圖鑑 -->
-
-    <div
-      class="card"
-      id="catalogCard"
-      style="display:none;"
-    >
-
-      <div class="card-title">
-        🖼️ 商品圖鑑
-      </div>
-
-      <div class="catalog-note">
-        點擊圖片可以放大查看商品款式。
+      <div class="filter-label">
+        依團務分類
       </div>
 
       <div
-        class="catalog-warning"
-        id="catalogWarning"
-      ></div>
+        id="typeFilters"
+        class="filter-row"
+      >
+
+        <button
+          type="button"
+          class="filter-button selected"
+          data-filter="all"
+        >
+          全部
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="代購"
+        >
+          代購
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="單特典"
+        >
+          單特典
+        </button>
+
+      </div>
+
+
+      <div class="filter-label">
+        依團體
+      </div>
 
       <div
-        class="catalog-gallery"
-        id="catalogGallery"
-      ></div>
-
-    </div>
-
-
-    <!-- 商品 -->
-
-    <div class="card">
-
-      <div class="card-title">
-        商品名稱與價錢
-      </div>
-
-      <div id="productContainer">
-
-        <div class="product-placeholder">
-          請先選擇社群名稱／團務
-        </div>
-
-      </div>
-
-
-      <div
-        id="selectedSummary"
-        class="selected-summary"
+        id="groupFilters"
+        class="filter-row"
       >
-        已選 0 件商品
-      </div>
 
-
-      <div class="total-box">
-
-        <span>
-          商品總金額
-        </span>
-
-        <span id="calculatedTotal">
-          NT$ 0
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- 匯款帳號 -->
-
-    <div class="card">
-
-      <div class="card-title">
-        匯款帳號
-      </div>
-
-
-      <div class="bank-account">
-
-        <strong>
-          連線銀行（824）
-        </strong>
-
-        <div class="bank-number-row">
-
-          <span class="bank-number">
-            111019094603
-          </span>
-
-          <button
-            type="button"
-            class="copy-button"
-            onclick="copyBankAccount('111019094603', this)"
-          >
-            複製
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="bank-account">
-
-        <strong>
-          台新銀行（812）
-        </strong>
-
-        <div class="bank-number-row">
-
-          <span class="bank-number">
-            20741000262603
-          </span>
-
-          <button
-            type="button"
-            class="copy-button"
-            onclick="copyBankAccount('20741000262603', this)"
-          >
-            複製
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="bank-account">
-
-        <strong>
-          中國信託（822）
-        </strong>
-
-        <div class="bank-number-row">
-
-          <span class="bank-number">
-            901567959612
-          </span>
-
-          <button
-            type="button"
-            class="copy-button"
-            onclick="copyBankAccount('901567959612', this)"
-          >
-            複製
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 匯款資料 -->
-
-    <div class="card">
-
-      <div class="card-title">
-        匯款資料
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="paymentDate">
-
-          匯款日期
-
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          id="paymentDate"
-          type="date"
-          required
+        <button
+          type="button"
+          class="filter-button selected"
+          data-filter="all"
         >
+          全部
+        </button>
 
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="paymentTime">
-
-          匯款時間
-
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          id="paymentTime"
-          type="time"
-          required
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="TWS"
         >
+          TWS
+        </button>
 
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="paymentBank">
-
-          匯款銀行
-
-          <span class="required">*</span>
-
-        </label>
-
-        <select
-          id="paymentBank"
-          required
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="Stray Kids"
         >
-
-          <option value="">
-            請選擇匯款銀行
-          </option>
-
-          <option value="連線銀行">
-            連線銀行
-          </option>
-
-          <option value="台新銀行">
-            台新銀行
-          </option>
-
-          <option value="中國信託">
-            中國信託
-          </option>
-
-        </select>
+          Stray Kids
+        </button>
 
       </div>
 
 
-      <div class="form-group">
-
-        <label for="paymentAmount">
-
-          匯款金額
-
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          id="paymentAmount"
-          type="number"
-          min="0"
-          readonly
-          placeholder="選擇商品後自動計算"
-          required
-        >
-
+      <div class="filter-label">
+        搜尋
       </div>
 
-
-      <div class="form-group">
-
-        <label for="accountLastFive">
-
-          匯款帳號後五碼
-
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          id="accountLastFive"
-          type="text"
-          inputmode="numeric"
-          maxlength="5"
-          pattern="[0-9]{5}"
-          placeholder="請輸入 5 位數字"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="note">
-          備註
-        </label>
-
-        <textarea
-          id="note"
-          placeholder="沒有備註可以留空"
-        ></textarea>
-
-      </div>
-
-
-      <button
-        class="submit-button"
-        type="submit"
+      <input
+        id="communitySearch"
+        class="search-input"
+        type="search"
+        placeholder="社群名稱或 Facebook 名稱"
       >
-        送出匯款資料
-      </button>
 
     </div>
 
-  </form>
 
-</section>
+    <div id="progressList"></div>
+
+  </section>
 
 
-<!-- ========================================
-     對帳表
-======================================== -->
+  <!-- ========================================
+       商品圖片放大
+  ========================================= -->
 
-<section
-  id="progressPage"
-  class="page"
->
-
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
+  <div
+    id="imageModal"
+    class="image-modal"
   >
-    ← 返回首頁
-  </button>
 
-  <h2>
-    📊 對帳表＆進度表
-  </h2>
-
-
-  <div class="card">
-
-    <div class="filter-label">
-      依團務分類
-    </div>
-
-    <div
-      id="typeFilters"
-      class="filter-row"
-    >
+    <div class="image-modal-content">
 
       <button
         type="button"
-        class="filter-button selected"
-        data-filter="all"
+        id="imageClose"
+        class="image-close"
       >
-        全部
+        ×
       </button>
 
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="代購"
+      <img
+        id="modalImage"
+        src=""
+        alt="商品圖"
       >
-        代購
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="單特典"
-      >
-        單特典
-      </button>
 
     </div>
-
-
-    <div class="filter-label">
-      依團體
-    </div>
-
-    <div
-      id="groupFilters"
-      class="filter-row"
-    >
-
-      <button
-        type="button"
-        class="filter-button selected"
-        data-filter="all"
-      >
-        全部
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="TWS"
-      >
-        TWS
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="Stray Kids"
-      >
-        Stray Kids
-      </button>
-
-    </div>
-
-
-    <div class="filter-label">
-      搜尋
-    </div>
-
-    <input
-      id="communitySearch"
-      class="search-input"
-      type="search"
-      placeholder="社群名稱或 Facebook 名稱"
-    >
 
   </div>
-
-
-  <div id="progressList"></div>
-
-</section>
-
-
-<!-- ========================================
-     圖片放大
-======================================== -->
-
-<div
-  id="imageModal"
-  class="image-modal"
->
-
-  <div class="image-modal-content">
-
-    <button
-      type="button"
-      id="imageClose"
-      class="image-close"
-    >
-      ×
-    </button>
-
-    <img
-      id="modalImage"
-      src=""
-      alt="商品圖"
-    >
-
-  </div>
-
-</div>
 
 
 <script>
@@ -1968,7 +2252,7 @@ document
 
 
 /* ========================================
-   首頁按鈕選取
+   首頁按鈕狀態
 ======================================== */
 
 document
@@ -2043,7 +2327,7 @@ const tShirtVariants =
 
 
 /* ========================================
-   商品資料
+   商品
 ======================================== */
 
 const productData = {
@@ -2250,7 +2534,7 @@ const productData = {
   ],
 
 
-  /* THIS & THAT Lucky Draw */
+  /* THIS & THAT */
 
   "this-that-lucky-draw": [
 
@@ -2377,27 +2661,18 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "run-it-1.jpg",
-
-        title:
-          "商品圖 1"
+        src: "run-it-1.jpg",
+        title: "商品圖 1"
       },
 
       {
-        src:
-          "run-it-2.jpg",
-
-        title:
-          "商品圖 2"
+        src: "run-it-2.jpg",
+        title: "商品圖 2"
       },
 
       {
-        src:
-          "run-it-3.jpg",
-
-        title:
-          "商品圖 3"
+        src: "run-it-3.jpg",
+        title: "商品圖 3"
       }
 
     ]
@@ -2692,11 +2967,18 @@ function bindCatalogImages() {
             modalImage.alt =
               image.alt;
 
-            imageModal.classList.add(
-              "open"
-            );
 
-            document.body.style.overflow =
+            imageModal
+              .classList
+              .add(
+                "open"
+              );
+
+
+            document
+              .body
+              .style
+              .overflow =
               "hidden";
 
           }
@@ -2710,14 +2992,21 @@ function bindCatalogImages() {
 
 function closeImageModal() {
 
-  imageModal.classList.remove(
-    "open"
-  );
+  imageModal
+    .classList
+    .remove(
+      "open"
+    );
+
 
   modalImage.src =
     "";
 
-  document.body.style.overflow =
+
+  document
+    .body
+    .style
+    .overflow =
     "";
 
 }
@@ -3087,7 +3376,9 @@ async function renderProducts(
 
   } catch (error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     productContainer.innerHTML = `
@@ -3104,7 +3395,9 @@ async function renderProducts(
 
 
   const products =
-    productData[groupId];
+    productData[
+      groupId
+    ];
 
 
   if (
@@ -3257,9 +3550,10 @@ async function renderProducts(
       `;
 
 
-      productContainer.appendChild(
-        card
-      );
+      productContainer
+        .appendChild(
+          card
+        );
 
     }
   );
@@ -3273,7 +3567,7 @@ async function renderProducts(
 
 
 /* ========================================
-   商品數量操作
+   商品數量
 ======================================== */
 
 function bindProductEvents() {
@@ -3630,9 +3924,10 @@ async function copyBankAccount(
       "-9999px";
 
 
-    document.body.appendChild(
-      area
-    );
+    document.body
+      .appendChild(
+        area
+      );
 
 
     area.select();
@@ -4047,7 +4342,9 @@ paymentForm.addEventListener(
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
 
       alert(
@@ -4139,7 +4436,9 @@ async function loadPublicProgress() {
       Array.isArray(
         result.submissions
       )
+
         ? result.submissions
+
         : [];
 
 
@@ -4148,7 +4447,9 @@ async function loadPublicProgress() {
 
   } catch (error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     progressList.innerHTML = `
@@ -4292,7 +4593,9 @@ function renderProgress() {
 
 
       groups[activity]
-        .push(item);
+        .push(
+          item
+        );
 
     }
   );
@@ -4467,9 +4770,10 @@ function renderProgress() {
         `;
 
 
-        progressList.appendChild(
-          element
-        );
+        progressList
+          .appendChild(
+            element
+          );
 
       }
     );
