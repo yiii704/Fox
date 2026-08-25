@@ -28,11 +28,20 @@
       padding: 0;
     }
 
+    html {
+      width: 100%;
+      min-height: 100%;
+    }
+
     body {
+      width: 100%;
       min-height: 100vh;
+
       padding: 32px 18px;
+
       background: #faf8ff;
       color: #4f4660;
+
       font-family:
         "PingFang TC",
         "Microsoft JhengHei",
@@ -57,13 +66,16 @@
       margin-bottom: 28px;
 
       color: #6b46c1;
+
       font-size: 30px;
       text-align: center;
     }
 
     h2 {
       margin-bottom: 22px;
+
       color: #6b46c1;
+
       font-size: 23px;
       text-align: center;
     }
@@ -75,6 +87,7 @@
 
     .page {
       display: none;
+
       position: relative;
       z-index: 2;
 
@@ -106,6 +119,71 @@
 
 
     /* ========================================
+       首頁固定
+    ======================================== */
+
+    body.home-mode {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+
+      overflow: hidden;
+
+      overscroll-behavior: none;
+    }
+
+
+    /* ========================================
+       首頁狐狸
+    ======================================== */
+
+    body.home-mode > h1 {
+      position: fixed;
+      z-index: 20;
+
+      top: 32px;
+      left: 0;
+
+      width: 100%;
+
+      margin: 0;
+
+      color: #ffffff;
+
+      font-size: 30px;
+      text-align: center;
+
+      text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.35);
+
+      pointer-events: none;
+    }
+
+    body:not(.home-mode) > h1 {
+      position: relative;
+
+      top: auto;
+      left: auto;
+
+      width: auto;
+
+      margin-bottom: 28px;
+
+      color: #6b46c1;
+
+      text-shadow: none;
+    }
+
+
+    /* ========================================
        首頁全螢幕背景
     ======================================== */
 
@@ -131,8 +209,7 @@
       background-image:
         url("home-banner.JPG");
 
-      background-size:
-        cover;
+      background-size: cover;
 
       background-position:
         center center;
@@ -294,7 +371,7 @@
 
 
     /* ========================================
-       團務卡
+       團務
     ======================================== */
 
     .order-card {
@@ -573,8 +650,7 @@
       font-size: 20px;
     }
 
-    details[open]
-    > .product-summary::after {
+    details[open] > .product-summary::after {
       content: "－";
     }
 
@@ -613,8 +689,7 @@
 
     .variant-list {
       padding:
-        0 12px
-        12px;
+        0 12px 12px;
     }
 
 
@@ -626,8 +701,7 @@
       display: grid;
 
       grid-template-columns:
-        minmax(0, 1fr)
-        auto;
+        minmax(0, 1fr) auto;
 
       align-items: center;
 
@@ -690,9 +764,7 @@
 
     .choice-label {
       display: block;
-
       line-height: 1.45;
-
       word-break: break-word;
     }
 
@@ -793,7 +865,7 @@
 
 
     /* ========================================
-       商品總計
+       總計
     ======================================== */
 
     .total-box {
@@ -816,7 +888,7 @@
 
 
     /* ========================================
-       銀行帳號
+       銀行
     ======================================== */
 
     .bank-account {
@@ -854,6 +926,7 @@
 
     .bank-number {
       color: #4f4660 !important;
+
       text-decoration: none !important;
 
       font-variant-numeric:
@@ -923,9 +996,7 @@
     ======================================== */
 
     .filter-label {
-      margin:
-        14px 0
-        8px;
+      margin: 14px 0 8px;
 
       color: #8b8295;
 
@@ -963,7 +1034,7 @@
 
 
     /* ========================================
-       對帳列表
+       對帳
     ======================================== */
 
     .progress-group {
@@ -998,9 +1069,7 @@
     }
 
     .progress-group-body {
-      padding:
-        12px 16px
-        16px;
+      padding: 12px 16px 16px;
     }
 
     .progress-member-row {
@@ -1157,10 +1226,7 @@
       height: 38px;
 
       margin:
-        10px
-        10px
-        -48px
-        0;
+        10px 10px -48px 0;
 
       background:
         rgba(255,255,255,0.94);
@@ -1184,11 +1250,15 @@
     @media (max-width: 480px) {
 
       body {
-        padding:
-          24px 14px;
+        padding: 24px 14px;
       }
 
       h1 {
+        font-size: 28px;
+      }
+
+      body.home-mode > h1 {
+        top: 24px;
         font-size: 28px;
       }
 
@@ -1229,13 +1299,11 @@
       .product-choice {
         gap: 6px;
 
-        padding:
-          9px 8px;
+        padding: 9px 8px;
       }
 
       .choice-main {
-        font-size:
-          11px !important;
+        font-size: 11px !important;
       }
 
       .qty-button {
@@ -1268,13 +1336,11 @@
     @media (max-width: 370px) {
 
       .product-choice {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .quantity-control {
-        justify-content:
-          flex-end;
+        justify-content: flex-end;
       }
 
       .progress-member-row {
@@ -1286,61 +1352,29 @@
 
     }
 
-/* ========================================
-   首頁固定一個螢幕
-======================================== */
-
-body.home-mode {
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-
-  overflow: hidden;
-  overscroll-behavior: none;
-}
-
-/* 首頁狐狸改成白色 */
-body.home-mode > h1 {
-  color: #ffffff;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.35);
-}
-
-/* 其他頁面狐狸維持原本紫色 */
-body:not(.home-mode) > h1 {
-  color: #6b46c1;
-}
-
   </style>
 </head>
 
 
 <body class="home-mode">
 
-  <!-- 原本標題位置維持不動 -->
-
   <h1>狐狸🦊</h1>
 
 
   <!-- ========================================
        首頁
-  ========================================= -->
+  ======================================== -->
 
   <main
     id="homePage"
     class="page active-page"
   >
 
-    <!-- 整個螢幕的背景照片 -->
-
     <div
       class="home-background"
       aria-hidden="true"
     ></div>
 
-
-    <!-- 原本按鈕位置不動 -->
 
     <div class="menu-grid">
 
@@ -1383,7 +1417,7 @@ body:not(.home-mode) > h1 {
 
   <!-- ========================================
        團務
-  ========================================= -->
+  ======================================== -->
 
   <section
     id="groupPage"
@@ -1400,8 +1434,6 @@ body:not(.home-mode) > h1 {
 
     <h2>📦 團務</h2>
 
-
-    <!-- RUN IT JAPAN -->
 
     <div class="card order-card">
 
@@ -1434,8 +1466,6 @@ body:not(.home-mode) > h1 {
     </div>
 
 
-    <!-- 一番賞 -->
-
     <div class="card order-card">
 
       <div class="order-top">
@@ -1464,8 +1494,6 @@ body:not(.home-mode) > h1 {
 
     </div>
 
-
-    <!-- THIS & THAT -->
 
     <div class="card order-card">
 
@@ -1496,8 +1524,6 @@ body:not(.home-mode) > h1 {
 
     </div>
 
-
-    <!-- Sony music -->
 
     <div class="card order-card">
 
@@ -1532,7 +1558,7 @@ body:not(.home-mode) > h1 {
 
   <!-- ========================================
        注意事項
-  ========================================= -->
+  ======================================== -->
 
   <section
     id="noticePage"
@@ -1558,9 +1584,7 @@ body:not(.home-mode) > h1 {
 
       <p>
         所有團物皆為
-        <strong>
-          收齊全部車員款項後
-        </strong>
+        <strong>收齊全部車員款項後</strong>
         才會統一下單。
       </p>
 
@@ -1613,15 +1637,10 @@ body:not(.home-mode) > h1 {
       </p>
 
       <ul class="notice-list">
-
         <li>廠損</li>
         <li>運輸損傷</li>
         <li>商品瑕疵</li>
-
-        <li>
-          不湊套（專卡、滿額卡及隨機商品等）
-        </li>
-
+        <li>不湊套（專卡、滿額卡及隨機商品等）</li>
       </ul>
 
       <p style="margin-top:12px;">
@@ -1635,14 +1654,12 @@ body:not(.home-mode) > h1 {
 
   <!-- ========================================
        匯款表單
-  ========================================= -->
+  ======================================== -->
 
   <section
     id="paymentPage"
     class="page"
   >
-
-    <!-- ★ 返回團務 -->
 
     <button
       type="button"
@@ -1652,14 +1669,11 @@ body:not(.home-mode) > h1 {
       ← 返回團務
     </button>
 
-
     <h2>💰 匯款表單</h2>
 
 
     <form id="paymentForm">
 
-
-      <!-- 基本資料 -->
 
       <div class="card">
 
@@ -1671,11 +1685,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="communitySelect">
-
             社群名稱／團務
-
             <span class="required">*</span>
-
           </label>
 
           <select
@@ -1711,11 +1722,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="facebookName">
-
             Facebook 名稱
-
             <span class="required">*</span>
-
           </label>
 
           <input
@@ -1729,8 +1737,6 @@ body:not(.home-mode) > h1 {
 
       </div>
 
-
-      <!-- 商品圖鑑 -->
 
       <div
         class="card"
@@ -1759,8 +1765,6 @@ body:not(.home-mode) > h1 {
       </div>
 
 
-      <!-- 商品 -->
-
       <div class="card">
 
         <div class="card-title">
@@ -1775,14 +1779,12 @@ body:not(.home-mode) > h1 {
 
         </div>
 
-
         <div
           id="selectedSummary"
           class="selected-summary"
         >
           已選 0 件商品
         </div>
-
 
         <div class="total-box">
 
@@ -1798,8 +1800,6 @@ body:not(.home-mode) > h1 {
 
       </div>
 
-
-      <!-- 匯款帳號 -->
 
       <div class="card">
 
@@ -1823,12 +1823,7 @@ body:not(.home-mode) > h1 {
             <button
               type="button"
               class="copy-button"
-              onclick="
-                copyBankAccount(
-                  '111019094603',
-                  this
-                )
-              "
+              onclick="copyBankAccount('111019094603', this)"
             >
               複製
             </button>
@@ -1853,12 +1848,7 @@ body:not(.home-mode) > h1 {
             <button
               type="button"
               class="copy-button"
-              onclick="
-                copyBankAccount(
-                  '20741000262603',
-                  this
-                )
-              "
+              onclick="copyBankAccount('20741000262603', this)"
             >
               複製
             </button>
@@ -1883,12 +1873,7 @@ body:not(.home-mode) > h1 {
             <button
               type="button"
               class="copy-button"
-              onclick="
-                copyBankAccount(
-                  '901567959612',
-                  this
-                )
-              "
+              onclick="copyBankAccount('901567959612', this)"
             >
               複製
             </button>
@@ -1900,8 +1885,6 @@ body:not(.home-mode) > h1 {
       </div>
 
 
-      <!-- 匯款資料 -->
-
       <div class="card">
 
         <div class="card-title">
@@ -1912,11 +1895,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="paymentDate">
-
             匯款日期
-
             <span class="required">*</span>
-
           </label>
 
           <input
@@ -1931,11 +1911,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="paymentTime">
-
             匯款時間
-
             <span class="required">*</span>
-
           </label>
 
           <input
@@ -1950,11 +1927,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="paymentBank">
-
             匯款銀行
-
             <span class="required">*</span>
-
           </label>
 
           <select
@@ -1986,11 +1960,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="paymentAmount">
-
             匯款金額
-
             <span class="required">*</span>
-
           </label>
 
           <input
@@ -2008,11 +1979,8 @@ body:not(.home-mode) > h1 {
         <div class="form-group">
 
           <label for="accountLastFive">
-
             匯款帳號後五碼
-
             <span class="required">*</span>
-
           </label>
 
           <input
@@ -2058,7 +2026,7 @@ body:not(.home-mode) > h1 {
 
   <!-- ========================================
        對帳表
-  ========================================= -->
+  ======================================== -->
 
   <section
     id="progressPage"
@@ -2172,8 +2140,8 @@ body:not(.home-mode) > h1 {
 
 
   <!-- ========================================
-       商品圖片放大
-  ========================================= -->
+       圖片放大
+  ======================================== -->
 
   <div
     id="imageModal"
@@ -2204,38 +2172,47 @@ body:not(.home-mode) > h1 {
 <script>
 
 /* ========================================
-   Worker
+   基本
 ======================================== */
 
 const WORKER_URL =
   "https://fox-form-api.a0983707826.workers.dev";
 
 
-/* ========================================
-   頁面
-======================================== */
-
-/* 防止瀏覽器自動恢復舊的捲動位置 */
-if ("scrollRestoration" in history) {
+if (
+  "scrollRestoration" in history
+) {
   history.scrollRestoration = "manual";
 }
 
 
 const pages =
-  document.querySelectorAll(
-    ".page"
-  );
+  document.querySelectorAll(".page");
+
+
+/* ========================================
+   頁面切換
+======================================== */
+
+function resetScroll() {
+
+  window.scrollTo(0, 0);
+
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+}
 
 
 function showPage(pageId) {
 
-  /* 先解除首頁鎖定 */
+  /* 先解除首頁固定 */
   document.body.classList.remove(
     "home-mode"
   );
 
 
-  /* 隱藏全部頁面 */
+  /* 隱藏所有頁面 */
   pages.forEach(
     page => {
       page.classList.remove(
@@ -2245,65 +2222,43 @@ function showPage(pageId) {
   );
 
 
-  /* 找到要顯示的頁面 */
-  const page =
-    document.getElementById(
-      pageId
-    );
+  const targetPage =
+    document.getElementById(pageId);
 
 
-  if (!page) {
+  if (!targetPage) {
     return;
   }
 
 
   /* 顯示指定頁面 */
-  page.classList.add(
+  targetPage.classList.add(
     "active-page"
   );
 
 
-  /* 每次切換都先回到最頂端 */
-  window.scrollTo(
-    0,
-    0
-  );
-
-  document.documentElement.scrollTop =
-    0;
-
-  document.body.scrollTop =
-    0;
+  /* 每次切換都回最上面 */
+  resetScroll();
 
 
-  /* 回首頁時重新鎖定首頁 */
   if (
     pageId === "homePage"
   ) {
 
     /*
-      iPhone Safari 有時會在 overflow:hidden
-      加回去時保留舊捲動位置，
-      所以等下一個畫面更新再鎖定。
+      首頁直接固定在視窗，
+      不再依賴瀏覽器目前捲動位置。
     */
+
+    document.body.classList.add(
+      "home-mode"
+    );
+
+    resetScroll();
+
     requestAnimationFrame(
       () => {
-
-        window.scrollTo(
-          0,
-          0
-        );
-
-        document.documentElement.scrollTop =
-          0;
-
-        document.body.scrollTop =
-          0;
-
-        document.body.classList.add(
-          "home-mode"
-        );
-
+        resetScroll();
       }
     );
 
@@ -2312,14 +2267,8 @@ function showPage(pageId) {
 }
 
 
-/* ========================================
-   一般頁面切換按鈕
-======================================== */
-
 document
-  .querySelectorAll(
-    "[data-target]"
-  )
+  .querySelectorAll("[data-target]")
   .forEach(
     button => {
 
@@ -2337,14 +2286,13 @@ document
     }
   );
 
+
 /* ========================================
    首頁按鈕狀態
 ======================================== */
 
 document
-  .querySelectorAll(
-    ".menu-grid"
-  )
+  .querySelectorAll(".menu-grid")
   .forEach(
     menu => {
 
@@ -2362,10 +2310,11 @@ document
             () => {
 
               buttons.forEach(
-                item =>
+                item => {
                   item.classList.remove(
                     "selected"
-                  )
+                  );
+                }
               );
 
 
@@ -2388,7 +2337,6 @@ document
 ======================================== */
 
 const skzMembers = [
-
   "Bang Chan",
   "Lee Know",
   "Changbin",
@@ -2397,17 +2345,14 @@ const skzMembers = [
   "Felix",
   "Seungmin",
   "I.N"
-
 ];
 
 
 const tShirtVariants =
   skzMembers.flatMap(
     member => [
-
       `${member} / M`,
       `${member} / L`
-
     ]
   );
 
@@ -2417,9 +2362,6 @@ const tShirtVariants =
 ======================================== */
 
 const productData = {
-
-
-  /* RUN IT JAPAN */
 
   "run-it-japan": [
 
@@ -2595,8 +2537,6 @@ const productData = {
   ],
 
 
-  /* RUN IT JAPAN 一番賞 */
-
   "run-it-japan-kuji": [
 
     {
@@ -2620,47 +2560,33 @@ const productData = {
   ],
 
 
-  /* THIS & THAT */
-
   "this-that-lucky-draw": [
 
     {
       name:
         "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
 
-      price:
-        470
+      price: 470
     }
 
   ],
 
 
-  /* Sony music */
-
   "sony-music-benefit": [
 
     {
-      name:
-        "THIS VER.",
-
-      price:
-        750
+      name: "THIS VER.",
+      price: 750
     },
 
     {
-      name:
-        "THAT VER.",
-
-      price:
-        750
+      name: "THAT VER.",
+      price: 750
     },
 
     {
-      name:
-        "& VER（8張一套）",
-
-      price:
-        4400
+      name: "& VER（8張一套）",
+      price: 4400
     }
 
   ]
@@ -2675,58 +2601,35 @@ const productData = {
 const groupMeta = {
 
   "run-it-japan": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
+    groupType: "代購",
+    group: "Stray Kids",
 
     activity:
       "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
-
   },
 
-
   "run-it-japan-kuji": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
+    groupType: "代購",
+    group: "Stray Kids",
 
     activity:
       "Run it JAPAN 一番賞"
-
   },
 
-
   "this-that-lucky-draw": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
+    groupType: "代購",
+    group: "Stray Kids",
 
     activity:
       "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)"
-
   },
 
-
   "sony-music-benefit": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
+    groupType: "代購",
+    group: "Stray Kids",
 
     activity:
       "Sony music 通路特典（含專）"
-
   }
 
 };
@@ -2737,7 +2640,6 @@ const groupMeta = {
 ======================================== */
 
 const catalogData = {
-
 
   "run-it-japan": {
 
@@ -2889,8 +2791,7 @@ const catalogWarning =
   );
 
 
-let currentInventory =
-  null;
+let currentInventory = null;
 
 
 /* ========================================
@@ -2899,9 +2800,7 @@ let currentInventory =
 
 function escapeHTML(value) {
 
-  return String(
-    value ?? ""
-  )
+  return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -2941,11 +2840,8 @@ function renderCatalog(groupId) {
   catalogCard.style.display =
     "block";
 
-
   catalogWarning.textContent =
-    catalog.warning ||
-    "";
-
+    catalog.warning || "";
 
   catalogGallery.className =
     "catalog-gallery";
@@ -2985,21 +2881,13 @@ function renderCatalog(groupId) {
 
             <img
               class="catalog-image"
-              src="${escapeHTML(
-                image.src
-              )}"
-              alt="${escapeHTML(
-                image.title
-              )}"
+              src="${escapeHTML(image.src)}"
+              alt="${escapeHTML(image.title)}"
               loading="lazy"
             >
 
             <div class="catalog-caption">
-
-              ${escapeHTML(
-                image.title
-              )}
-
+              ${escapeHTML(image.title)}
             </div>
 
           </div>
@@ -3053,18 +2941,11 @@ function bindCatalogImages() {
             modalImage.alt =
               image.alt;
 
+            imageModal.classList.add(
+              "open"
+            );
 
-            imageModal
-              .classList
-              .add(
-                "open"
-              );
-
-
-            document
-              .body
-              .style
-              .overflow =
+            document.body.style.overflow =
               "hidden";
 
           }
@@ -3078,21 +2959,13 @@ function bindCatalogImages() {
 
 function closeImageModal() {
 
-  imageModal
-    .classList
-    .remove(
-      "open"
-    );
+  imageModal.classList.remove(
+    "open"
+  );
 
+  modalImage.src = "";
 
-  modalImage.src =
-    "";
-
-
-  document
-    .body
-    .style
-    .overflow =
+  document.body.style.overflow =
     "";
 
 }
@@ -3109,12 +2982,9 @@ imageModal.addEventListener(
   event => {
 
     if (
-      event.target ===
-      imageModal
+      event.target === imageModal
     ) {
-
       closeImageModal();
-
     }
 
   }
@@ -3125,16 +2995,16 @@ imageModal.addEventListener(
    一番賞庫存
 ======================================== */
 
-async function loadInventory(groupId) {
+async function loadInventory(
+  groupId
+) {
 
   if (
     groupId !==
     "run-it-japan-kuji"
   ) {
 
-    currentInventory =
-      null;
-
+    currentInventory = null;
     return;
 
   }
@@ -3144,12 +3014,9 @@ async function loadInventory(groupId) {
     await fetch(
       WORKER_URL +
       "/inventory?groupId=" +
-      encodeURIComponent(
-        groupId
-      ),
+      encodeURIComponent(groupId),
       {
-        cache:
-          "no-store"
+        cache: "no-store"
       }
     );
 
@@ -3177,10 +3044,6 @@ async function loadInventory(groupId) {
 }
 
 
-/* ========================================
-   一番賞款式
-======================================== */
-
 function getKujiVariants(
   productName
 ) {
@@ -3193,8 +3056,7 @@ function getKujiVariants(
 
   if (
     !product ||
-    typeof product !==
-    "object"
+    typeof product !== "object"
   ) {
 
     return [];
@@ -3202,16 +3064,10 @@ function getKujiVariants(
   }
 
 
-  return Object.keys(
-    product
-  );
+  return Object.keys(product);
 
 }
 
-
-/* ========================================
-   取得庫存
-======================================== */
 
 function getStock(
   productName,
@@ -3222,15 +3078,14 @@ function getStock(
     currentInventory
       ?.products
       ?.[productName]
-      ?.[variant] ??
-    0
+      ?.[variant] ?? 0
   );
 
 }
 
 
 /* ========================================
-   建立商品選項
+   商品選項
 ======================================== */
 
 function createChoiceHTML(
@@ -3239,18 +3094,15 @@ function createChoiceHTML(
 ) {
 
   const stockManaged =
-    product.stockManaged ===
-    true;
+    product.stockManaged === true;
 
 
   const stock =
     stockManaged
-
       ? getStock(
           product.name,
           variant
         )
-
       : 99;
 
 
@@ -3261,17 +3113,11 @@ function createChoiceHTML(
 
   const max =
     stockManaged
-
-      ? Math.max(
-          stock,
-          1
-        )
-
+      ? Math.max(stock, 1)
       : 99;
 
 
-  let stockHTML =
-    "";
+  let stockHTML = "";
 
 
   if (stockManaged) {
@@ -3295,11 +3141,7 @@ function createChoiceHTML(
         <span
           class="
             stock-text
-            ${
-              stock <= 2
-                ? "stock-low"
-                : ""
-            }
+            ${stock <= 2 ? "stock-low" : ""}
           "
         >
           剩餘 ${stock}
@@ -3317,11 +3159,7 @@ function createChoiceHTML(
     <div
       class="
         product-choice
-        ${
-          soldOut
-            ? "sold-out"
-            : ""
-        }
+        ${soldOut ? "sold-out" : ""}
       "
     >
 
@@ -3331,27 +3169,16 @@ function createChoiceHTML(
           class="product-checkbox"
           type="checkbox"
 
-          data-product="${escapeHTML(
-            product.name
-          )}"
+          data-product="${escapeHTML(product.name)}"
 
-          data-variant="${escapeHTML(
-            variant
-          )}"
+          data-variant="${escapeHTML(variant)}"
 
           data-price="${product.price}"
 
-          data-stock-managed="${
-            stockManaged
-          }"
+          data-stock-managed="${stockManaged}"
 
-          ${
-            soldOut
-              ? "disabled"
-              : ""
-          }
+          ${soldOut ? "disabled" : ""}
         >
-
 
         <span class="choice-label-wrap">
 
@@ -3381,7 +3208,6 @@ function createChoiceHTML(
           −
         </button>
 
-
         <input
           class="qty-input"
           type="number"
@@ -3391,7 +3217,6 @@ function createChoiceHTML(
           value="1"
           disabled
         >
-
 
         <button
           type="button"
@@ -3411,7 +3236,7 @@ function createChoiceHTML(
 
 
 /* ========================================
-   顯示商品
+   商品顯示
 ======================================== */
 
 async function renderProducts(
@@ -3427,9 +3252,7 @@ async function renderProducts(
   `;
 
 
-  renderCatalog(
-    groupId
-  );
+  renderCatalog(groupId);
 
 
   if (!groupId) {
@@ -3442,10 +3265,7 @@ async function renderProducts(
 
     `;
 
-
-    currentInventory =
-      null;
-
+    currentInventory = null;
 
     updateTotal();
 
@@ -3456,16 +3276,11 @@ async function renderProducts(
 
   try {
 
-    await loadInventory(
-      groupId
-    );
+    await loadInventory(groupId);
 
   } catch (error) {
 
-    console.error(
-      error
-    );
-
+    console.error(error);
 
     productContainer.innerHTML = `
 
@@ -3481,9 +3296,7 @@ async function renderProducts(
 
 
   const products =
-    productData[
-      groupId
-    ];
+    productData[groupId];
 
 
   if (
@@ -3499,7 +3312,6 @@ async function renderProducts(
 
     `;
 
-
     updateTotal();
 
     return;
@@ -3507,15 +3319,13 @@ async function renderProducts(
   }
 
 
-  productContainer.innerHTML =
-    "";
+  productContainer.innerHTML = "";
 
 
   products.forEach(
     product => {
 
-      let variants =
-        [];
+      let variants = [];
 
 
       if (
@@ -3541,7 +3351,6 @@ async function renderProducts(
 
       const choicesHTML =
         variants.length > 0
-
           ? variants
               .map(
                 variant =>
@@ -3551,7 +3360,6 @@ async function renderProducts(
                   )
               )
               .join("")
-
           : createChoiceHTML(
               product
             );
@@ -3595,51 +3403,36 @@ async function renderProducts(
           <div class="product-summary-left">
 
             <div class="product-name">
-
-              ${escapeHTML(
-                product.name
-              )}
-
+              ${escapeHTML(product.name)}
             </div>
 
             <div class="product-hint">
-
-              ${escapeHTML(
-                hint
-              )}
-
+              ${escapeHTML(hint)}
             </div>
 
           </div>
-
 
           <div class="product-price">
 
             NT$
             ${Number(
               product.price
-            ).toLocaleString(
-              "zh-TW"
-            )}
+            ).toLocaleString("zh-TW")}
 
           </div>
 
         </summary>
 
-
         <div class="variant-list">
-
           ${choicesHTML}
-
         </div>
 
       `;
 
 
-      productContainer
-        .appendChild(
-          card
-        );
+      productContainer.appendChild(
+        card
+      );
 
     }
   );
@@ -3690,9 +3483,7 @@ function bindProductEvents() {
           !checkbox ||
           checkbox.disabled
         ) {
-
           return;
-
         }
 
 
@@ -3715,10 +3506,7 @@ function bindProductEvents() {
 
 
             if (!enabled) {
-
-              qty.value =
-                1;
-
+              qty.value = 1;
             }
 
 
@@ -3742,11 +3530,9 @@ function bindProductEvents() {
               Math.max(
                 1,
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 ) - 1
               );
-
 
             updateTotal();
 
@@ -3760,8 +3546,7 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max ||
-                99
+                qty.max || 99
               );
 
 
@@ -3769,11 +3554,9 @@ function bindProductEvents() {
               Math.min(
                 max,
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 ) + 1
               );
-
 
             updateTotal();
 
@@ -3787,16 +3570,14 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max ||
-                99
+                qty.max || 99
               );
 
 
             let value =
               Math.floor(
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 )
               );
 
@@ -3839,11 +3620,8 @@ function updateTotal() {
       );
 
 
-  let total =
-    0;
-
-  let totalQuantity =
-    0;
+  let total = 0;
+  let totalQuantity = 0;
 
 
   checked.forEach(
@@ -3863,22 +3641,19 @@ function updateTotal() {
               .querySelector(
                 ".qty-input"
               )
-              .value ||
-            1
+              .value || 1
           )
         );
 
 
       const price =
         Number(
-          checkbox.dataset.price ||
-          0
+          checkbox.dataset.price || 0
         );
 
 
       total +=
-        price *
-        quantity;
+        price * quantity;
 
 
       totalQuantity +=
@@ -3889,9 +3664,7 @@ function updateTotal() {
 
 
   calculatedTotal.textContent =
-    `NT$ ${total.toLocaleString(
-      "zh-TW"
-    )}`;
+    `NT$ ${total.toLocaleString("zh-TW")}`;
 
 
   selectedSummary.textContent =
@@ -3907,7 +3680,7 @@ function updateTotal() {
 
 
 /* ========================================
-   下拉選擇團務
+   下拉切換團務
 ======================================== */
 
 communitySelect.addEventListener(
@@ -3962,7 +3735,7 @@ document
 
 
 /* ========================================
-   複製銀行帳號
+   複製帳號
 ======================================== */
 
 async function copyBankAccount(
@@ -3982,9 +3755,7 @@ async function copyBankAccount(
     ) {
 
       await navigator.clipboard
-        .writeText(
-          account
-        );
+        .writeText(account);
 
     } else {
 
@@ -4000,8 +3771,7 @@ async function copyBankAccount(
       );
 
 
-    area.value =
-      account;
+    area.value = account;
 
     area.style.position =
       "fixed";
@@ -4010,19 +3780,16 @@ async function copyBankAccount(
       "-9999px";
 
 
-    document.body
-      .appendChild(
-        area
-      );
+    document.body.appendChild(
+      area
+    );
 
 
     area.select();
 
-
     document.execCommand(
       "copy"
     );
-
 
     area.remove();
 
@@ -4031,7 +3798,6 @@ async function copyBankAccount(
 
   button.textContent =
     "✓ 已複製";
-
 
   button.classList.add(
     "copied"
@@ -4088,12 +3854,10 @@ paymentForm.addEventListener(
 
 
     const checked = [
-
       ...productContainer
         .querySelectorAll(
           ".product-checkbox:checked"
         )
-
     ];
 
 
@@ -4150,8 +3914,7 @@ paymentForm.addEventListener(
                   .querySelector(
                     ".qty-input"
                   )
-                  .value ||
-                1
+                  .value || 1
               )
             );
 
@@ -4161,20 +3924,17 @@ paymentForm.addEventListener(
 
 
           const variant =
-            checkbox.dataset.variant ||
-            "";
+            checkbox.dataset.variant || "";
 
 
           const unitPrice =
             Number(
-              checkbox.dataset.price ||
-              0
+              checkbox.dataset.price || 0
             );
 
 
           const lineTotal =
-            unitPrice *
-            quantity;
+            unitPrice * quantity;
 
 
           let displayName =
@@ -4221,15 +3981,12 @@ paymentForm.addEventListener(
 
 
     const meta =
-      groupMeta[
-        groupId
-      ] || {};
+      groupMeta[groupId] || {};
 
 
     const selectedOption =
       communitySelect.options[
-        communitySelect
-          .selectedIndex
+        communitySelect.selectedIndex
       ];
 
 
@@ -4251,12 +4008,10 @@ paymentForm.addEventListener(
           .trim(),
 
       groupType:
-        meta.groupType ||
-        "",
+        meta.groupType || "",
 
       group:
-        meta.group ||
-        "",
+        meta.group || "",
 
       activity:
         meta.activity ||
@@ -4318,9 +4073,7 @@ paymentForm.addEventListener(
     submitButton.textContent =
       groupId ===
       "run-it-japan-kuji"
-
         ? "確認庫存並送出中…"
-
         : "送出中…";
 
 
@@ -4328,18 +4081,14 @@ paymentForm.addEventListener(
 
       const response =
         await fetch(
-          WORKER_URL +
-          "/submit",
+          WORKER_URL + "/submit",
           {
 
-            method:
-              "POST",
+            method: "POST",
 
             headers: {
-
               "Content-Type":
                 "application/json"
-
             },
 
             body:
@@ -4389,9 +4138,7 @@ paymentForm.addEventListener(
 
       paymentForm.reset();
 
-
-      currentInventory =
-        null;
+      currentInventory = null;
 
 
       productContainer.innerHTML = `
@@ -4406,18 +4153,14 @@ paymentForm.addEventListener(
       catalogCard.style.display =
         "none";
 
-
       catalogGallery.innerHTML =
         "";
-
 
       selectedSummary.textContent =
         "已選 0 件商品";
 
-
       calculatedTotal.textContent =
         "NT$ 0";
-
 
       paymentAmount.value =
         "";
@@ -4428,9 +4171,7 @@ paymentForm.addEventListener(
 
     } catch (error) {
 
-      console.error(
-        error
-      );
+      console.error(error);
 
 
       alert(
@@ -4441,7 +4182,6 @@ paymentForm.addEventListener(
 
       submitButton.disabled =
         false;
-
 
       submitButton.textContent =
         "送出匯款資料";
@@ -4456,8 +4196,7 @@ paymentForm.addEventListener(
    公開對帳
 ======================================== */
 
-let defaultProgressData =
-  [];
+let defaultProgressData = [];
 
 let currentTypeFilter =
   "all";
@@ -4495,8 +4234,7 @@ async function loadPublicProgress() {
         WORKER_URL +
         "/public/list",
         {
-          cache:
-            "no-store"
+          cache: "no-store"
         }
       );
 
@@ -4522,9 +4260,7 @@ async function loadPublicProgress() {
       Array.isArray(
         result.submissions
       )
-
         ? result.submissions
-
         : [];
 
 
@@ -4533,9 +4269,7 @@ async function loadPublicProgress() {
 
   } catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     progressList.innerHTML = `
@@ -4552,7 +4286,7 @@ async function loadPublicProgress() {
 
 
 /* ========================================
-   顯示對帳
+   對帳顯示
 ======================================== */
 
 function renderProgress() {
@@ -4570,29 +4304,22 @@ function renderProgress() {
 
         const itemType =
           String(
-            item.groupType ||
-            ""
+            item.groupType || ""
           );
-
 
         const itemGroup =
           String(
-            item.group ||
-            ""
+            item.group || ""
           );
-
 
         const community =
           String(
-            item.community ||
-            ""
+            item.community || ""
           );
-
 
         const facebook =
           String(
-            item.facebookName ||
-            ""
+            item.facebookName || ""
           );
 
 
@@ -4638,8 +4365,7 @@ function renderProgress() {
     );
 
 
-  progressList.innerHTML =
-    "";
+  progressList.innerHTML = "";
 
 
   if (!filtered.length) {
@@ -4657,8 +4383,7 @@ function renderProgress() {
   }
 
 
-  const groups =
-    {};
+  const groups = {};
 
 
   filtered.forEach(
@@ -4671,25 +4396,19 @@ function renderProgress() {
 
 
       if (!groups[activity]) {
-
-        groups[activity] =
-          [];
-
+        groups[activity] = [];
       }
 
 
-      groups[activity]
-        .push(
-          item
-        );
+      groups[activity].push(
+        item
+      );
 
     }
   );
 
 
-  Object.entries(
-    groups
-  )
+  Object.entries(groups)
     .forEach(
       ([activity, items]) => {
 
@@ -4798,8 +4517,7 @@ function renderProgress() {
                       <div class="community-small">
 
                         ${escapeHTML(
-                          item.community ||
-                          ""
+                          item.community || ""
                         )}
 
                       </div>
@@ -4810,22 +4528,18 @@ function renderProgress() {
                     <div
                       class="status-pill ${paymentClass}"
                     >
-
                       ${escapeHTML(
                         paymentStatus
                       )}
-
                     </div>
 
 
                     <div
                       class="stage-pill ${progressClass}"
                     >
-
                       ${escapeHTML(
                         progress
                       )}
-
                     </div>
 
                   </div>
@@ -4840,26 +4554,19 @@ function renderProgress() {
         element.innerHTML = `
 
           <div class="progress-group-header">
-
-            ${escapeHTML(
-              activity
-            )}
-
+            ${escapeHTML(activity)}
           </div>
 
           <div class="progress-group-body">
-
             ${rows}
-
           </div>
 
         `;
 
 
-        progressList
-          .appendChild(
-            element
-          );
+        progressList.appendChild(
+          element
+        );
 
       }
     );
@@ -4887,10 +4594,11 @@ document
               "#typeFilters .filter-button"
             )
             .forEach(
-              item =>
+              item => {
                 item.classList.remove(
                   "selected"
-                )
+                );
+              }
             );
 
 
@@ -4928,10 +4636,11 @@ document
               "#groupFilters .filter-button"
             )
             .forEach(
-              item =>
+              item => {
                 item.classList.remove(
                   "selected"
-                )
+                );
+              }
             );
 
 
@@ -4962,6 +4671,8 @@ communitySearch.addEventListener(
 /* ========================================
    初始化
 ======================================== */
+
+resetScroll();
 
 renderProgress();
 
