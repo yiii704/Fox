@@ -12,6 +12,7 @@
 
   <title>狐狸🦊 管理後台</title>
 
+
   <style>
 
     /* =========================
@@ -24,16 +25,30 @@
       padding: 0;
     }
 
+
+    html {
+      min-height: 100%;
+    }
+
+
     body {
       min-height: 100vh;
-      padding: 28px 16px 60px;
-      background: #faf8ff;
-      color: #4f4660;
+
+      padding:
+        28px 16px 60px;
+
+      background:
+        #faf8ff;
+
+      color:
+        #4f4660;
+
       font-family:
         "PingFang TC",
         "Microsoft JhengHei",
         sans-serif;
     }
+
 
     button,
     input,
@@ -41,8 +56,63 @@
       font: inherit;
     }
 
+
     button {
       cursor: pointer;
+    }
+
+
+    /* =========================
+       登入首頁滿版背景
+    ========================= */
+
+    body.login-mode {
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      overflow: hidden;
+    }
+
+
+    body.login-mode::before {
+      content: "";
+
+      position: fixed;
+
+      z-index: 0;
+
+      inset: 0;
+
+      width: 100vw;
+
+      height: 100vh;
+      height: 100dvh;
+
+      background-image:
+        url("home-banner.JPG");
+
+      background-size:
+        cover;
+
+      background-position:
+        center center;
+
+      background-repeat:
+        no-repeat;
+
+      pointer-events: none;
+    }
+
+
+    /*
+      登入畫面內容要在背景上面
+    */
+
+    body.login-mode
+    .container {
+      position: relative;
+
+      z-index: 2;
     }
 
 
@@ -52,7 +122,9 @@
 
     .container {
       width: 100%;
+
       max-width: 1000px;
+
       margin: 0 auto;
     }
 
@@ -63,16 +135,51 @@
 
     h1 {
       margin-bottom: 8px;
+
       color: #6b46c1;
+
       font-size: 28px;
+
       text-align: center;
     }
 
+
     .subtitle {
       margin-bottom: 26px;
+
       color: #9589a7;
+
       font-size: 14px;
+
       text-align: center;
+    }
+
+
+    /* 登入首頁狐狸變白色 */
+
+    body.login-mode
+    #loginPage h1 {
+      color: #ffffff;
+
+      text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.35);
+    }
+
+
+    body.login-mode
+    #loginPage .subtitle {
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.92
+        );
+
+      text-shadow:
+        0 2px 7px
+        rgba(0, 0, 0, 0.32);
     }
 
 
@@ -82,10 +189,16 @@
 
     .card {
       margin-bottom: 18px;
+
       padding: 22px;
+
       background: #ffffff;
-      border: 1px solid #eee6ff;
+
+      border:
+        1px solid #eee6ff;
+
       border-radius: 24px;
+
       box-shadow:
         0 8px 24px
         rgba(107, 70, 193, 0.06);
@@ -98,62 +211,123 @@
 
     .login-card {
       max-width: 430px;
-      margin: 50px auto 0;
+
+      margin:
+        50px auto 0;
     }
+
+
+    /*
+      背景照片上稍微有透明感
+    */
+
+    body.login-mode
+    .login-card {
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.94
+        );
+
+      box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.16);
+
+      -webkit-backdrop-filter:
+        blur(7px);
+
+      backdrop-filter:
+        blur(7px);
+    }
+
 
     .login-title {
       margin-bottom: 18px;
+
       color: #6b46c1;
+
       font-size: 20px;
+
       text-align: center;
     }
 
+
     label {
       display: block;
+
       margin-bottom: 8px;
+
       color: #6d6379;
+
       font-size: 14px;
+
       font-weight: 600;
     }
+
 
     input,
     select {
       width: 100%;
+
       padding: 13px 15px;
+
       background: white;
-      border: 1.5px solid #ded1fa;
+
+      border:
+        1.5px solid #ded1fa;
+
       border-radius: 16px;
+
       color: #4f4660;
+
       outline: none;
     }
+
 
     input:focus,
     select:focus {
       border-color: #b99bf5;
     }
 
+
     .login-button,
     .main-button {
       width: 100%;
+
       margin-top: 16px;
+
       padding: 13px 18px;
+
       background: #dccfff;
-      border: 1.5px solid #b99bf5;
+
+      border:
+        1.5px solid #b99bf5;
+
       border-radius: 999px;
+
       color: #59349e;
+
       font-weight: 700;
     }
+
 
     .login-button:active,
     .main-button:active {
       transform: scale(0.98);
     }
 
+
     .error-text {
       min-height: 20px;
+
       margin-top: 12px;
+
       color: #c55b73;
+
       font-size: 13px;
+
       text-align: center;
     }
 
@@ -166,21 +340,33 @@
       display: none;
     }
 
+
     .top-actions {
       display: flex;
+
       gap: 10px;
+
       margin-bottom: 18px;
     }
 
+
     .small-button {
       flex: 1;
+
       padding: 10px 14px;
+
       background: white;
-      border: 1.5px solid #d9c8ff;
+
+      border:
+        1.5px solid #d9c8ff;
+
       border-radius: 999px;
+
       color: #6b46c1;
+
       font-weight: 600;
     }
+
 
     .small-button:hover {
       background: #f7f2ff;
@@ -193,18 +379,26 @@
 
     .summary-card {
       display: flex;
+
       align-items: center;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
     }
+
 
     .summary-label {
       color: #867a94;
+
       font-size: 14px;
     }
 
+
     .summary-number {
       color: #6b46c1;
+
       font-size: 25px;
+
       font-weight: 700;
     }
 
@@ -218,15 +412,21 @@
     }
 
 
-    /* =====================================================
-       新版：匯款資料並排
-    ===================================================== */
+    /* =========================
+       匯款資料並排
+    ========================= */
 
     #submissionList {
       display: grid;
+
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
       gap: 12px;
+
       align-items: start;
     }
 
@@ -237,9 +437,13 @@
 
     .submission-card {
       position: relative;
+
       min-width: 0;
+
       margin-bottom: 0;
+
       padding: 16px;
+
       border-radius: 20px;
     }
 
@@ -250,72 +454,110 @@
 
     .submission-header {
       display: flex;
+
       flex-direction: column;
+
       align-items: flex-start;
+
       gap: 8px;
+
       margin-bottom: 13px;
     }
 
-    .submission-header > div:first-child {
+
+    .submission-header
+    > div:first-child {
       width: 100%;
+
       min-width: 0;
     }
 
+
     .person-name {
       color: #59349e;
+
       font-size: 16px;
+
       font-weight: 700;
+
       line-height: 1.35;
+
       word-break: break-word;
     }
+
 
     .community-name {
       margin-top: 4px;
+
       color: #92859f;
+
       font-size: 11px;
+
       line-height: 1.4;
+
       word-break: break-word;
     }
 
+
     .amount-pill {
       flex-shrink: 0;
+
       padding: 6px 10px;
+
       background: #f1eaff;
+
       border-radius: 999px;
+
       color: #6b46c1;
+
       font-size: 13px;
+
       font-weight: 700;
     }
 
 
     /* =========================
-       日期／銀行／後五碼
+       匯款資訊
     ========================= */
 
     .info-grid {
       display: grid;
+
       grid-template-columns: 1fr;
+
       gap: 7px;
+
       margin-bottom: 11px;
     }
 
+
     .info-item {
       min-width: 0;
+
       padding: 9px 10px;
+
       background: #fbf9ff;
+
       border-radius: 13px;
     }
 
+
     .info-label {
       margin-bottom: 3px;
+
       color: #a095ac;
+
       font-size: 10px;
     }
 
+
     .info-value {
       color: #554b62;
+
       font-size: 12px;
+
       line-height: 1.45;
+
       word-break: break-word;
     }
 
@@ -326,22 +568,33 @@
 
     .product-box {
       margin-bottom: 11px;
+
       padding: 10px 11px;
+
       background: #fbf9ff;
+
       border-radius: 13px;
     }
 
+
     .product-title {
       margin-bottom: 6px;
+
       color: #998ca4;
+
       font-size: 10px;
     }
 
+
     .product-line {
       padding: 2px 0;
+
       color: #554b62;
+
       font-size: 12px;
+
       line-height: 1.55;
+
       word-break: break-word;
     }
 
@@ -352,22 +605,33 @@
 
     .note-box {
       margin-bottom: 11px;
+
       padding: 10px 11px;
+
       background: #fffafc;
+
       border-radius: 13px;
     }
 
+
     .note-title {
       margin-bottom: 4px;
+
       color: #a58b98;
+
       font-size: 10px;
     }
 
+
     .note-text {
       color: #62545c;
+
       font-size: 12px;
+
       line-height: 1.5;
+
       white-space: pre-wrap;
+
       word-break: break-word;
     }
 
@@ -378,41 +642,60 @@
 
     .status-area {
       display: grid;
+
       grid-template-columns: 1fr;
+
       gap: 9px;
     }
 
+
     .status-area label {
       margin-bottom: 4px;
+
       font-size: 11px;
     }
 
+
     .status-area select {
       margin-top: 0;
+
       padding: 9px 8px;
+
       border-radius: 12px;
+
       font-size: 12px;
     }
 
 
     /* =========================
-       儲存按鈕
+       儲存
     ========================= */
 
     .save-button {
       width: 100%;
+
       margin-top: 11px;
+
       padding: 9px 7px;
+
       background: #dccfff;
-      border: 1.5px solid #b99bf5;
+
+      border:
+        1.5px solid #b99bf5;
+
       border-radius: 999px;
+
       color: #59349e;
+
       font-size: 12px;
+
       font-weight: 700;
     }
 
+
     .save-button:disabled {
       opacity: 0.55;
+
       cursor: default;
     }
 
@@ -423,9 +706,13 @@
 
     .empty-box {
       grid-column: 1 / -1;
+
       width: 100%;
+
       padding: 45px 20px;
+
       color: #9a8da7;
+
       text-align: center;
     }
 
@@ -438,7 +725,11 @@
 
       #submissionList {
         grid-template-columns:
-          repeat(3, minmax(0, 1fr));
+          repeat(
+            3,
+            minmax(0, 1fr)
+          );
+
         gap: 14px;
       }
 
@@ -456,84 +747,116 @@
           24px 12px 50px;
       }
 
+
       h1 {
         font-size: 26px;
       }
+
+
+      body.login-mode::before {
+        background-position:
+          center center;
+      }
+
+
+      .login-card {
+        margin-top: 44px;
+      }
+
 
       .card {
         border-radius: 21px;
       }
 
+
       .summary-card {
         padding: 17px;
       }
 
-      /*
-        手機仍維持一排兩張
-      */
 
       #submissionList {
         grid-template-columns:
-          repeat(2, minmax(0, 1fr));
+          repeat(
+            2,
+            minmax(0, 1fr)
+          );
+
         gap: 9px;
       }
 
+
       .submission-card {
         padding: 12px;
+
         border-radius: 17px;
       }
+
 
       .person-name {
         font-size: 14px;
       }
 
+
       .community-name {
         font-size: 10px;
       }
 
+
       .amount-pill {
         padding: 5px 8px;
+
         font-size: 11px;
       }
+
 
       .info-item {
         padding: 8px;
       }
 
+
       .info-label {
         font-size: 9px;
       }
 
+
       .info-value {
         font-size: 11px;
       }
+
 
       .product-box,
       .note-box {
         padding: 8px;
       }
 
+
       .product-title,
       .note-title {
         font-size: 9px;
       }
+
 
       .product-line,
       .note-text {
         font-size: 11px;
       }
 
+
       .status-area label {
         font-size: 10px;
       }
 
+
       .status-area select {
         padding: 8px 5px;
+
         font-size: 11px;
       }
 
+
       .save-button {
         padding: 8px 5px;
+
         font-size: 11px;
       }
 
@@ -548,16 +871,20 @@
 
       body {
         padding-left: 8px;
+
         padding-right: 8px;
       }
+
 
       #submissionList {
         gap: 7px;
       }
 
+
       .submission-card {
         padding: 10px;
       }
+
 
       .person-name {
         font-size: 13px;
@@ -570,7 +897,8 @@
 </head>
 
 
-<body>
+<body class="login-mode">
+
 
   <div class="container">
 
@@ -585,6 +913,7 @@
         狐狸🦊
       </h1>
 
+
       <div class="subtitle">
         管理員後台
       </div>
@@ -596,11 +925,13 @@
           管理員登入
         </div>
 
+
         <form id="loginForm">
 
           <label for="adminPassword">
             管理員密碼
           </label>
+
 
           <input
             id="adminPassword"
@@ -610,6 +941,7 @@
             required
           >
 
+
           <button
             class="login-button"
             type="submit"
@@ -617,6 +949,7 @@
           >
             登入
           </button>
+
 
           <div
             class="error-text"
@@ -630,7 +963,6 @@
     </section>
 
 
-
     <!-- =========================
          管理後台
     ========================== -->
@@ -640,6 +972,7 @@
       <h1>
         狐狸🦊
       </h1>
+
 
       <div class="subtitle">
         匯款管理後台
@@ -655,6 +988,7 @@
         >
           ↻ 重新整理
         </button>
+
 
         <button
           class="small-button"
@@ -680,6 +1014,7 @@
           </div>
 
         </div>
+
 
         <div
           class="summary-number"
@@ -730,9 +1065,12 @@
        變數
     ===================================================== */
 
-    let adminPassword = "";
+    let adminPassword =
+      "";
 
-    let submissions = [];
+
+    let submissions =
+      [];
 
 
     const loginPage =
@@ -740,50 +1078,60 @@
         "loginPage"
       );
 
+
     const adminPage =
       document.getElementById(
         "adminPage"
       );
+
 
     const loginForm =
       document.getElementById(
         "loginForm"
       );
 
+
     const passwordInput =
       document.getElementById(
         "adminPassword"
       );
+
 
     const loginButton =
       document.getElementById(
         "loginButton"
       );
 
+
     const loginError =
       document.getElementById(
         "loginError"
       );
+
 
     const submissionList =
       document.getElementById(
         "submissionList"
       );
 
+
     const submissionCount =
       document.getElementById(
         "submissionCount"
       );
+
 
     const refreshButton =
       document.getElementById(
         "refreshButton"
       );
 
+
     const logoutButton =
       document.getElementById(
         "logoutButton"
       );
+
 
     const searchInput =
       document.getElementById(
@@ -792,30 +1140,37 @@
 
 
     /* =====================================================
-       避免文字被當成 HTML
+       HTML 安全
     ===================================================== */
 
-    function escapeHTML(value) {
+    function escapeHTML(
+      value
+    ) {
 
       return String(
         value ?? ""
       )
+
         .replace(
           /&/g,
           "&amp;"
         )
+
         .replace(
           /</g,
           "&lt;"
         )
+
         .replace(
           />/g,
           "&gt;"
         )
+
         .replace(
           /"/g,
           "&quot;"
         )
+
         .replace(
           /'/g,
           "&#039;"
@@ -828,12 +1183,15 @@
        金額
     ===================================================== */
 
-    function formatMoney(value) {
+    function formatMoney(
+      value
+    ) {
 
       const number =
         Number(
           value || 0
         );
+
 
       return (
         "NT$ " +
@@ -849,7 +1207,9 @@
        日期
     ===================================================== */
 
-    function formatDate(value) {
+    function formatDate(
+      value
+    ) {
 
       if (!value) {
 
@@ -906,7 +1266,7 @@
 
 
     /* =====================================================
-       Select 選項
+       Select
     ===================================================== */
 
     function createOptions(
@@ -927,11 +1287,15 @@
             return `
 
               <option
-                value="${escapeHTML(option)}"
+                value="${escapeHTML(
+                  option
+                )}"
                 ${isSelected}
               >
 
-                ${escapeHTML(option)}
+                ${escapeHTML(
+                  option
+                )}
 
               </option>
 
@@ -972,6 +1336,7 @@
           loginError.textContent =
             "請輸入管理員密碼";
 
+
           return;
 
         }
@@ -1001,6 +1366,24 @@
 
           adminPage.style.display =
             "block";
+
+
+          /*
+            登入成功後，
+            拿掉照片背景
+          */
+
+          document.body
+            .classList
+            .remove(
+              "login-mode"
+            );
+
+
+          window.scrollTo(
+            0,
+            0
+          );
 
 
           passwordInput.value =
@@ -1077,7 +1460,9 @@
             adminPassword =
               "";
 
-          } else {
+          }
+
+          else {
 
             alert(
               result.message ||
@@ -1096,7 +1481,9 @@
           Array.isArray(
             result.submissions
           )
+
             ? result.submissions
+
             : [];
 
 
@@ -1110,7 +1497,9 @@
         return true;
 
 
-      } catch (
+      }
+
+      catch (
         error
       ) {
 
@@ -1126,7 +1515,9 @@
           loginError.textContent =
             "無法連線到後台";
 
-        } else {
+        }
+
+        else {
 
           alert(
             "目前無法讀取資料"
@@ -1158,7 +1549,6 @@
       const filtered =
         submissions.filter(
           item => {
-
 
             const text =
               (
@@ -1226,28 +1616,24 @@
           .map(
             item => {
 
-
               const realIndex =
                 submissions.indexOf(
                   item
                 );
 
 
-              /* =====================
-                 商品
-              ===================== */
-
               const products =
                 Array.isArray(
                   item.products
                 )
+
                   ? item.products
+
                   : [];
 
 
               const productsHTML =
-                products.length >
-                0
+                products.length > 0
 
                   ? products
                       .map(
@@ -1316,10 +1702,6 @@
                 >
 
 
-                  <!-- =================
-                       Facebook＋金額
-                  ================== -->
-
                   <div class="submission-header">
 
                     <div>
@@ -1356,10 +1738,6 @@
 
                   </div>
 
-
-                  <!-- =================
-                       匯款資料
-                  ================== -->
 
                   <div class="info-grid">
 
@@ -1440,10 +1818,6 @@
                   </div>
 
 
-                  <!-- =================
-                       商品
-                  ================== -->
-
                   <div class="product-box">
 
                     <div class="product-title">
@@ -1454,10 +1828,6 @@
 
                   </div>
 
-
-                  <!-- =================
-                       備註
-                  ================== -->
 
                   ${
                     item.note
@@ -1482,10 +1852,6 @@
                   }
 
 
-                  <!-- =================
-                       狀態
-                  ================== -->
-
                   <div class="status-area">
 
 
@@ -1494,6 +1860,7 @@
                       <label>
                         匯款狀態
                       </label>
+
 
                       <select
                         class="payment-status"
@@ -1515,6 +1882,7 @@
                       <label>
                         團務進度
                       </label>
+
 
                       <select
                         class="progress-status"
@@ -1563,7 +1931,6 @@
     submissionList.addEventListener(
       "click",
       async event => {
-
 
         const button =
           event.target.closest(
@@ -1697,7 +2064,9 @@
             updatedAt:
               result.submission
                 ?.updatedAt
+
               ||
+
               new Date()
                 .toISOString()
 
@@ -1719,7 +2088,9 @@
           );
 
 
-        } catch (
+        }
+
+        catch (
           error
         ) {
 
@@ -1733,7 +2104,9 @@
           );
 
 
-        } finally {
+        }
+
+        finally {
 
           button.disabled =
             false;
@@ -1761,7 +2134,6 @@
     refreshButton.addEventListener(
       "click",
       async () => {
-
 
         refreshButton.disabled =
           true;
@@ -1793,7 +2165,6 @@
       "click",
       () => {
 
-
         adminPassword =
           "";
 
@@ -1820,6 +2191,24 @@
 
         loginPage.style.display =
           "block";
+
+
+        /*
+          登出後重新顯示
+          滿版照片登入首頁
+        */
+
+        document.body
+          .classList
+          .add(
+            "login-mode"
+          );
+
+
+        window.scrollTo(
+          0,
+          0
+        );
 
 
         passwordInput.focus();
