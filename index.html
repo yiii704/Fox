@@ -15,7 +15,7 @@
     content="telephone=no"
   >
 
-  <title>狐狸🦊</title>
+  <title>狐狸🦊日韓通路代購/拆車</title>
 
 
   <style>
@@ -46,10 +46,17 @@
       background: #faf8ff;
       color: #4f4660;
 
+      /*
+        手寫字體
+        iPhone / Apple 優先使用 HanziPen TC
+      */
       font-family:
-        "PingFang TC",
-        "Microsoft JhengHei",
-        sans-serif;
+        "HanziPen TC",
+        "Hannotate TC",
+        "STKaiti",
+        "DFKai-SB",
+        "Kaiti TC",
+        cursive;
     }
 
 
@@ -66,6 +73,10 @@
     }
 
 
+    /* ========================================
+       網站標題
+    ======================================== */
+
     h1 {
       position: relative;
       z-index: 10;
@@ -74,7 +85,11 @@
 
       color: #6b46c1;
 
-      font-size: 30px;
+      font-size: 24px;
+      font-weight: 600;
+
+      line-height: 1.45;
+
       text-align: center;
     }
 
@@ -85,6 +100,8 @@
       color: #6b46c1;
 
       font-size: 23px;
+      font-weight: 600;
+
       text-align: center;
     }
 
@@ -216,6 +233,15 @@
     }
 
 
+    .progress-menu-button {
+      grid-column: 1 / -1;
+
+      width: 145px;
+
+      justify-self: center;
+    }
+
+
     .pill-button {
       min-height: 42px;
 
@@ -313,7 +339,7 @@
       color: #6b46c1;
 
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -381,7 +407,7 @@
       color: #927ead;
 
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -389,7 +415,7 @@
       color: #59349e;
 
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 600;
 
       line-height: 1.55;
     }
@@ -409,7 +435,7 @@
       border-radius: 999px;
 
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -436,7 +462,7 @@
       border-top:
         1px solid #e5dafb;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -484,7 +510,7 @@
       color: #5f4b87;
 
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -730,7 +756,7 @@
 
       font-size: 14px;
 
-      font-weight: 700;
+      font-weight: 600;
 
       line-height: 1.45;
     }
@@ -752,7 +778,7 @@
 
       font-size: 13px;
 
-      font-weight: 700;
+      font-weight: 600;
 
       white-space: nowrap;
     }
@@ -821,7 +847,7 @@
 
       font-size: 12px !important;
 
-      font-weight: 500 !important;
+      font-weight: 400 !important;
 
       cursor: pointer;
     }
@@ -872,7 +898,7 @@
     .stock-out {
       color: #b34545;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -987,7 +1013,7 @@
 
       color: #59349e;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -1103,7 +1129,7 @@
 
       border-radius: 999px;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -1126,7 +1152,7 @@
 
       font-size: 12px;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -1196,7 +1222,7 @@
 
       font-size: 17px;
 
-      font-weight: 700;
+      font-weight: 600;
 
       border-bottom:
         1px solid #eee6ff;
@@ -1394,7 +1420,6 @@
       float: right;
 
       width: 38px;
-
       height: 38px;
 
       margin:
@@ -1412,7 +1437,7 @@
 
       font-size: 20px;
 
-      font-weight: 700;
+      font-weight: 600;
     }
 
 
@@ -1429,7 +1454,16 @@
 
 
       h1 {
-        font-size: 28px;
+        font-size: 21px;
+
+        line-height: 1.45;
+
+        margin-bottom: 25px;
+      }
+
+
+      h2 {
+        font-size: 21px;
       }
 
 
@@ -1445,6 +1479,11 @@
       .menu-grid {
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
+      }
+
+
+      .progress-menu-button {
+        width: 145px;
       }
 
 
@@ -1522,6 +1561,11 @@
 
     @media (max-width: 370px) {
 
+      h1 {
+        font-size: 19px;
+      }
+
+
       .product-choice {
         grid-template-columns:
           1fr;
@@ -1550,7 +1594,9 @@
 <body class="home-mode">
 
 
-  <h1>狐狸🦊</h1>
+  <h1>
+    狐狸🦊日韓通路代購/拆車
+  </h1>
 
 
   <!-- ========================================
@@ -1582,6 +1628,15 @@
       <button
         type="button"
         class="pill-button"
+        data-target="closedGroupPage"
+      >
+        🗃️ 已結束團務
+      </button>
+
+
+      <button
+        type="button"
+        class="pill-button"
         data-target="noticePage"
       >
         📌 注意事項
@@ -1599,7 +1654,7 @@
 
       <button
         type="button"
-        class="pill-button"
+        class="pill-button progress-menu-button"
         data-target="progressPage"
       >
         📊 對帳表＆進度表
@@ -1699,39 +1754,6 @@
     </div>
 
 
-    <!-- THIS & THAT 已結束 -->
-
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-        <div class="order-name">
-          [LUCKY DRAW] THIS &amp; THAT
-          (THIS VER., THAT VER.)
-        </div>
-
-        <div class="order-status closed">
-          已結束
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action closed"
-        disabled
-      >
-        已結束
-      </button>
-
-    </div>
-
-
     <!-- Sony music -->
 
     <div class="card order-card">
@@ -1759,6 +1781,64 @@
         data-order="sony-music-benefit"
       >
         前往匯款表單
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
+       已結束團務
+  ======================================== -->
+
+  <section
+    id="closedGroupPage"
+    class="page"
+  >
+
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
+      ← 返回首頁
+    </button>
+
+
+    <h2>
+      🗃️ 已結束團務
+    </h2>
+
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+
+        <div class="order-name">
+          [LUCKY DRAW] THIS &amp; THAT
+          (THIS VER., THAT VER.)
+        </div>
+
+
+        <div class="order-status closed">
+          已結束
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="order-action closed"
+        disabled
+      >
+        已結束
       </button>
 
     </div>
@@ -1947,14 +2027,6 @@
 
             <option value="run-it-japan-kuji">
               Run it JAPAN 一番賞
-            </option>
-
-
-            <option
-              value="this-that-lucky-draw"
-              disabled
-            >
-              [LUCKY DRAW] THIS &amp; THAT (THIS VER., THAT VER.)【已結束】
             </option>
 
 
@@ -2960,6 +3032,10 @@ const productData = {
   ],
 
 
+  /*
+    已結束團務資料保留
+  */
+
   "this-that-lucky-draw": [
 
     {
@@ -3820,11 +3896,6 @@ async function renderProducts(
   `;
 
 
-  /*
-    如果團務已結束，
-    不再顯示商品，也不能繼續填。
-  */
-
   if (
     closedGroups.has(
       groupId
@@ -4447,10 +4518,6 @@ document
             button.dataset.order;
 
 
-          /*
-            防止已結束團務透過舊按鈕進入
-          */
-
           if (
             closedGroups.has(
               groupId
@@ -4623,9 +4690,7 @@ paymentForm.addEventListener(
     }
 
 
-    /*
-      已結束團務禁止送出
-    */
+    /* 已結束團務禁止送出 */
 
     if (
       closedGroups.has(
