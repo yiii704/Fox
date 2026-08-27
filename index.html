@@ -130,7 +130,6 @@
 
     /* ========================================
        首頁模式
-       不使用 position: fixed
     ======================================== */
 
     body.home-mode {
@@ -143,8 +142,6 @@
     }
 
 
-    /* 首頁狐狸白色 */
-
     body.home-mode > h1 {
       color: #ffffff;
 
@@ -153,8 +150,6 @@
         rgba(0, 0, 0, 0.35);
     }
 
-
-    /* 其他頁面狐狸恢復紫色 */
 
     body:not(.home-mode) > h1 {
       color: #6b46c1;
@@ -416,10 +411,13 @@
       font-size: 12px;
       font-weight: 700;
     }
-    
-    
+
+
+    /* 已結束狀態 */
+
     .order-status.closed {
       background: #eeeef2;
+
       color: #686572;
     }
 
@@ -444,6 +442,28 @@
 
     .order-action:active {
       background: #e8dcff;
+    }
+
+
+    /* 已結束團務按鈕 */
+
+    .order-action.closed,
+    .order-action:disabled {
+      background: #eeeef2;
+
+      color: #99939f;
+
+      cursor: not-allowed;
+
+      opacity: 1;
+    }
+
+
+    .order-action.closed:active,
+    .order-action:disabled:active {
+      background: #eeeef2;
+
+      transform: none;
     }
 
 
@@ -1613,6 +1633,8 @@
     </h2>
 
 
+    <!-- RUN IT JAPAN -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -1645,6 +1667,8 @@
     </div>
 
 
+    <!-- 一番賞 -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -1675,6 +1699,8 @@
     </div>
 
 
+    <!-- THIS & THAT 已結束 -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -1697,14 +1723,16 @@
 
       <button
         type="button"
-        class="order-action"
-        data-order="this-that-lucky-draw"
+        class="order-action closed"
+        disabled
       >
-        前往匯款表單
+        已結束
       </button>
 
     </div>
 
+
+    <!-- Sony music -->
 
     <div class="card order-card">
 
@@ -1922,8 +1950,11 @@
             </option>
 
 
-            <option value="this-that-lucky-draw">
-              [LUCKY DRAW] THIS &amp; THAT (THIS VER., THAT VER.)
+            <option
+              value="this-that-lucky-draw"
+              disabled
+            >
+              [LUCKY DRAW] THIS &amp; THAT (THIS VER., THAT VER.)【已結束】
             </option>
 
 
@@ -2467,6 +2498,16 @@ const WORKER_URL =
 
 
 /* ========================================
+   已結束團務
+======================================== */
+
+const closedGroups =
+  new Set([
+    "this-that-lucky-draw"
+  ]);
+
+
+/* ========================================
    防止 Safari 自動回復舊捲動位置
 ======================================== */
 
@@ -2514,11 +2555,6 @@ function resetScroll() {
 
 function showPage(pageId) {
 
-  /*
-    先解除首頁禁止滑動，
-    讓瀏覽器可以正常回到頂端。
-  */
-
   document.body.classList.remove(
     "home-mode"
   );
@@ -2557,11 +2593,6 @@ function showPage(pageId) {
   if (
     pageId === "homePage"
   ) {
-
-    /*
-      等畫面切換完成後，
-      再回頂端並禁止首頁滑動。
-    */
 
     requestAnimationFrame(
       () => {
@@ -3414,11 +3445,6 @@ function closeImageModal() {
     "";
 
 
-  /*
-    首頁本來就是 hidden，
-    其他頁則恢復正常。
-  */
-
   if (
     document.body.classList.contains(
       "home-mode"
@@ -3792,6 +3818,46 @@ async function renderProducts(
     </div>
 
   `;
+
+
+  /*
+    如果團務已結束，
+    不再顯示商品，也不能繼續填。
+  */
+
+  if (
+    closedGroups.has(
+      groupId
+    )
+  ) {
+
+    currentInventory =
+      null;
+
+
+    catalogCard.style.display =
+      "none";
+
+
+    catalogGallery.innerHTML =
+      "";
+
+
+    productContainer.innerHTML = `
+
+      <div class="product-placeholder">
+        此團務已結束，目前已停止收單。
+      </div>
+
+    `;
+
+
+    updateTotal();
+
+
+    return;
+
+  }
 
 
   renderCatalog(
@@ -4325,8 +4391,37 @@ communitySelect.addEventListener(
   "change",
   async () => {
 
+    const groupId =
+      communitySelect.value;
+
+
+    if (
+      closedGroups.has(
+        groupId
+      )
+    ) {
+
+      alert(
+        "此團務已結束，目前已停止收單。"
+      );
+
+
+      communitySelect.value =
+        "";
+
+
+      await renderProducts(
+        ""
+      );
+
+
+      return;
+
+    }
+
+
     await renderProducts(
-      communitySelect.value
+      groupId
     );
 
   }
@@ -4350,6 +4445,26 @@ document
 
           const groupId =
             button.dataset.order;
+
+
+          /*
+            防止已結束團務透過舊按鈕進入
+          */
+
+          if (
+            closedGroups.has(
+              groupId
+            )
+          ) {
+
+            alert(
+              "此團務已結束，目前已停止收單。"
+            );
+
+
+            return;
+
+          }
 
 
           communitySelect.value =
@@ -4500,6 +4615,26 @@ paymentForm.addEventListener(
 
       alert(
         "請先選擇社群名稱／團務。"
+      );
+
+
+      return;
+
+    }
+
+
+    /*
+      已結束團務禁止送出
+    */
+
+    if (
+      closedGroups.has(
+        groupId
+      )
+    ) {
+
+      alert(
+        "此團務已結束，目前已停止收單。"
       );
 
 
