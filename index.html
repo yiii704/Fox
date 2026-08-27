@@ -15,7 +15,28 @@
     content="telephone=no"
   >
 
-  <title>狐狸🦊 ｜ 日韓通路代購 • 特典拆車</title>
+  <title>狐狸🦊日韓通路代購/拆車</title>
+
+
+  <!-- ========================================
+       網頁手寫字體
+  ======================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=ChenYuluoyan&display=swap"
+    rel="stylesheet"
+  >
 
 
   <style>
@@ -46,15 +67,10 @@
       background: #faf8ff;
       color: #4f4660;
 
-      /*
-        手寫字體
-        iPhone / Apple 優先使用 HanziPen TC
-      */
       font-family:
+        "ChenYuluoyan",
         "HanziPen TC",
         "Hannotate TC",
-        "STKaiti",
-        "DFKai-SB",
         "Kaiti TC",
         cursive;
     }
@@ -73,10 +89,6 @@
     }
 
 
-    /* ========================================
-       網站標題
-    ======================================== */
-
     h1 {
       position: relative;
       z-index: 10;
@@ -85,7 +97,7 @@
 
       color: #6b46c1;
 
-      font-size: 24px;
+      font-size: 27px;
       font-weight: 600;
 
       line-height: 1.45;
@@ -99,10 +111,15 @@
 
       color: #6b46c1;
 
-      font-size: 23px;
+      font-size: 25px;
       font-weight: 600;
 
       text-align: center;
+    }
+
+
+    strong {
+      font-weight: 900;
     }
 
 
@@ -176,7 +193,7 @@
 
 
     /* ========================================
-       首頁全螢幕背景
+       首頁背景
     ======================================== */
 
     #homePage {
@@ -225,7 +242,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 145px));
+        repeat(2, minmax(0, 155px));
 
       justify-content: center;
 
@@ -233,19 +250,10 @@
     }
 
 
-    .progress-menu-button {
-      grid-column: 1 / -1;
-
-      width: 145px;
-
-      justify-self: center;
-    }
-
-
     .pill-button {
-      min-height: 42px;
+      min-height: 48px;
 
-      padding: 8px 14px;
+      padding: 8px 12px;
 
       background: #ffffff;
 
@@ -259,6 +267,10 @@
       box-shadow:
         0 4px 12px
         rgba(126, 92, 190, 0.10);
+
+      font-size: 15px;
+
+      line-height: 1.35;
 
       transition: 0.2s ease;
     }
@@ -312,7 +324,7 @@
 
 
     /* ========================================
-       一般卡片
+       卡片
     ======================================== */
 
     .card {
@@ -338,7 +350,7 @@
 
       color: #6b46c1;
 
-      font-size: 17px;
+      font-size: 19px;
       font-weight: 600;
     }
 
@@ -363,6 +375,40 @@
       text-align: center;
 
       line-height: 1.8;
+    }
+
+
+    /* ========================================
+       注意事項社群按鈕
+    ======================================== */
+
+    .notice-community-link {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 10px;
+
+      padding: 9px 16px;
+
+      background: #f1eaff;
+
+      color: #6842b3;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+
+      text-decoration: none;
+    }
+
+
+    .notice-community-link:active {
+      transform: scale(0.97);
     }
 
 
@@ -406,7 +452,7 @@
 
       color: #927ead;
 
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
     }
 
@@ -414,7 +460,7 @@
     .order-name {
       color: #59349e;
 
-      font-size: 17px;
+      font-size: 19px;
       font-weight: 600;
 
       line-height: 1.55;
@@ -434,12 +480,10 @@
 
       border-radius: 999px;
 
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
     }
 
-
-    /* 已結束狀態 */
 
     .order-status.closed {
       background: #eeeef2;
@@ -471,8 +515,6 @@
     }
 
 
-    /* 已結束團務按鈕 */
-
     .order-action.closed,
     .order-action:disabled {
       background: #eeeef2;
@@ -485,11 +527,65 @@
     }
 
 
-    .order-action.closed:active,
-    .order-action:disabled:active {
-      background: #eeeef2;
+    /* ========================================
+       聯絡方式
+    ======================================== */
 
-      transform: none;
+    .contact-card {
+      padding: 19px;
+    }
+
+
+    .contact-name {
+      margin-bottom: 5px;
+
+      color: #59349e;
+
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+
+    .contact-value {
+      color: #71657d;
+
+      font-size: 16px;
+
+      line-height: 1.7;
+
+      word-break: break-word;
+    }
+
+
+    .contact-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      margin-top: 12px;
+
+      padding: 10px 16px;
+
+      background: #f1eaff;
+
+      color: #6842b3;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+
+      text-decoration: none;
+    }
+
+
+    .contact-button:active {
+      transform: scale(0.98);
     }
 
 
@@ -509,7 +605,7 @@
 
       color: #5f4b87;
 
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
     }
 
@@ -571,7 +667,7 @@
 
       color: #8b8295;
 
-      font-size: 12px;
+      font-size: 14px;
 
       line-height: 1.7;
     }
@@ -588,7 +684,7 @@
 
       border-radius: 13px;
 
-      font-size: 11px;
+      font-size: 13px;
 
       line-height: 1.65;
     }
@@ -667,7 +763,7 @@
 
       color: #7b6d89;
 
-      font-size: 11px;
+      font-size: 13px;
 
       text-align: center;
     }
@@ -754,7 +850,7 @@
     .product-name {
       color: #554b62;
 
-      font-size: 14px;
+      font-size: 16px;
 
       font-weight: 600;
 
@@ -767,7 +863,7 @@
 
       color: #9b8fa7;
 
-      font-size: 10px;
+      font-size: 12px;
     }
 
 
@@ -776,7 +872,7 @@
 
       color: #6b46c1;
 
-      font-size: 13px;
+      font-size: 15px;
 
       font-weight: 600;
 
@@ -845,7 +941,7 @@
 
       color: #594d68 !important;
 
-      font-size: 12px !important;
+      font-size: 14px !important;
 
       font-weight: 400 !important;
 
@@ -886,7 +982,7 @@
 
       color: #9b8fa7;
 
-      font-size: 10px;
+      font-size: 12px;
     }
 
 
@@ -960,7 +1056,7 @@
 
       color: #554b62;
 
-      font-size: 12px;
+      font-size: 14px;
 
       text-align: center;
     }
@@ -986,7 +1082,7 @@
 
       color: #8b8295;
 
-      font-size: 12px;
+      font-size: 14px;
 
       text-align: right;
     }
@@ -1097,7 +1193,7 @@
 
       border-radius: 999px;
 
-      font-size: 13px;
+      font-size: 15px;
 
       font-weight: 600;
     }
@@ -1113,7 +1209,7 @@
 
 
     /* ========================================
-       送出
+       送出按鈕
     ======================================== */
 
     .submit-button {
@@ -1141,6 +1237,111 @@
 
 
     /* ========================================
+       填單完成畫面
+    ======================================== */
+
+    .success-card {
+      padding: 32px 22px;
+
+      text-align: center;
+    }
+
+
+    .success-icon {
+      margin-bottom: 14px;
+
+      font-size: 46px;
+    }
+
+
+    .success-title {
+      margin-bottom: 14px;
+
+      color: #59349e;
+
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+
+    .success-text {
+      color: #71657d;
+
+      font-size: 17px;
+
+      line-height: 1.9;
+    }
+
+
+    .success-important {
+      margin-top: 16px;
+
+      color: #59349e;
+
+      font-size: 19px;
+
+      font-weight: 900;
+    }
+
+
+    .join-community-button {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      margin-top: 22px;
+
+      padding: 14px 18px;
+
+      background: #dccfff;
+
+      color: #59349e;
+
+      border:
+        2px solid #b99bf5;
+
+      border-radius: 999px;
+
+      font-size: 19px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 4px 12px
+        rgba(126, 92, 190, 0.10);
+    }
+
+
+    .join-community-button:active {
+      transform: scale(0.98);
+    }
+
+
+    .success-home-button {
+      width: 100%;
+
+      margin-top: 12px;
+
+      padding: 12px 18px;
+
+      background: #ffffff;
+
+      color: #6b46c1;
+
+      border:
+        2px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+    }
+
+
+    /* ========================================
        對帳篩選
     ======================================== */
 
@@ -1150,7 +1351,7 @@
 
       color: #8b8295;
 
-      font-size: 12px;
+      font-size: 14px;
 
       font-weight: 600;
     }
@@ -1220,7 +1421,7 @@
 
       color: #5f4b87;
 
-      font-size: 17px;
+      font-size: 19px;
 
       font-weight: 600;
 
@@ -1256,7 +1457,7 @@
     .facebook-name {
       color: #4f4660;
 
-      font-size: 14px;
+      font-size: 16px;
 
       font-weight: 600;
 
@@ -1269,7 +1470,7 @@
 
       color: #8b8295;
 
-      font-size: 11px;
+      font-size: 13px;
 
       word-break: break-word;
     }
@@ -1291,7 +1492,7 @@
 
       border-radius: 999px;
 
-      font-size: 12px;
+      font-size: 14px;
 
       font-weight: 600;
 
@@ -1301,56 +1502,48 @@
 
     .status-paid {
       background: #dff4e6;
-
       color: #287747;
     }
 
 
     .status-unpaid {
       background: #ffe7e7;
-
       color: #b34545;
     }
 
 
     .status-waiting {
       background: #eeeef2;
-
       color: #686572;
     }
 
 
     .stage-registered {
       background: #eee3ff;
-
       color: #6842b3;
     }
 
 
     .stage-ordered {
       background: #ffead8;
-
       color: #b86421;
     }
 
 
     .stage-arrived {
       background: #fff4cc;
-
       color: #98731c;
     }
 
 
     .stage-shipped {
       background: #dfeeff;
-
       color: #35649a;
     }
 
 
     .stage-complete {
       background: #ffe3ef;
-
       color: #a94d78;
     }
 
@@ -1436,8 +1629,6 @@
       border-radius: 50%;
 
       font-size: 20px;
-
-      font-weight: 600;
     }
 
 
@@ -1454,41 +1645,32 @@
 
 
       h1 {
-        font-size: 21px;
-
-        line-height: 1.45;
+        font-size: 23px;
 
         margin-bottom: 25px;
       }
 
 
       h2 {
-        font-size: 21px;
-      }
-
-
-      .home-background {
-        height: 100vh;
-        height: 100dvh;
-
-        background-position:
-          center center;
+        font-size: 23px;
       }
 
 
       .menu-grid {
         grid-template-columns:
           repeat(2, minmax(0, 1fr));
-      }
 
-
-      .progress-menu-button {
-        width: 145px;
+        gap: 10px;
       }
 
 
       .pill-button {
-        font-size: 13px;
+        min-height: 50px;
+
+        padding:
+          7px 8px;
+
+        font-size: 14px;
       }
 
 
@@ -1523,20 +1705,18 @@
 
       .choice-main {
         font-size:
-          11px !important;
+          13px !important;
       }
 
 
       .qty-button {
         width: 26px;
-
         height: 26px;
       }
 
 
       .qty-input {
         width: 34px;
-
         height: 28px;
       }
 
@@ -1553,7 +1733,22 @@
 
       .status-pill,
       .stage-pill {
-        font-size: 11px;
+        font-size: 12px;
+      }
+
+
+      .success-title {
+        font-size: 24px;
+      }
+
+
+      .success-text {
+        font-size: 16px;
+      }
+
+
+      .join-community-button {
+        font-size: 18px;
       }
 
     }
@@ -1562,7 +1757,12 @@
     @media (max-width: 370px) {
 
       h1 {
-        font-size: 19px;
+        font-size: 21px;
+      }
+
+
+      .pill-button {
+        font-size: 13px;
       }
 
 
@@ -1637,6 +1837,15 @@
       <button
         type="button"
         class="pill-button"
+        data-target="paymentPage"
+      >
+        💰 匯款表單
+      </button>
+
+
+      <button
+        type="button"
+        class="pill-button"
         data-target="noticePage"
       >
         📌 注意事項
@@ -1646,18 +1855,18 @@
       <button
         type="button"
         class="pill-button"
-        data-target="paymentPage"
+        data-target="progressPage"
       >
-        💰 匯款表單
+        📊 對帳表＆進度表
       </button>
 
 
       <button
         type="button"
-        class="pill-button progress-menu-button"
-        data-target="progressPage"
+        class="pill-button"
+        data-target="contactPage"
       >
-        📊 對帳表＆進度表
+        💬 聯絡方式 &amp; 代購社群
       </button>
 
     </div>
@@ -1687,8 +1896,6 @@
       📦 團務
     </h2>
 
-
-    <!-- RUN IT JAPAN -->
 
     <div class="card order-card">
 
@@ -1722,8 +1929,6 @@
     </div>
 
 
-    <!-- 一番賞 -->
-
     <div class="card order-card">
 
       <div class="order-top">
@@ -1753,8 +1958,6 @@
 
     </div>
 
-
-    <!-- Sony music -->
 
     <div class="card order-card">
 
@@ -1889,6 +2092,42 @@
     <article class="card">
 
       <div class="card-title">
+        📍進度通知＆代購社群
+      </div>
+
+
+      <p>
+        所有進度都在社群裡面告知。
+      </p>
+
+
+      <p style="margin-top:10px;">
+        匯款填單完成後
+        <strong>務必</strong>
+        加入社群。
+      </p>
+
+
+      <p style="margin-top:12px;">
+        社群連結🔗
+      </p>
+
+
+      <a
+        class="notice-community-link"
+        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        點我加入代購社群
+      </a>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-title">
         📍關於二補
       </div>
 
@@ -1936,17 +2175,11 @@
 
       <ul class="notice-list">
 
-        <li>
-          廠損
-        </li>
+        <li>廠損</li>
 
-        <li>
-          運輸損傷
-        </li>
+        <li>運輸損傷</li>
 
-        <li>
-          商品瑕疵
-        </li>
+        <li>商品瑕疵</li>
 
         <li>
           不湊套（專卡、滿額卡及隨機商品等）
@@ -2003,9 +2236,7 @@
 
             社群名稱／團務
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2045,9 +2276,7 @@
 
             Facebook 名稱
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2244,9 +2473,7 @@
 
             匯款日期
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2266,9 +2493,7 @@
 
             匯款時間
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2288,9 +2513,7 @@
 
             匯款銀行
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2330,9 +2553,7 @@
 
             匯款金額
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2355,9 +2576,7 @@
 
             匯款帳號後五碼
 
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -2528,6 +2747,194 @@
 
 
   <!-- ========================================
+       聯絡方式
+  ======================================== -->
+
+  <section
+    id="contactPage"
+    class="page"
+  >
+
+    <button
+      type="button"
+      class="back-button"
+      data-target="homePage"
+    >
+      ← 返回首頁
+    </button>
+
+
+    <h2>
+      💬 聯絡方式 &amp; 代購社群
+    </h2>
+
+
+    <div class="card contact-card">
+
+      <div class="contact-name">
+        官方 LINE
+      </div>
+
+
+      <div class="contact-value">
+        @964kujbw
+      </div>
+
+
+      <a
+        class="contact-button"
+        href="https://line.me/R/ti/p/@964kujbw"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        開啟官方 LINE
+      </a>
+
+    </div>
+
+
+    <div class="card contact-card">
+
+      <div class="contact-name">
+        代購社群
+      </div>
+
+
+      <div class="contact-value">
+        LINE 代購／拆車社群
+      </div>
+
+
+      <a
+        class="contact-button"
+        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        加入代購社群
+      </a>
+
+    </div>
+
+
+    <div class="card contact-card">
+
+      <div class="contact-name">
+        Instagram
+      </div>
+
+
+      <div class="contact-value">
+        @yiiiii_0704
+      </div>
+
+
+      <a
+        class="contact-button"
+        href="https://www.instagram.com/yiiiii_0704?utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        前往 Instagram
+      </a>
+
+    </div>
+
+
+    <div class="card contact-card">
+
+      <div class="contact-name">
+        Facebook
+      </div>
+
+
+      <div class="contact-value">
+        劉宜禎
+      </div>
+
+
+      <a
+        class="contact-button"
+        href="https://ssur.cc/f2JS2n4b"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        前往 Facebook
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
+       填單成功畫面
+  ======================================== -->
+
+  <section
+    id="successPage"
+    class="page"
+  >
+
+    <h2>
+      💜 填單完成
+    </h2>
+
+
+    <div class="card success-card">
+
+      <div class="success-icon">
+        🦊
+      </div>
+
+
+      <div class="success-title">
+        匯款資料已成功送出！
+      </div>
+
+
+      <div class="success-text">
+
+        謝謝你完成匯款填單 ♡
+
+        <br><br>
+
+        所有團務進度都會在
+        <br>
+        代購社群裡面統一告知。
+
+      </div>
+
+
+      <div class="success-important">
+        填單完成後務必加入代購社群！
+      </div>
+
+
+      <a
+        class="join-community-button"
+        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🔗 一鍵加入代購社群
+      </a>
+
+
+      <button
+        type="button"
+        class="success-home-button"
+        data-target="homePage"
+      >
+        ← 返回首頁
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
        圖片放大
   ======================================== -->
 
@@ -2580,7 +2987,7 @@ const closedGroups =
 
 
 /* ========================================
-   防止 Safari 自動回復舊捲動位置
+   Safari 捲動
 ======================================== */
 
 if (
@@ -2694,7 +3101,7 @@ function showPage(pageId) {
 
 
 /* ========================================
-   一般頁面切換按鈕
+   一般頁面切換
 ======================================== */
 
 document
@@ -3032,10 +3439,6 @@ const productData = {
   ],
 
 
-  /*
-    已結束團務資料保留
-  */
-
   "this-that-lucky-draw": [
 
     {
@@ -3081,11 +3484,9 @@ const groupMeta = {
 
   "run-it-japan": {
 
-    groupType:
-      "代購",
+    groupType: "代購",
 
-    group:
-      "Stray Kids",
+    group: "Stray Kids",
 
     activity:
       "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
@@ -3095,11 +3496,9 @@ const groupMeta = {
 
   "run-it-japan-kuji": {
 
-    groupType:
-      "代購",
+    groupType: "代購",
 
-    group:
-      "Stray Kids",
+    group: "Stray Kids",
 
     activity:
       "Run it JAPAN 一番賞"
@@ -3109,11 +3508,9 @@ const groupMeta = {
 
   "this-that-lucky-draw": {
 
-    groupType:
-      "代購",
+    groupType: "代購",
 
-    group:
-      "Stray Kids",
+    group: "Stray Kids",
 
     activity:
       "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)"
@@ -3123,11 +3520,9 @@ const groupMeta = {
 
   "sony-music-benefit": {
 
-    groupType:
-      "代購",
+    groupType: "代購",
 
-    group:
-      "Stray Kids",
+    group: "Stray Kids",
 
     activity:
       "Sony music 通路特典（含專）"
@@ -3181,20 +3576,14 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "kuji-1.jpeg.PNG",
-
-        title:
-          "商品圖 1"
+        src: "kuji-1.jpeg.PNG",
+        title: "商品圖 1"
       },
 
 
       {
-        src:
-          "kuji-2.jpeg.PNG",
-
-        title:
-          "商品圖 2"
+        src: "kuji-2.jpeg.PNG",
+        title: "商品圖 2"
       }
 
     ]
@@ -3210,20 +3599,14 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "this-that-1.jpeg.jpg",
-
-        title:
-          "商品圖"
+        src: "this-that-1.jpeg.jpg",
+        title: "商品圖"
       },
 
 
       {
-        src:
-          "this-that-2.jpeg.jpg",
-
-        title:
-          "Lucky Draw 特典圖"
+        src: "this-that-2.jpeg.jpg",
+        title: "Lucky Draw 特典圖"
       }
 
     ]
@@ -3239,11 +3622,8 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "sony-music-1.JPG",
-
-        title:
-          "Sony music 通路特典"
+        src: "sony-music-1.JPG",
+        title: "Sony music 通路特典"
       }
 
     ]
@@ -3597,8 +3977,7 @@ async function loadInventory(
       ),
 
       {
-        cache:
-          "no-store"
+        cache: "no-store"
       }
 
     );
@@ -4690,8 +5069,6 @@ paymentForm.addEventListener(
     }
 
 
-    /* 已結束團務禁止送出 */
-
     if (
       closedGroups.has(
         groupId
@@ -5038,10 +5415,10 @@ paymentForm.addEventListener(
       }
 
 
-      alert(
-        "匯款資料已成功送出 🦊"
-      );
-
+      /*
+        只有後台真的成功後
+        才清空表單並前往成功頁
+      */
 
       paymentForm.reset();
 
@@ -5080,6 +5457,11 @@ paymentForm.addEventListener(
 
 
       loadPublicProgress();
+
+
+      showPage(
+        "successPage"
+      );
 
     }
 
@@ -5161,8 +5543,7 @@ async function loadPublicProgress() {
         "/public/list",
 
         {
-          cache:
-            "no-store"
+          cache: "no-store"
         }
 
       );
