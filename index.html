@@ -527,6 +527,14 @@
     }
 
 
+    .order-action.closed:active,
+    .order-action:disabled:active {
+      background: #eeeef2;
+
+      transform: none;
+    }
+
+
     /* ========================================
        聯絡方式
     ======================================== */
@@ -1671,6 +1679,8 @@
           5px 8px;
 
         font-size: 14px;
+
+        line-height: 1.2;
       }
 
 
@@ -1897,6 +1907,8 @@
     </h2>
 
 
+    <!-- RUN IT JAPAN -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -1905,11 +1917,13 @@
           Stray Kids
         </div>
 
+
         <div class="order-name">
           Stray Kids World Tour
           ＜RUN IT JAPAN＞
           OFFICIAL GOODS 線上團
         </div>
+
 
         <div class="order-status">
           開放中
@@ -1929,6 +1943,8 @@
     </div>
 
 
+    <!-- RUN IT JAPAN 一番賞 -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -1937,9 +1953,11 @@
           Stray Kids
         </div>
 
+
         <div class="order-name">
           Run it JAPAN 一番賞
         </div>
+
 
         <div class="order-status">
           開放中
@@ -1954,36 +1972,6 @@
         data-order="run-it-japan-kuji"
       >
         查看剩餘庫存＆填寫表單
-      </button>
-
-    </div>
-
-
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-        <div class="order-name">
-          Sony music 通路特典（含專）
-        </div>
-
-        <div class="order-status">
-          開放中
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action"
-        data-order="sony-music-benefit"
-      >
-        前往匯款表單
       </button>
 
     </div>
@@ -2014,6 +2002,8 @@
     </h2>
 
 
+    <!-- THIS & THAT -->
+
     <div class="card order-card">
 
       <div class="order-top">
@@ -2026,6 +2016,40 @@
         <div class="order-name">
           [LUCKY DRAW] THIS &amp; THAT
           (THIS VER., THAT VER.)
+        </div>
+
+
+        <div class="order-status closed">
+          已結束
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="order-action closed"
+        disabled
+      >
+        已結束
+      </button>
+
+    </div>
+
+
+    <!-- Sony music -->
+
+    <div class="card order-card">
+
+      <div class="order-top">
+
+        <div class="order-group">
+          Stray Kids
+        </div>
+
+
+        <div class="order-name">
+          Sony music 通路特典（含專）
         </div>
 
 
@@ -2077,6 +2101,7 @@
       <div class="card-title">
         📍下單規則
       </div>
+
 
       <p>
         所有團物皆為
@@ -2131,6 +2156,7 @@
         📍關於二補
       </div>
 
+
       <p>
         若商品需要二補，
         將於商品全部到貨後透過賣貨便收取二補。
@@ -2152,6 +2178,7 @@
       <div class="card-title">
         📍寄送方式
       </div>
+
 
       <p>
         全部商品皆使用賣貨便寄出，
@@ -2175,11 +2202,17 @@
 
       <ul class="notice-list">
 
-        <li>廠損</li>
+        <li>
+          廠損
+        </li>
 
-        <li>運輸損傷</li>
+        <li>
+          運輸損傷
+        </li>
 
-        <li>商品瑕疵</li>
+        <li>
+          商品瑕疵
+        </li>
 
         <li>
           不湊套（專卡、滿額卡及隨機商品等）
@@ -2236,7 +2269,9 @@
 
             社群名稱／團務
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2260,11 +2295,6 @@
               Run it JAPAN 一番賞
             </option>
 
-
-            <option value="sony-music-benefit">
-              Sony music 通路特典（含專）
-            </option>
-
           </select>
 
         </div>
@@ -2276,7 +2306,9 @@
 
             Facebook 名稱
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2293,7 +2325,9 @@
       </div>
 
 
-      <!-- 商品圖鑑 -->
+      <!-- ========================================
+           商品圖鑑
+      ======================================== -->
 
       <div
         id="catalogCard"
@@ -2325,7 +2359,9 @@
       </div>
 
 
-      <!-- 商品 -->
+      <!-- ========================================
+           商品
+      ======================================== -->
 
       <div class="card">
 
@@ -2357,6 +2393,7 @@
             商品總金額
           </span>
 
+
           <span id="calculatedTotal">
             NT$ 0
           </span>
@@ -2366,7 +2403,9 @@
       </div>
 
 
-      <!-- 匯款帳號 -->
+      <!-- ========================================
+           匯款帳號
+      ======================================== -->
 
       <div class="card">
 
@@ -2458,7 +2497,9 @@
       </div>
 
 
-      <!-- 匯款資料 -->
+      <!-- ========================================
+           匯款資料
+      ======================================== -->
 
       <div class="card">
 
@@ -2473,7 +2514,9 @@
 
             匯款日期
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2493,7 +2536,9 @@
 
             匯款時間
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2513,7 +2558,9 @@
 
             匯款銀行
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2553,7 +2600,9 @@
 
             匯款金額
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2576,7 +2625,9 @@
 
             匯款帳號後五碼
 
-            <span class="required">*</span>
+            <span class="required">
+              *
+            </span>
 
           </label>
 
@@ -2982,7 +3033,11 @@ const WORKER_URL =
 
 const closedGroups =
   new Set([
-    "this-that-lucky-draw"
+
+    "this-that-lucky-draw",
+
+    "sony-music-benefit"
+
   ]);
 
 
@@ -3205,7 +3260,7 @@ const tShirtVariants =
 
 
 /* ========================================
-   商品
+   商品資料
 ======================================== */
 
 const productData = {
@@ -3246,7 +3301,9 @@ const productData = {
     {
       name: "應援毛巾",
       price: 615,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
@@ -3276,14 +3333,18 @@ const productData = {
     {
       name: "壓克力立牌",
       price: 350,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "照片徽章",
       price: 140,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
@@ -3301,7 +3362,9 @@ const productData = {
     {
       name: "肖像應援毛巾",
       price: 550,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
@@ -3314,14 +3377,18 @@ const productData = {
     {
       name: "個人資料卡組",
       price: 220,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "成員設計徽章組",
       price: 330,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
@@ -3352,63 +3419,81 @@ const productData = {
     {
       name: "肩背包",
       price: 700,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "登山扣收納包",
       price: 620,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "多功能掛繩",
       price: 660,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "髮圈",
       price: 660,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "手燈收納包",
       price: 990,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "小卡冊",
       price: 990,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "耳環",
       price: 450,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "毛巾掛帶",
       price: 330,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     },
 
 
     {
       name: "扇套",
       price: 660,
-      variants: skzMembers
+
+      variants:
+        skzMembers
     }
 
   ],
@@ -3439,35 +3524,55 @@ const productData = {
   ],
 
 
+  /*
+    已結束團務資料保留
+    給歷史對帳／後台使用
+  */
+
   "this-that-lucky-draw": [
 
     {
       name:
         "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
 
-      price: 470
+      price:
+        470
     }
 
   ],
 
 
+  /*
+    Sony music 已結束
+    但資料繼續保留
+  */
+
   "sony-music-benefit": [
 
     {
-      name: "THIS VER.",
-      price: 750
+      name:
+        "THIS VER.",
+
+      price:
+        750
     },
 
 
     {
-      name: "THAT VER.",
-      price: 750
+      name:
+        "THAT VER.",
+
+      price:
+        750
     },
 
 
     {
-      name: "& VER（8張一套）",
-      price: 4400
+      name:
+        "& VER（8張一套）",
+
+      price:
+        4400
     }
 
   ]
@@ -3484,9 +3589,11 @@ const groupMeta = {
 
   "run-it-japan": {
 
-    groupType: "代購",
+    groupType:
+      "代購",
 
-    group: "Stray Kids",
+    group:
+      "Stray Kids",
 
     activity:
       "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
@@ -3496,9 +3603,11 @@ const groupMeta = {
 
   "run-it-japan-kuji": {
 
-    groupType: "代購",
+    groupType:
+      "代購",
 
-    group: "Stray Kids",
+    group:
+      "Stray Kids",
 
     activity:
       "Run it JAPAN 一番賞"
@@ -3508,9 +3617,11 @@ const groupMeta = {
 
   "this-that-lucky-draw": {
 
-    groupType: "代購",
+    groupType:
+      "代購",
 
-    group: "Stray Kids",
+    group:
+      "Stray Kids",
 
     activity:
       "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)"
@@ -3520,9 +3631,11 @@ const groupMeta = {
 
   "sony-music-benefit": {
 
-    groupType: "代購",
+    groupType:
+      "代購",
 
-    group: "Stray Kids",
+    group:
+      "Stray Kids",
 
     activity:
       "Sony music 通路特典（含專）"
@@ -3547,20 +3660,29 @@ const catalogData = {
     images: [
 
       {
-        src: "run-it-1.jpg",
-        title: "商品圖 1"
+        src:
+          "run-it-1.jpg",
+
+        title:
+          "商品圖 1"
       },
 
 
       {
-        src: "run-it-2.jpg",
-        title: "商品圖 2"
+        src:
+          "run-it-2.jpg",
+
+        title:
+          "商品圖 2"
       },
 
 
       {
-        src: "run-it-3.jpg",
-        title: "商品圖 3"
+        src:
+          "run-it-3.jpg",
+
+        title:
+          "商品圖 3"
       }
 
     ]
@@ -3576,14 +3698,20 @@ const catalogData = {
     images: [
 
       {
-        src: "kuji-1.jpeg.PNG",
-        title: "商品圖 1"
+        src:
+          "kuji-1.jpeg.PNG",
+
+        title:
+          "商品圖 1"
       },
 
 
       {
-        src: "kuji-2.jpeg.PNG",
-        title: "商品圖 2"
+        src:
+          "kuji-2.jpeg.PNG",
+
+        title:
+          "商品圖 2"
       }
 
     ]
@@ -3599,14 +3727,20 @@ const catalogData = {
     images: [
 
       {
-        src: "this-that-1.jpeg.jpg",
-        title: "商品圖"
+        src:
+          "this-that-1.jpeg.jpg",
+
+        title:
+          "商品圖"
       },
 
 
       {
-        src: "this-that-2.jpeg.jpg",
-        title: "Lucky Draw 特典圖"
+        src:
+          "this-that-2.jpeg.jpg",
+
+        title:
+          "Lucky Draw 特典圖"
       }
 
     ]
@@ -3622,8 +3756,11 @@ const catalogData = {
     images: [
 
       {
-        src: "sony-music-1.JPG",
-        title: "Sony music 通路特典"
+        src:
+          "sony-music-1.JPG",
+
+        title:
+          "Sony music 通路特典"
       }
 
     ]
@@ -3699,21 +3836,36 @@ function escapeHTML(value) {
     value ?? ""
   )
 
-    .replace(/&/g, "&amp;")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-    .replace(/</g, "&lt;")
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
-    .replace(/>/g, "&gt;")
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-    .replace(/"/g, "&quot;")
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-    .replace(/'/g, "&#039;");
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 /* ========================================
-   圖鑑
+   商品圖鑑
 ======================================== */
 
 function renderCatalog(groupId) {
@@ -3977,7 +4129,8 @@ async function loadInventory(
       ),
 
       {
-        cache: "no-store"
+        cache:
+          "no-store"
       }
 
     );
@@ -4064,7 +4217,7 @@ function getStock(
 
 
 /* ========================================
-   商品選項
+   商品選項 HTML
 ======================================== */
 
 function createChoiceHTML(
@@ -4180,7 +4333,9 @@ function createChoiceHTML(
             variant
           )}"
 
-          data-price="${product.price}"
+          data-price="${
+            product.price
+          }"
 
           data-stock-managed="${
             stockManaged
@@ -4274,6 +4429,10 @@ async function renderProducts(
 
   `;
 
+
+  /*
+    已結束團務禁止顯示商品
+  */
 
   if (
     closedGroups.has(
@@ -4437,7 +4596,6 @@ async function renderProducts(
         variants.length > 0
 
           ? variants
-
               .map(
                 variant =>
                   createChoiceHTML(
@@ -4445,7 +4603,6 @@ async function renderProducts(
                     variant
                   )
               )
-
               .join("")
 
           : createChoiceHTML(
@@ -4559,7 +4716,6 @@ async function renderProducts(
 function bindProductEvents() {
 
   productContainer
-
     .querySelectorAll(
       ".product-choice"
     )
@@ -5028,6 +5184,7 @@ async function copyBankAccount(
       );
 
     },
+
     1200
   );
 
@@ -5068,6 +5225,10 @@ paymentForm.addEventListener(
 
     }
 
+
+    /*
+      已結束團務禁止送出
+    */
 
     if (
       closedGroups.has(
@@ -5416,8 +5577,8 @@ paymentForm.addEventListener(
 
 
       /*
-        只有後台真的成功後
-        才清空表單並前往成功頁
+        只有後台真的成功
+        才前往填單完成頁
       */
 
       paymentForm.reset();
@@ -5543,7 +5704,8 @@ async function loadPublicProgress() {
         "/public/list",
 
         {
-          cache: "no-store"
+          cache:
+            "no-store"
         }
 
       );
@@ -5760,7 +5922,6 @@ function renderProgress() {
   Object.entries(
     groups
   )
-
     .forEach(
       ([activity, items]) => {
 
@@ -5776,7 +5937,6 @@ function renderProgress() {
 
         const rows =
           items
-
             .map(
               item => {
 
@@ -5970,7 +6130,6 @@ document
   .querySelectorAll(
     "#typeFilters .filter-button"
   )
-
   .forEach(
     button => {
 
@@ -5982,7 +6141,6 @@ document
             .querySelectorAll(
               "#typeFilters .filter-button"
             )
-
             .forEach(
               item => {
 
@@ -6016,7 +6174,6 @@ document
   .querySelectorAll(
     "#groupFilters .filter-button"
   )
-
   .forEach(
     button => {
 
@@ -6028,7 +6185,6 @@ document
             .querySelectorAll(
               "#groupFilters .filter-button"
             )
-
             .forEach(
               item => {
 
