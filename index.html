@@ -18,8 +18,6 @@
   <title>狐狸🦊日韓通路代購/拆車</title>
 
 
-  <!-- 網頁手寫字體 -->
-
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -152,7 +150,7 @@
 
 
     /* ========================================
-       首頁模式
+       首頁
     ======================================== */
 
     body.home-mode {
@@ -177,11 +175,6 @@
 
       text-shadow: none;
     }
-
-
-    /* ========================================
-       首頁背景
-    ======================================== */
 
     #homePage {
       position: relative;
@@ -355,7 +348,7 @@
 
 
     /* ========================================
-       注意事項社群按鈕
+       注意事項
     ======================================== */
 
     .notice-community-link {
@@ -385,11 +378,6 @@
     .notice-community-link:active {
       transform: scale(0.97);
     }
-
-
-    /* ========================================
-       二補圖片
-    ======================================== */
 
     .notice-image {
       display: block;
@@ -493,239 +481,30 @@
       opacity: 1;
     }
 
-    .order-action.closed:active,
-    .order-action:disabled:active {
-      background: #eeeef2;
-
-      transform: none;
-    }
-
 
     /* ========================================
-       聯絡方式
+       商品頁團務名稱
     ======================================== */
 
-    .contact-card {
-      padding: 19px;
+    .selected-group-card {
+      text-align: center;
     }
 
-    .contact-name {
+    .selected-group-label {
       margin-bottom: 5px;
 
+      color: #988ba5;
+
+      font-size: 13px;
+    }
+
+    .selected-group-name {
       color: #59349e;
 
-      font-size: 19px;
-      font-weight: 600;
-    }
-
-    .contact-value {
-      color: #71657d;
-
-      font-size: 16px;
-
-      line-height: 1.7;
-
-      word-break: break-word;
-    }
-
-    .contact-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-
-      margin-top: 12px;
-
-      padding: 10px 16px;
-
-      background: #f1eaff;
-
-      color: #6842b3;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-
+      font-size: 18px;
       font-weight: 600;
 
-      text-decoration: none;
-    }
-
-    .contact-button:active {
-      transform: scale(0.98);
-    }
-
-
-    /* ========================================
-       表單
-    ======================================== */
-
-    .form-group {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-
-      margin-bottom: 17px;
-    }
-
-    .form-group label {
-      display: block;
-
-      margin-bottom: 8px;
-
-      color: #5f4b87;
-
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .required {
-      color: #be4b78;
-    }
-
-    input,
-    select,
-    textarea {
-      display: block;
-
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-
-      padding: 12px 14px;
-
-      background: #ffffff;
-
-      color: #4f4660;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 14px;
-
-      outline: none;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #9f7aea;
-
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, 0.13);
-    }
-
-    textarea {
-      min-height: 95px;
-
-      resize: vertical;
-    }
-
-    input[readonly] {
-      background: #f7f5fa;
-    }
-
-
-    /* ========================================
-       ★ iPhone 日期／時間專用外框
-       Safari 不會再把格子撐出去
-    ======================================== */
-
-    .ios-date-wrap {
-      position: relative;
-
-      display: block;
-
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-
-      height: 50px;
-
-      overflow: hidden;
-
-      background: #ffffff;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 14px;
-    }
-
-
-    .ios-date-wrap:focus-within {
-      border-color: #9f7aea;
-
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, 0.13);
-    }
-
-
-    .ios-date-wrap input[type="date"],
-    .ios-date-wrap input[type="time"] {
-      display: block !important;
-
-      width: 100% !important;
-      min-width: 0 !important;
-      max-width: 100% !important;
-
-      inline-size: 100% !important;
-      min-inline-size: 0 !important;
-      max-inline-size: 100% !important;
-
-      height: 100% !important;
-
-      margin: 0 !important;
-
-      padding: 12px 14px !important;
-
-      background: transparent !important;
-
-      color: #4f4660;
-
-      border: 0 !important;
-
-      border-radius: 0 !important;
-
-      box-shadow: none !important;
-
-      outline: none !important;
-
-      -webkit-appearance: none;
-      appearance: none;
-
-      overflow: hidden !important;
-    }
-
-
-    .ios-date-wrap
-    input[type="date"]::-webkit-date-and-time-value,
-    .ios-date-wrap
-    input[type="time"]::-webkit-date-and-time-value {
-      width: 100%;
-
-      min-width: 0;
-
-      margin: 0;
-
-      padding: 0;
-
-      text-align: left;
-    }
-
-
-    .ios-date-wrap
-    input[type="date"]::-webkit-datetime-edit,
-    .ios-date-wrap
-    input[type="time"]::-webkit-datetime-edit {
-      min-width: 0;
-
-      padding: 0;
+      line-height: 1.6;
     }
 
 
@@ -905,7 +684,6 @@
       color: #554b62;
 
       font-size: 16px;
-
       font-weight: 600;
 
       line-height: 1.45;
@@ -925,7 +703,6 @@
       color: #6b46c1;
 
       font-size: 15px;
-
       font-weight: 600;
 
       white-space: nowrap;
@@ -1150,6 +927,357 @@
 
 
     /* ========================================
+       已閱讀注意事項
+    ======================================== */
+
+    .agreement-card {
+      padding: 18px 20px;
+    }
+
+    .agreement-row {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .agreement-row input {
+      width: 20px;
+      height: 20px;
+
+      flex-shrink: 0;
+
+      padding: 0;
+
+      accent-color: #9f7aea;
+    }
+
+    .agreement-row label {
+      margin: 0;
+
+      color: #594d68;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+
+    /* ========================================
+       ★ 查看注意事項按鈕
+    ======================================== */
+
+    .view-notice-button {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding: 10px 16px;
+
+      background: #ffffff;
+
+      color: #6b46c1;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      transition: 0.2s ease;
+    }
+
+    .view-notice-button:hover {
+      background: #f7f2ff;
+    }
+
+    .view-notice-button:active {
+      background: #f7f2ff;
+
+      transform: scale(0.98);
+    }
+
+    .agreement-help {
+      margin-top: 10px;
+
+      color: #958a9f;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      text-align: center;
+    }
+
+
+    /* ========================================
+       下一步
+    ======================================== */
+
+    .next-button {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding: 12px 16px;
+
+      background: #cbb8f5;
+
+      color: #4c2e83;
+
+      border: none;
+
+      border-radius: 999px;
+
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .next-button:disabled {
+      background: #e8e5ec;
+
+      color: #aaa3b0;
+
+      cursor: not-allowed;
+    }
+
+    .next-button:not(:disabled):active {
+      transform: scale(0.98);
+    }
+
+
+    /* ========================================
+       訂單確認
+    ======================================== */
+
+    .checkout-summary {
+      padding: 14px;
+
+      background: #faf8ff;
+
+      border:
+        1px solid #eee6ff;
+
+      border-radius: 15px;
+    }
+
+    .checkout-group {
+      margin-bottom: 10px;
+
+      color: #59349e;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      line-height: 1.55;
+    }
+
+    .checkout-product {
+      padding: 6px 0;
+
+      color: #62576d;
+
+      font-size: 14px;
+
+      line-height: 1.55;
+
+      border-bottom:
+        1px dashed #e8dff5;
+    }
+
+    .checkout-total {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-top: 12px;
+
+      padding-top: 12px;
+
+      border-top:
+        1px solid #ded3f1;
+
+      color: #59349e;
+
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+
+    /* ========================================
+       表單
+    ======================================== */
+
+    .form-group {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #5f4b87;
+
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .required {
+      color: #be4b78;
+    }
+
+    input,
+    select,
+    textarea {
+      display: block;
+
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
+      padding: 12px 14px;
+
+      background: #ffffff;
+
+      color: #4f4660;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 14px;
+
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #9f7aea;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(159, 122, 234, 0.13);
+    }
+
+    textarea {
+      min-height: 95px;
+
+      resize: vertical;
+    }
+
+    input[readonly] {
+      background: #f7f5fa;
+    }
+
+
+    /* ========================================
+       iPhone 日期／時間
+    ======================================== */
+
+    .ios-date-wrap {
+      position: relative;
+
+      display: block;
+
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
+      height: 50px;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 14px;
+    }
+
+    .ios-date-wrap:focus-within {
+      border-color: #9f7aea;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(159, 122, 234, 0.13);
+    }
+
+    .ios-date-wrap
+    input[type="date"],
+    .ios-date-wrap
+    input[type="time"] {
+
+      display: block !important;
+
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+
+      inline-size: 100% !important;
+      min-inline-size: 0 !important;
+      max-inline-size: 100% !important;
+
+      height: 100% !important;
+
+      margin: 0 !important;
+
+      padding: 12px 14px !important;
+
+      background: transparent !important;
+
+      border: 0 !important;
+
+      border-radius: 0 !important;
+
+      box-shadow: none !important;
+
+      outline: none !important;
+
+      -webkit-appearance: none;
+      appearance: none;
+
+      overflow: hidden !important;
+    }
+
+    .ios-date-wrap
+    input[type="date"]::-webkit-date-and-time-value,
+    .ios-date-wrap
+    input[type="time"]::-webkit-date-and-time-value {
+
+      width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+
+      text-align: left;
+    }
+
+    .ios-date-wrap
+    input[type="date"]::-webkit-datetime-edit,
+    .ios-date-wrap
+    input[type="time"]::-webkit-datetime-edit {
+
+      min-width: 0;
+
+      padding: 0;
+    }
+
+
+    /* ========================================
        銀行帳號
     ======================================== */
 
@@ -1201,14 +1329,6 @@
       -webkit-user-select: all;
     }
 
-    a[href^="tel:"] {
-      color: inherit !important;
-
-      text-decoration: none !important;
-
-      pointer-events: none !important;
-    }
-
     .copy-button {
       flex-shrink: 0;
 
@@ -1238,7 +1358,7 @@
 
 
     /* ========================================
-       送出按鈕
+       送出
     ======================================== */
 
     .submit-button {
@@ -1265,7 +1385,7 @@
 
 
     /* ========================================
-       填單完成畫面
+       完成
     ======================================== */
 
     .success-card {
@@ -1332,14 +1452,6 @@
       font-weight: 600;
 
       text-decoration: none;
-
-      box-shadow:
-        0 4px 12px
-        rgba(126, 92, 190, 0.10);
-    }
-
-    .join-community-button:active {
-      transform: scale(0.98);
     }
 
     .success-home-button {
@@ -1363,7 +1475,61 @@
 
 
     /* ========================================
-       對帳篩選
+       聯絡
+    ======================================== */
+
+    .contact-card {
+      padding: 19px;
+    }
+
+    .contact-name {
+      margin-bottom: 5px;
+
+      color: #59349e;
+
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .contact-value {
+      color: #71657d;
+
+      font-size: 16px;
+
+      line-height: 1.7;
+
+      word-break: break-word;
+    }
+
+    .contact-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      margin-top: 12px;
+
+      padding: 10px 16px;
+
+      background: #f1eaff;
+
+      color: #6842b3;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+
+      text-decoration: none;
+    }
+
+
+    /* ========================================
+       對帳
     ======================================== */
 
     .filter-label {
@@ -1407,11 +1573,6 @@
     .search-input {
       margin-top: 7px;
     }
-
-
-    /* ========================================
-       對帳列表
-    ======================================== */
 
     .progress-group {
       margin-bottom: 18px;
@@ -1666,8 +1827,6 @@
           5px 8px;
 
         font-size: 14px;
-
-        line-height: 1.2;
       }
 
       .card {
@@ -1723,47 +1882,6 @@
         font-size: 12px;
       }
 
-      .success-title {
-        font-size: 24px;
-      }
-
-      .success-text {
-        font-size: 16px;
-      }
-
-      .join-community-button {
-        font-size: 18px;
-      }
-
-    }
-
-
-    @media (max-width: 370px) {
-
-      h1 {
-        font-size: 21px;
-      }
-
-      .pill-button {
-        font-size: 13px;
-      }
-
-      .product-choice {
-        grid-template-columns:
-          1fr;
-      }
-
-      .quantity-control {
-        justify-content: flex-end;
-      }
-
-      .progress-member-row {
-        grid-template-columns:
-          minmax(90px, 1fr)
-          82px
-          82px;
-      }
-
     }
 
   </style>
@@ -1774,1195 +1892,1317 @@
 <body class="home-mode">
 
 
-  <h1>
-    狐狸🦊日韓通路代購/拆車
-  </h1>
+<h1>
+  狐狸🦊日韓通路代購/拆車
+</h1>
 
 
-  <!-- ========================================
-       首頁
-  ======================================== -->
+<!-- ========================================
+     首頁
+======================================== -->
 
-  <main
-    id="homePage"
-    class="page active-page"
+<main
+  id="homePage"
+  class="page active-page"
+>
+
+  <div
+    class="home-background"
+    aria-hidden="true"
+  ></div>
+
+
+  <div class="menu-grid">
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="groupPage"
+    >
+      📦 團務
+    </button>
+
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="closedGroupPage"
+    >
+      🗃️ 已結束團務
+    </button>
+
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="paymentStartPage"
+    >
+      💰 匯款表單
+    </button>
+
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="noticePage"
+    >
+      📌 注意事項
+    </button>
+
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="progressPage"
+    >
+      📊 對帳表＆進度表
+    </button>
+
+
+    <button
+      type="button"
+      class="pill-button"
+      data-target="contactPage"
+    >
+      💬 聯絡方式 &amp; 代購社群
+    </button>
+
+  </div>
+
+</main>
+
+
+<!-- ========================================
+     團務
+======================================== -->
+
+<section
+  id="groupPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    class="back-button"
+    data-target="homePage"
   >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    📦 團務
+  </h2>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        Stray Kids World Tour
+        ＜RUN IT JAPAN＞
+        OFFICIAL GOODS 線上團
+      </div>
+
+      <div class="order-status">
+        開放中
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action"
+      data-order="run-it-japan"
+      data-return="groupPage"
+    >
+      選購商品
+    </button>
+
+  </div>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        Run it JAPAN 一番賞
+      </div>
+
+      <div class="order-status">
+        開放中
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action"
+      data-order="run-it-japan-kuji"
+      data-return="groupPage"
+    >
+      查看剩餘庫存＆選購商品
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     已結束團務
+======================================== -->
+
+<section
+  id="closedGroupPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    class="back-button"
+    data-target="homePage"
+  >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    🗃️ 已結束團務
+  </h2>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        [LUCKY DRAW] THIS &amp; THAT
+        (THIS VER., THAT VER.)
+      </div>
+
+      <div class="order-status closed">
+        已結束
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action closed"
+      disabled
+    >
+      已結束
+    </button>
+
+  </div>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        Sony music 通路特典（含專）
+      </div>
+
+      <div class="order-status closed">
+        已結束
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action closed"
+      disabled
+    >
+      已結束
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     首頁匯款入口
+======================================== -->
+
+<section
+  id="paymentStartPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    class="back-button"
+    data-target="homePage"
+  >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    💰 匯款表單
+  </h2>
+
+
+  <div class="card">
+
+    <div class="card-title">
+      請先選擇團務
+    </div>
+
+    <p>
+      請先選擇商品並確認注意事項，
+      下一步才會進入匯款資料填寫。
+    </p>
+
+  </div>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        Stray Kids World Tour
+        ＜RUN IT JAPAN＞
+        OFFICIAL GOODS 線上團
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action"
+      data-order="run-it-japan"
+      data-return="paymentStartPage"
+    >
+      前往匯款表單
+    </button>
+
+  </div>
+
+
+  <div class="card order-card">
+
+    <div class="order-top">
+
+      <div class="order-group">
+        Stray Kids
+      </div>
+
+      <div class="order-name">
+        Run it JAPAN 一番賞
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="order-action"
+      data-order="run-it-japan-kuji"
+      data-return="paymentStartPage"
+    >
+      查看剩餘庫存＆填寫表單
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     商品選購
+======================================== -->
+
+<section
+  id="productPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    id="productBackButton"
+    class="back-button"
+  >
+    ← 返回團務
+  </button>
+
+
+  <h2>
+    🛍️ 商品選購
+  </h2>
+
+
+  <div class="card selected-group-card">
+
+    <div class="selected-group-label">
+      目前選擇團務
+    </div>
 
     <div
-      class="home-background"
-      aria-hidden="true"
+      id="productGroupName"
+      class="selected-group-name"
+    ></div>
+
+  </div>
+
+
+  <div
+    id="catalogCard"
+    class="card"
+    style="display:none;"
+  >
+
+    <div class="card-title">
+      🖼️ 商品圖鑑
+    </div>
+
+
+    <div class="catalog-note">
+      點擊圖片可以放大查看商品款式。
+    </div>
+
+
+    <div
+      id="catalogWarning"
+      class="catalog-warning"
     ></div>
 
 
-    <div class="menu-grid">
+    <div
+      id="catalogGallery"
+      class="catalog-gallery"
+    ></div>
 
-      <button
-        type="button"
-        class="pill-button"
-        data-target="groupPage"
-      >
-        📦 團務
-      </button>
+  </div>
 
 
-      <button
-        type="button"
-        class="pill-button"
-        data-target="closedGroupPage"
-      >
-        🗃️ 已結束團務
-      </button>
+  <div class="card">
+
+    <div class="card-title">
+      商品名稱與價錢
+    </div>
 
 
-      <button
-        type="button"
-        class="pill-button"
-        data-target="paymentPage"
-      >
-        💰 匯款表單
-      </button>
+    <div id="productContainer">
 
-
-      <button
-        type="button"
-        class="pill-button"
-        data-target="noticePage"
-      >
-        📌 注意事項
-      </button>
-
-
-      <button
-        type="button"
-        class="pill-button"
-        data-target="progressPage"
-      >
-        📊 對帳表＆進度表
-      </button>
-
-
-      <button
-        type="button"
-        class="pill-button"
-        data-target="contactPage"
-      >
-        💬 聯絡方式 &amp; 代購社群
-      </button>
+      <div class="product-placeholder">
+        請先選擇團務
+      </div>
 
     </div>
 
-  </main>
 
-
-  <!-- ========================================
-       團務
-  ======================================== -->
-
-  <section
-    id="groupPage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="homePage"
+    <div
+      id="selectedSummary"
+      class="selected-summary"
     >
-      ← 返回首頁
-    </button>
-
-
-    <h2>
-      📦 團務
-    </h2>
-
-
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-
-        <div class="order-name">
-          Stray Kids World Tour
-          ＜RUN IT JAPAN＞
-          OFFICIAL GOODS 線上團
-        </div>
-
-
-        <div class="order-status">
-          開放中
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action"
-        data-order="run-it-japan"
-      >
-        前往匯款表單
-      </button>
-
+      已選 0 件商品
     </div>
 
 
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-
-        <div class="order-name">
-          Run it JAPAN 一番賞
-        </div>
-
-
-        <div class="order-status">
-          開放中
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action"
-        data-order="run-it-japan-kuji"
-      >
-        查看剩餘庫存＆填寫表單
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================
-       已結束團務
-  ======================================== -->
-
-  <section
-    id="closedGroupPage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="homePage"
-    >
-      ← 返回首頁
-    </button>
-
-
-    <h2>
-      🗃️ 已結束團務
-    </h2>
-
-
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-
-        <div class="order-name">
-          [LUCKY DRAW] THIS &amp; THAT
-          (THIS VER., THAT VER.)
-        </div>
-
-
-        <div class="order-status closed">
-          已結束
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action closed"
-        disabled
-      >
-        已結束
-      </button>
-
-    </div>
-
-
-    <div class="card order-card">
-
-      <div class="order-top">
-
-        <div class="order-group">
-          Stray Kids
-        </div>
-
-
-        <div class="order-name">
-          Sony music 通路特典（含專）
-        </div>
-
-
-        <div class="order-status closed">
-          已結束
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="order-action closed"
-        disabled
-      >
-        已結束
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================
-       注意事項
-  ======================================== -->
-
-  <section
-    id="noticePage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="homePage"
-    >
-      ← 返回首頁
-    </button>
-
-
-    <h2>
-      📌 注意事項
-    </h2>
-
-
-    <article class="card">
-
-      <div class="card-title">
-        📍下單規則
-      </div>
-
-      <p>
-        所有團物皆為
-        <strong>
-          收齊全部車員款項後
-        </strong>
-        才會統一下單。
-      </p>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="card-title">
-        📍進度通知＆代購社群
-      </div>
-
-      <p>
-        所有進度都在社群裡面告知。
-      </p>
-
-      <p style="margin-top:10px;">
-        匯款填單完成後
-        <strong>務必</strong>
-        加入社群。
-      </p>
-
-      <p style="margin-top:12px;">
-        社群連結🔗
-      </p>
-
-      <a
-        class="notice-community-link"
-        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        點我加入代購社群
-      </a>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="card-title">
-        📍關於二補
-      </div>
-
-      <p>
-        若商品需要二補，
-        將於商品全部到貨後透過賣貨便收取二補。
-      </p>
-
-      <img
-        class="notice-image"
-        src="second-payment-info.JPG"
-        alt="二補評估重點項目"
-        loading="lazy"
-      >
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="card-title">
-        📍寄送方式
-      </div>
-
-      <p>
-        全部商品皆使用賣貨便寄出，
-        並酌收包材費 10 元＋手續費 10 元。
-      </p>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="card-title">
-        📍商品須知
-      </div>
-
-      <p>
-        商品皆默認接受：
-      </p>
-
-      <ul class="notice-list">
-
-        <li>廠損</li>
-
-        <li>運輸損傷</li>
-
-        <li>商品瑕疵</li>
-
-        <li>
-          不湊套（專卡、滿額卡及隨機商品等）
-        </li>
-
-      </ul>
-
-      <p style="margin-top:12px;">
-        以上情況恕無法退換貨。
-      </p>
-
-    </article>
-
-  </section>
-
-
-  <!-- ========================================
-       匯款表單
-  ======================================== -->
-
-  <section
-    id="paymentPage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="groupPage"
-    >
-      ← 返回團務
-    </button>
-
-
-    <h2>
-      💰 匯款表單
-    </h2>
-
-
-    <form id="paymentForm">
-
-
-      <div class="card">
-
-        <div class="card-title">
-          基本資料
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="communitySelect">
-
-            社群名稱／團務
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <select
-            id="communitySelect"
-            required
-          >
-
-            <option value="">
-              請選擇社群名稱／團務
-            </option>
-
-
-            <option value="run-it-japan">
-              Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
-            </option>
-
-
-            <option value="run-it-japan-kuji">
-              Run it JAPAN 一番賞
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="facebookName">
-
-            Facebook 名稱
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <input
-            id="facebookName"
-            type="text"
-            placeholder="請輸入 Facebook 名稱"
-            required
-          >
-
-        </div>
-
-      </div>
-
-
-      <!-- 商品圖鑑 -->
-
-      <div
-        id="catalogCard"
-        class="card"
-        style="display:none;"
-      >
-
-        <div class="card-title">
-          🖼️ 商品圖鑑
-        </div>
-
-
-        <div class="catalog-note">
-          點擊圖片可以放大查看商品款式。
-        </div>
-
-
-        <div
-          id="catalogWarning"
-          class="catalog-warning"
-        ></div>
-
-
-        <div
-          id="catalogGallery"
-          class="catalog-gallery"
-        ></div>
-
-      </div>
-
-
-      <!-- 商品 -->
-
-      <div class="card">
-
-        <div class="card-title">
-          商品名稱與價錢
-        </div>
-
-
-        <div id="productContainer">
-
-          <div class="product-placeholder">
-            請先選擇社群名稱／團務
-          </div>
-
-        </div>
-
-
-        <div
-          id="selectedSummary"
-          class="selected-summary"
-        >
-          已選 0 件商品
-        </div>
-
-
-        <div class="total-box">
-
-          <span>
-            商品總金額
-          </span>
-
-
-          <span id="calculatedTotal">
-            NT$ 0
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- 匯款帳號 -->
-
-      <div class="card">
-
-        <div class="card-title">
-          匯款帳號
-        </div>
-
-
-        <div class="bank-account">
-
-          <strong>
-            連線銀行（824）
-          </strong>
-
-
-          <div class="bank-number-row">
-
-            <span class="bank-number">
-              111019094603
-            </span>
-
-
-            <button
-              type="button"
-              class="copy-button"
-              onclick="copyBankAccount('111019094603', this)"
-            >
-              複製
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="bank-account">
-
-          <strong>
-            台新銀行（812）
-          </strong>
-
-
-          <div class="bank-number-row">
-
-            <span class="bank-number">
-              20741000262603
-            </span>
-
-
-            <button
-              type="button"
-              class="copy-button"
-              onclick="copyBankAccount('20741000262603', this)"
-            >
-              複製
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="bank-account">
-
-          <strong>
-            中國信託（822）
-          </strong>
-
-
-          <div class="bank-number-row">
-
-            <span class="bank-number">
-              901567959612
-            </span>
-
-
-            <button
-              type="button"
-              class="copy-button"
-              onclick="copyBankAccount('901567959612', this)"
-            >
-              複製
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- 匯款資料 -->
-
-      <div class="card">
-
-        <div class="card-title">
-          匯款資料
-        </div>
-
-
-        <!-- ★ 日期 -->
-
-        <div class="form-group">
-
-          <label for="paymentDate">
-
-            匯款日期
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <div class="ios-date-wrap">
-
-            <input
-              id="paymentDate"
-              type="date"
-              required
-            >
-
-          </div>
-
-        </div>
-
-
-        <!-- ★ 時間 -->
-
-        <div class="form-group">
-
-          <label for="paymentTime">
-
-            匯款時間
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <div class="ios-date-wrap">
-
-            <input
-              id="paymentTime"
-              type="time"
-              required
-            >
-
-          </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="paymentBank">
-
-            匯款銀行
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <select
-            id="paymentBank"
-            required
-          >
-
-            <option value="">
-              請選擇匯款銀行
-            </option>
-
-
-            <option value="連線銀行">
-              連線銀行
-            </option>
-
-
-            <option value="台新銀行">
-              台新銀行
-            </option>
-
-
-            <option value="中國信託">
-              中國信託
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="paymentAmount">
-
-            匯款金額
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <input
-            id="paymentAmount"
-            type="number"
-            min="0"
-            readonly
-            placeholder="選擇商品後自動計算"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="accountLastFive">
-
-            匯款帳號後五碼
-
-            <span class="required">
-              *
-            </span>
-
-          </label>
-
-
-          <input
-            id="accountLastFive"
-            type="text"
-            inputmode="numeric"
-            maxlength="5"
-            pattern="[0-9]{5}"
-            placeholder="請輸入 5 位數字"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="note">
-            備註
-          </label>
-
-
-          <textarea
-            id="note"
-            placeholder="沒有備註可以留空"
-          ></textarea>
-
-        </div>
-
-
-        <button
-          type="submit"
-          class="submit-button"
-        >
-          送出匯款資料
-        </button>
-
-      </div>
-
-    </form>
-
-  </section>
-
-
-  <!-- ========================================
-       對帳表
-  ======================================== -->
-
-  <section
-    id="progressPage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="homePage"
-    >
-      ← 返回首頁
-    </button>
-
-
-    <h2>
-      📊 對帳表＆進度表
-    </h2>
-
-
-    <div class="card">
-
-      <div class="filter-label">
-        依團務分類
-      </div>
-
-
-      <div
-        id="typeFilters"
-        class="filter-row"
-      >
-
-        <button
-          type="button"
-          class="filter-button selected"
-          data-filter="all"
-        >
-          全部
-        </button>
-
-
-        <button
-          type="button"
-          class="filter-button"
-          data-filter="代購"
-        >
-          代購
-        </button>
-
-
-        <button
-          type="button"
-          class="filter-button"
-          data-filter="單特典"
-        >
-          單特典
-        </button>
-
-      </div>
-
-
-      <div class="filter-label">
-        依團體
-      </div>
-
-
-      <div
-        id="groupFilters"
-        class="filter-row"
-      >
-
-        <button
-          type="button"
-          class="filter-button selected"
-          data-filter="all"
-        >
-          全部
-        </button>
-
-
-        <button
-          type="button"
-          class="filter-button"
-          data-filter="TWS"
-        >
-          TWS
-        </button>
-
-
-        <button
-          type="button"
-          class="filter-button"
-          data-filter="Stray Kids"
-        >
-          Stray Kids
-        </button>
-
-      </div>
-
-
-      <div class="filter-label">
-        搜尋
-      </div>
-
-
-      <input
-        id="communitySearch"
-        class="search-input"
-        type="search"
-        placeholder="社群名稱或 Facebook 名稱"
-      >
-
-    </div>
-
-
-    <div id="progressList"></div>
-
-  </section>
-
-
-  <!-- ========================================
-       聯絡方式
-  ======================================== -->
-
-  <section
-    id="contactPage"
-    class="page"
-  >
-
-    <button
-      type="button"
-      class="back-button"
-      data-target="homePage"
-    >
-      ← 返回首頁
-    </button>
-
-
-    <h2>
-      💬 聯絡方式 &amp; 代購社群
-    </h2>
-
-
-    <div class="card contact-card">
-
-      <div class="contact-name">
-        官方 LINE
-      </div>
-
-
-      <div class="contact-value">
-        @964kujbw
-      </div>
-
-
-      <a
-        class="contact-button"
-        href="https://line.me/R/ti/p/@964kujbw"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        開啟官方 LINE
-      </a>
-
-    </div>
-
-
-    <div class="card contact-card">
-
-      <div class="contact-name">
-        代購社群
-      </div>
-
-
-      <div class="contact-value">
-        LINE 代購／拆車社群
-      </div>
-
-
-      <a
-        class="contact-button"
-        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        加入代購社群
-      </a>
-
-    </div>
-
-
-    <div class="card contact-card">
-
-      <div class="contact-name">
-        Instagram
-      </div>
-
-
-      <div class="contact-value">
-        @yiiiii_0704
-      </div>
-
-
-      <a
-        class="contact-button"
-        href="https://www.instagram.com/yiiiii_0704?utm_source=qr"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        前往 Instagram
-      </a>
-
-    </div>
-
-
-    <div class="card contact-card">
-
-      <div class="contact-name">
-        Facebook
-      </div>
-
-
-      <div class="contact-value">
-        劉宜禎
-      </div>
-
-
-      <a
-        class="contact-button"
-        href="https://ssur.cc/f2JS2n4b"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        前往 Facebook
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================
-       填單成功畫面
-  ======================================== -->
-
-  <section
-    id="successPage"
-    class="page"
-  >
-
-    <h2>
-      💜 填單完成
-    </h2>
-
-
-    <div class="card success-card">
-
-      <div class="success-icon">
-        🦊
-      </div>
-
-
-      <div class="success-title">
-        匯款資料已成功送出！
-      </div>
-
-
-      <div class="success-text">
-
-        謝謝你完成匯款填單 ♡
-
-        <br><br>
-
-        所有團務進度都會在
-        <br>
-        代購社群裡面統一告知。
-
-      </div>
-
-
-      <div class="success-important">
-        填單完成後務必加入代購社群！
-      </div>
-
-
-      <a
-        class="join-community-button"
-        href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        🔗 一鍵加入代購社群
-      </a>
-
-
-      <button
-        type="button"
-        class="success-home-button"
-        data-target="homePage"
-      >
-        ← 返回首頁
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================
-       圖片放大
-  ======================================== -->
-
-  <div
-    id="imageModal"
-    class="image-modal"
-  >
-
-    <div class="image-modal-content">
-
-      <button
-        type="button"
-        id="imageClose"
-        class="image-close"
-      >
-        ×
-      </button>
-
-
-      <img
-        id="modalImage"
-        src=""
-        alt="商品圖"
-      >
+    <div class="total-box">
+
+      <span>
+        商品總金額
+      </span>
+
+      <span id="calculatedTotal">
+        NT$ 0
+      </span>
 
     </div>
 
   </div>
+
+
+  <!-- ========================================
+       已閱讀注意事項
+  ======================================== -->
+
+  <div class="card agreement-card">
+
+    <div class="agreement-row">
+
+      <input
+        id="readNoticeCheckbox"
+        type="checkbox"
+      >
+
+
+      <label for="readNoticeCheckbox">
+        已閱讀注意事項
+      </label>
+
+    </div>
+
+
+    <!-- ★ 新增 -->
+
+    <button
+      type="button"
+      id="viewNoticeButton"
+      class="view-notice-button"
+    >
+      📌 查看注意事項
+    </button>
+
+
+    <div class="agreement-help">
+      請確認已閱讀注意事項內容後再進行匯款。
+    </div>
+
+
+    <button
+      type="button"
+      id="nextPaymentButton"
+      class="next-button"
+      disabled
+    >
+      下一步：填寫匯款資料
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     注意事項
+======================================== -->
+
+<section
+  id="noticePage"
+  class="page"
+>
+
+  <!--
+    ★ 不再固定 data-target
+    JS 會判斷要返回首頁還是商品頁
+  -->
+
+  <button
+    type="button"
+    id="noticeBackButton"
+    class="back-button"
+  >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    📌 注意事項
+  </h2>
+
+
+  <article class="card">
+
+    <div class="card-title">
+      📍下單規則
+    </div>
+
+    <p>
+      所有團物皆為
+      <strong>
+        收齊全部車員款項後
+      </strong>
+      才會統一下單。
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <div class="card-title">
+      📍進度通知＆代購社群
+    </div>
+
+    <p>
+      所有進度都在社群裡面告知。
+    </p>
+
+    <p style="margin-top:10px;">
+      匯款填單完成後
+      <strong>務必</strong>
+      加入社群。
+    </p>
+
+    <p style="margin-top:12px;">
+      社群連結🔗
+    </p>
+
+    <a
+      class="notice-community-link"
+      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      點我加入代購社群
+    </a>
+
+  </article>
+
+
+  <article class="card">
+
+    <div class="card-title">
+      📍關於二補
+    </div>
+
+    <p>
+      若商品需要二補，
+      將於商品全部到貨後透過賣貨便收取二補。
+    </p>
+
+    <img
+      class="notice-image"
+      src="second-payment-info.JPG"
+      alt="二補評估重點項目"
+      loading="lazy"
+    >
+
+  </article>
+
+
+  <article class="card">
+
+    <div class="card-title">
+      📍寄送方式
+    </div>
+
+    <p>
+      全部商品皆使用賣貨便寄出，
+      並酌收包材費 10 元＋手續費 10 元。
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <div class="card-title">
+      📍商品須知
+    </div>
+
+    <p>
+      商品皆默認接受：
+    </p>
+
+    <ul class="notice-list">
+
+      <li>廠損</li>
+
+      <li>運輸損傷</li>
+
+      <li>商品瑕疵</li>
+
+      <li>
+        不湊套（專卡、滿額卡及隨機商品等）
+      </li>
+
+    </ul>
+
+    <p style="margin-top:12px;">
+      以上情況恕無法退換貨。
+    </p>
+
+  </article>
+
+</section>
+
+
+<!-- ========================================
+     匯款表單
+======================================== -->
+
+<section
+  id="paymentPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    id="paymentBackButton"
+    class="back-button"
+  >
+    ← 返回商品選購
+  </button>
+
+
+  <h2>
+    💰 匯款表單
+  </h2>
+
+
+  <div class="card">
+
+    <div class="card-title">
+      🛍️ 訂單確認
+    </div>
+
+
+    <div
+      id="checkoutSummary"
+      class="checkout-summary"
+    ></div>
+
+  </div>
+
+
+  <form id="paymentForm">
+
+
+    <div class="card">
+
+      <div class="card-title">
+        基本資料
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="facebookName">
+
+          Facebook 名稱
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <input
+          id="facebookName"
+          type="text"
+          placeholder="請輸入 Facebook 名稱"
+          required
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-title">
+        匯款帳號
+      </div>
+
+
+      <div class="bank-account">
+
+        <strong>
+          連線銀行（824）
+        </strong>
+
+        <div class="bank-number-row">
+
+          <span class="bank-number">
+            111019094603
+          </span>
+
+          <button
+            type="button"
+            class="copy-button"
+            onclick="copyBankAccount('111019094603',this)"
+          >
+            複製
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="bank-account">
+
+        <strong>
+          台新銀行（812）
+        </strong>
+
+        <div class="bank-number-row">
+
+          <span class="bank-number">
+            20741000262603
+          </span>
+
+          <button
+            type="button"
+            class="copy-button"
+            onclick="copyBankAccount('20741000262603',this)"
+          >
+            複製
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="bank-account">
+
+        <strong>
+          中國信託（822）
+        </strong>
+
+        <div class="bank-number-row">
+
+          <span class="bank-number">
+            901567959612
+          </span>
+
+          <button
+            type="button"
+            class="copy-button"
+            onclick="copyBankAccount('901567959612',this)"
+          >
+            複製
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-title">
+        匯款資料
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="paymentDate">
+
+          匯款日期
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <div class="ios-date-wrap">
+
+          <input
+            id="paymentDate"
+            type="date"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="paymentTime">
+
+          匯款時間
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <div class="ios-date-wrap">
+
+          <input
+            id="paymentTime"
+            type="time"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="paymentBank">
+
+          匯款銀行
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <select
+          id="paymentBank"
+          required
+        >
+
+          <option value="">
+            請選擇匯款銀行
+          </option>
+
+          <option value="連線銀行">
+            連線銀行
+          </option>
+
+          <option value="台新銀行">
+            台新銀行
+          </option>
+
+          <option value="中國信託">
+            中國信託
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="paymentAmount">
+
+          匯款金額
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <input
+          id="paymentAmount"
+          type="number"
+          readonly
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="accountLastFive">
+
+          匯款帳號後五碼
+
+          <span class="required">
+            *
+          </span>
+
+        </label>
+
+
+        <input
+          id="accountLastFive"
+          type="text"
+          inputmode="numeric"
+          maxlength="5"
+          pattern="[0-9]{5}"
+          placeholder="請輸入 5 位數字"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="note">
+          備註
+        </label>
+
+
+        <textarea
+          id="note"
+          placeholder="沒有備註可以留空"
+        ></textarea>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="submit-button"
+      >
+        送出匯款資料
+      </button>
+
+    </div>
+
+  </form>
+
+</section>
+
+
+<!-- ========================================
+     對帳表
+======================================== -->
+
+<section
+  id="progressPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    class="back-button"
+    data-target="homePage"
+  >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    📊 對帳表＆進度表
+  </h2>
+
+
+  <div class="card">
+
+    <div class="filter-label">
+      依團務分類
+    </div>
+
+
+    <div
+      id="typeFilters"
+      class="filter-row"
+    >
+
+      <button
+        type="button"
+        class="filter-button selected"
+        data-filter="all"
+      >
+        全部
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="代購"
+      >
+        代購
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="單特典"
+      >
+        單特典
+      </button>
+
+    </div>
+
+
+    <div class="filter-label">
+      依團體
+    </div>
+
+
+    <div
+      id="groupFilters"
+      class="filter-row"
+    >
+
+      <button
+        type="button"
+        class="filter-button selected"
+        data-filter="all"
+      >
+        全部
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="TWS"
+      >
+        TWS
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Stray Kids"
+      >
+        Stray Kids
+      </button>
+
+    </div>
+
+
+    <div class="filter-label">
+      搜尋
+    </div>
+
+
+    <input
+      id="communitySearch"
+      class="search-input"
+      type="search"
+      placeholder="社群名稱或 Facebook 名稱"
+    >
+
+  </div>
+
+
+  <div id="progressList"></div>
+
+</section>
+
+
+<!-- ========================================
+     聯絡方式
+======================================== -->
+
+<section
+  id="contactPage"
+  class="page"
+>
+
+  <button
+    type="button"
+    class="back-button"
+    data-target="homePage"
+  >
+    ← 返回首頁
+  </button>
+
+
+  <h2>
+    💬 聯絡方式 &amp; 代購社群
+  </h2>
+
+
+  <div class="card contact-card">
+
+    <div class="contact-name">
+      官方 LINE
+    </div>
+
+    <div class="contact-value">
+      @964kujbw
+    </div>
+
+    <a
+      class="contact-button"
+      href="https://line.me/R/ti/p/@964kujbw"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      開啟官方 LINE
+    </a>
+
+  </div>
+
+
+  <div class="card contact-card">
+
+    <div class="contact-name">
+      代購社群
+    </div>
+
+    <div class="contact-value">
+      LINE 代購／拆車社群
+    </div>
+
+    <a
+      class="contact-button"
+      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      加入代購社群
+    </a>
+
+  </div>
+
+
+  <div class="card contact-card">
+
+    <div class="contact-name">
+      Instagram
+    </div>
+
+    <div class="contact-value">
+      @yiiiii_0704
+    </div>
+
+    <a
+      class="contact-button"
+      href="https://www.instagram.com/yiiiii_0704?utm_source=qr"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      前往 Instagram
+    </a>
+
+  </div>
+
+
+  <div class="card contact-card">
+
+    <div class="contact-name">
+      Facebook
+    </div>
+
+    <div class="contact-value">
+      劉宜禎
+    </div>
+
+    <a
+      class="contact-button"
+      href="https://ssur.cc/f2JS2n4b"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      前往 Facebook
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     成功頁
+======================================== -->
+
+<section
+  id="successPage"
+  class="page"
+>
+
+  <h2>
+    💜 填單完成
+  </h2>
+
+
+  <div class="card success-card">
+
+    <div class="success-icon">
+      🦊
+    </div>
+
+    <div class="success-title">
+      匯款資料已成功送出！
+    </div>
+
+    <div class="success-text">
+
+      謝謝你完成匯款填單 ♡
+
+      <br><br>
+
+      所有團務進度都會在
+      <br>
+      代購社群裡面統一告知。
+
+    </div>
+
+
+    <div class="success-important">
+      填單完成後務必加入代購社群！
+    </div>
+
+
+    <a
+      class="join-community-button"
+      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🔗 一鍵加入代購社群
+    </a>
+
+
+    <button
+      type="button"
+      class="success-home-button"
+      data-target="homePage"
+    >
+      ← 返回首頁
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     圖片放大
+======================================== -->
+
+<div
+  id="imageModal"
+  class="image-modal"
+>
+
+  <div class="image-modal-content">
+
+    <button
+      type="button"
+      id="imageClose"
+      class="image-close"
+    >
+      ×
+    </button>
+
+
+    <img
+      id="modalImage"
+      src=""
+      alt="商品圖"
+    >
+
+  </div>
+
+</div>
 
 
 <script>
@@ -2988,7 +3228,33 @@ const closedGroups =
 
 
 /* ========================================
-   Safari 捲動
+   狀態
+======================================== */
+
+let currentGroupId =
+  "";
+
+let currentInventory =
+  null;
+
+let productReturnPage =
+  "groupPage";
+
+
+/*
+  ★ 注意事項返回位置
+*/
+
+let noticeReturnPage =
+  "homePage";
+
+
+let checkoutSnapshot =
+  null;
+
+
+/* ========================================
+   Safari
 ======================================== */
 
 if (
@@ -3011,18 +3277,6 @@ const pages =
   );
 
 
-const paymentForm =
-  document.getElementById(
-    "paymentForm"
-  );
-
-
-const communitySelect =
-  document.getElementById(
-    "communitySelect"
-  );
-
-
 const productContainer =
   document.getElementById(
     "productContainer"
@@ -3041,9 +3295,9 @@ const calculatedTotal =
   );
 
 
-const paymentAmount =
+const productGroupName =
   document.getElementById(
-    "paymentAmount"
+    "productGroupName"
   );
 
 
@@ -3065,12 +3319,50 @@ const catalogWarning =
   );
 
 
-let currentInventory =
-  null;
+const readNoticeCheckbox =
+  document.getElementById(
+    "readNoticeCheckbox"
+  );
+
+
+const viewNoticeButton =
+  document.getElementById(
+    "viewNoticeButton"
+  );
+
+
+const noticeBackButton =
+  document.getElementById(
+    "noticeBackButton"
+  );
+
+
+const nextPaymentButton =
+  document.getElementById(
+    "nextPaymentButton"
+  );
+
+
+const checkoutSummary =
+  document.getElementById(
+    "checkoutSummary"
+  );
+
+
+const paymentForm =
+  document.getElementById(
+    "paymentForm"
+  );
+
+
+const paymentAmount =
+  document.getElementById(
+    "paymentAmount"
+  );
 
 
 /* ========================================
-   捲動回頂端
+   捲動
 ======================================== */
 
 function resetScroll() {
@@ -3080,10 +3372,8 @@ function resetScroll() {
     0
   );
 
-
   document.documentElement.scrollTop =
     0;
-
 
   document.body.scrollTop =
     0;
@@ -3092,25 +3382,83 @@ function resetScroll() {
 
 
 /* ========================================
-   ★ 完整清空匯款表單
+   清除匯款欄位
 ======================================== */
 
-function clearPaymentPage() {
+function clearPaymentFields() {
 
   paymentForm.reset();
+
+
+  if (
+    checkoutSnapshot
+  ) {
+
+    paymentAmount.value =
+      checkoutSnapshot.total;
+
+  }
+
+  else {
+
+    paymentAmount.value =
+      "";
+
+  }
+
+}
+
+
+/* ========================================
+   清除整個選購流程
+======================================== */
+
+function resetOrderFlow(
+  keepGroup = false
+) {
+
+  paymentForm.reset();
+
+
+  checkoutSnapshot =
+    null;
 
 
   currentInventory =
     null;
 
 
+  readNoticeCheckbox.checked =
+    false;
+
+
+  nextPaymentButton.disabled =
+    true;
+
+
   productContainer.innerHTML = `
 
     <div class="product-placeholder">
-      請先選擇社群名稱／團務
+      請先選擇團務
     </div>
 
   `;
+
+
+  selectedSummary.textContent =
+    "已選 0 件商品";
+
+
+  calculatedTotal.textContent =
+    "NT$ 0";
+
+
+  paymentAmount.value =
+    "";
+
+
+  checkoutSummary.innerHTML =
+    "";
 
 
   catalogCard.style.display =
@@ -3125,16 +3473,18 @@ function clearPaymentPage() {
     "";
 
 
-  selectedSummary.textContent =
-    "已選 0 件商品";
+  if (
+    !keepGroup
+  ) {
+
+    currentGroupId =
+      "";
 
 
-  calculatedTotal.textContent =
-    "NT$ 0";
+    productGroupName.textContent =
+      "";
 
-
-  paymentAmount.value =
-    "";
+  }
 
 }
 
@@ -3143,7 +3493,10 @@ function clearPaymentPage() {
    頁面切換
 ======================================== */
 
-function showPage(pageId) {
+function showPage(
+  pageId,
+  options = {}
+) {
 
   const currentPage =
     document.querySelector(
@@ -3152,8 +3505,8 @@ function showPage(pageId) {
 
 
   /*
-    ★ 只要離開匯款表單，
-    整張匯款表單全部清空
+    如果離開真正匯款頁
+    清除整個流程
   */
 
   if (
@@ -3164,16 +3517,50 @@ function showPage(pageId) {
 
     pageId !==
       "paymentPage"
+
+    &&
+
+    !options.skipPaymentReset
   ) {
 
-    clearPaymentPage();
+    const previousGroupId =
+      currentGroupId;
+
+
+    const returningToProduct =
+      pageId ===
+      "productPage";
+
+
+    resetOrderFlow(
+      returningToProduct
+    );
+
+
+    if (
+      returningToProduct &&
+      previousGroupId
+    ) {
+
+      currentGroupId =
+        previousGroupId;
+
+
+      productGroupName.textContent =
+        groupMeta[
+          previousGroupId
+        ]?.activity || "";
+
+    }
 
   }
 
 
-  document.body.classList.remove(
-    "home-mode"
-  );
+  document.body
+    .classList
+    .remove(
+      "home-mode"
+    );
 
 
   pages.forEach(
@@ -3193,8 +3580,12 @@ function showPage(pageId) {
     );
 
 
-  if (!targetPage) {
+  if (
+    !targetPage
+  ) {
+
     return;
+
   }
 
 
@@ -3206,8 +3597,35 @@ function showPage(pageId) {
   resetScroll();
 
 
+  /*
+    匯款頁返回商品頁
+    重新載入商品
+  */
+
   if (
-    pageId === "homePage"
+    currentPage?.id ===
+      "paymentPage"
+
+    &&
+
+    pageId ===
+      "productPage"
+
+    &&
+
+    currentGroupId
+  ) {
+
+    renderProducts(
+      currentGroupId
+    );
+
+  }
+
+
+  if (
+    pageId ===
+      "homePage"
   ) {
 
     requestAnimationFrame(
@@ -3216,17 +3634,15 @@ function showPage(pageId) {
         resetScroll();
 
 
-        document.body.classList.add(
-          "home-mode"
-        );
+        document.body
+          .classList
+          .add(
+            "home-mode"
+          );
 
 
         requestAnimationFrame(
-          () => {
-
-            resetScroll();
-
-          }
+          resetScroll
         );
 
       }
@@ -3253,16 +3669,21 @@ document
         () => {
 
           /*
-            ★ 從首頁直接重新進入匯款表單，
-            也一定是全新的空白表單
+            ★ 如果從首頁點「注意事項」
+            返回就是首頁
           */
 
           if (
             button.dataset.target ===
-            "paymentPage"
+              "noticePage"
           ) {
 
-            clearPaymentPage();
+            noticeReturnPage =
+              "homePage";
+
+
+            noticeBackButton.textContent =
+              "← 返回首頁";
 
           }
 
@@ -3279,45 +3700,86 @@ document
 
 
 /* ========================================
-   首頁按鈕狀態
+   ★ 商品頁 → 查看注意事項
+======================================== */
+
+viewNoticeButton.addEventListener(
+  "click",
+  () => {
+
+    /*
+      這裡不清空任何商品資料
+    */
+
+    noticeReturnPage =
+      "productPage";
+
+
+    noticeBackButton.textContent =
+      "← 返回商品選購";
+
+
+    showPage(
+      "noticePage"
+    );
+
+  }
+);
+
+
+/* ========================================
+   ★ 注意事項 → 返回
+======================================== */
+
+noticeBackButton.addEventListener(
+  "click",
+  () => {
+
+    /*
+      如果是從商品頁進來，
+      商品、數量、checkbox 都會保持原樣
+    */
+
+    showPage(
+      noticeReturnPage
+    );
+
+  }
+);
+
+
+/* ========================================
+   首頁按鈕
 ======================================== */
 
 document
   .querySelectorAll(
-    ".menu-grid"
+    ".menu-grid .pill-button"
   )
   .forEach(
-    menu => {
+    button => {
 
-      const buttons =
-        menu.querySelectorAll(
-          ".pill-button"
-        );
+      button.addEventListener(
+        "click",
+        () => {
 
+          document
+            .querySelectorAll(
+              ".menu-grid .pill-button"
+            )
+            .forEach(
+              item => {
 
-      buttons.forEach(
-        button => {
+                item.classList.remove(
+                  "selected"
+                );
 
-          button.addEventListener(
-            "click",
-            () => {
-
-              buttons.forEach(
-                item => {
-
-                  item.classList.remove(
-                    "selected"
-                  );
-
-                }
-              );
+              }
+            );
 
 
-              button.classList.add(
-                "selected"
-              );
-
-            }
+          button.classList.add(
+            "selected"
           );
 
         }
@@ -3328,7 +3790,7 @@ document
 
 
 /* ========================================
-   Stray Kids
+   SKZ
 ======================================== */
 
 const skzMembers = [
@@ -3371,13 +3833,11 @@ const productData = {
       variants: tShirtVariants
     },
 
-
     {
       name: "照片 T-shirt",
       price: 990,
       variants: ["M", "L", "XL"]
     },
-
 
     {
       name: "防風外套",
@@ -3385,13 +3845,11 @@ const productData = {
       variants: ["M", "L"]
     },
 
-
     {
       name: "應援毛巾",
       price: 615,
       variants: skzMembers
     },
-
 
     {
       name: "扇子",
@@ -3402,18 +3860,15 @@ const productData = {
       ]
     },
 
-
     {
       name: "隨機小卡",
       price: 120
     },
 
-
     {
       name: "隨機迷你壓克力立牌吊飾",
       price: 180
     },
-
 
     {
       name: "壓克力立牌",
@@ -3421,13 +3876,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "照片徽章",
       price: 140,
       variants: skzMembers
     },
-
 
     {
       name: "小卡組",
@@ -3435,19 +3888,16 @@ const productData = {
       variants: ["A", "B"]
     },
 
-
     {
       name: "肖像應援毛巾",
       price: 550,
       variants: skzMembers
     },
 
-
     {
       name: "購物袋",
       price: 550
     },
-
 
     {
       name: "個人資料卡組",
@@ -3455,37 +3905,31 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "成員設計徽章組",
       price: 330,
       variants: skzMembers
     },
 
-
     {
       name: "收納套",
       price: 570
     },
-
 
     {
       name: "磁吸卡套",
       price: 550
     },
 
-
     {
       name: "隨機鑰匙圈",
       price: 310
     },
 
-
     {
       name: "隨機鑰匙圈吊飾",
       price: 220
     },
-
 
     {
       name: "肩背包",
@@ -3493,13 +3937,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "登山扣收納包",
       price: 620,
       variants: skzMembers
     },
-
 
     {
       name: "多功能掛繩",
@@ -3507,13 +3949,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "髮圈",
       price: 660,
       variants: skzMembers
     },
-
 
     {
       name: "手燈收納包",
@@ -3521,13 +3961,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "小卡冊",
       price: 990,
       variants: skzMembers
     },
-
 
     {
       name: "耳環",
@@ -3535,13 +3973,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "毛巾掛帶",
       price: 330,
       variants: skzMembers
     },
-
 
     {
       name: "扇套",
@@ -3560,13 +3996,11 @@ const productData = {
       stockManaged: true
     },
 
-
     {
       name: "貼紙B",
       price: 80,
       stockManaged: true
     },
-
 
     {
       name: "SKZOO 收納盒",
@@ -3596,12 +4030,10 @@ const productData = {
       price: 750
     },
 
-
     {
       name: "THAT VER.",
       price: 750
     },
-
 
     {
       name: "& VER（8張一套）",
@@ -3697,12 +4129,10 @@ const catalogData = {
         title: "商品圖 1"
       },
 
-
       {
         src: "run-it-2.jpg",
         title: "商品圖 2"
       },
-
 
       {
         src: "run-it-3.jpg",
@@ -3726,7 +4156,6 @@ const catalogData = {
         title: "商品圖 1"
       },
 
-
       {
         src: "kuji-2.jpeg.PNG",
         title: "商品圖 2"
@@ -3748,7 +4177,6 @@ const catalogData = {
         src: "this-that-1.jpeg.jpg",
         title: "商品圖"
       },
-
 
       {
         src: "this-that-2.jpeg.jpg",
@@ -3789,32 +4217,108 @@ function escapeHTML(value) {
     value ?? ""
   )
 
-    .replace(
-      /&/g,
-      "&amp;"
-    )
+    .replace(/&/g, "&amp;")
 
-    .replace(
-      /</g,
-      "&lt;"
-    )
+    .replace(/</g, "&lt;")
 
-    .replace(
-      />/g,
-      "&gt;"
-    )
+    .replace(/>/g, "&gt;")
 
-    .replace(
-      /"/g,
-      "&quot;"
-    )
+    .replace(/"/g, "&quot;")
 
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/'/g, "&#039;");
 
 }
+
+
+/* ========================================
+   開始選購
+======================================== */
+
+document
+  .querySelectorAll(
+    "[data-order]"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        async () => {
+
+          const groupId =
+            button.dataset.order;
+
+
+          if (
+            closedGroups.has(
+              groupId
+            )
+          ) {
+
+            alert(
+              "此團務已結束，目前已停止收單。"
+            );
+
+            return;
+
+          }
+
+
+          resetOrderFlow();
+
+
+          currentGroupId =
+            groupId;
+
+
+          productReturnPage =
+            button.dataset.return ||
+            "groupPage";
+
+
+          productGroupName.textContent =
+            groupMeta[
+              groupId
+            ]?.activity || "";
+
+
+          showPage(
+            "productPage"
+          );
+
+
+          await renderProducts(
+            groupId
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+/* ========================================
+   商品頁返回
+======================================== */
+
+document
+  .getElementById(
+    "productBackButton"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      resetOrderFlow();
+
+
+      showPage(
+        productReturnPage
+      );
+
+    }
+  );
 
 
 /* ========================================
@@ -3824,13 +4328,14 @@ function escapeHTML(value) {
 function renderCatalog(groupId) {
 
   const catalog =
-    catalogData[groupId];
+    catalogData[
+      groupId
+    ];
 
 
   if (
     !catalog ||
-    !catalog.images ||
-    !catalog.images.length
+    !catalog.images?.length
   ) {
 
     catalogCard.style.display =
@@ -3851,7 +4356,8 @@ function renderCatalog(groupId) {
 
 
   catalogWarning.textContent =
-    catalog.warning || "";
+    catalog.warning ||
+    "";
 
 
   catalogGallery.className =
@@ -3859,30 +4365,38 @@ function renderCatalog(groupId) {
 
 
   if (
-    catalog.images.length === 1
+    catalog.images.length ===
+      1
   ) {
 
-    catalogGallery.classList.add(
-      "one-image"
-    );
+    catalogGallery
+      .classList
+      .add(
+        "one-image"
+      );
 
   }
 
   else if (
-    catalog.images.length === 2
+    catalog.images.length ===
+      2
   ) {
 
-    catalogGallery.classList.add(
-      "two-images"
-    );
+    catalogGallery
+      .classList
+      .add(
+        "two-images"
+      );
 
   }
 
   else {
 
-    catalogGallery.classList.add(
-      "three-images"
-    );
+    catalogGallery
+      .classList
+      .add(
+        "three-images"
+      );
 
   }
 
@@ -3896,24 +4410,13 @@ function renderCatalog(groupId) {
 
             <img
               class="catalog-image"
-
-              src="${escapeHTML(
-                image.src
-              )}"
-
-              alt="${escapeHTML(
-                image.title
-              )}"
-
+              src="${escapeHTML(image.src)}"
+              alt="${escapeHTML(image.title)}"
               loading="lazy"
             >
 
             <div class="catalog-caption">
-
-              ${escapeHTML(
-                image.title
-              )}
-
+              ${escapeHTML(image.title)}
             </div>
 
           </div>
@@ -3944,12 +4447,6 @@ const modalImage =
   );
 
 
-const imageClose =
-  document.getElementById(
-    "imageClose"
-  );
-
-
 function bindCatalogImages() {
 
   catalogGallery
@@ -3977,10 +4474,6 @@ function bindCatalogImages() {
                 "open"
               );
 
-
-            document.body.style.overflow =
-              "hidden";
-
           }
         );
 
@@ -4002,32 +4495,17 @@ function closeImageModal() {
   modalImage.src =
     "";
 
-
-  if (
-    document.body.classList.contains(
-      "home-mode"
-    )
-  ) {
-
-    document.body.style.overflow =
-      "hidden";
-
-  }
-
-  else {
-
-    document.body.style.overflow =
-      "";
-
-  }
-
 }
 
 
-imageClose.addEventListener(
-  "click",
-  closeImageModal
-);
+document
+  .getElementById(
+    "imageClose"
+  )
+  .addEventListener(
+    "click",
+    closeImageModal
+  );
 
 
 imageModal.addEventListener(
@@ -4036,7 +4514,7 @@ imageModal.addEventListener(
 
     if (
       event.target ===
-      imageModal
+        imageModal
     ) {
 
       closeImageModal();
@@ -4057,12 +4535,11 @@ async function loadInventory(
 
   if (
     groupId !==
-    "run-it-japan-kuji"
+      "run-it-japan-kuji"
   ) {
 
     currentInventory =
       null;
-
 
     return;
 
@@ -4111,10 +4588,6 @@ async function loadInventory(
 }
 
 
-/* ========================================
-   一番賞款式
-======================================== */
-
 function getKujiVariants(
   productName
 ) {
@@ -4128,7 +4601,7 @@ function getKujiVariants(
   if (
     !product ||
     typeof product !==
-    "object"
+      "object"
   ) {
 
     return [];
@@ -4143,10 +4616,6 @@ function getKujiVariants(
 }
 
 
-/* ========================================
-   庫存
-======================================== */
-
 function getStock(
   productName,
   variant
@@ -4159,7 +4628,7 @@ function getStock(
       ?.[productName]
       ?.[variant]
 
-      ?? 0
+    ?? 0
 
   );
 
@@ -4167,7 +4636,7 @@ function getStock(
 
 
 /* ========================================
-   商品選項 HTML
+   商品選項
 ======================================== */
 
 function createChoiceHTML(
@@ -4177,7 +4646,7 @@ function createChoiceHTML(
 
   const stockManaged =
     product.stockManaged ===
-    true;
+      true;
 
 
   const stock =
@@ -4215,42 +4684,29 @@ function createChoiceHTML(
     stockManaged
   ) {
 
-    if (
+    stockHTML =
       soldOut
-    ) {
 
-      stockHTML = `
+        ? `
 
-        <span
-          class="stock-text stock-out"
-        >
-          已售罄
-        </span>
+          <span class="stock-text stock-out">
+            已售罄
+          </span>
 
-      `;
+        `
 
-    }
+        : `
 
-    else {
+          <span
+            class="
+              stock-text
+              ${stock <= 2 ? "stock-low" : ""}
+            "
+          >
+            剩餘 ${stock}
+          </span>
 
-      stockHTML = `
-
-        <span
-          class="
-            stock-text
-            ${
-              stock <= 2
-                ? "stock-low"
-                : ""
-            }
-          "
-        >
-          剩餘 ${stock}
-        </span>
-
-      `;
-
-    }
+        `;
 
   }
 
@@ -4260,11 +4716,7 @@ function createChoiceHTML(
     <div
       class="
         product-choice
-        ${
-          soldOut
-            ? "sold-out"
-            : ""
-        }
+        ${soldOut ? "sold-out" : ""}
       "
     >
 
@@ -4275,27 +4727,15 @@ function createChoiceHTML(
 
           type="checkbox"
 
-          data-product="${escapeHTML(
-            product.name
-          )}"
+          data-product="${escapeHTML(product.name)}"
 
-          data-variant="${escapeHTML(
-            variant
-          )}"
+          data-variant="${escapeHTML(variant)}"
 
-          data-price="${
-            product.price
-          }"
+          data-price="${product.price}"
 
-          data-stock-managed="${
-            stockManaged
-          }"
+          data-stock-managed="${stockManaged}"
 
-          ${
-            soldOut
-              ? "disabled"
-              : ""
-          }
+          ${soldOut ? "disabled" : ""}
         >
 
 
@@ -4309,7 +4749,6 @@ function createChoiceHTML(
             )}
 
           </span>
-
 
           ${stockHTML}
 
@@ -4386,18 +4825,6 @@ async function renderProducts(
     )
   ) {
 
-    currentInventory =
-      null;
-
-
-    catalogCard.style.display =
-      "none";
-
-
-    catalogGallery.innerHTML =
-      "";
-
-
     productContainer.innerHTML = `
 
       <div class="product-placeholder">
@@ -4405,9 +4832,6 @@ async function renderProducts(
       </div>
 
     `;
-
-
-    updateTotal();
 
 
     return;
@@ -4420,31 +4844,6 @@ async function renderProducts(
   );
 
 
-  if (
-    !groupId
-  ) {
-
-    productContainer.innerHTML = `
-
-      <div class="product-placeholder">
-        請先選擇社群名稱／團務
-      </div>
-
-    `;
-
-
-    currentInventory =
-      null;
-
-
-    updateTotal();
-
-
-    return;
-
-  }
-
-
   try {
 
     await loadInventory(
@@ -4453,9 +4852,7 @@ async function renderProducts(
 
   }
 
-  catch (
-    error
-  ) {
+  catch(error) {
 
     console.error(
       error
@@ -4483,8 +4880,7 @@ async function renderProducts(
 
 
   if (
-    !products ||
-    !products.length
+    !products?.length
   ) {
 
     productContainer.innerHTML = `
@@ -4539,7 +4935,7 @@ async function renderProducts(
 
 
       const choicesHTML =
-        variants.length > 0
+        variants.length
 
           ? variants
               .map(
@@ -4656,7 +5052,7 @@ async function renderProducts(
 
 
 /* ========================================
-   商品數量事件
+   商品事件
 ======================================== */
 
 function bindProductEvents() {
@@ -4750,14 +5146,11 @@ function bindProductEvents() {
 
             qty.value =
               Math.max(
-
                 1,
-
                 Number(
                   qty.value ||
                   1
                 ) - 1
-
               );
 
 
@@ -4780,14 +5173,11 @@ function bindProductEvents() {
 
             qty.value =
               Math.min(
-
                 max,
-
                 Number(
                   qty.value ||
                   1
                 ) + 1
-
               );
 
 
@@ -4810,25 +5200,20 @@ function bindProductEvents() {
 
             let value =
               Math.floor(
-
                 Number(
                   qty.value ||
                   1
                 )
-
               );
 
 
             value =
               Math.max(
-
                 1,
-
                 Math.min(
                   max,
                   value
                 )
-
               );
 
 
@@ -4848,27 +5233,19 @@ function bindProductEvents() {
 
 
 /* ========================================
-   總金額
+   取得商品
 ======================================== */
 
-function updateTotal() {
+function collectSelectedProducts() {
 
-  const checked =
-    productContainer
+  return [
+
+    ...productContainer
       .querySelectorAll(
         ".product-checkbox:checked"
-      );
+      )
 
-
-  let total =
-    0;
-
-
-  let totalQuantity =
-    0;
-
-
-  checked.forEach(
+  ].map(
     checkbox => {
 
       const row =
@@ -4879,41 +5256,114 @@ function updateTotal() {
 
       const quantity =
         Math.max(
-
           1,
-
           Number(
-
             row
               .querySelector(
                 ".qty-input"
               )
-              .value
-
-            || 1
-
+              .value ||
+            1
           )
-
         );
 
 
-      const price =
+      const productName =
+        checkbox.dataset.product;
+
+
+      const variant =
+        checkbox.dataset.variant ||
+        "";
+
+
+      const unitPrice =
         Number(
           checkbox.dataset.price ||
           0
         );
 
 
-      total +=
-        price *
+      const lineTotal =
+        unitPrice *
         quantity;
 
 
-      totalQuantity +=
-        quantity;
+      let displayName =
+        productName;
+
+
+      if (
+        variant
+      ) {
+
+        displayName +=
+          `｜${variant}`;
+
+      }
+
+
+      displayName +=
+        ` ×${quantity}`;
+
+
+      return {
+
+        name:
+          displayName,
+
+        productName,
+
+        variant,
+
+        quantity,
+
+        unitPrice,
+
+        price:
+          lineTotal,
+
+        stockManaged:
+          checkbox.dataset
+            .stockManaged ===
+          "true"
+
+      };
 
     }
   );
+
+}
+
+
+/* ========================================
+   金額
+======================================== */
+
+function updateTotal() {
+
+  const products =
+    collectSelectedProducts();
+
+
+  const totalQuantity =
+    products.reduce(
+      (sum, item) =>
+        sum + item.quantity,
+      0
+    );
+
+
+  const total =
+    products.reduce(
+      (sum, item) =>
+        sum + item.price,
+      0
+    );
+
+
+  selectedSummary.textContent =
+    `已選 ${totalQuantity} 件商品`;
 
 
   calculatedTotal.textContent =
@@ -4922,57 +5372,112 @@ function updateTotal() {
     )}`;
 
 
-  selectedSummary.textContent =
-    `已選 ${totalQuantity} 件商品`;
-
-
-  paymentAmount.value =
-    total > 0
-      ? total
-      : "";
+  updateNextButton();
 
 }
 
 
 /* ========================================
-   下拉團務
+   下一步狀態
 ======================================== */
 
-communitySelect.addEventListener(
-  "change",
-  async () => {
+function updateNextButton() {
 
-    const groupId =
-      communitySelect.value;
+  const hasProduct =
+    collectSelectedProducts()
+      .length > 0;
+
+
+  const hasReadNotice =
+    readNoticeCheckbox
+      .checked;
+
+
+  nextPaymentButton.disabled =
+    !(
+      hasProduct &&
+      hasReadNotice
+    );
+
+}
+
+
+readNoticeCheckbox.addEventListener(
+  "change",
+  updateNextButton
+);
+
+
+/* ========================================
+   下一步 → 匯款
+======================================== */
+
+nextPaymentButton.addEventListener(
+  "click",
+  () => {
+
+    const products =
+      collectSelectedProducts();
 
 
     if (
-      closedGroups.has(
-        groupId
-      )
+      !products.length
     ) {
 
       alert(
-        "此團務已結束，目前已停止收單。"
+        "請至少選擇一項商品。"
       );
-
-
-      communitySelect.value =
-        "";
-
-
-      await renderProducts(
-        ""
-      );
-
 
       return;
 
     }
 
 
-    await renderProducts(
-      groupId
+    if (
+      !readNoticeCheckbox.checked
+    ) {
+
+      alert(
+        "請先勾選「已閱讀注意事項」。"
+      );
+
+      return;
+
+    }
+
+
+    const total =
+      products.reduce(
+        (sum, item) =>
+          sum + item.price,
+        0
+      );
+
+
+    checkoutSnapshot = {
+
+      groupId:
+        currentGroupId,
+
+      products,
+
+      total
+
+    };
+
+
+    renderCheckoutSummary();
+
+
+    clearPaymentFields();
+
+
+    paymentAmount.value =
+      total;
+
+
+    showPage(
+      "paymentPage"
     );
 
   }
@@ -4980,61 +5485,104 @@ communitySelect.addEventListener(
 
 
 /* ========================================
-   團務 → 匯款表單
+   訂單摘要
+======================================== */
+
+function renderCheckoutSummary() {
+
+  if (
+    !checkoutSnapshot
+  ) {
+
+    return;
+
+  }
+
+
+  const meta =
+    groupMeta[
+      checkoutSnapshot.groupId
+    ] || {};
+
+
+  const productsHTML =
+    checkoutSnapshot.products
+      .map(
+        item => `
+
+          <div class="checkout-product">
+
+            ${escapeHTML(
+              item.name
+            )}
+
+            ・NT$
+            ${Number(
+              item.price
+            ).toLocaleString(
+              "zh-TW"
+            )}
+
+          </div>
+
+        `
+      )
+      .join("");
+
+
+  checkoutSummary.innerHTML = `
+
+    <div class="checkout-group">
+
+      ${escapeHTML(
+        meta.activity ||
+        ""
+      )}
+
+    </div>
+
+
+    ${productsHTML}
+
+
+    <div class="checkout-total">
+
+      <span>
+        商品總金額
+      </span>
+
+
+      <span>
+
+        NT$
+        ${checkoutSnapshot.total
+          .toLocaleString(
+            "zh-TW"
+          )}
+
+      </span>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ========================================
+   匯款頁返回
 ======================================== */
 
 document
-  .querySelectorAll(
-    "[data-order]"
+  .getElementById(
+    "paymentBackButton"
   )
-  .forEach(
-    button => {
+  .addEventListener(
+    "click",
+    () => {
 
-      button.addEventListener(
-        "click",
-        async () => {
-
-          const groupId =
-            button.dataset.order;
-
-
-          if (
-            closedGroups.has(
-              groupId
-            )
-          ) {
-
-            alert(
-              "此團務已結束，目前已停止收單。"
-            );
-
-
-            return;
-
-          }
-
-
-          /*
-            ★ 每次重新進入都先清空
-          */
-
-          clearPaymentPage();
-
-
-          communitySelect.value =
-            groupId;
-
-
-          showPage(
-            "paymentPage"
-          );
-
-
-          await renderProducts(
-            groupId
-          );
-
-        }
+      showPage(
+        "productPage"
       );
 
     }
@@ -5154,22 +5702,34 @@ paymentForm.addEventListener(
     event.preventDefault();
 
 
-    const groupId =
-      communitySelect.value;
-
-
     if (
-      !groupId
+      !checkoutSnapshot
     ) {
 
       alert(
-        "請先選擇社群名稱／團務。"
+        "找不到商品資料，請重新選擇商品。"
+      );
+
+
+      resetOrderFlow();
+
+
+      showPage(
+        "groupPage",
+        {
+          skipPaymentReset:
+            true
+        }
       );
 
 
       return;
 
     }
+
+
+    const groupId =
+      checkoutSnapshot.groupId;
 
 
     if (
@@ -5180,30 +5740,6 @@ paymentForm.addEventListener(
 
       alert(
         "此團務已結束，目前已停止收單。"
-      );
-
-
-      return;
-
-    }
-
-
-    const checked = [
-
-      ...productContainer
-        .querySelectorAll(
-          ".product-checkbox:checked"
-        )
-
-    ];
-
-
-    if (
-      !checked.length
-    ) {
-
-      alert(
-        "請至少選擇一項商品。"
       );
 
 
@@ -5237,113 +5773,10 @@ paymentForm.addEventListener(
     }
 
 
-    const products =
-      checked.map(
-        checkbox => {
-
-          const row =
-            checkbox.closest(
-              ".product-choice"
-            );
-
-
-          const quantity =
-            Math.max(
-
-              1,
-
-              Number(
-
-                row
-                  .querySelector(
-                    ".qty-input"
-                  )
-                  .value
-
-                || 1
-
-              )
-
-            );
-
-
-          const productName =
-            checkbox.dataset.product;
-
-
-          const variant =
-            checkbox.dataset.variant ||
-            "";
-
-
-          const unitPrice =
-            Number(
-              checkbox.dataset.price ||
-              0
-            );
-
-
-          const lineTotal =
-            unitPrice *
-            quantity;
-
-
-          let displayName =
-            productName;
-
-
-          if (
-            variant
-          ) {
-
-            displayName +=
-              `｜${variant}`;
-
-          }
-
-
-          displayName +=
-            ` ×${quantity}`;
-
-
-          return {
-
-            name:
-              displayName,
-
-            productName,
-
-            variant,
-
-            quantity,
-
-            unitPrice,
-
-            price:
-              lineTotal,
-
-            stockManaged:
-              checkbox.dataset
-                .stockManaged ===
-              "true"
-
-          };
-
-        }
-      );
-
-
     const meta =
       groupMeta[
         groupId
       ] || {};
-
-
-    const selectedOption =
-      communitySelect.options[
-        communitySelect
-          .selectedIndex
-      ];
 
 
     const formData = {
@@ -5361,9 +5794,8 @@ paymentForm.addEventListener(
 
 
       community:
-        selectedOption
-          .textContent
-          .trim(),
+        meta.activity ||
+        "",
 
 
       groupType:
@@ -5378,13 +5810,11 @@ paymentForm.addEventListener(
 
       activity:
         meta.activity ||
-
-        selectedOption
-          .textContent
-          .trim(),
+        "",
 
 
-      products,
+      products:
+        checkoutSnapshot.products,
 
 
       paymentDate:
@@ -5412,9 +5842,7 @@ paymentForm.addEventListener(
 
 
       paymentAmount:
-        Number(
-          paymentAmount.value
-        ),
+        checkoutSnapshot.total,
 
 
       accountLastFive,
@@ -5444,7 +5872,7 @@ paymentForm.addEventListener(
 
     submitButton.textContent =
       groupId ===
-      "run-it-japan-kuji"
+        "run-it-japan-kuji"
 
         ? "確認庫存並送出中…"
 
@@ -5494,12 +5922,29 @@ paymentForm.addEventListener(
 
         if (
           groupId ===
-          "run-it-japan-kuji"
+            "run-it-japan-kuji"
         ) {
 
-          await renderProducts(
-            groupId
+          alert(
+
+            (
+              result.message ||
+              "庫存可能已經變更。"
+            )
+
+            +
+
+            "\n請重新選擇商品。"
+
           );
+
+
+          showPage(
+            "productPage"
+          );
+
+
+          return;
 
         }
 
@@ -5507,7 +5952,6 @@ paymentForm.addEventListener(
         alert(
 
           result.message ||
-
           "送出失敗，請稍後再試。"
 
         );
@@ -5518,25 +5962,24 @@ paymentForm.addEventListener(
       }
 
 
-      /*
-        成功才前往完成頁
-      */
-
-      clearPaymentPage();
+      resetOrderFlow();
 
 
       loadPublicProgress();
 
 
       showPage(
-        "successPage"
+        "successPage",
+
+        {
+          skipPaymentReset:
+            true
+        }
       );
 
     }
 
-    catch (
-      error
-    ) {
+    catch(error) {
 
       console.error(
         error
@@ -5652,9 +6095,7 @@ async function loadPublicProgress() {
 
   }
 
-  catch (
-    error
-  ) {
+  catch(error) {
 
     console.error(
       error
@@ -5719,51 +6160,51 @@ function renderProgress() {
           );
 
 
-        const matchesType =
-          currentTypeFilter ===
-            "all"
-
-          ||
-
-          itemType ===
-            currentTypeFilter;
-
-
-        const matchesGroup =
-          currentGroupFilter ===
-            "all"
-
-          ||
-
-          itemGroup ===
-            currentGroupFilter;
-
-
-        const matchesSearch =
-          !searchText
-
-          ||
-
-          community
-            .toLowerCase()
-            .includes(
-              searchText
-            )
-
-          ||
-
-          facebook
-            .toLowerCase()
-            .includes(
-              searchText
-            );
-
-
         return (
 
-          matchesType &&
-          matchesGroup &&
-          matchesSearch
+          (
+            currentTypeFilter ===
+              "all"
+
+            ||
+
+            itemType ===
+              currentTypeFilter
+          )
+
+          &&
+
+          (
+            currentGroupFilter ===
+              "all"
+
+            ||
+
+            itemGroup ===
+              currentGroupFilter
+          )
+
+          &&
+
+          (
+            !searchText
+
+            ||
+
+            community
+              .toLowerCase()
+              .includes(
+                searchText
+              )
+
+            ||
+
+            facebook
+              .toLowerCase()
+              .includes(
+                searchText
+              )
+          )
 
         );
 
@@ -5802,26 +6243,28 @@ function renderProgress() {
 
       const activity =
         item.activity ||
-
         item.community ||
-
         "團務進度";
 
 
       if (
-        !groups[activity]
+        !groups[
+          activity
+        ]
       ) {
 
-        groups[activity] =
-          [];
+        groups[
+          activity
+        ] = [];
 
       }
 
 
-      groups[activity]
-        .push(
-          item
-        );
+      groups[
+        activity
+      ].push(
+        item
+      );
 
     }
   );
@@ -5830,201 +6273,199 @@ function renderProgress() {
   Object.entries(
     groups
   )
-    .forEach(
-      ([activity, items]) => {
+  .forEach(
+    ([activity, items]) => {
 
-        const element =
-          document.createElement(
-            "div"
-          );
-
-
-        element.className =
-          "progress-group";
+      const element =
+        document.createElement(
+          "div"
+        );
 
 
-        const rows =
-          items
-            .map(
-              item => {
-
-                const paymentStatus =
-                  item.paymentStatus ||
-                  "待對帳";
+      element.className =
+        "progress-group";
 
 
-                const progress =
-                  item.progress ||
-                  "已登記";
+      const rows =
+        items
+          .map(
+            item => {
+
+              const paymentStatus =
+                item.paymentStatus ||
+                "待對帳";
 
 
-                let paymentClass =
-                  "status-unpaid";
+              const progress =
+                item.progress ||
+                "已登記";
 
 
-                if (
-                  paymentStatus ===
+              let paymentClass =
+                "status-unpaid";
+
+
+              if (
+                paymentStatus ===
                   "已匯款"
-                ) {
+              ) {
 
-                  paymentClass =
-                    "status-paid";
+                paymentClass =
+                  "status-paid";
 
-                }
+              }
 
-                else if (
-                  paymentStatus ===
+              else if (
+                paymentStatus ===
                   "需確認"
-                ) {
+              ) {
 
-                  paymentClass =
-                    "status-waiting";
+                paymentClass =
+                  "status-waiting";
 
-                }
-
-
-                let progressClass =
-                  "stage-registered";
+              }
 
 
-                if (
-                  progress ===
+              let progressClass =
+                "stage-registered";
+
+
+              if (
+                progress ===
                   "已下單"
-                ) {
+              ) {
 
-                  progressClass =
-                    "stage-ordered";
+                progressClass =
+                  "stage-ordered";
 
-                }
+              }
 
-                else if (
-                  progress ===
+              else if (
+                progress ===
                   "已到貨"
-                ) {
+              ) {
 
-                  progressClass =
-                    "stage-arrived";
+                progressClass =
+                  "stage-arrived";
 
-                }
+              }
 
-                else if (
-                  progress ===
+              else if (
+                progress ===
                   "已寄出"
-                ) {
+              ) {
 
-                  progressClass =
-                    "stage-shipped";
+                progressClass =
+                  "stage-shipped";
 
-                }
+              }
 
-                else if (
-                  progress ===
+              else if (
+                progress ===
                   "已完成"
-                ) {
+              ) {
 
-                  progressClass =
-                    "stage-complete";
+                progressClass =
+                  "stage-complete";
 
-                }
-
-
-                return `
-
-                  <div class="progress-member-row">
-
-                    <div>
-
-                      <div class="facebook-name">
-
-                        ${escapeHTML(
-
-                          item.facebookName ||
-
-                          "未填 Facebook 名稱"
-
-                        )}
-
-                      </div>
+              }
 
 
-                      <div class="community-small">
+              return `
 
-                        ${escapeHTML(
+                <div class="progress-member-row">
 
-                          item.community ||
+                  <div>
 
-                          ""
-
-                        )}
-
-                      </div>
-
-                    </div>
-
-
-                    <div
-                      class="
-                        status-pill
-                        ${paymentClass}
-                      "
-                    >
+                    <div class="facebook-name">
 
                       ${escapeHTML(
-                        paymentStatus
+
+                        item.facebookName ||
+                        "未填 Facebook 名稱"
+
                       )}
 
                     </div>
 
 
-                    <div
-                      class="
-                        stage-pill
-                        ${progressClass}
-                      "
-                    >
+                    <div class="community-small">
 
                       ${escapeHTML(
-                        progress
+
+                        item.community ||
+                        ""
+
                       )}
 
                     </div>
 
                   </div>
 
-                `;
 
-              }
-            )
-            .join("");
+                  <div
+                    class="
+                      status-pill
+                      ${paymentClass}
+                    "
+                  >
 
+                    ${escapeHTML(
+                      paymentStatus
+                    )}
 
-        element.innerHTML = `
-
-          <div class="progress-group-header">
-
-            ${escapeHTML(
-              activity
-            )}
-
-          </div>
+                  </div>
 
 
-          <div class="progress-group-body">
+                  <div
+                    class="
+                      stage-pill
+                      ${progressClass}
+                    "
+                  >
 
-            ${rows}
+                    ${escapeHTML(
+                      progress
+                    )}
 
-          </div>
+                  </div>
 
-        `;
+                </div>
+
+              `;
+
+            }
+          )
+          .join("");
 
 
-        progressList
-          .appendChild(
-            element
-          );
+      element.innerHTML = `
 
-      }
-    );
+        <div class="progress-group-header">
+
+          ${escapeHTML(
+            activity
+          )}
+
+        </div>
+
+
+        <div class="progress-group-body">
+
+          ${rows}
+
+        </div>
+
+      `;
+
+
+      progressList
+        .appendChild(
+          element
+        );
+
+    }
+  );
 
 }
 
@@ -6132,9 +6573,6 @@ communitySearch.addEventListener(
 ======================================== */
 
 resetScroll();
-
-
-renderProgress();
 
 
 loadPublicProgress();
