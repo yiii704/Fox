@@ -2,7 +2,6 @@
 <html lang="zh-TW">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -15,33 +14,13 @@
     content="telephone=no"
   >
 
-  <title>狐狸🦊 管理員後台</title>
-
-
-  <!-- 手寫字體 -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=ChenYuluoyan&display=swap"
-    rel="stylesheet"
-  >
-
+  <title>狐狸🦊 管理後台</title>
 
   <style>
 
-    /* ========================================
+    /* =========================
        基本設定
-    ======================================== */
+    ========================= */
 
     * {
       box-sizing: border-box;
@@ -49,1056 +28,889 @@
       padding: 0;
     }
 
-
     html {
       min-height: 100%;
     }
 
-
     body {
       min-height: 100vh;
-
-      padding: 30px 16px 50px;
+      padding: 28px 16px 60px;
 
       background: #faf8ff;
-
       color: #4f4660;
 
       font-family:
-        "ChenYuluoyan",
-        "HanziPen TC",
-        "Hannotate TC",
-        "Kaiti TC",
-        cursive;
+        "PingFang TC",
+        "Microsoft JhengHei",
+        sans-serif;
     }
-
 
     button,
     input,
-    select,
-    textarea {
+    select {
       font: inherit;
     }
-
 
     button {
       cursor: pointer;
     }
 
 
-    .hidden {
-      display: none !important;
-    }
-
-
-    /* ========================================
-       整體寬度
-    ======================================== */
+    /* =========================
+       外框
+    ========================= */
 
     .container {
       width: 100%;
-      max-width: 780px;
-
+      max-width: 1000px;
       margin: 0 auto;
     }
 
 
-    /* ========================================
+    /* =========================
        標題
-    ======================================== */
+    ========================= */
 
-    .main-title {
+    h1 {
       margin-bottom: 8px;
 
       color: #6b46c1;
 
-      font-size: 30px;
-      font-weight: 600;
-
+      font-size: 28px;
       text-align: center;
     }
-
 
     .subtitle {
-      margin-bottom: 28px;
+      margin-bottom: 26px;
 
-      color: #978aa6;
+      color: #9589a7;
 
-      font-size: 15px;
-
+      font-size: 14px;
       text-align: center;
     }
 
 
-    /* ========================================
+    /* =========================
        卡片
-    ======================================== */
+    ========================= */
 
     .card {
-      margin-bottom: 16px;
-
-      padding: 20px;
+      margin-bottom: 18px;
+      padding: 22px;
 
       background: #ffffff;
 
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 22px;
+      border: 1px solid #eee6ff;
+      border-radius: 24px;
 
       box-shadow:
-        0 6px 18px
-        rgba(116, 82, 165, 0.08);
+        0 8px 24px
+        rgba(107, 70, 193, 0.06);
     }
 
 
-    /* ========================================
-       登入頁
-    ======================================== */
+    /* =========================
+       登入
+    ========================= */
 
-    .login-wrap {
-      width: 100%;
-      max-width: 420px;
-
-      margin: 70px auto 0;
+    #adminPage {
+      display: none;
     }
-
 
     .login-card {
-      padding: 28px 22px;
+      max-width: 430px;
+      margin: 50px auto 0;
     }
 
-
     .login-icon {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
 
-      font-size: 42px;
-
+      font-size: 40px;
       text-align: center;
     }
 
-
     .login-title {
-      margin-bottom: 22px;
+      margin-bottom: 18px;
 
       color: #6b46c1;
 
-      font-size: 24px;
-      font-weight: 600;
-
+      font-size: 20px;
+      font-weight: 700;
       text-align: center;
     }
 
-
-    .login-label {
+    label {
       display: block;
 
       margin-bottom: 8px;
 
-      color: #6b568d;
+      color: #6d6379;
 
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
     }
 
-
-    .password-input {
+    input,
+    select {
       width: 100%;
 
-      padding: 12px 14px;
+      padding: 13px 15px;
 
-      background: #faf8ff;
-
+      background: #ffffff;
       color: #4f4660;
 
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 14px;
+      border: 1.5px solid #ded1fa;
+      border-radius: 16px;
 
       outline: none;
     }
 
-
-    .password-input:focus {
-      border-color: #a98be6;
-
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, 0.12);
+    input:focus,
+    select:focus {
+      border-color: #b99bf5;
     }
-
 
     .login-button {
       width: 100%;
 
       margin-top: 16px;
+      padding: 13px 18px;
 
-      padding: 11px 18px;
+      background: #dccfff;
+      color: #59349e;
 
-      background: #d8c8f7;
-
-      color: #533494;
-
-      border: none;
-
+      border: 1.5px solid #b99bf5;
       border-radius: 999px;
 
-      font-weight: 600;
+      font-weight: 700;
     }
-
 
     .login-button:active {
       transform: scale(0.98);
     }
-
 
     .login-button:disabled {
       opacity: 0.55;
       cursor: default;
     }
 
+    .error-text {
+      min-height: 20px;
 
-    .login-message {
-      min-height: 24px;
+      margin-top: 12px;
 
-      margin-top: 13px;
+      color: #c55b73;
 
-      color: #b34545;
-
+      font-size: 13px;
       text-align: center;
     }
 
 
-    /* ========================================
-       後台上方
-    ======================================== */
+    /* =========================
+       後台上方按鈕
+    ========================= */
 
-    .admin-header {
+    .top-actions {
+      display: flex;
+
+      gap: 10px;
+
+      margin-bottom: 18px;
+    }
+
+    .small-button {
+      flex: 1;
+
+      padding: 10px 14px;
+
+      background: #ffffff;
+      color: #6b46c1;
+
+      border: 1.5px solid #d9c8ff;
+      border-radius: 999px;
+
+      font-weight: 600;
+    }
+
+    .small-button:hover {
+      background: #f7f2ff;
+    }
+
+    .small-button:active {
+      transform: scale(0.98);
+    }
+
+    .small-button:disabled {
+      opacity: 0.55;
+      cursor: default;
+    }
+
+
+    /* =========================
+       統計
+    ========================= */
+
+    .summary-card {
       display: flex;
 
       align-items: center;
       justify-content: space-between;
-
-      gap: 12px;
-
-      margin-bottom: 20px;
     }
 
+    .summary-label {
+      color: #867a94;
 
-    .admin-header-title {
+      font-size: 14px;
+    }
+
+    .summary-number {
       color: #6b46c1;
 
-      font-size: 27px;
-      font-weight: 600;
+      font-size: 25px;
+      font-weight: 700;
     }
 
 
-    .logout-button {
-      flex-shrink: 0;
+    /* =========================
+       搜尋
+    ========================= */
 
-      padding: 8px 16px;
-
-      background: #ffffff;
-
-      color: #6b46c1;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-    }
-
-
-    .logout-button:active {
-      transform: scale(0.97);
-    }
-
-
-    /* ========================================
-       工具區
-    ======================================== */
-
-    .toolbar {
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1fr)
-        auto;
-
-      gap: 9px;
-
-      margin-bottom: 14px;
-    }
-
-
-    .search-input {
-      width: 100%;
-
-      padding: 11px 14px;
-
-      background: #ffffff;
-
-      color: #4f4660;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-
-      outline: none;
-    }
-
-
-    .search-input:focus {
-      border-color: #a98be6;
-    }
-
-
-    .refresh-button {
-      padding: 10px 17px;
-
-      background: #eee6ff;
-
-      color: #6842b3;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-    }
-
-
-    /* ========================================
-       篩選按鈕
-    ======================================== */
-
-    .filters {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 7px;
-
+    .search-box {
       margin-bottom: 18px;
     }
 
 
-    .filter-button {
-      padding: 7px 14px;
+    /* =========================
+       匯款卡片列表
+    ========================= */
 
-      background: #ffffff;
-
-      color: #7457a5;
-
-      border:
-        1.5px solid #ded0f8;
-
-      border-radius: 999px;
-    }
-
-
-    .filter-button.active {
-      background: #dccfff;
-
-      border-color: #b99bf5;
-
-      color: #59349e;
-    }
-
-
-    /* ========================================
-       統計
-    ======================================== */
-
-    .stats {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 9px;
-
-      margin-bottom: 18px;
-    }
-
-
-    .stat-card {
-      padding: 13px 8px;
-
-      background: #ffffff;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 17px;
-
-      text-align: center;
-    }
-
-
-    .stat-number {
-      color: #6b46c1;
-
-      font-size: 23px;
-      font-weight: 600;
-    }
-
-
-    .stat-label {
-      margin-top: 2px;
-
-      color: #988ba5;
-
-      font-size: 12px;
-    }
-
-
-    /* ========================================
-       訂單
-    ======================================== */
-
-    .submission-card {
-      margin-bottom: 15px;
-
-      overflow: hidden;
-
-      background: #ffffff;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 21px;
-
-      box-shadow:
-        0 5px 15px
-        rgba(116, 82, 165, 0.07);
-    }
-
-
-    .submission-head {
-      padding: 17px 18px;
-
-      background: #f7f3fd;
-
-      border-bottom:
-        1px solid #eee6ff;
-    }
-
-
-    .activity-name {
-      color: #5e3a9e;
-
-      font-size: 18px;
-      font-weight: 600;
-
-      line-height: 1.5;
-    }
-
-
-    .submission-date {
-      margin-top: 4px;
-
-      color: #a094aa;
-
-      font-size: 12px;
-    }
-
-
-    .submission-body {
-      padding: 17px 18px;
-    }
-
-
-    .person-name {
-      margin-bottom: 12px;
-
-      color: #4f4660;
-
-      font-size: 19px;
-      font-weight: 600;
-    }
-
-
-    .info-grid {
+    #submissionList {
       display: grid;
 
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-      gap: 9px;
+      gap: 12px;
 
-      margin-bottom: 15px;
+      align-items: start;
+    }
+
+    .submission-card {
+      min-width: 0;
+
+      margin-bottom: 0;
+
+      padding: 16px;
+
+      border-radius: 20px;
     }
 
 
-    .info-box {
-      padding: 10px 12px;
+    /* =========================
+       卡片標題
+    ========================= */
 
-      background: #faf8ff;
+    .submission-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
-      border-radius: 13px;
+      gap: 8px;
+
+      margin-bottom: 13px;
     }
 
+    .person-name {
+      color: #59349e;
 
-    .info-label {
-      margin-bottom: 3px;
+      font-size: 16px;
+      font-weight: 700;
 
-      color: #9a8da6;
+      line-height: 1.4;
+
+      word-break: break-word;
+    }
+
+    .community-name {
+      margin-top: 4px;
+
+      color: #92859f;
 
       font-size: 11px;
-    }
-
-
-    .info-value {
-      color: #594d68;
-
-      font-size: 14px;
 
       line-height: 1.5;
 
       word-break: break-word;
     }
 
+    .amount-pill {
+      padding: 6px 10px;
 
-    /* ========================================
+      background: #f1eaff;
+      color: #6b46c1;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       匯款資訊
+    ========================= */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 7px;
+
+      margin-bottom: 11px;
+    }
+
+    .info-item {
+      min-width: 0;
+
+      padding: 9px 10px;
+
+      background: #fbf9ff;
+
+      border-radius: 13px;
+    }
+
+    .info-label {
+      margin-bottom: 3px;
+
+      color: #a095ac;
+
+      font-size: 10px;
+    }
+
+    .info-value {
+      color: #554b62;
+
+      font-size: 12px;
+
+      line-height: 1.45;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================
        商品
-    ======================================== */
+    ========================= */
 
-    .products-box {
-      margin-bottom: 15px;
+    .product-box {
+      margin-bottom: 11px;
+      padding: 10px 11px;
 
-      padding: 12px 14px;
+      background: #fbf9ff;
 
-      background: #faf8ff;
-
-      border-radius: 14px;
+      border-radius: 13px;
     }
 
+    .product-title {
+      margin-bottom: 6px;
 
-    .section-label {
-      margin-bottom: 8px;
+      color: #998ca4;
 
-      color: #7457a5;
-
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 10px;
     }
-
 
     .product-line {
-      padding: 5px 0;
+      padding: 3px 0;
 
-      color: #60546d;
+      color: #554b62;
 
-      font-size: 14px;
+      font-size: 12px;
+
+      line-height: 1.55;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       備註
+    ========================= */
+
+    .note-box {
+      margin-bottom: 11px;
+      padding: 10px 11px;
+
+      background: #fffafc;
+
+      border-radius: 13px;
+    }
+
+    .note-title {
+      margin-bottom: 4px;
+
+      color: #a58b98;
+
+      font-size: 10px;
+    }
+
+    .note-text {
+      color: #62545c;
+
+      font-size: 12px;
 
       line-height: 1.5;
 
-      border-bottom:
-        1px dashed #e9e1f5;
+      white-space: pre-wrap;
+
+      word-break: break-word;
     }
 
 
-    .product-line:last-child {
-      border-bottom: none;
-    }
+    /* =========================
+       狀態
+    ========================= */
 
-
-    /* ========================================
-       備註
-    ======================================== */
-
-    .note-box {
-      margin-bottom: 15px;
-
-      padding: 11px 13px;
-
-      background: #fffaf0;
-
-      color: #74644a;
-
-      border-radius: 13px;
-
-      line-height: 1.6;
-    }
-
-
-    /* ========================================
-       管理欄位
-    ======================================== */
-
-    .admin-controls {
+    .status-area {
       display: grid;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
 
-      gap: 10px;
-
-      margin-top: 13px;
+      gap: 9px;
     }
 
+    .status-area label {
+      margin-bottom: 4px;
 
-    .control-group label {
-      display: block;
-
-      margin-bottom: 6px;
-
-      color: #756583;
-
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 11px;
     }
 
-
-    .control-group select {
-      width: 100%;
-
-      padding: 9px 11px;
-
-      background: #ffffff;
-
-      color: #54495f;
-
-      border:
-        1.5px solid #ded0f8;
+    .status-area select {
+      padding: 9px 8px;
 
       border-radius: 12px;
 
-      outline: none;
+      font-size: 12px;
     }
 
 
-    /* ========================================
+    /* =========================
        儲存
-    ======================================== */
+    ========================= */
 
     .save-button {
       width: 100%;
 
-      margin-top: 13px;
+      margin-top: 11px;
+      padding: 9px 7px;
 
-      padding: 10px 16px;
+      background: #dccfff;
+      color: #59349e;
 
-      background: #d8c8f7;
-
-      color: #533494;
-
-      border: none;
-
+      border: 1.5px solid #b99bf5;
       border-radius: 999px;
 
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-
-    .save-button.saved {
-      background: #dff4e6;
-
-      color: #287747;
+    .save-button:active {
+      transform: scale(0.98);
     }
-
 
     .save-button:disabled {
       opacity: 0.55;
       cursor: default;
     }
 
+    .save-button.saved {
+      background: #e4f5e8;
+      color: #287747;
 
-    /* ========================================
-       空白／讀取中
-    ======================================== */
-
-    .empty-card {
-      padding: 35px 18px;
-
-      background: #ffffff;
-
-      color: #91869c;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 20px;
-
-      text-align: center;
-
-      line-height: 1.8;
+      border-color: #b8dfc4;
     }
 
 
-    /* ========================================
-       手機
-    ======================================== */
+    /* =========================
+       空資料
+    ========================= */
 
-    @media (max-width: 520px) {
+    .empty-box {
+      grid-column: 1 / -1;
+
+      width: 100%;
+
+      padding: 45px 20px;
+
+      color: #9a8da7;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       電腦
+    ========================= */
+
+    @media (min-width: 760px) {
+
+      #submissionList {
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+        gap: 14px;
+      }
+
+    }
+
+
+    /* =========================
+       手機
+    ========================= */
+
+    @media (max-width: 560px) {
 
       body {
         padding:
-          22px 13px 40px;
+          24px 12px 50px;
       }
 
-
-      .login-wrap {
-        margin-top: 45px;
+      h1 {
+        font-size: 26px;
       }
 
-
-      .main-title {
-        font-size: 27px;
+      .card {
+        border-radius: 21px;
       }
 
-
-      .admin-header-title {
-        font-size: 23px;
+      .summary-card {
+        padding: 17px;
       }
 
+      #submissionList {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
 
-      .toolbar {
-        grid-template-columns: 1fr;
+        gap: 9px;
       }
 
+      .submission-card {
+        padding: 12px;
 
-      .refresh-button {
-        width: 100%;
+        border-radius: 17px;
       }
 
-
-      .stats {
-        gap: 6px;
+      .person-name {
+        font-size: 14px;
       }
 
-
-      .info-grid {
-        grid-template-columns: 1fr;
+      .community-name {
+        font-size: 10px;
       }
 
+      .amount-pill {
+        padding: 5px 8px;
 
-      .admin-controls {
-        grid-template-columns: 1fr;
+        font-size: 11px;
+      }
+
+      .info-item {
+        padding: 8px;
+      }
+
+      .info-label {
+        font-size: 9px;
+      }
+
+      .info-value {
+        font-size: 11px;
+      }
+
+      .product-box,
+      .note-box {
+        padding: 8px;
+      }
+
+      .product-title,
+      .note-title {
+        font-size: 9px;
+      }
+
+      .product-line,
+      .note-text {
+        font-size: 11px;
+      }
+
+      .status-area label {
+        font-size: 10px;
+      }
+
+      .status-area select {
+        padding: 8px 5px;
+
+        font-size: 11px;
+      }
+
+      .save-button {
+        padding: 8px 5px;
+
+        font-size: 11px;
+      }
+
+    }
+
+
+    @media (max-width: 360px) {
+
+      body {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      #submissionList {
+        gap: 7px;
+      }
+
+      .submission-card {
+        padding: 10px;
+      }
+
+      .person-name {
+        font-size: 13px;
       }
 
     }
 
   </style>
-
 </head>
 
 
 <body>
 
-
-  <!-- ========================================
-       登入頁
-  ======================================== -->
-
-  <section
-    id="loginPage"
-    class="login-wrap"
-  >
-
-    <div class="main-title">
-      狐狸🦊
-    </div>
+  <div class="container">
 
 
-    <div class="subtitle">
-      管理員後台
-    </div>
+    <!-- =========================
+         登入
+    ========================== -->
 
+    <section id="loginPage">
 
-    <div class="card login-card">
+      <h1>
+        狐狸🦊
+      </h1>
 
-      <div class="login-icon">
-        🦊
+      <div class="subtitle">
+        管理員後台
       </div>
 
 
-      <div class="login-title">
-        管理員登入
+      <div class="card login-card">
+
+        <div class="login-icon">
+          🦊
+        </div>
+
+        <div class="login-title">
+          管理員登入
+        </div>
+
+
+        <form id="loginForm">
+
+          <label for="adminPassword">
+            管理員密碼
+          </label>
+
+          <input
+            id="adminPassword"
+            type="password"
+            placeholder="請輸入管理員密碼"
+            autocomplete="off"
+            required
+          >
+
+          <button
+            class="login-button"
+            type="submit"
+            id="loginButton"
+          >
+            登入
+          </button>
+
+          <div
+            class="error-text"
+            id="loginError"
+          ></div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         管理後台
+    ========================== -->
+
+    <section id="adminPage">
+
+      <h1>
+        狐狸🦊
+      </h1>
+
+      <div class="subtitle">
+        匯款管理後台
       </div>
 
 
-      <form id="loginForm">
-
-        <label
-          class="login-label"
-          for="adminPassword"
-        >
-          管理員密碼
-        </label>
-
-
-        <input
-          id="adminPassword"
-          class="password-input"
-          type="password"
-          autocomplete="current-password"
-          placeholder="請輸入管理員密碼"
-          required
-        >
-
+      <div class="top-actions">
 
         <button
-          id="loginButton"
-          class="login-button"
-          type="submit"
+          class="small-button"
+          id="refreshButton"
+          type="button"
         >
-          登入後台
+          ↻ 重新整理
         </button>
 
+        <button
+          class="small-button"
+          id="logoutButton"
+          type="button"
+        >
+          登出
+        </button>
 
-        <div
-          id="loginMessage"
-          class="login-message"
-        ></div>
-
-      </form>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================
-       管理頁
-  ======================================== -->
-
-  <main
-    id="adminPage"
-    class="container hidden"
-  >
-
-    <div class="admin-header">
-
-      <div class="admin-header-title">
-        🦊 狐狸團務管理
       </div>
 
 
-      <button
-        id="logoutButton"
-        class="logout-button"
-        type="button"
-      >
-        登出
-      </button>
+      <div class="card summary-card">
 
-    </div>
+        <div>
 
+          <div class="summary-label">
+            目前讀取
+          </div>
 
-    <!-- 搜尋 -->
+          <div>
+            匯款資料
+          </div>
 
-    <div class="toolbar">
+        </div>
 
-      <input
-        id="searchInput"
-        class="search-input"
-        type="search"
-        placeholder="搜尋 Facebook 名稱、團務、商品…"
-      >
-
-
-      <button
-        id="refreshButton"
-        class="refresh-button"
-        type="button"
-      >
-        ↻ 重新整理
-      </button>
-
-    </div>
-
-
-    <!-- 篩選 -->
-
-    <div
-      id="filters"
-      class="filters"
-    >
-
-      <button
-        type="button"
-        class="filter-button active"
-        data-filter="all"
-      >
-        全部
-      </button>
-
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="需確認"
-      >
-        需確認
-      </button>
-
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="已匯款"
-      >
-        已匯款
-      </button>
-
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="未匯款"
-      >
-        未匯款
-      </button>
-
-    </div>
-
-
-    <!-- 統計 -->
-
-    <div class="stats">
-
-      <div class="stat-card">
 
         <div
-          id="totalCount"
-          class="stat-number"
+          class="summary-number"
+          id="submissionCount"
         >
           0
         </div>
 
-        <div class="stat-label">
-          全部
-        </div>
-
       </div>
 
 
-      <div class="stat-card">
+      <div class="search-box">
 
-        <div
-          id="paidCount"
-          class="stat-number"
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="搜尋 Facebook 名稱／團務名稱"
         >
-          0
-        </div>
-
-        <div class="stat-label">
-          已匯款
-        </div>
 
       </div>
 
 
-      <div class="stat-card">
+      <div id="submissionList">
 
-        <div
-          id="checkCount"
-          class="stat-number"
-        >
-          0
-        </div>
-
-        <div class="stat-label">
-          需確認
+        <div class="card empty-box">
+          讀取資料中…
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
-    <div id="submissionList">
-
-      <div class="empty-card">
-        尚未登入 🦊
-      </div>
-
-    </div>
-
-  </main>
+  </div>
 
 
 <script>
 
 
-/* ========================================
-   Worker
-======================================== */
+/* =====================================================
+   Cloudflare Worker
+===================================================== */
 
 const WORKER_URL =
   "https://fox-form-api.a0983707826.workers.dev";
 
 
-/* ========================================
-   狀態
-======================================== */
+/* =====================================================
+   變數
+===================================================== */
 
 let adminPassword =
   "";
-
 
 let submissions =
   [];
 
 
-let currentFilter =
-  "all";
-
-
-/* ========================================
+/* =====================================================
    DOM
-======================================== */
+===================================================== */
 
 const loginPage =
   document.getElementById(
     "loginPage"
   );
 
-
 const adminPage =
   document.getElementById(
     "adminPage"
   );
-
 
 const loginForm =
   document.getElementById(
     "loginForm"
   );
 
-
-const adminPasswordInput =
+const passwordInput =
   document.getElementById(
     "adminPassword"
   );
-
 
 const loginButton =
   document.getElementById(
     "loginButton"
   );
 
-
-const loginMessage =
+const loginError =
   document.getElementById(
-    "loginMessage"
+    "loginError"
   );
 
-
-const logoutButton =
+const submissionList =
   document.getElementById(
-    "logoutButton"
+    "submissionList"
   );
 
+const submissionCount =
+  document.getElementById(
+    "submissionCount"
+  );
 
 const refreshButton =
   document.getElementById(
     "refreshButton"
   );
 
+const logoutButton =
+  document.getElementById(
+    "logoutButton"
+  );
 
 const searchInput =
   document.getElementById(
@@ -1106,15 +918,9 @@ const searchInput =
   );
 
 
-const submissionList =
-  document.getElementById(
-    "submissionList"
-  );
-
-
-/* ========================================
-   HTML 安全
-======================================== */
+/* =====================================================
+   避免文字被當 HTML
+===================================================== */
 
 function escapeHTML(value) {
 
@@ -1122,32 +928,70 @@ function escapeHTML(value) {
     value ?? ""
   )
 
-    .replace(/&/g, "&amp;")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-    .replace(/</g, "&lt;")
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
-    .replace(/>/g, "&gt;")
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-    .replace(/"/g, "&quot;")
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-    .replace(/'/g, "&#039;");
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
-/* ========================================
-   日期格式
-======================================== */
+/* =====================================================
+   金額
+===================================================== */
+
+function formatMoney(value) {
+
+  const number =
+    Number(
+      value || 0
+    );
+
+  return (
+    "NT$ " +
+    number.toLocaleString(
+      "zh-TW"
+    )
+  );
+
+}
+
+
+/* =====================================================
+   日期
+===================================================== */
 
 function formatDate(value) {
 
   if (!value) {
-    return "";
+    return "—";
   }
 
 
   const date =
-    new Date(value);
+    new Date(
+      value
+    );
 
 
   if (
@@ -1155,66 +999,81 @@ function formatDate(value) {
       date.getTime()
     )
   ) {
-
-    return String(value);
-
+    return String(
+      value
+    );
   }
 
 
-  return date.toLocaleString(
+  return new Intl.DateTimeFormat(
     "zh-TW",
     {
 
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
+      timeZone:
+        "Asia/Taipei",
 
-      hour: "2-digit",
-      minute: "2-digit"
+      year:
+        "numeric",
+
+      month:
+        "2-digit",
+
+      day:
+        "2-digit",
+
+      hour:
+        "2-digit",
+
+      minute:
+        "2-digit"
 
     }
+  ).format(
+    date
   );
 
 }
 
 
-/* ========================================
-   找出每筆資料的識別值
+/* =====================================================
+   下拉選單
+===================================================== */
 
-   相容：
-   path
-   filePath
-   fileName
-   filename
-   id
-======================================== */
+function createOptions(
+  options,
+  selected
+) {
 
-function getSubmissionIdentifier(item) {
+  return options
+    .map(
+      option => {
 
-  return (
+        const isSelected =
+          option === selected
+            ? "selected"
+            : "";
 
-    item.path ||
+        return `
 
-    item.filePath ||
+          <option
+            value="${escapeHTML(option)}"
+            ${isSelected}
+          >
+            ${escapeHTML(option)}
+          </option>
 
-    item.fileName ||
+        `;
 
-    item.filename ||
-
-    item.id ||
-
-    item._id ||
-
-    ""
-
-  );
+      }
+    )
+    .join("");
 
 }
 
 
-/* ========================================
+/* =====================================================
    登入
-======================================== */
+===================================================== */
 
 loginForm.addEventListener(
   "submit",
@@ -1223,14 +1082,25 @@ loginForm.addEventListener(
     event.preventDefault();
 
 
-    const password =
-      adminPasswordInput
+    loginError.textContent =
+      "";
+
+
+    adminPassword =
+      passwordInput
         .value
         .trim();
 
 
-    if (!password) {
+    if (
+      !adminPassword
+    ) {
+
+      loginError.textContent =
+        "請輸入管理員密碼";
+
       return;
+
     }
 
 
@@ -1242,1157 +1112,62 @@ loginForm.addEventListener(
       "登入中…";
 
 
-    loginMessage.textContent =
-      "";
-
-
-    try {
-
-      const result =
-        await fetchAdminList(
-          password
-        );
-
-
-      adminPassword =
-        password;
-
-
-      submissions =
-        result;
-
-
-      loginPage.classList.add(
-        "hidden"
+    const success =
+      await loadSubmissions(
+        true
       );
 
 
-      adminPage.classList.remove(
-        "hidden"
-      );
+    if (
+      success
+    ) {
+
+      loginPage.style.display =
+        "none";
 
 
-      searchInput.value =
+      adminPage.style.display =
+        "block";
+
+
+      passwordInput.value =
         "";
 
 
-      currentFilter =
-        "all";
-
-
-      document
-        .querySelectorAll(
-          ".filter-button"
-        )
-        .forEach(
-          button => {
-
-            button.classList.toggle(
-              "active",
-              button.dataset.filter ===
-                "all"
-            );
-
-          }
-        );
-
-
-      renderSubmissions();
-
-    }
-
-    catch (error) {
-
-      console.error(
-        error
+      window.scrollTo(
+        0,
+        0
       );
 
-
-      loginMessage.textContent =
-        error.message ||
-        "登入失敗，請確認密碼。";
-
     }
 
-    finally {
 
-      loginButton.disabled =
-        false;
+    loginButton.disabled =
+      false;
 
 
-      loginButton.textContent =
-        "登入後台";
-
-    }
+    loginButton.textContent =
+      "登入";
 
   }
 );
 
 
-/* ========================================
-   讀取管理員資料
-======================================== */
+/* =====================================================
+   讀取後台資料
+===================================================== */
 
-async function fetchAdminList(
-  password = adminPassword
+async function loadSubmissions(
+  isLogin = false
 ) {
 
-  const response =
-    await fetch(
-
-      WORKER_URL +
-      "/admin/list",
-
-      {
-
-        method:
-          "POST",
-
-
-        headers: {
-
-          "Content-Type":
-            "application/json"
-
-        },
-
-
-        body:
-          JSON.stringify({
-
-            password
-
-          })
-
-      }
-
-    );
-
-
-  let result;
-
-
   try {
-
-    result =
-      await response.json();
-
-  }
-
-  catch {
-
-    throw new Error(
-      "後台回傳格式錯誤。"
-    );
-
-  }
-
-
-  if (
-    !response.ok ||
-    result.success === false
-  ) {
-
-    throw new Error(
-
-      result.message ||
-      "管理員密碼錯誤。"
-
-    );
-
-  }
-
-
-  /*
-    相容幾種列表格式
-  */
-
-  if (
-    Array.isArray(
-      result.submissions
-    )
-  ) {
-
-    return result.submissions;
-
-  }
-
-
-  if (
-    Array.isArray(
-      result.data
-    )
-  ) {
-
-    return result.data;
-
-  }
-
-
-  if (
-    Array.isArray(
-      result.items
-    )
-  ) {
-
-    return result.items;
-
-  }
-
-
-  if (
-    Array.isArray(
-      result
-    )
-  ) {
-
-    return result;
-
-  }
-
-
-  return [];
-
-}
-
-
-/* ========================================
-   重新整理
-======================================== */
-
-refreshButton.addEventListener(
-  "click",
-  async () => {
-
-    refreshButton.disabled =
-      true;
-
-
-    refreshButton.textContent =
-      "讀取中…";
-
-
-    try {
-
-      submissions =
-        await fetchAdminList();
-
-
-      renderSubmissions();
-
-    }
-
-    catch (error) {
-
-      alert(
-
-        error.message ||
-        "讀取失敗"
-
-      );
-
-    }
-
-    finally {
-
-      refreshButton.disabled =
-        false;
-
-
-      refreshButton.textContent =
-        "↻ 重新整理";
-
-    }
-
-  }
-);
-
-
-/* ========================================
-   登出
-======================================== */
-
-logoutButton.addEventListener(
-  "click",
-  () => {
-
-    adminPassword =
-      "";
-
-
-    submissions =
-      [];
-
-
-    adminPasswordInput.value =
-      "";
-
-
-    searchInput.value =
-      "";
-
-
-    adminPage.classList.add(
-      "hidden"
-    );
-
-
-    loginPage.classList.remove(
-      "hidden"
-    );
-
-
-    loginMessage.textContent =
-      "";
-
-
-    window.scrollTo(
-      0,
-      0
-    );
-
-  }
-);
-
-
-/* ========================================
-   篩選
-======================================== */
-
-document
-  .querySelectorAll(
-    ".filter-button"
-  )
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(
-              ".filter-button"
-            )
-            .forEach(
-              item => {
-
-                item.classList.remove(
-                  "active"
-                );
-
-              }
-            );
-
-
-          button.classList.add(
-            "active"
-          );
-
-
-          currentFilter =
-            button.dataset.filter;
-
-
-          renderSubmissions();
-
-        }
-      );
-
-    }
-  );
-
-
-/* ========================================
-   搜尋
-======================================== */
-
-searchInput.addEventListener(
-  "input",
-  renderSubmissions
-);
-
-
-/* ========================================
-   統計
-======================================== */
-
-function updateStats() {
-
-  document
-    .getElementById(
-      "totalCount"
-    )
-    .textContent =
-      submissions.length;
-
-
-  document
-    .getElementById(
-      "paidCount"
-    )
-    .textContent =
-      submissions.filter(
-        item =>
-          item.paymentStatus ===
-          "已匯款"
-      ).length;
-
-
-  document
-    .getElementById(
-      "checkCount"
-    )
-    .textContent =
-      submissions.filter(
-        item =>
-          item.paymentStatus ===
-          "需確認"
-      ).length;
-
-}
-
-
-/* ========================================
-   顯示訂單
-======================================== */
-
-function renderSubmissions() {
-
-  updateStats();
-
-
-  const query =
-    searchInput
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const filtered =
-    submissions.filter(
-      item => {
-
-        const paymentStatus =
-          String(
-            item.paymentStatus ||
-            "未匯款"
-          );
-
-
-        const matchesFilter =
-
-          currentFilter ===
-            "all"
-
-          ||
-
-          paymentStatus ===
-            currentFilter;
-
-
-        const productText =
-          Array.isArray(
-            item.products
-          )
-
-            ? item.products
-                .map(
-                  product =>
-                    product.name ||
-                    product.productName ||
-                    ""
-                )
-                .join(" ")
-
-            : "";
-
-
-        const haystack = [
-
-          item.facebookName,
-          item.community,
-          item.activity,
-          item.group,
-          item.groupType,
-          productText,
-          item.paymentBank,
-          item.note
-
-        ]
-
-          .map(
-            value =>
-              String(
-                value || ""
-              )
-                .toLowerCase()
-          )
-
-          .join(" ");
-
-
-        const matchesSearch =
-
-          !query ||
-
-          haystack.includes(
-            query
-          );
-
-
-        return (
-          matchesFilter &&
-          matchesSearch
-        );
-
-      }
-    );
-
-
-  submissionList.innerHTML =
-    "";
-
-
-  if (
-    filtered.length === 0
-  ) {
-
-    submissionList.innerHTML = `
-
-      <div class="empty-card">
-        沒有符合條件的資料 🦊
-      </div>
-
-    `;
-
-
-    return;
-
-  }
-
-
-  filtered.forEach(
-    item => {
-
-      const card =
-        createSubmissionCard(
-          item
-        );
-
-
-      submissionList
-        .appendChild(
-          card
-        );
-
-    }
-  );
-
-}
-
-
-/* ========================================
-   建立訂單卡片
-======================================== */
-
-function createSubmissionCard(item) {
-
-  const element =
-    document.createElement(
-      "article"
-    );
-
-
-  element.className =
-    "submission-card";
-
-
-  const identifier =
-    getSubmissionIdentifier(
-      item
-    );
-
-
-  const products =
-    Array.isArray(
-      item.products
-    )
-      ? item.products
-      : [];
-
-
-  const productHTML =
-    products.length
-
-      ? products
-          .map(
-            product => {
-
-              const name =
-
-                product.name ||
-
-                product.productName ||
-
-                "商品";
-
-
-              return `
-
-                <div class="product-line">
-
-                  ${escapeHTML(
-                    name
-                  )}
-
-                </div>
-
-              `;
-
-            }
-          )
-          .join("")
-
-      : `
-
-          <div class="product-line">
-            無商品資料
-          </div>
-
-        `;
-
-
-  const paymentStatus =
-    item.paymentStatus ||
-    "未匯款";
-
-
-  const progress =
-    item.progress ||
-    "已登記";
-
-
-  const amount =
-    Number(
-      item.paymentAmount ||
-      0
-    );
-
-
-  element.innerHTML = `
-
-    <div class="submission-head">
-
-      <div class="activity-name">
-
-        ${escapeHTML(
-
-          item.activity ||
-
-          item.community ||
-
-          "未命名團務"
-
-        )}
-
-      </div>
-
-
-      <div class="submission-date">
-
-        ${
-          escapeHTML(
-
-            formatDate(
-
-              item.createdAt ||
-
-              item.submittedAt ||
-
-              item.timestamp ||
-
-              ""
-
-            )
-
-          )
-        }
-
-      </div>
-
-    </div>
-
-
-    <div class="submission-body">
-
-      <div class="person-name">
-
-        👤 ${escapeHTML(
-          item.facebookName ||
-          "未填姓名"
-        )}
-
-      </div>
-
-
-      <div class="info-grid">
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            團體
-          </div>
-
-          <div class="info-value">
-
-            ${escapeHTML(
-              item.group ||
-              "—"
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            類型
-          </div>
-
-          <div class="info-value">
-
-            ${escapeHTML(
-              item.groupType ||
-              "—"
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            匯款銀行
-          </div>
-
-          <div class="info-value">
-
-            ${escapeHTML(
-              item.paymentBank ||
-              "—"
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            匯款金額
-          </div>
-
-          <div class="info-value">
-
-            NT$
-            ${amount.toLocaleString(
-              "zh-TW"
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            匯款日期／時間
-          </div>
-
-          <div class="info-value">
-
-            ${escapeHTML(
-              item.paymentDate ||
-              "—"
-            )}
-
-            ${
-              item.paymentTime
-                ? " " +
-                  escapeHTML(
-                    item.paymentTime
-                  )
-                : ""
-            }
-
-          </div>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-label">
-            帳號後五碼
-          </div>
-
-          <div class="info-value">
-
-            ${escapeHTML(
-              item.accountLastFive ||
-              "—"
-            )}
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="products-box">
-
-        <div class="section-label">
-          📦 商品
-        </div>
-
-        ${productHTML}
-
-      </div>
-
-
-      ${
-        item.note
-
-          ? `
-
-            <div class="note-box">
-
-              <strong>
-                備註：
-              </strong>
-
-              ${escapeHTML(
-                item.note
-              )}
-
-            </div>
-
-          `
-
-          : ""
-      }
-
-
-      <div class="admin-controls">
-
-
-        <div class="control-group">
-
-          <label>
-            匯款狀態
-          </label>
-
-
-          <select
-            class="payment-status-select"
-          >
-
-            <option
-              value="未匯款"
-              ${
-                paymentStatus ===
-                  "未匯款"
-                  ? "selected"
-                  : ""
-              }
-            >
-              未匯款
-            </option>
-
-
-            <option
-              value="待對帳"
-              ${
-                paymentStatus ===
-                  "待對帳"
-                  ? "selected"
-                  : ""
-              }
-            >
-              待對帳
-            </option>
-
-
-            <option
-              value="需確認"
-              ${
-                paymentStatus ===
-                  "需確認"
-                  ? "selected"
-                  : ""
-              }
-            >
-              需確認
-            </option>
-
-
-            <option
-              value="已匯款"
-              ${
-                paymentStatus ===
-                  "已匯款"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已匯款
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="control-group">
-
-          <label>
-            團務進度
-          </label>
-
-
-          <select
-            class="progress-select"
-          >
-
-            <option
-              value="已登記"
-              ${
-                progress ===
-                  "已登記"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已登記
-            </option>
-
-
-            <option
-              value="已下單"
-              ${
-                progress ===
-                  "已下單"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已下單
-            </option>
-
-
-            <option
-              value="已到貨"
-              ${
-                progress ===
-                  "已到貨"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已到貨
-            </option>
-
-
-            <option
-              value="已寄出"
-              ${
-                progress ===
-                  "已寄出"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已寄出
-            </option>
-
-
-            <option
-              value="已完成"
-              ${
-                progress ===
-                  "已完成"
-                  ? "selected"
-                  : ""
-              }
-            >
-              已完成
-            </option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="save-button"
-      >
-        儲存更新
-      </button>
-
-    </div>
-
-  `;
-
-
-  const saveButton =
-    element.querySelector(
-      ".save-button"
-    );
-
-
-  const paymentSelect =
-    element.querySelector(
-      ".payment-status-select"
-    );
-
-
-  const progressSelect =
-    element.querySelector(
-      ".progress-select"
-    );
-
-
-  saveButton.addEventListener(
-    "click",
-    async () => {
-
-      await updateSubmission({
-
-        item,
-
-        identifier,
-
-        paymentStatus:
-          paymentSelect.value,
-
-        progress:
-          progressSelect.value,
-
-        button:
-          saveButton
-
-      });
-
-    }
-  );
-
-
-  return element;
-
-}
-
-
-/* ========================================
-   更新訂單
-======================================== */
-
-async function updateSubmission({
-
-  item,
-  identifier,
-  paymentStatus,
-  progress,
-  button
-
-}) {
-
-  if (
-    !identifier
-  ) {
-
-    alert(
-      "找不到這筆資料的檔案識別值，無法更新。"
-    );
-
-
-    return;
-
-  }
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    "儲存中…";
-
-
-  try {
-
-    /*
-      同時附上常見識別欄位，
-      Worker 只需要取它原本使用的那一個即可。
-    */
-
-    const payload = {
-
-      password:
-        adminPassword,
-
-
-      paymentStatus,
-
-      progress,
-
-
-      path:
-        item.path ||
-        identifier,
-
-
-      filePath:
-        item.filePath ||
-        identifier,
-
-
-      fileName:
-        item.fileName ||
-        item.filename ||
-        identifier,
-
-
-      filename:
-        item.filename ||
-        item.fileName ||
-        identifier,
-
-
-      id:
-        item.id ||
-        identifier
-
-    };
-
 
     const response =
       await fetch(
 
         WORKER_URL +
-        "/admin/update",
+        "/admin/list",
 
         {
 
@@ -2403,15 +1178,21 @@ async function updateSubmission({
           headers: {
 
             "Content-Type":
-              "application/json"
+              "application/json",
+
+
+            /*
+              ★ 原本 Worker 的密碼驗證方式
+            */
+
+            "X-Admin-Password":
+              adminPassword
 
           },
 
 
           body:
-            JSON.stringify(
-              payload
-            )
+            JSON.stringify({})
 
         }
 
@@ -2431,7 +1212,7 @@ async function updateSubmission({
     catch {
 
       throw new Error(
-        "後台回傳格式錯誤。"
+        "後台回傳資料格式錯誤"
       );
 
     }
@@ -2439,89 +1220,950 @@ async function updateSubmission({
 
     if (
       !response.ok ||
-      result.success === false
+      !result.success
     ) {
 
-      throw new Error(
+      if (
+        response.status ===
+        401
+      ) {
 
-        result.message ||
-        "更新失敗"
+        loginError.textContent =
+          "管理員密碼錯誤";
 
-      );
+
+        adminPassword =
+          "";
+
+      }
+
+      else if (
+        isLogin
+      ) {
+
+        loginError.textContent =
+          result.message ||
+          "登入失敗";
+
+      }
+
+      else {
+
+        alert(
+          result.message ||
+          "讀取資料失敗"
+        );
+
+      }
+
+
+      return false;
 
     }
 
 
-    /*
-      本機同步狀態
-    */
+    submissions =
+      Array.isArray(
+        result.submissions
+      )
 
-    item.paymentStatus =
-      paymentStatus;
+        ? result.submissions
 
-
-    item.progress =
-      progress;
+        : [];
 
 
-    button.classList.add(
-      "saved"
-    );
+    submissionCount.textContent =
+      submissions.length;
 
 
-    button.textContent =
-      "✓ 已儲存";
+    renderSubmissions();
 
 
-    updateStats();
-
-
-    setTimeout(
-      () => {
-
-        button.classList.remove(
-          "saved"
-        );
-
-
-        button.textContent =
-          "儲存更新";
-
-      },
-
-      1200
-    );
+    return true;
 
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
     console.error(
       error
     );
 
 
-    alert(
+    if (
+      isLogin
+    ) {
 
-      error.message ||
-      "更新失敗，請稍後再試。"
+      loginError.textContent =
+        "無法連線到後台";
 
-    );
+    }
+
+    else {
+
+      alert(
+        "目前無法讀取資料"
+      );
+
+    }
 
 
-    button.textContent =
-      "儲存更新";
-
-  }
-
-  finally {
-
-    button.disabled =
-      false;
+    return false;
 
   }
 
 }
+
+
+/* =====================================================
+   顯示資料
+===================================================== */
+
+function renderSubmissions() {
+
+  const keyword =
+    searchInput
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const filtered =
+    submissions.filter(
+      item => {
+
+        const productSearch =
+          Array.isArray(
+            item.products
+          )
+
+            ? item.products
+                .map(
+                  product =>
+                    product.name ||
+                    product.productName ||
+                    ""
+                )
+                .join(" ")
+
+            : "";
+
+
+        const text = [
+
+          item.facebookName,
+          item.community,
+          item.activity,
+          item.group,
+          productSearch
+
+        ]
+
+          .map(
+            value =>
+              String(
+                value || ""
+              )
+          )
+
+          .join(" ")
+
+          .toLowerCase();
+
+
+        return text.includes(
+          keyword
+        );
+
+      }
+    );
+
+
+  if (
+    filtered.length === 0
+  ) {
+
+    submissionList.innerHTML = `
+
+      <div class="card empty-box">
+        目前沒有符合的匯款資料 🦊
+      </div>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  submissionList.innerHTML =
+    filtered
+      .map(
+        item => {
+
+          const realIndex =
+            submissions.indexOf(
+              item
+            );
+
+
+          /* =====================
+             商品
+          ===================== */
+
+          const products =
+            Array.isArray(
+              item.products
+            )
+
+              ? item.products
+
+              : [];
+
+
+          const productsHTML =
+            products.length > 0
+
+              ? products
+                  .map(
+                    product => {
+
+                      const productName =
+
+                        product.name ||
+
+                        product.productName ||
+
+                        "商品";
+
+
+                      const productPrice =
+
+                        product.price ??
+
+                        product.lineTotal ??
+
+                        0;
+
+
+                      return `
+
+                        <div class="product-line">
+
+                          ${escapeHTML(
+                            productName
+                          )}
+
+                          ・
+
+                          ${formatMoney(
+                            productPrice
+                          )}
+
+                        </div>
+
+                      `;
+
+                    }
+                  )
+                  .join("")
+
+              : `
+
+                  <div class="product-line">
+                    無商品資料
+                  </div>
+
+                `;
+
+
+          /* =====================
+             匯款狀態
+          ===================== */
+
+          const paymentOptions = [
+
+            "待對帳",
+
+            "已匯款",
+
+            "需確認"
+
+          ];
+
+
+          /* =====================
+             團務進度
+          ===================== */
+
+          const progressOptions = [
+
+            "已登記",
+
+            "已下單",
+
+            "已到貨",
+
+            "已寄出",
+
+            "已完成"
+
+          ];
+
+
+          return `
+
+            <div
+              class="card submission-card"
+              data-index="${realIndex}"
+            >
+
+
+              <!-- Facebook -->
+
+              <div class="submission-header">
+
+                <div>
+
+                  <div class="person-name">
+
+                    ${escapeHTML(
+
+                      item.facebookName ||
+
+                      "未填名稱"
+
+                    )}
+
+                  </div>
+
+
+                  <div class="community-name">
+
+                    ${escapeHTML(
+
+                      item.community ||
+
+                      item.activity ||
+
+                      "未填團務"
+
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div class="amount-pill">
+
+                  ${formatMoney(
+                    item.paymentAmount
+                  )}
+
+                </div>
+
+              </div>
+
+
+              <!-- 匯款資料 -->
+
+              <div class="info-grid">
+
+
+                <div class="info-item">
+
+                  <div class="info-label">
+                    匯款日期
+                  </div>
+
+                  <div class="info-value">
+
+                    ${escapeHTML(
+
+                      item.paymentDate ||
+
+                      "—"
+
+                    )}
+
+                    ${
+                      item.paymentTime
+
+                        ? " " +
+                          escapeHTML(
+                            item.paymentTime
+                          )
+
+                        : ""
+                    }
+
+                  </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <div class="info-label">
+                    匯款銀行
+                  </div>
+
+                  <div class="info-value">
+
+                    ${escapeHTML(
+
+                      item.paymentBank ||
+
+                      "—"
+
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <div class="info-label">
+                    帳號後五碼
+                  </div>
+
+                  <div class="info-value">
+
+                    ${escapeHTML(
+
+                      item.accountLastFive ||
+
+                      "—"
+
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <div class="info-label">
+                    表單送出時間
+                  </div>
+
+                  <div class="info-value">
+
+                    ${escapeHTML(
+
+                      formatDate(
+
+                        item.submittedAt ||
+
+                        item.createdAt ||
+
+                        item.timestamp
+
+                      )
+
+                    )}
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+
+              <!-- 商品 -->
+
+              <div class="product-box">
+
+                <div class="product-title">
+                  商品
+                </div>
+
+                ${productsHTML}
+
+              </div>
+
+
+              <!-- 備註 -->
+
+              ${
+                item.note
+
+                  ? `
+
+                      <div class="note-box">
+
+                        <div class="note-title">
+                          備註
+                        </div>
+
+                        <div class="note-text">${escapeHTML(
+                          item.note
+                        )}</div>
+
+                      </div>
+
+                    `
+
+                  : ""
+              }
+
+
+              <!-- 狀態 -->
+
+              <div class="status-area">
+
+
+                <div>
+
+                  <label>
+                    匯款狀態
+                  </label>
+
+                  <select
+                    class="payment-status"
+                  >
+
+                    ${createOptions(
+
+                      paymentOptions,
+
+                      item.paymentStatus ||
+                      "待對帳"
+
+                    )}
+
+                  </select>
+
+                </div>
+
+
+                <div>
+
+                  <label>
+                    團務進度
+                  </label>
+
+                  <select
+                    class="progress-status"
+                  >
+
+                    ${createOptions(
+
+                      progressOptions,
+
+                      item.progress ||
+                      "已登記"
+
+                    )}
+
+                  </select>
+
+                </div>
+
+
+              </div>
+
+
+              <button
+                class="save-button"
+                type="button"
+                data-index="${realIndex}"
+              >
+                儲存狀態
+              </button>
+
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+
+/* =====================================================
+   儲存狀態
+===================================================== */
+
+submissionList.addEventListener(
+  "click",
+  async event => {
+
+    const button =
+      event.target.closest(
+        ".save-button"
+      );
+
+
+    if (
+      !button
+    ) {
+      return;
+    }
+
+
+    const index =
+      Number(
+        button.dataset.index
+      );
+
+
+    const item =
+      submissions[
+        index
+      ];
+
+
+    if (
+      !item
+    ) {
+      return;
+    }
+
+
+    /*
+      Worker 更新時需要這筆資料的 _path
+    */
+
+    if (
+      !item._path
+    ) {
+
+      alert(
+        "找不到這筆資料的路徑，無法更新。"
+      );
+
+      return;
+
+    }
+
+
+    const card =
+      button.closest(
+        ".submission-card"
+      );
+
+
+    const paymentStatus =
+      card
+        .querySelector(
+          ".payment-status"
+        )
+        .value;
+
+
+    const progress =
+      card
+        .querySelector(
+          ".progress-status"
+        )
+        .value;
+
+
+    button.disabled =
+      true;
+
+
+    button.classList.remove(
+      "saved"
+    );
+
+
+    button.textContent =
+      "儲存中…";
+
+
+    try {
+
+      const response =
+        await fetch(
+
+          WORKER_URL +
+          "/admin/update",
+
+          {
+
+            method:
+              "POST",
+
+
+            headers: {
+
+              "Content-Type":
+                "application/json",
+
+
+              /*
+                ★ 原本 Worker 驗證方式
+              */
+
+              "X-Admin-Password":
+                adminPassword
+
+            },
+
+
+            /*
+              ★ 原本 Worker 更新格式
+            */
+
+            body:
+              JSON.stringify({
+
+                path:
+                  item._path,
+
+                paymentStatus,
+
+                progress
+
+              })
+
+          }
+
+        );
+
+
+      let result;
+
+
+      try {
+
+        result =
+          await response.json();
+
+      }
+
+      catch {
+
+        throw new Error(
+          "後台回傳資料格式錯誤"
+        );
+
+      }
+
+
+      if (
+        !response.ok ||
+        !result.success
+      ) {
+
+        if (
+          response.status ===
+          401
+        ) {
+
+          alert(
+            "管理員登入已失效，請重新登入。"
+          );
+
+          logoutAdmin();
+
+          return;
+
+        }
+
+
+        alert(
+
+          result.message ||
+
+          "更新失敗"
+
+        );
+
+
+        return;
+
+      }
+
+
+      submissions[index] = {
+
+        ...item,
+
+        paymentStatus,
+
+        progress,
+
+        updatedAt:
+
+          result.submission
+            ?.updatedAt
+
+          ||
+
+          new Date()
+            .toISOString()
+
+      };
+
+
+      button.classList.add(
+        "saved"
+      );
+
+
+      button.textContent =
+        "✓ 已儲存";
+
+
+      setTimeout(
+        () => {
+
+          button.classList.remove(
+            "saved"
+          );
+
+
+          button.textContent =
+            "儲存狀態";
+
+        },
+
+        1200
+      );
+
+    }
+
+    catch (
+      error
+    ) {
+
+      console.error(
+        error
+      );
+
+
+      alert(
+        "目前無法更新資料"
+      );
+
+
+      button.textContent =
+        "儲存狀態";
+
+    }
+
+    finally {
+
+      button.disabled =
+        false;
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   搜尋
+===================================================== */
+
+searchInput.addEventListener(
+  "input",
+  renderSubmissions
+);
+
+
+/* =====================================================
+   重新整理
+===================================================== */
+
+refreshButton.addEventListener(
+  "click",
+  async () => {
+
+    refreshButton.disabled =
+      true;
+
+
+    refreshButton.textContent =
+      "讀取中…";
+
+
+    await loadSubmissions();
+
+
+    refreshButton.disabled =
+      false;
+
+
+    refreshButton.textContent =
+      "↻ 重新整理";
+
+  }
+);
+
+
+/* =====================================================
+   登出
+===================================================== */
+
+function logoutAdmin() {
+
+  adminPassword =
+    "";
+
+
+  submissions =
+    [];
+
+
+  submissionList.innerHTML =
+    "";
+
+
+  submissionCount.textContent =
+    "0";
+
+
+  searchInput.value =
+    "";
+
+
+  loginError.textContent =
+    "";
+
+
+  adminPage.style.display =
+    "none";
+
+
+  loginPage.style.display =
+    "block";
+
+
+  passwordInput.value =
+    "";
+
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+
+  passwordInput.focus();
+
+}
+
+
+logoutButton.addEventListener(
+  "click",
+  logoutAdmin
+);
 
 
 </script>
