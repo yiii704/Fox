@@ -18,9 +18,7 @@
   <title>狐狸🦊日韓通路代購/拆車</title>
 
 
-  <!-- ========================================
-       網頁手寫字體
-  ======================================== -->
+  <!-- 網頁手寫字體 -->
 
   <link
     rel="preconnect"
@@ -51,12 +49,10 @@
       padding: 0;
     }
 
-
     html {
       width: 100%;
       min-height: 100%;
     }
-
 
     body {
       width: 100%;
@@ -75,7 +71,6 @@
         cursive;
     }
 
-
     button,
     input,
     select,
@@ -83,11 +78,9 @@
       font: inherit;
     }
 
-
     button {
       cursor: pointer;
     }
-
 
     h1 {
       position: relative;
@@ -105,7 +98,6 @@
       text-align: center;
     }
 
-
     h2 {
       margin-bottom: 22px;
 
@@ -116,7 +108,6 @@
 
       text-align: center;
     }
-
 
     strong {
       font-weight: 900;
@@ -141,11 +132,9 @@
       animation: pageIn 0.22s ease;
     }
 
-
     .page.active-page {
       display: block;
     }
-
 
     @keyframes pageIn {
 
@@ -175,7 +164,6 @@
       overscroll-behavior: none;
     }
 
-
     body.home-mode > h1 {
       color: #ffffff;
 
@@ -183,7 +171,6 @@
         0 2px 8px
         rgba(0, 0, 0, 0.35);
     }
-
 
     body:not(.home-mode) > h1 {
       color: #6b46c1;
@@ -200,7 +187,6 @@
       position: relative;
       z-index: 2;
     }
-
 
     .home-background {
       position: fixed;
@@ -227,7 +213,6 @@
       pointer-events: none;
     }
 
-
     #homePage .menu-grid {
       position: relative;
       z-index: 5;
@@ -248,7 +233,6 @@
 
       gap: 12px;
     }
-
 
     .pill-button {
       min-height: 40px;
@@ -275,16 +259,13 @@
       transition: 0.2s ease;
     }
 
-
     .pill-button:hover {
       background: #f7f2ff;
     }
 
-
     .pill-button:active {
       transform: scale(0.97);
     }
-
 
     .pill-button.selected {
       background: #dccfff;
@@ -317,7 +298,6 @@
       border-radius: 999px;
     }
 
-
     .back-button:active {
       transform: scale(0.97);
     }
@@ -344,7 +324,6 @@
         rgba(116, 82, 165, 0.09);
     }
 
-
     .card-title {
       margin-bottom: 12px;
 
@@ -354,18 +333,15 @@
       font-weight: 600;
     }
 
-
     .card p {
       line-height: 1.8;
     }
-
 
     .notice-list {
       padding-left: 22px;
 
       line-height: 1.9;
     }
-
 
     .empty-message {
       padding: 24px;
@@ -406,7 +382,6 @@
       text-decoration: none;
     }
 
-
     .notice-community-link:active {
       transform: scale(0.97);
     }
@@ -441,11 +416,9 @@
       padding: 0;
     }
 
-
     .order-top {
       padding: 20px;
     }
-
 
     .order-group {
       margin-bottom: 7px;
@@ -456,7 +429,6 @@
       font-weight: 600;
     }
 
-
     .order-name {
       color: #59349e;
 
@@ -465,7 +437,6 @@
 
       line-height: 1.55;
     }
-
 
     .order-status {
       display: inline-flex;
@@ -484,13 +455,11 @@
       font-weight: 600;
     }
 
-
     .order-status.closed {
       background: #eeeef2;
 
       color: #686572;
     }
-
 
     .order-action {
       width: 100%;
@@ -509,11 +478,9 @@
       font-weight: 600;
     }
 
-
     .order-action:active {
       background: #e8dcff;
     }
-
 
     .order-action.closed,
     .order-action:disabled {
@@ -525,7 +492,6 @@
 
       opacity: 1;
     }
-
 
     .order-action.closed:active,
     .order-action:disabled:active {
@@ -543,7 +509,6 @@
       padding: 19px;
     }
 
-
     .contact-name {
       margin-bottom: 5px;
 
@@ -552,7 +517,6 @@
       font-size: 19px;
       font-weight: 600;
     }
-
 
     .contact-value {
       color: #71657d;
@@ -563,7 +527,6 @@
 
       word-break: break-word;
     }
-
 
     .contact-button {
       display: inline-flex;
@@ -591,7 +554,6 @@
       text-decoration: none;
     }
 
-
     .contact-button:active {
       transform: scale(0.98);
     }
@@ -602,9 +564,12 @@
     ======================================== */
 
     .form-group {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
       margin-bottom: 17px;
     }
-
 
     .form-group label {
       display: block;
@@ -617,16 +582,18 @@
       font-weight: 600;
     }
 
-
     .required {
       color: #be4b78;
     }
 
-
     input,
     select,
     textarea {
+      display: block;
+
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
 
       padding: 12px 14px;
 
@@ -642,7 +609,6 @@
       outline: none;
     }
 
-
     input:focus,
     select:focus,
     textarea:focus {
@@ -653,16 +619,113 @@
         rgba(159, 122, 234, 0.13);
     }
 
-
     textarea {
       min-height: 95px;
 
       resize: vertical;
     }
 
-
     input[readonly] {
       background: #f7f5fa;
+    }
+
+
+    /* ========================================
+       ★ iPhone 日期／時間專用外框
+       Safari 不會再把格子撐出去
+    ======================================== */
+
+    .ios-date-wrap {
+      position: relative;
+
+      display: block;
+
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
+      height: 50px;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 14px;
+    }
+
+
+    .ios-date-wrap:focus-within {
+      border-color: #9f7aea;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(159, 122, 234, 0.13);
+    }
+
+
+    .ios-date-wrap input[type="date"],
+    .ios-date-wrap input[type="time"] {
+      display: block !important;
+
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+
+      inline-size: 100% !important;
+      min-inline-size: 0 !important;
+      max-inline-size: 100% !important;
+
+      height: 100% !important;
+
+      margin: 0 !important;
+
+      padding: 12px 14px !important;
+
+      background: transparent !important;
+
+      color: #4f4660;
+
+      border: 0 !important;
+
+      border-radius: 0 !important;
+
+      box-shadow: none !important;
+
+      outline: none !important;
+
+      -webkit-appearance: none;
+      appearance: none;
+
+      overflow: hidden !important;
+    }
+
+
+    .ios-date-wrap
+    input[type="date"]::-webkit-date-and-time-value,
+    .ios-date-wrap
+    input[type="time"]::-webkit-date-and-time-value {
+      width: 100%;
+
+      min-width: 0;
+
+      margin: 0;
+
+      padding: 0;
+
+      text-align: left;
+    }
+
+
+    .ios-date-wrap
+    input[type="date"]::-webkit-datetime-edit,
+    .ios-date-wrap
+    input[type="time"]::-webkit-datetime-edit {
+      min-width: 0;
+
+      padding: 0;
     }
 
 
@@ -680,7 +743,6 @@
       line-height: 1.7;
     }
 
-
     .catalog-warning {
       margin-bottom: 14px;
 
@@ -697,30 +759,25 @@
       line-height: 1.65;
     }
 
-
     .catalog-gallery {
       display: grid;
 
       gap: 10px;
     }
 
-
     .catalog-gallery.one-image {
       grid-template-columns: 1fr;
     }
-
 
     .catalog-gallery.two-images {
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
     }
 
-
     .catalog-gallery.three-images {
       grid-template-columns:
         repeat(3, minmax(0, 1fr));
     }
-
 
     .catalog-image-card {
       overflow: hidden;
@@ -733,14 +790,12 @@
       border-radius: 14px;
     }
 
-
     .catalog-gallery.one-image
     .catalog-image-card {
       max-width: 380px;
 
       margin: 0 auto;
     }
-
 
     .catalog-image {
       display: block;
@@ -755,7 +810,6 @@
       cursor: zoom-in;
     }
 
-
     .catalog-gallery.one-image
     .catalog-image {
       height: auto;
@@ -764,7 +818,6 @@
 
       object-fit: contain;
     }
-
 
     .catalog-caption {
       padding: 8px;
@@ -796,7 +849,6 @@
       text-align: center;
     }
 
-
     .product-card {
       margin-bottom: 11px;
 
@@ -809,7 +861,6 @@
 
       border-radius: 16px;
     }
-
 
     .product-summary {
       display: flex;
@@ -825,11 +876,9 @@
       list-style: none;
     }
 
-
     .product-summary::-webkit-details-marker {
       display: none;
     }
-
 
     .product-summary::after {
       content: "＋";
@@ -841,19 +890,16 @@
       font-size: 20px;
     }
 
-
     details[open]
     > .product-summary::after {
       content: "－";
     }
-
 
     .product-summary-left {
       min-width: 0;
 
       flex: 1;
     }
-
 
     .product-name {
       color: #554b62;
@@ -865,7 +911,6 @@
       line-height: 1.45;
     }
 
-
     .product-hint {
       margin-top: 4px;
 
@@ -873,7 +918,6 @@
 
       font-size: 12px;
     }
-
 
     .product-price {
       flex-shrink: 0;
@@ -886,7 +930,6 @@
 
       white-space: nowrap;
     }
-
 
     .variant-list {
       padding:
@@ -921,20 +964,17 @@
       border-radius: 13px;
     }
 
-
     .product-choice.selected-choice {
       background: #f7f2ff;
 
       border-color: #d2bdf9;
     }
 
-
     .product-choice.sold-out {
       opacity: 0.48;
 
       background: #f4f3f6;
     }
-
 
     .choice-main {
       display: flex !important;
@@ -956,7 +996,6 @@
       cursor: pointer;
     }
 
-
     .choice-main input {
       width: 18px;
       height: 18px;
@@ -968,11 +1007,9 @@
       accent-color: #9f7aea;
     }
 
-
     .choice-label-wrap {
       min-width: 0;
     }
-
 
     .choice-label {
       display: block;
@@ -981,7 +1018,6 @@
 
       word-break: break-word;
     }
-
 
     .stock-text {
       display: block;
@@ -993,11 +1029,9 @@
       font-size: 12px;
     }
 
-
     .stock-low {
       color: #b86421;
     }
-
 
     .stock-out {
       color: #b34545;
@@ -1020,7 +1054,6 @@
       gap: 4px;
     }
 
-
     .qty-button {
       width: 28px;
       height: 28px;
@@ -1041,13 +1074,11 @@
       line-height: 1;
     }
 
-
     .qty-button:disabled {
       opacity: 0.3;
 
       cursor: default;
     }
-
 
     .qty-input {
       width: 38px;
@@ -1069,13 +1100,11 @@
       text-align: center;
     }
 
-
     .qty-input:disabled {
       background: #f6f4f8;
 
       color: #aca5b3;
     }
-
 
     .qty-input::-webkit-inner-spin-button,
     .qty-input::-webkit-outer-spin-button {
@@ -1083,7 +1112,6 @@
 
       -webkit-appearance: none;
     }
-
 
     .selected-summary {
       margin-top: 12px;
@@ -1140,16 +1168,13 @@
       line-height: 1.7;
     }
 
-
     .bank-account:last-child {
       margin-bottom: 0;
     }
 
-
     .bank-account strong {
       color: #6b46c1;
     }
-
 
     .bank-number-row {
       display: flex;
@@ -1162,7 +1187,6 @@
 
       margin-top: 6px;
     }
-
 
     .bank-number {
       color: #4f4660 !important;
@@ -1177,7 +1201,6 @@
       -webkit-user-select: all;
     }
 
-
     a[href^="tel:"] {
       color: inherit !important;
 
@@ -1185,7 +1208,6 @@
 
       pointer-events: none !important;
     }
-
 
     .copy-button {
       flex-shrink: 0;
@@ -1205,7 +1227,6 @@
 
       font-weight: 600;
     }
-
 
     .copy-button.copied {
       background: #e4f5e8;
@@ -1236,7 +1257,6 @@
       font-weight: 600;
     }
 
-
     .submit-button:disabled {
       opacity: 0.6;
 
@@ -1254,13 +1274,11 @@
       text-align: center;
     }
 
-
     .success-icon {
       margin-bottom: 14px;
 
       font-size: 46px;
     }
-
 
     .success-title {
       margin-bottom: 14px;
@@ -1271,7 +1289,6 @@
       font-weight: 600;
     }
 
-
     .success-text {
       color: #71657d;
 
@@ -1279,7 +1296,6 @@
 
       line-height: 1.9;
     }
-
 
     .success-important {
       margin-top: 16px;
@@ -1290,7 +1306,6 @@
 
       font-weight: 900;
     }
-
 
     .join-community-button {
       display: flex;
@@ -1323,11 +1338,9 @@
         rgba(126, 92, 190, 0.10);
     }
 
-
     .join-community-button:active {
       transform: scale(0.98);
     }
-
 
     .success-home-button {
       width: 100%;
@@ -1364,7 +1377,6 @@
       font-weight: 600;
     }
 
-
     .filter-row {
       display: flex;
 
@@ -1372,7 +1384,6 @@
 
       gap: 8px;
     }
-
 
     .filter-button {
       padding: 8px 14px;
@@ -1387,13 +1398,11 @@
       border-radius: 999px;
     }
 
-
     .filter-button.selected {
       background: #dccfff;
 
       border-color: #b99bf5;
     }
-
 
     .search-input {
       margin-top: 7px;
@@ -1421,7 +1430,6 @@
         rgba(116, 82, 165, 0.09);
     }
 
-
     .progress-group-header {
       padding: 15px 18px;
 
@@ -1437,12 +1445,10 @@
         1px solid #eee6ff;
     }
 
-
     .progress-group-body {
       padding:
         12px 16px 16px;
     }
-
 
     .progress-member-row {
       display: grid;
@@ -1461,7 +1467,6 @@
       padding: 7px 0;
     }
 
-
     .facebook-name {
       color: #4f4660;
 
@@ -1472,7 +1477,6 @@
       word-break: break-word;
     }
 
-
     .community-small {
       margin-top: 3px;
 
@@ -1482,7 +1486,6 @@
 
       word-break: break-word;
     }
-
 
     .status-pill,
     .stage-pill {
@@ -1507,48 +1510,40 @@
       white-space: nowrap;
     }
 
-
     .status-paid {
       background: #dff4e6;
       color: #287747;
     }
-
 
     .status-unpaid {
       background: #ffe7e7;
       color: #b34545;
     }
 
-
     .status-waiting {
       background: #eeeef2;
       color: #686572;
     }
-
 
     .stage-registered {
       background: #eee3ff;
       color: #6842b3;
     }
 
-
     .stage-ordered {
       background: #ffead8;
       color: #b86421;
     }
-
 
     .stage-arrived {
       background: #fff4cc;
       color: #98731c;
     }
 
-
     .stage-shipped {
       background: #dfeeff;
       color: #35649a;
     }
-
 
     .stage-complete {
       background: #ffe3ef;
@@ -1579,11 +1574,9 @@
       justify-content: center;
     }
 
-
     .image-modal.open {
       display: flex;
     }
-
 
     .image-modal-content {
       position: relative;
@@ -1601,7 +1594,6 @@
       border-radius: 18px;
     }
 
-
     .image-modal-content img {
       display: block;
 
@@ -1609,7 +1601,6 @@
 
       height: auto;
     }
-
 
     .image-close {
       position: sticky;
@@ -1651,18 +1642,15 @@
           24px 14px;
       }
 
-
       h1 {
         font-size: 23px;
 
         margin-bottom: 25px;
       }
 
-
       h2 {
         font-size: 23px;
       }
-
 
       .menu-grid {
         grid-template-columns:
@@ -1670,7 +1658,6 @@
 
         gap: 10px;
       }
-
 
       .pill-button {
         min-height: 40px;
@@ -1683,27 +1670,22 @@
         line-height: 1.2;
       }
 
-
       .card {
         padding: 17px;
       }
-
 
       .order-card {
         padding: 0;
       }
 
-
       .catalog-image {
         height: 150px;
       }
-
 
       .catalog-gallery.one-image
       .catalog-image {
         height: auto;
       }
-
 
       .product-choice {
         gap: 6px;
@@ -1712,24 +1694,20 @@
           9px 8px;
       }
 
-
       .choice-main {
         font-size:
           13px !important;
       }
-
 
       .qty-button {
         width: 26px;
         height: 26px;
       }
 
-
       .qty-input {
         width: 34px;
         height: 28px;
       }
-
 
       .progress-member-row {
         grid-template-columns:
@@ -1740,22 +1718,18 @@
         gap: 5px;
       }
 
-
       .status-pill,
       .stage-pill {
         font-size: 12px;
       }
 
-
       .success-title {
         font-size: 24px;
       }
 
-
       .success-text {
         font-size: 16px;
       }
-
 
       .join-community-button {
         font-size: 18px;
@@ -1770,22 +1744,18 @@
         font-size: 21px;
       }
 
-
       .pill-button {
         font-size: 13px;
       }
-
 
       .product-choice {
         grid-template-columns:
           1fr;
       }
 
-
       .quantity-control {
         justify-content: flex-end;
       }
-
 
       .progress-member-row {
         grid-template-columns:
@@ -1907,8 +1877,6 @@
     </h2>
 
 
-    <!-- RUN IT JAPAN -->
-
     <div class="card order-card">
 
       <div class="order-top">
@@ -1942,8 +1910,6 @@
 
     </div>
 
-
-    <!-- RUN IT JAPAN 一番賞 -->
 
     <div class="card order-card">
 
@@ -2002,8 +1968,6 @@
     </h2>
 
 
-    <!-- THIS & THAT -->
-
     <div class="card order-card">
 
       <div class="order-top">
@@ -2036,8 +2000,6 @@
 
     </div>
 
-
-    <!-- Sony music -->
 
     <div class="card order-card">
 
@@ -2102,7 +2064,6 @@
         📍下單規則
       </div>
 
-
       <p>
         所有團物皆為
         <strong>
@@ -2120,11 +2081,9 @@
         📍進度通知＆代購社群
       </div>
 
-
       <p>
         所有進度都在社群裡面告知。
       </p>
-
 
       <p style="margin-top:10px;">
         匯款填單完成後
@@ -2132,11 +2091,9 @@
         加入社群。
       </p>
 
-
       <p style="margin-top:12px;">
         社群連結🔗
       </p>
-
 
       <a
         class="notice-community-link"
@@ -2156,12 +2113,10 @@
         📍關於二補
       </div>
 
-
       <p>
         若商品需要二補，
         將於商品全部到貨後透過賣貨便收取二補。
       </p>
-
 
       <img
         class="notice-image"
@@ -2179,7 +2134,6 @@
         📍寄送方式
       </div>
 
-
       <p>
         全部商品皆使用賣貨便寄出，
         並酌收包材費 10 元＋手續費 10 元。
@@ -2194,32 +2148,23 @@
         📍商品須知
       </div>
 
-
       <p>
         商品皆默認接受：
       </p>
 
-
       <ul class="notice-list">
 
-        <li>
-          廠損
-        </li>
+        <li>廠損</li>
 
-        <li>
-          運輸損傷
-        </li>
+        <li>運輸損傷</li>
 
-        <li>
-          商品瑕疵
-        </li>
+        <li>商品瑕疵</li>
 
         <li>
           不湊套（專卡、滿額卡及隨機商品等）
         </li>
 
       </ul>
-
 
       <p style="margin-top:12px;">
         以上情況恕無法退換貨。
@@ -2325,9 +2270,7 @@
       </div>
 
 
-      <!-- ========================================
-           商品圖鑑
-      ======================================== -->
+      <!-- 商品圖鑑 -->
 
       <div
         id="catalogCard"
@@ -2359,9 +2302,7 @@
       </div>
 
 
-      <!-- ========================================
-           商品
-      ======================================== -->
+      <!-- 商品 -->
 
       <div class="card">
 
@@ -2403,9 +2344,7 @@
       </div>
 
 
-      <!-- ========================================
-           匯款帳號
-      ======================================== -->
+      <!-- 匯款帳號 -->
 
       <div class="card">
 
@@ -2497,9 +2436,7 @@
       </div>
 
 
-      <!-- ========================================
-           匯款資料
-      ======================================== -->
+      <!-- 匯款資料 -->
 
       <div class="card">
 
@@ -2507,6 +2444,8 @@
           匯款資料
         </div>
 
+
+        <!-- ★ 日期 -->
 
         <div class="form-group">
 
@@ -2521,14 +2460,20 @@
           </label>
 
 
-          <input
-            id="paymentDate"
-            type="date"
-            required
-          >
+          <div class="ios-date-wrap">
+
+            <input
+              id="paymentDate"
+              type="date"
+              required
+            >
+
+          </div>
 
         </div>
 
+
+        <!-- ★ 時間 -->
 
         <div class="form-group">
 
@@ -2543,11 +2488,15 @@
           </label>
 
 
-          <input
-            id="paymentTime"
-            type="time"
-            required
-          >
+          <div class="ios-date-wrap">
+
+            <input
+              id="paymentTime"
+              type="time"
+              required
+            >
+
+          </div>
 
         </div>
 
@@ -3033,11 +2982,8 @@ const WORKER_URL =
 
 const closedGroups =
   new Set([
-
     "this-that-lucky-draw",
-
     "sony-music-benefit"
-
   ]);
 
 
@@ -3056,7 +3002,7 @@ if (
 
 
 /* ========================================
-   頁面
+   DOM
 ======================================== */
 
 const pages =
@@ -3064,6 +3010,68 @@ const pages =
     ".page"
   );
 
+
+const paymentForm =
+  document.getElementById(
+    "paymentForm"
+  );
+
+
+const communitySelect =
+  document.getElementById(
+    "communitySelect"
+  );
+
+
+const productContainer =
+  document.getElementById(
+    "productContainer"
+  );
+
+
+const selectedSummary =
+  document.getElementById(
+    "selectedSummary"
+  );
+
+
+const calculatedTotal =
+  document.getElementById(
+    "calculatedTotal"
+  );
+
+
+const paymentAmount =
+  document.getElementById(
+    "paymentAmount"
+  );
+
+
+const catalogCard =
+  document.getElementById(
+    "catalogCard"
+  );
+
+
+const catalogGallery =
+  document.getElementById(
+    "catalogGallery"
+  );
+
+
+const catalogWarning =
+  document.getElementById(
+    "catalogWarning"
+  );
+
+
+let currentInventory =
+  null;
+
+
+/* ========================================
+   捲動回頂端
+======================================== */
 
 function resetScroll() {
 
@@ -3084,10 +3092,84 @@ function resetScroll() {
 
 
 /* ========================================
+   ★ 完整清空匯款表單
+======================================== */
+
+function clearPaymentPage() {
+
+  paymentForm.reset();
+
+
+  currentInventory =
+    null;
+
+
+  productContainer.innerHTML = `
+
+    <div class="product-placeholder">
+      請先選擇社群名稱／團務
+    </div>
+
+  `;
+
+
+  catalogCard.style.display =
+    "none";
+
+
+  catalogGallery.innerHTML =
+    "";
+
+
+  catalogWarning.textContent =
+    "";
+
+
+  selectedSummary.textContent =
+    "已選 0 件商品";
+
+
+  calculatedTotal.textContent =
+    "NT$ 0";
+
+
+  paymentAmount.value =
+    "";
+
+}
+
+
+/* ========================================
    頁面切換
 ======================================== */
 
 function showPage(pageId) {
+
+  const currentPage =
+    document.querySelector(
+      ".page.active-page"
+    );
+
+
+  /*
+    ★ 只要離開匯款表單，
+    整張匯款表單全部清空
+  */
+
+  if (
+    currentPage?.id ===
+      "paymentPage"
+
+    &&
+
+    pageId !==
+      "paymentPage"
+  ) {
+
+    clearPaymentPage();
+
+  }
+
 
   document.body.classList.remove(
     "home-mode"
@@ -3169,6 +3251,21 @@ document
       button.addEventListener(
         "click",
         () => {
+
+          /*
+            ★ 從首頁直接重新進入匯款表單，
+            也一定是全新的空白表單
+          */
+
+          if (
+            button.dataset.target ===
+            "paymentPage"
+          ) {
+
+            clearPaymentPage();
+
+          }
+
 
           showPage(
             button.dataset.target
@@ -3278,39 +3375,27 @@ const productData = {
     {
       name: "照片 T-shirt",
       price: 990,
-
-      variants: [
-        "M",
-        "L",
-        "XL"
-      ]
+      variants: ["M", "L", "XL"]
     },
 
 
     {
       name: "防風外套",
       price: 2090,
-
-      variants: [
-        "M",
-        "L"
-      ]
+      variants: ["M", "L"]
     },
 
 
     {
       name: "應援毛巾",
       price: 615,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "扇子",
       price: 180,
-
       variants: [
         "團體",
         ...skzMembers
@@ -3333,38 +3418,28 @@ const productData = {
     {
       name: "壓克力立牌",
       price: 350,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "照片徽章",
       price: 140,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "小卡組",
       price: 310,
-
-      variants: [
-        "A",
-        "B"
-      ]
+      variants: ["A", "B"]
     },
 
 
     {
       name: "肖像應援毛巾",
       price: 550,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
@@ -3377,18 +3452,14 @@ const productData = {
     {
       name: "個人資料卡組",
       price: 220,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "成員設計徽章組",
       price: 330,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
@@ -3419,81 +3490,63 @@ const productData = {
     {
       name: "肩背包",
       price: 700,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "登山扣收納包",
       price: 620,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "多功能掛繩",
       price: 660,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "髮圈",
       price: 660,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "手燈收納包",
       price: 990,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "小卡冊",
       price: 990,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "耳環",
       price: 450,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "毛巾掛帶",
       price: 330,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     },
 
 
     {
       name: "扇套",
       price: 660,
-
-      variants:
-        skzMembers
+      variants: skzMembers
     }
 
   ],
@@ -3524,55 +3577,35 @@ const productData = {
   ],
 
 
-  /*
-    已結束團務資料保留
-    給歷史對帳／後台使用
-  */
-
   "this-that-lucky-draw": [
 
     {
       name:
         "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
 
-      price:
-        470
+      price: 470
     }
 
   ],
 
 
-  /*
-    Sony music 已結束
-    但資料繼續保留
-  */
-
   "sony-music-benefit": [
 
     {
-      name:
-        "THIS VER.",
-
-      price:
-        750
+      name: "THIS VER.",
+      price: 750
     },
 
 
     {
-      name:
-        "THAT VER.",
-
-      price:
-        750
+      name: "THAT VER.",
+      price: 750
     },
 
 
     {
-      name:
-        "& VER（8張一套）",
-
-      price:
-        4400
+      name: "& VER（8張一套）",
+      price: 4400
     }
 
   ]
@@ -3660,29 +3693,20 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "run-it-1.jpg",
-
-        title:
-          "商品圖 1"
+        src: "run-it-1.jpg",
+        title: "商品圖 1"
       },
 
 
       {
-        src:
-          "run-it-2.jpg",
-
-        title:
-          "商品圖 2"
+        src: "run-it-2.jpg",
+        title: "商品圖 2"
       },
 
 
       {
-        src:
-          "run-it-3.jpg",
-
-        title:
-          "商品圖 3"
+        src: "run-it-3.jpg",
+        title: "商品圖 3"
       }
 
     ]
@@ -3698,20 +3722,14 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "kuji-1.jpeg.PNG",
-
-        title:
-          "商品圖 1"
+        src: "kuji-1.jpeg.PNG",
+        title: "商品圖 1"
       },
 
 
       {
-        src:
-          "kuji-2.jpeg.PNG",
-
-        title:
-          "商品圖 2"
+        src: "kuji-2.jpeg.PNG",
+        title: "商品圖 2"
       }
 
     ]
@@ -3727,20 +3745,14 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "this-that-1.jpeg.jpg",
-
-        title:
-          "商品圖"
+        src: "this-that-1.jpeg.jpg",
+        title: "商品圖"
       },
 
 
       {
-        src:
-          "this-that-2.jpeg.jpg",
-
-        title:
-          "Lucky Draw 特典圖"
+        src: "this-that-2.jpeg.jpg",
+        title: "Lucky Draw 特典圖"
       }
 
     ]
@@ -3756,11 +3768,8 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "sony-music-1.JPG",
-
-        title:
-          "Sony music 通路特典"
+        src: "sony-music-1.JPG",
+        title: "Sony music 通路特典"
       }
 
     ]
@@ -3768,62 +3777,6 @@ const catalogData = {
   }
 
 };
-
-
-/* ========================================
-   DOM
-======================================== */
-
-const communitySelect =
-  document.getElementById(
-    "communitySelect"
-  );
-
-
-const productContainer =
-  document.getElementById(
-    "productContainer"
-  );
-
-
-const selectedSummary =
-  document.getElementById(
-    "selectedSummary"
-  );
-
-
-const calculatedTotal =
-  document.getElementById(
-    "calculatedTotal"
-  );
-
-
-const paymentAmount =
-  document.getElementById(
-    "paymentAmount"
-  );
-
-
-const catalogCard =
-  document.getElementById(
-    "catalogCard"
-  );
-
-
-const catalogGallery =
-  document.getElementById(
-    "catalogGallery"
-  );
-
-
-const catalogWarning =
-  document.getElementById(
-    "catalogWarning"
-  );
-
-
-let currentInventory =
-  null;
 
 
 /* ========================================
@@ -3936,7 +3889,6 @@ function renderCatalog(groupId) {
 
   catalogGallery.innerHTML =
     catalog.images
-
       .map(
         image => `
 
@@ -3968,7 +3920,6 @@ function renderCatalog(groupId) {
 
         `
       )
-
       .join("");
 
 
@@ -4005,7 +3956,6 @@ function bindCatalogImages() {
     .querySelectorAll(
       ".catalog-image"
     )
-
     .forEach(
       image => {
 
@@ -4430,10 +4380,6 @@ async function renderProducts(
   `;
 
 
-  /*
-    已結束團務禁止顯示商品
-  */
-
   if (
     closedGroups.has(
       groupId
@@ -4719,7 +4665,6 @@ function bindProductEvents() {
     .querySelectorAll(
       ".product-choice"
     )
-
     .forEach(
       row => {
 
@@ -5069,6 +5014,13 @@ document
           }
 
 
+          /*
+            ★ 每次重新進入都先清空
+          */
+
+          clearPaymentPage();
+
+
           communitySelect.value =
             groupId;
 
@@ -5195,12 +5147,6 @@ async function copyBankAccount(
    表單送出
 ======================================== */
 
-const paymentForm =
-  document.getElementById(
-    "paymentForm"
-  );
-
-
 paymentForm.addEventListener(
   "submit",
   async event => {
@@ -5225,10 +5171,6 @@ paymentForm.addEventListener(
 
     }
 
-
-    /*
-      已結束團務禁止送出
-    */
 
     if (
       closedGroups.has(
@@ -5577,44 +5519,10 @@ paymentForm.addEventListener(
 
 
       /*
-        只有後台真的成功
-        才前往填單完成頁
+        成功才前往完成頁
       */
 
-      paymentForm.reset();
-
-
-      currentInventory =
-        null;
-
-
-      productContainer.innerHTML = `
-
-        <div class="product-placeholder">
-          請先選擇社群名稱／團務
-        </div>
-
-      `;
-
-
-      catalogCard.style.display =
-        "none";
-
-
-      catalogGallery.innerHTML =
-        "";
-
-
-      selectedSummary.textContent =
-        "已選 0 件商品";
-
-
-      calculatedTotal.textContent =
-        "NT$ 0";
-
-
-      paymentAmount.value =
-        "";
+      clearPaymentPage();
 
 
       loadPublicProgress();
@@ -6087,7 +5995,6 @@ function renderProgress() {
 
               }
             )
-
             .join("");
 
 
