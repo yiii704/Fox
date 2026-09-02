@@ -365,6 +365,72 @@
 
 
     /* ========================================
+       團務分類
+    ======================================== */
+
+    .group-tab-block {
+      width: 100%;
+    }
+
+
+    .group-type-tabs {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .group-type-button {
+      width: 100%;
+
+      padding: 9px 14px;
+
+      background: #ffffff;
+
+      color: #6b46c1;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      transition: 0.2s ease;
+    }
+
+
+    .group-type-button.selected {
+      background: #dccfff;
+
+      border-color: #b99bf5;
+
+      color: #59349e;
+    }
+
+
+    .group-type-button:active {
+      transform: scale(0.98);
+    }
+
+
+    .group-type-content {
+      display: none;
+    }
+
+
+    .group-type-content.active {
+      display: block;
+    }
+
+
+    /* ========================================
        團務
     ======================================== */
 
@@ -2125,70 +2191,157 @@
   </h2>
 
 
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
+  <div class="group-tab-block">
 
 
-      <div class="order-name">
-        Stray Kids World Tour
-        ＜RUN IT JAPAN＞
-        OFFICIAL GOODS 線上團
-      </div>
+    <div class="group-type-tabs">
+
+      <button
+        type="button"
+        class="group-type-button selected"
+        data-group-tab="代購"
+      >
+        代購
+      </button>
 
 
-      <div class="order-status">
-        開放中
-      </div>
-
-    </div>
-
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan"
-      data-return="groupPage"
-    >
-      選購商品
-    </button>
-
-  </div>
-
-
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-
-      <div class="order-name">
-        Run it JAPAN 一番賞
-      </div>
-
-
-      <div class="order-status">
-        開放中
-      </div>
+      <button
+        type="button"
+        class="group-type-button"
+        data-group-tab="單特典"
+      >
+        單特典
+      </button>
 
     </div>
 
 
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan-kuji"
-      data-return="groupPage"
+    <!-- ========================================
+         代購
+    ======================================== -->
+
+    <div
+      class="group-type-content active"
+      data-group-content="代購"
     >
-      查看剩餘庫存＆選購商品
-    </button>
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・代購
+          </div>
+
+
+          <div class="order-name">
+            Stray Kids World Tour
+            ＜RUN IT JAPAN＞
+            OFFICIAL GOODS 線上團
+          </div>
+
+
+          <div class="order-status">
+            開放中
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="run-it-japan"
+          data-return="groupPage"
+        >
+          選購商品
+        </button>
+
+      </div>
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・代購
+          </div>
+
+
+          <div class="order-name">
+            Run it JAPAN 一番賞
+          </div>
+
+
+          <div class="order-status">
+            開放中
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="run-it-japan-kuji"
+          data-return="groupPage"
+        >
+          查看剩餘庫存＆選購商品
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ========================================
+         單特典
+    ======================================== -->
+
+    <div
+      class="group-type-content"
+      data-group-content="單特典"
+    >
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・單特典
+          </div>
+
+
+          <div class="order-name">
+            9/5 名古屋場限
+          </div>
+
+
+          <div class="order-status">
+            開放中
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="nagoya-0905"
+          data-return="groupPage"
+        >
+          選購特典
+        </button>
+
+      </div>
+
+
+    </div>
+
 
   </div>
 
@@ -2314,6 +2467,7 @@
       請先選擇團務
     </div>
 
+
     <p>
       請先選擇商品並確認注意事項，
       下一步才會進入匯款資料填寫。
@@ -2322,60 +2476,134 @@
   </div>
 
 
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
+  <div class="group-tab-block">
 
 
-      <div class="order-name">
-        Stray Kids World Tour
-        ＜RUN IT JAPAN＞
-        OFFICIAL GOODS 線上團
-      </div>
+    <div class="group-type-tabs">
 
-    </div>
-
-
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan"
-      data-return="paymentStartPage"
-    >
-      選購商品
-    </button>
-
-  </div>
+      <button
+        type="button"
+        class="group-type-button selected"
+        data-group-tab="代購"
+      >
+        代購
+      </button>
 
 
-  <div class="card order-card">
-
-    <div class="order-top">
-
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-
-      <div class="order-name">
-        Run it JAPAN 一番賞
-      </div>
+      <button
+        type="button"
+        class="group-type-button"
+        data-group-tab="單特典"
+      >
+        單特典
+      </button>
 
     </div>
 
 
-    <button
-      type="button"
-      class="order-action"
-      data-order="run-it-japan-kuji"
-      data-return="paymentStartPage"
+    <div
+      class="group-type-content active"
+      data-group-content="代購"
     >
-      查看剩餘庫存＆選購商品
-    </button>
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・代購
+          </div>
+
+
+          <div class="order-name">
+            Stray Kids World Tour
+            ＜RUN IT JAPAN＞
+            OFFICIAL GOODS 線上團
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="run-it-japan"
+          data-return="paymentStartPage"
+        >
+          選購商品
+        </button>
+
+      </div>
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・代購
+          </div>
+
+
+          <div class="order-name">
+            Run it JAPAN 一番賞
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="run-it-japan-kuji"
+          data-return="paymentStartPage"
+        >
+          查看剩餘庫存＆選購商品
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+    <div
+      class="group-type-content"
+      data-group-content="單特典"
+    >
+
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・單特典
+          </div>
+
+
+          <div class="order-name">
+            9/5 名古屋場限
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="nagoya-0905"
+          data-return="paymentStartPage"
+        >
+          選購特典
+        </button>
+
+      </div>
+
+
+    </div>
+
 
   </div>
 
@@ -2664,11 +2892,17 @@
 
     <ul class="notice-list">
 
-      <li>廠損</li>
+      <li>
+        廠損
+      </li>
 
-      <li>運輸損傷</li>
+      <li>
+        運輸損傷
+      </li>
 
-      <li>商品瑕疵</li>
+      <li>
+        商品瑕疵
+      </li>
 
       <li>
         不湊套（專卡、滿額卡及隨機商品等）
@@ -3544,7 +3778,7 @@ function resetScroll() {
 
 
 /* ========================================
-   ★ 只清空匯款資料
+   只清空匯款資料
 ======================================== */
 
 function clearPaymentFields() {
@@ -3659,17 +3893,10 @@ function showPage(
 
 
   /*
-    ========================================
-    ★ 離開匯款頁
-    ========================================
-
-    返回商品頁：
-    保留商品和數量
-    清空匯款資料
-    已閱讀注意事項取消勾選
-
-    前往其他頁：
-    全部清空
+    返回商品選購：
+    商品與數量保留
+    匯款資料清空
+    注意事項重新勾選
   */
 
   if (
@@ -3691,18 +3918,8 @@ function showPage(
         "productPage"
     ) {
 
-      /*
-        清空 Facebook、日期、時間、
-        銀行、後五碼、備註
-      */
-
       clearPaymentFields();
 
-
-      /*
-        ★ 商品選擇不動
-        但是注意事項重新勾
-      */
 
       readNoticeCheckbox.checked =
         false;
@@ -3711,11 +3928,6 @@ function showPage(
       nextPaymentButton.disabled =
         true;
 
-
-      /*
-        下一次按下一步時
-        重新建立最新訂單資料
-      */
 
       checkoutSnapshot =
         null;
@@ -3889,6 +4101,82 @@ document
 
 
 /* ========================================
+   團務分類切換
+======================================== */
+
+document
+  .querySelectorAll(
+    ".group-tab-block"
+  )
+  .forEach(
+    block => {
+
+      const buttons =
+        block.querySelectorAll(
+          "[data-group-tab]"
+        );
+
+
+      const contents =
+        block.querySelectorAll(
+          "[data-group-content]"
+        );
+
+
+      buttons.forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const selectedType =
+                button.dataset.groupTab;
+
+
+              buttons.forEach(
+                item => {
+
+                  item.classList.remove(
+                    "selected"
+                  );
+
+                }
+              );
+
+
+              button.classList.add(
+                "selected"
+              );
+
+
+              contents.forEach(
+                content => {
+
+                  content.classList.toggle(
+
+                    "active",
+
+                    content.dataset
+                      .groupContent ===
+                      selectedType
+
+                  );
+
+                }
+              );
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+/* ========================================
    Stray Kids
 ======================================== */
 
@@ -3902,6 +4190,24 @@ const skzMembers = [
   "Felix",
   "Seungmin",
   "I.N"
+
+];
+
+
+/*
+  9/5 名古屋場限
+  沒有 I.N
+*/
+
+const nagoyaMembers = [
+
+  "Bang Chan",
+  "Lee Know",
+  "Changbin",
+  "Hyunjin",
+  "HAN",
+  "Felix",
+  "Seungmin"
 
 ];
 
@@ -3923,6 +4229,10 @@ const tShirtVariants =
 
 const productData = {
 
+
+  /* ======================================
+     RUN IT JAPAN
+  ====================================== */
 
   "run-it-japan": [
 
@@ -4113,6 +4423,10 @@ const productData = {
   ],
 
 
+  /* ======================================
+     一番賞
+  ====================================== */
+
   "run-it-japan-kuji": [
 
     {
@@ -4138,13 +4452,38 @@ const productData = {
   ],
 
 
+  /* ======================================
+     ★ 9/5 名古屋場限
+  ====================================== */
+
+  "nagoya-0905": [
+
+    {
+      name:
+        "9/5 名古屋場限",
+
+      price:
+        325,
+
+      variants:
+        nagoyaMembers
+    }
+
+  ],
+
+
+  /* ======================================
+     已結束團務
+  ====================================== */
+
   "this-that-lucky-draw": [
 
     {
       name:
         "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
 
-      price: 470
+      price:
+        470
     }
 
   ],
@@ -4153,20 +4492,29 @@ const productData = {
   "sony-music-benefit": [
 
     {
-      name: "THIS VER.",
-      price: 750
+      name:
+        "THIS VER.",
+
+      price:
+        750
     },
 
 
     {
-      name: "THAT VER.",
-      price: 750
+      name:
+        "THAT VER.",
+
+      price:
+        750
     },
 
 
     {
-      name: "& VER（8張一套）",
-      price: 4400
+      name:
+        "& VER（8張一套）",
+
+      price:
+        4400
     }
 
   ]
@@ -4209,6 +4557,22 @@ const groupMeta = {
   },
 
 
+  /* ★ 新增 */
+
+  "nagoya-0905": {
+
+    groupType:
+      "單特典",
+
+    group:
+      "Stray Kids",
+
+    activity:
+      "9/5 名古屋場限"
+
+  },
+
+
   "this-that-lucky-draw": {
 
     groupType:
@@ -4240,7 +4604,7 @@ const groupMeta = {
 
 
 /* ========================================
-   圖片
+   商品圖片
 ======================================== */
 
 const catalogData = {
@@ -4254,20 +4618,29 @@ const catalogData = {
     images: [
 
       {
-        src: "run-it-1.jpg",
-        title: "商品圖 1"
+        src:
+          "run-it-1.jpg",
+
+        title:
+          "商品圖 1"
       },
 
 
       {
-        src: "run-it-2.jpg",
-        title: "商品圖 2"
+        src:
+          "run-it-2.jpg",
+
+        title:
+          "商品圖 2"
       },
 
 
       {
-        src: "run-it-3.jpg",
-        title: "商品圖 3"
+        src:
+          "run-it-3.jpg",
+
+        title:
+          "商品圖 3"
       }
 
     ]
@@ -4283,14 +4656,44 @@ const catalogData = {
     images: [
 
       {
-        src: "kuji-1.jpeg.PNG",
-        title: "商品圖 1"
+        src:
+          "kuji-1.jpeg.PNG",
+
+        title:
+          "商品圖 1"
       },
 
 
       {
-        src: "kuji-2.jpeg.PNG",
-        title: "商品圖 2"
+        src:
+          "kuji-2.jpeg.PNG",
+
+        title:
+          "商品圖 2"
+      }
+
+    ]
+
+  },
+
+
+  /* ======================================
+     ★ 9/5 名古屋場限圖片
+  ====================================== */
+
+  "nagoya-0905": {
+
+    warning:
+      "9/5 名古屋場限單特典，一張 NT$325。",
+
+    images: [
+
+      {
+        src:
+          "名古屋場限.JPG",
+
+        title:
+          "9/5 名古屋場限"
       }
 
     ]
@@ -4306,14 +4709,20 @@ const catalogData = {
     images: [
 
       {
-        src: "this-that-1.jpeg.jpg",
-        title: "商品圖"
+        src:
+          "this-that-1.jpeg.jpg",
+
+        title:
+          "商品圖"
       },
 
 
       {
-        src: "this-that-2.jpeg.jpg",
-        title: "Lucky Draw 特典圖"
+        src:
+          "this-that-2.jpeg.jpg",
+
+        title:
+          "Lucky Draw 特典圖"
       }
 
     ]
@@ -4329,8 +4738,11 @@ const catalogData = {
     images: [
 
       {
-        src: "sony-music-1.JPG",
-        title: "Sony music 通路特典"
+        src:
+          "sony-music-1.JPG",
+
+        title:
+          "Sony music 通路特典"
       }
 
     ]
@@ -4350,15 +4762,30 @@ function escapeHTML(value) {
     value ?? ""
   )
 
-    .replace(/&/g, "&amp;")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-    .replace(/</g, "&lt;")
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
-    .replace(/>/g, "&gt;")
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-    .replace(/"/g, "&quot;")
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-    .replace(/'/g, "&#039;");
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
@@ -4475,12 +4902,6 @@ document
         "← 返回商品選購";
 
 
-      /*
-        注意：
-        這裡不重新 renderProducts
-        所以商品、數量、注意事項勾選都保留
-      */
-
       showPage(
         "noticePage"
       );
@@ -4594,8 +5015,15 @@ function renderCatalog(groupId) {
 
             <img
               class="catalog-image"
-              src="${escapeHTML(image.src)}"
-              alt="${escapeHTML(image.title)}"
+
+              src="${escapeHTML(
+                image.src
+              )}"
+
+              alt="${escapeHTML(
+                image.title
+              )}"
+
               loading="lazy"
             >
 
@@ -5669,11 +6097,6 @@ nextPaymentButton.addEventListener(
     renderCheckoutSummary();
 
 
-    /*
-      每次進入匯款頁
-      都重新清空客人填寫資料
-    */
-
     clearPaymentFields();
 
 
@@ -5775,7 +6198,7 @@ function renderCheckoutSummary() {
 
 
 /* ========================================
-   ★ 匯款頁返回商品頁
+   匯款頁返回商品
 ======================================== */
 
 document
@@ -5785,14 +6208,6 @@ document
   .addEventListener(
     "click",
     () => {
-
-      /*
-        showPage 會：
-        1. 清空匯款資料
-        2. 保留商品
-        3. 保留商品數量
-        4. 取消已閱讀注意事項
-      */
 
       showPage(
         "productPage"
@@ -6121,11 +6536,6 @@ paymentForm.addEventListener(
         !result.success
       ) {
 
-        /*
-          一番賞如果庫存有變
-          要重新抓最新庫存
-        */
-
         if (
           groupId ===
             "run-it-japan-kuji"
@@ -6144,10 +6554,6 @@ paymentForm.addEventListener(
 
           );
 
-
-          /*
-            先清匯款資料
-          */
 
           clearPaymentFields();
 
@@ -6170,17 +6576,13 @@ paymentForm.addEventListener(
 
           showPage(
             "productPage",
+
             {
               skipPaymentReset:
                 true
             }
           );
 
-
-          /*
-            庫存衝突時才重新產生商品，
-            所以這種情況原勾選會消失
-          */
 
           await renderProducts(
             groupId
@@ -6205,10 +6607,6 @@ paymentForm.addEventListener(
       }
 
 
-      /*
-        成功後整筆清空
-      */
-
       resetOrderFlow();
 
 
@@ -6217,6 +6615,7 @@ paymentForm.addEventListener(
 
       showPage(
         "successPage",
+
         {
           skipPaymentReset:
             true
