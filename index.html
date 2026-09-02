@@ -18,6 +18,77 @@
   <title>狐狸🦊日韓通路代購/拆車</title>
 
 
+  <!-- ========================================
+       網站分享預覽
+  ======================================== -->
+
+  <meta
+    property="og:title"
+    content="狐狸🦊日韓通路代購/拆車"
+  >
+
+  <meta
+    property="og:description"
+    content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://yiii704.github.io/Fox/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=2"
+  >
+
+  <meta
+    property="og:image:secure_url"
+    content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=2"
+  >
+
+  <meta
+    property="og:image:width"
+    content="960"
+  >
+
+  <meta
+    property="og:image:height"
+    content="540"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="狐狸🦊日韓通路代購/拆車"
+  >
+
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="狐狸🦊日韓通路代購/拆車"
+  >
+
+  <meta
+    name="twitter:description"
+    content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢"
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=2"
+  >
+
+
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -37,29 +108,21 @@
 
   <style>
 
-    /* ========================================
-       基本設定
-    ======================================== */
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-
     html {
       width: 100%;
       min-height: 100%;
     }
 
-
     body {
       width: 100%;
       min-height: 100vh;
-
       padding: 32px 18px;
-
       background: #faf8ff;
       color: #4f4660;
 
@@ -71,7 +134,6 @@
         cursive;
     }
 
-
     button,
     input,
     select,
@@ -79,40 +141,28 @@
       font: inherit;
     }
 
-
     button {
       cursor: pointer;
     }
 
-
     h1 {
       position: relative;
       z-index: 10;
-
       margin-bottom: 28px;
-
       color: #6b46c1;
-
       font-size: 27px;
       font-weight: 600;
-
       line-height: 1.45;
-
       text-align: center;
     }
-
 
     h2 {
       margin-bottom: 22px;
-
       color: #6b46c1;
-
       font-size: 25px;
       font-weight: 600;
-
       text-align: center;
     }
-
 
     strong {
       font-weight: 900;
@@ -125,26 +175,19 @@
 
     .page {
       display: none;
-
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 620px;
-
       margin: 0 auto;
-
       animation: pageIn 0.22s ease;
     }
-
 
     .page.active-page {
       display: block;
     }
 
-
     @keyframes pageIn {
-
       from {
         opacity: 0;
         transform: translateY(7px);
@@ -154,7 +197,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
 
@@ -165,43 +207,32 @@
     body.home-mode {
       height: 100vh;
       height: 100dvh;
-
       overflow: hidden;
-
       overscroll-behavior: none;
     }
 
-
     body.home-mode > h1 {
       color: #ffffff;
-
       text-shadow:
         0 2px 8px
         rgba(0, 0, 0, 0.35);
     }
 
-
     body:not(.home-mode) > h1 {
       color: #6b46c1;
-
       text-shadow: none;
     }
-
 
     #homePage {
       position: relative;
       z-index: 2;
     }
 
-
     .home-background {
       position: fixed;
       z-index: -1;
-
       inset: 0;
-
       width: 100vw;
-
       height: 100vh;
       height: 100dvh;
 
@@ -209,16 +240,10 @@
         url("home-banner.JPG");
 
       background-size: cover;
-
-      background-position:
-        center center;
-
-      background-repeat:
-        no-repeat;
-
+      background-position: center center;
+      background-repeat: no-repeat;
       pointer-events: none;
     }
-
 
     #homePage .menu-grid {
       position: relative;
@@ -237,18 +262,13 @@
         repeat(2, minmax(0, 155px));
 
       justify-content: center;
-
       gap: 12px;
     }
 
-
     .pill-button {
       min-height: 40px;
-
       padding: 5px 12px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
@@ -261,28 +281,21 @@
         rgba(126, 92, 190, 0.10);
 
       font-size: 15px;
-
       line-height: 1.2;
-
       transition: 0.2s ease;
     }
-
 
     .pill-button:hover {
       background: #f7f2ff;
     }
 
-
     .pill-button:active {
       transform: scale(0.97);
     }
 
-
     .pill-button.selected {
       background: #dccfff;
-
       border-color: #b99bf5;
-
       color: #59349e;
     }
 
@@ -293,15 +306,10 @@
 
     .back-button {
       display: inline-flex;
-
       align-items: center;
-
       margin-bottom: 18px;
-
       padding: 8px 16px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
@@ -309,7 +317,6 @@
 
       border-radius: 999px;
     }
-
 
     .back-button:active {
       transform: scale(0.97);
@@ -322,9 +329,7 @@
 
     .card {
       margin-bottom: 16px;
-
       padding: 20px;
-
       background: #ffffff;
 
       border:
@@ -337,29 +342,21 @@
         rgba(116, 82, 165, 0.09);
     }
 
-
     .card-title {
       margin-bottom: 12px;
-
       color: #6b46c1;
-
       font-size: 19px;
       font-weight: 600;
     }
-
 
     .card p {
       line-height: 1.8;
     }
 
-
     .empty-message {
       padding: 24px;
-
       color: #8b8295;
-
       text-align: center;
-
       line-height: 1.8;
     }
 
@@ -372,7 +369,6 @@
       width: 100%;
     }
 
-
     .group-type-tabs {
       display: grid;
 
@@ -380,50 +376,37 @@
         repeat(2, minmax(0, 1fr));
 
       gap: 10px;
-
       margin-bottom: 18px;
     }
 
-
     .group-type-button {
       width: 100%;
-
       padding: 9px 14px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-size: 16px;
       font-weight: 600;
-
       transition: 0.2s ease;
     }
 
-
     .group-type-button.selected {
       background: #dccfff;
-
       border-color: #b99bf5;
-
       color: #59349e;
     }
-
 
     .group-type-button:active {
       transform: scale(0.98);
     }
 
-
     .group-type-content {
       display: none;
     }
-
 
     .group-type-content.active {
       display: block;
@@ -436,70 +419,48 @@
 
     .order-card {
       overflow: hidden;
-
       padding: 0;
     }
-
 
     .order-top {
       padding: 20px;
     }
 
-
     .order-group {
       margin-bottom: 7px;
-
       color: #927ead;
-
       font-size: 14px;
       font-weight: 600;
     }
-
 
     .order-name {
       color: #59349e;
-
       font-size: 19px;
       font-weight: 600;
-
       line-height: 1.55;
     }
 
-
     .order-status {
       display: inline-flex;
-
       margin-top: 12px;
-
       padding: 6px 11px;
-
       background: #e4f5e8;
-
       color: #287747;
-
       border-radius: 999px;
-
       font-size: 14px;
       font-weight: 600;
     }
 
-
     .order-status.closed {
       background: #eeeef2;
-
       color: #686572;
     }
 
-
     .order-action {
       width: 100%;
-
       padding: 13px;
-
       background: #f1eaff;
-
       color: #6842b3;
-
       border: none;
 
       border-top:
@@ -508,21 +469,49 @@
       font-weight: 600;
     }
 
-
     .order-action:active {
       background: #e8dcff;
     }
 
-
     .order-action.closed,
     .order-action:disabled {
       background: #eeeef2;
-
       color: #99939f;
-
       cursor: not-allowed;
-
       opacity: 1;
+    }
+
+
+    /* ========================================
+       匯款表單入口下拉式
+    ======================================== */
+
+    .payment-start-help {
+      margin-bottom: 16px;
+      color: #71657d;
+      line-height: 1.75;
+    }
+
+    .payment-start-button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #cbb8f5;
+      color: #4c2e83;
+      border: none;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .payment-start-button:disabled {
+      background: #e8e5ec;
+      color: #aaa3b0;
+      cursor: not-allowed;
+    }
+
+    .payment-start-button:not(:disabled):active {
+      transform: scale(0.98);
     }
 
 
@@ -534,22 +523,16 @@
       text-align: center;
     }
 
-
     .selected-group-label {
       margin-bottom: 5px;
-
       color: #988ba5;
-
       font-size: 13px;
     }
 
-
     .selected-group-name {
       color: #59349e;
-
       font-size: 18px;
       font-weight: 600;
-
       line-height: 1.6;
     }
 
@@ -560,59 +543,42 @@
 
     .catalog-note {
       margin-bottom: 13px;
-
       color: #8b8295;
-
       font-size: 14px;
-
       line-height: 1.7;
     }
 
-
     .catalog-warning {
       margin-bottom: 14px;
-
       padding: 10px 12px;
-
       background: #fff8e8;
-
       color: #8a6a24;
-
       border-radius: 13px;
-
       font-size: 13px;
-
       line-height: 1.65;
     }
 
-
     .catalog-gallery {
       display: grid;
-
       gap: 10px;
     }
-
 
     .catalog-gallery.one-image {
       grid-template-columns: 1fr;
     }
-
 
     .catalog-gallery.two-images {
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
     }
 
-
     .catalog-gallery.three-images {
       grid-template-columns:
         repeat(3, minmax(0, 1fr));
     }
 
-
     .catalog-image-card {
       overflow: hidden;
-
       background: #faf8ff;
 
       border:
@@ -621,46 +587,32 @@
       border-radius: 14px;
     }
 
-
     .catalog-gallery.one-image
     .catalog-image-card {
       max-width: 380px;
-
       margin: 0 auto;
     }
 
-
     .catalog-image {
       display: block;
-
       width: 100%;
       height: 170px;
-
       object-fit: cover;
-
       object-position: top;
-
       cursor: zoom-in;
     }
-
 
     .catalog-gallery.one-image
     .catalog-image {
       height: auto;
-
       max-height: 430px;
-
       object-fit: contain;
     }
 
-
     .catalog-caption {
       padding: 8px;
-
       color: #7b6d89;
-
       font-size: 13px;
-
       text-align: center;
     }
 
@@ -671,25 +623,19 @@
 
     .product-placeholder {
       padding: 18px;
-
       color: #8b8295;
-
       background: #faf8ff;
 
       border:
         1px dashed #cdb9f6;
 
       border-radius: 15px;
-
       text-align: center;
     }
 
-
     .product-card {
       margin-bottom: 11px;
-
       overflow: hidden;
-
       background: #faf8ff;
 
       border:
@@ -698,85 +644,59 @@
       border-radius: 16px;
     }
 
-
     .product-summary {
       display: flex;
-
       align-items: center;
-
       gap: 12px;
-
       padding: 14px;
-
       cursor: pointer;
-
       list-style: none;
     }
-
 
     .product-summary::-webkit-details-marker {
       display: none;
     }
 
-
     .product-summary::after {
       content: "＋";
-
       flex-shrink: 0;
-
       color: #9f7aea;
-
       font-size: 20px;
     }
-
 
     details[open]
     > .product-summary::after {
       content: "－";
     }
 
-
     .product-summary-left {
       min-width: 0;
-
       flex: 1;
     }
 
-
     .product-name {
       color: #554b62;
-
       font-size: 16px;
       font-weight: 600;
-
       line-height: 1.45;
     }
 
-
     .product-hint {
       margin-top: 4px;
-
       color: #9b8fa7;
-
       font-size: 12px;
     }
 
-
     .product-price {
       flex-shrink: 0;
-
       color: #6b46c1;
-
       font-size: 15px;
       font-weight: 600;
-
       white-space: nowrap;
     }
 
-
     .variant-list {
-      padding:
-        0 12px 12px;
+      padding: 0 12px 12px;
     }
 
 
@@ -792,13 +712,9 @@
         auto;
 
       align-items: center;
-
       gap: 10px;
-
       margin-top: 7px;
-
       padding: 10px;
-
       background: #ffffff;
 
       border:
@@ -807,87 +723,59 @@
       border-radius: 13px;
     }
 
-
     .product-choice.selected-choice {
       background: #f7f2ff;
-
       border-color: #d2bdf9;
     }
 
-
     .product-choice.sold-out {
       opacity: 0.48;
-
       background: #f4f3f6;
     }
 
-
     .choice-main {
       display: flex !important;
-
       align-items: center;
-
       gap: 8px;
-
       min-width: 0;
-
       margin: 0 !important;
-
       color: #594d68 !important;
-
       font-size: 14px !important;
-
       font-weight: 400 !important;
-
       cursor: pointer;
     }
-
 
     .choice-main input {
       width: 18px;
       height: 18px;
-
       flex-shrink: 0;
-
       padding: 0;
-
       accent-color: #9f7aea;
     }
-
 
     .choice-label-wrap {
       min-width: 0;
     }
 
-
     .choice-label {
       display: block;
-
       line-height: 1.45;
-
       word-break: break-word;
     }
 
-
     .stock-text {
       display: block;
-
       margin-top: 3px;
-
       color: #9b8fa7;
-
       font-size: 12px;
     }
-
 
     .stock-low {
       color: #b86421;
     }
 
-
     .stock-out {
       color: #b34545;
-
       font-weight: 600;
     }
 
@@ -898,86 +786,61 @@
 
     .quantity-control {
       display: flex;
-
       align-items: center;
-
       flex-shrink: 0;
-
       gap: 4px;
     }
-
 
     .qty-button {
       width: 28px;
       height: 28px;
-
       padding: 0;
-
       background: #f1eaff;
-
       color: #6842b3;
 
       border:
         1px solid #d9c8ff;
 
       border-radius: 50%;
-
       font-size: 17px;
-
       line-height: 1;
     }
 
-
     .qty-button:disabled {
       opacity: 0.3;
-
       cursor: default;
     }
-
 
     .qty-input {
       width: 38px;
       height: 30px;
-
       padding: 2px;
-
       background: #ffffff;
 
       border:
         1px solid #e5daf8;
 
       border-radius: 9px;
-
       color: #554b62;
-
       font-size: 14px;
-
       text-align: center;
     }
 
-
     .qty-input:disabled {
       background: #f6f4f8;
-
       color: #aca5b3;
     }
-
 
     .qty-input::-webkit-inner-spin-button,
     .qty-input::-webkit-outer-spin-button {
       margin: 0;
-
       -webkit-appearance: none;
     }
 
-
     .selected-summary {
       margin-top: 12px;
-
       color: #8b8295;
-
       font-size: 14px;
-
       text-align: right;
     }
 
@@ -988,21 +851,13 @@
 
     .total-box {
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       margin-top: 14px;
-
       padding: 14px 16px;
-
       background: #eee6ff;
-
       border-radius: 16px;
-
       color: #59349e;
-
       font-weight: 600;
     }
 
@@ -1015,116 +870,78 @@
       padding: 18px 20px;
     }
 
-
     .agreement-row {
       display: flex;
-
       align-items: center;
-
       gap: 10px;
     }
-
 
     .agreement-row input {
       width: 20px;
       height: 20px;
-
       flex-shrink: 0;
-
       padding: 0;
-
       accent-color: #9f7aea;
     }
 
-
     .agreement-row label {
       margin: 0;
-
       color: #594d68;
-
       font-size: 17px;
       font-weight: 600;
-
       cursor: pointer;
     }
 
-
     .view-notice-button {
       width: 100%;
-
       margin-top: 14px;
-
       padding: 10px 16px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-size: 16px;
       font-weight: 600;
-
       transition: 0.2s ease;
     }
-
 
     .view-notice-button:hover {
       background: #f7f2ff;
     }
 
-
     .view-notice-button:active {
       background: #f7f2ff;
-
       transform: scale(0.98);
     }
 
-
     .agreement-help {
       margin-top: 10px;
-
       color: #958a9f;
-
       font-size: 13px;
-
       line-height: 1.6;
-
       text-align: center;
     }
 
-
     .next-button {
       width: 100%;
-
       margin-top: 14px;
-
       padding: 12px 16px;
-
       background: #cbb8f5;
-
       color: #4c2e83;
-
       border: none;
-
       border-radius: 999px;
-
       font-size: 17px;
       font-weight: 600;
     }
 
-
     .next-button:disabled {
       background: #e8e5ec;
-
       color: #aaa3b0;
-
       cursor: not-allowed;
     }
-
 
     .next-button:not(:disabled):active {
       transform: scale(0.98);
@@ -1137,42 +954,30 @@
 
     .notice-list {
       padding-left: 22px;
-
       line-height: 1.9;
     }
 
-
     .notice-community-link {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       margin-top: 10px;
-
       padding: 9px 16px;
-
       background: #f1eaff;
-
       color: #6842b3;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-weight: 600;
-
       text-decoration: none;
     }
 
-
     .notice-image {
       display: block;
-
       width: 100%;
       height: auto;
-
       margin-top: 16px;
 
       border:
@@ -1188,7 +993,6 @@
 
     .checkout-summary {
       padding: 14px;
-
       background: #faf8ff;
 
       border:
@@ -1197,49 +1001,35 @@
       border-radius: 15px;
     }
 
-
     .checkout-group {
       margin-bottom: 10px;
-
       color: #59349e;
-
       font-size: 17px;
       font-weight: 600;
-
       line-height: 1.55;
     }
 
-
     .checkout-product {
       padding: 6px 0;
-
       color: #62576d;
-
       font-size: 14px;
-
       line-height: 1.55;
 
       border-bottom:
         1px dashed #e8dff5;
     }
 
-
     .checkout-total {
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       margin-top: 12px;
-
       padding-top: 12px;
 
       border-top:
         1px solid #ded3f1;
 
       color: #59349e;
-
       font-size: 17px;
       font-weight: 600;
     }
@@ -1253,51 +1043,38 @@
       width: 100%;
       min-width: 0;
       max-width: 100%;
-
       margin-bottom: 17px;
     }
 
-
     .form-group label {
       display: block;
-
       margin-bottom: 8px;
-
       color: #5f4b87;
-
       font-size: 16px;
       font-weight: 600;
     }
-
 
     .required {
       color: #be4b78;
     }
 
-
     input,
     select,
     textarea {
       display: block;
-
       width: 100%;
       min-width: 0;
       max-width: 100%;
-
       padding: 12px 14px;
-
       background: #ffffff;
-
       color: #4f4660;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 14px;
-
       outline: none;
     }
-
 
     input:focus,
     select:focus,
@@ -1309,13 +1086,10 @@
         rgba(159, 122, 234, 0.13);
     }
 
-
     textarea {
       min-height: 95px;
-
       resize: vertical;
     }
-
 
     input[readonly] {
       background: #f7f5fa;
@@ -1328,17 +1102,12 @@
 
     .ios-date-wrap {
       position: relative;
-
       display: block;
-
       width: 100%;
       min-width: 0;
       max-width: 100%;
-
       height: 50px;
-
       overflow: hidden;
-
       background: #ffffff;
 
       border:
@@ -1346,7 +1115,6 @@
 
       border-radius: 14px;
     }
-
 
     .ios-date-wrap:focus-within {
       border-color: #9f7aea;
@@ -1356,68 +1124,37 @@
         rgba(159, 122, 234, 0.13);
     }
 
-
-    .ios-date-wrap
-    input[type="date"],
-    .ios-date-wrap
-    input[type="time"] {
-
+    .ios-date-wrap input[type="date"],
+    .ios-date-wrap input[type="time"] {
       display: block !important;
-
       width: 100% !important;
       min-width: 0 !important;
       max-width: 100% !important;
-
       inline-size: 100% !important;
       min-inline-size: 0 !important;
       max-inline-size: 100% !important;
-
       height: 100% !important;
-
       margin: 0 !important;
-
       padding: 12px 14px !important;
-
       background: transparent !important;
-
       border: 0 !important;
-
       border-radius: 0 !important;
-
       box-shadow: none !important;
-
       outline: none !important;
-
       -webkit-appearance: none;
       appearance: none;
-
       overflow: hidden !important;
     }
-
 
     .ios-date-wrap
     input[type="date"]::-webkit-date-and-time-value,
     .ios-date-wrap
     input[type="time"]::-webkit-date-and-time-value {
-
       width: 100%;
       min-width: 0;
-
       margin: 0;
       padding: 0;
-
       text-align: left;
-    }
-
-
-    .ios-date-wrap
-    input[type="date"]::-webkit-datetime-edit,
-    .ios-date-wrap
-    input[type="time"]::-webkit-datetime-edit {
-
-      min-width: 0;
-
-      padding: 0;
     }
 
 
@@ -1427,81 +1164,57 @@
 
     .bank-account {
       margin-bottom: 11px;
-
       padding: 13px 15px;
-
       background: #faf8ff;
 
       border:
         1px solid #eee6ff;
 
       border-radius: 15px;
-
       line-height: 1.7;
     }
-
 
     .bank-account:last-child {
       margin-bottom: 0;
     }
 
-
     .bank-account strong {
       color: #6b46c1;
     }
 
-
     .bank-number-row {
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 12px;
-
       margin-top: 6px;
     }
 
-
     .bank-number {
       color: #4f4660 !important;
-
       text-decoration: none !important;
-
-      font-variant-numeric:
-        tabular-nums;
-
+      font-variant-numeric: tabular-nums;
       user-select: all;
-
       -webkit-user-select: all;
     }
 
-
     .copy-button {
       flex-shrink: 0;
-
       padding: 7px 14px;
-
       background: #f1eaff;
-
       color: #6b46c1;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-size: 15px;
       font-weight: 600;
     }
 
-
     .copy-button.copied {
       background: #e4f5e8;
-
       border-color: #b8dfc4;
-
       color: #287747;
     }
 
@@ -1512,24 +1225,16 @@
 
     .submit-button {
       width: 100%;
-
       padding: 13px;
-
       background: #cbb8f5;
-
       color: #4c2e83;
-
       border: none;
-
       border-radius: 999px;
-
       font-weight: 600;
     }
 
-
     .submit-button:disabled {
       opacity: 0.6;
-
       cursor: default;
     }
 
@@ -1540,92 +1245,64 @@
 
     .success-card {
       padding: 32px 22px;
-
       text-align: center;
     }
 
-
     .success-icon {
       margin-bottom: 14px;
-
       font-size: 46px;
     }
 
-
     .success-title {
       margin-bottom: 14px;
-
       color: #59349e;
-
       font-size: 26px;
       font-weight: 600;
     }
 
-
     .success-text {
       color: #71657d;
-
       font-size: 17px;
-
       line-height: 1.9;
     }
 
-
     .success-important {
       margin-top: 16px;
-
       color: #59349e;
-
       font-size: 19px;
-
       font-weight: 900;
     }
 
-
     .join-community-button {
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       width: 100%;
-
       margin-top: 22px;
-
       padding: 14px 18px;
-
       background: #dccfff;
-
       color: #59349e;
 
       border:
         2px solid #b99bf5;
 
       border-radius: 999px;
-
       font-size: 19px;
       font-weight: 600;
-
       text-decoration: none;
     }
 
-
     .success-home-button {
       width: 100%;
-
       margin-top: 12px;
-
       padding: 12px 18px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
         2px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-weight: 600;
     }
 
@@ -1638,51 +1315,35 @@
       padding: 19px;
     }
 
-
     .contact-name {
       margin-bottom: 5px;
-
       color: #59349e;
-
       font-size: 19px;
       font-weight: 600;
     }
 
-
     .contact-value {
       color: #71657d;
-
       font-size: 16px;
-
       line-height: 1.7;
-
       word-break: break-word;
     }
 
-
     .contact-button {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       width: 100%;
-
       margin-top: 12px;
-
       padding: 10px 16px;
-
       background: #f1eaff;
-
       color: #6842b3;
 
       border:
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
       font-weight: 600;
-
       text-decoration: none;
     }
 
@@ -1692,31 +1353,21 @@
     ======================================== */
 
     .filter-label {
-      margin:
-        14px 0 8px;
-
+      margin: 14px 0 8px;
       color: #8b8295;
-
       font-size: 14px;
-
       font-weight: 600;
     }
 
-
     .filter-row {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 8px;
     }
 
-
     .filter-button {
       padding: 8px 14px;
-
       background: #ffffff;
-
       color: #6b46c1;
 
       border:
@@ -1725,24 +1376,18 @@
       border-radius: 999px;
     }
 
-
     .filter-button.selected {
       background: #dccfff;
-
       border-color: #b99bf5;
     }
-
 
     .search-input {
       margin-top: 7px;
     }
 
-
     .progress-group {
       margin-bottom: 18px;
-
       overflow: hidden;
-
       background: #ffffff;
 
       border:
@@ -1755,28 +1400,20 @@
         rgba(116, 82, 165, 0.09);
     }
 
-
     .progress-group-header {
       padding: 15px 18px;
-
       background: #f5f1fb;
-
       color: #5f4b87;
-
       font-size: 19px;
-
       font-weight: 600;
 
       border-bottom:
         1px solid #eee6ff;
     }
 
-
     .progress-group-body {
-      padding:
-        12px 16px 16px;
+      padding: 12px 16px 16px;
     }
-
 
     .progress-member-row {
       display: grid;
@@ -1787,102 +1424,73 @@
         105px;
 
       align-items: center;
-
       gap: 8px;
-
       min-height: 48px;
-
       padding: 7px 0;
     }
 
-
     .facebook-name {
       color: #4f4660;
-
       font-size: 16px;
-
       font-weight: 600;
-
       word-break: break-word;
     }
-
 
     .community-small {
       margin-top: 3px;
-
       color: #8b8295;
-
       font-size: 13px;
-
       word-break: break-word;
     }
-
 
     .status-pill,
     .stage-pill {
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       width: 100%;
-
       min-height: 32px;
-
       padding: 6px 10px;
-
       border-radius: 999px;
-
       font-size: 14px;
-
       font-weight: 600;
-
       white-space: nowrap;
     }
-
 
     .status-paid {
       background: #dff4e6;
       color: #287747;
     }
 
-
     .status-unpaid {
       background: #ffe7e7;
       color: #b34545;
     }
-
 
     .status-waiting {
       background: #eeeef2;
       color: #686572;
     }
 
-
     .stage-registered {
       background: #eee3ff;
       color: #6842b3;
     }
-
 
     .stage-ordered {
       background: #ffead8;
       color: #b86421;
     }
 
-
     .stage-arrived {
       background: #fff4cc;
       color: #98731c;
     }
 
-
     .stage-shipped {
       background: #dfeeff;
       color: #35649a;
     }
-
 
     .stage-complete {
       background: #ffe3ef;
@@ -1896,69 +1504,46 @@
 
     .image-modal {
       display: none;
-
       position: fixed;
-
       z-index: 9999;
-
       inset: 0;
-
       padding: 18px;
 
       background:
         rgba(35, 29, 45, 0.84);
 
       align-items: center;
-
       justify-content: center;
     }
-
 
     .image-modal.open {
       display: flex;
     }
 
-
     .image-modal-content {
       position: relative;
-
       width: 100%;
-
       max-width: 760px;
-
       max-height: 92vh;
-
       overflow: auto;
-
       background: #ffffff;
-
       border-radius: 18px;
     }
 
-
     .image-modal-content img {
       display: block;
-
       width: 100%;
-
       height: auto;
     }
 
-
     .image-close {
       position: sticky;
-
       z-index: 5;
-
       top: 10px;
-
       float: right;
-
       width: 38px;
       height: 38px;
-
-      margin:
-        10px 10px -48px 0;
+      margin: 10px 10px -48px 0;
 
       background:
         rgba(255, 255, 255, 0.94);
@@ -1969,7 +1554,6 @@
         1px solid #d9c8ff;
 
       border-radius: 50%;
-
       font-size: 20px;
     }
 
@@ -1981,22 +1565,17 @@
     @media (max-width: 480px) {
 
       body {
-        padding:
-          24px 14px;
+        padding: 24px 14px;
       }
-
 
       h1 {
         font-size: 23px;
-
         margin-bottom: 25px;
       }
-
 
       h2 {
         font-size: 23px;
       }
-
 
       .menu-grid {
         grid-template-columns:
@@ -2005,63 +1584,47 @@
         gap: 10px;
       }
 
-
       .pill-button {
         min-height: 40px;
-
-        padding:
-          5px 8px;
-
+        padding: 5px 8px;
         font-size: 14px;
       }
-
 
       .card {
         padding: 17px;
       }
 
-
       .order-card {
         padding: 0;
       }
 
-
       .catalog-image {
         height: 150px;
       }
-
 
       .catalog-gallery.one-image
       .catalog-image {
         height: auto;
       }
 
-
       .product-choice {
         gap: 6px;
-
-        padding:
-          9px 8px;
+        padding: 9px 8px;
       }
-
 
       .choice-main {
-        font-size:
-          13px !important;
+        font-size: 13px !important;
       }
-
 
       .qty-button {
         width: 26px;
         height: 26px;
       }
 
-
       .qty-input {
         width: 34px;
         height: 28px;
       }
-
 
       .progress-member-row {
         grid-template-columns:
@@ -2071,7 +1634,6 @@
 
         gap: 5px;
       }
-
 
       .status-pill,
       .stage-pill {
@@ -2193,7 +1755,6 @@
 
   <div class="group-tab-block">
 
-
     <div class="group-type-tabs">
 
       <button
@@ -2216,15 +1777,10 @@
     </div>
 
 
-    <!-- ========================================
-         代購
-    ======================================== -->
-
     <div
       class="group-type-content active"
       data-group-content="代購"
     >
-
 
       <div class="card order-card">
 
@@ -2234,20 +1790,17 @@
             Stray Kids・代購
           </div>
 
-
           <div class="order-name">
             Stray Kids World Tour
             ＜RUN IT JAPAN＞
             OFFICIAL GOODS 線上團
           </div>
 
-
           <div class="order-status">
             開放中
           </div>
 
         </div>
-
 
         <button
           type="button"
@@ -2269,11 +1822,9 @@
             Stray Kids・代購
           </div>
 
-
           <div class="order-name">
             Run it JAPAN 一番賞
           </div>
-
 
           <div class="order-status">
             開放中
@@ -2281,31 +1832,24 @@
 
         </div>
 
-
         <button
           type="button"
           class="order-action"
           data-order="run-it-japan-kuji"
           data-return="groupPage"
         >
-          查看剩餘庫存＆填寫表單
+          查看剩餘庫存＆填寫匯款表單
         </button>
 
       </div>
 
-
     </div>
 
-
-    <!-- ========================================
-         單特典
-    ======================================== -->
 
     <div
       class="group-type-content"
       data-group-content="單特典"
     >
-
 
       <div class="card order-card">
 
@@ -2315,11 +1859,9 @@
             Stray Kids・單特典
           </div>
 
-
           <div class="order-name">
             9/5 名古屋場限
           </div>
-
 
           <div class="order-status">
             開放中
@@ -2327,21 +1869,18 @@
 
         </div>
 
-
         <button
           type="button"
           class="order-action"
           data-order="nagoya-0905"
           data-return="groupPage"
         >
-          填寫匯款表單
+          查看剩餘庫存＆填寫匯款表單
         </button>
 
       </div>
 
-
     </div>
-
 
   </div>
 
@@ -2365,7 +1904,6 @@
     ← 返回首頁
   </button>
 
-
   <h2>
     🗃️ 已結束團務
   </h2>
@@ -2379,19 +1917,16 @@
         Stray Kids
       </div>
 
-
       <div class="order-name">
         [LUCKY DRAW] THIS &amp; THAT
         (THIS VER., THAT VER.)
       </div>
-
 
       <div class="order-status closed">
         已結束
       </div>
 
     </div>
-
 
     <button
       type="button"
@@ -2412,18 +1947,15 @@
         Stray Kids
       </div>
 
-
       <div class="order-name">
         Sony music 通路特典（含專）
       </div>
-
 
       <div class="order-status closed">
         已結束
       </div>
 
     </div>
-
 
     <button
       type="button"
@@ -2439,7 +1971,8 @@
 
 
 <!-- ========================================
-     匯款入口
+     匯款表單入口
+     ★ 改回下拉式
 ======================================== -->
 
 <section
@@ -2464,146 +1997,64 @@
   <div class="card">
 
     <div class="card-title">
-      請先選擇團務
+      選擇團務
     </div>
 
 
-    <p>
-      請先選擇商品並確認注意事項，
-      下一步才會進入匯款資料填寫。
-    </p>
-
-  </div>
-
-
-  <div class="group-tab-block">
-
-
-    <div class="group-type-tabs">
-
-      <button
-        type="button"
-        class="group-type-button selected"
-        data-group-tab="代購"
-      >
-        代購
-      </button>
-
-
-      <button
-        type="button"
-        class="group-type-button"
-        data-group-tab="單特典"
-      >
-        單特典
-      </button>
-
+    <div class="payment-start-help">
+      請選擇要填寫的團務，
+      接著選擇商品／特典後即可填寫匯款資料。
     </div>
 
 
-    <div
-      class="group-type-content active"
-      data-group-content="代購"
-    >
+    <div class="form-group">
+
+      <label for="paymentGroupSelect">
+        團務
+      </label>
 
 
-      <div class="card order-card">
+      <select id="paymentGroupSelect">
 
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・代購
-          </div>
+        <option value="">
+          請選擇團務
+        </option>
 
 
-          <div class="order-name">
-            Stray Kids World Tour
-            ＜RUN IT JAPAN＞
-            OFFICIAL GOODS 線上團
-          </div>
+        <optgroup label="代購">
 
-        </div>
+          <option value="run-it-japan">
+            Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
+          </option>
 
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="run-it-japan"
-          data-return="paymentStartPage"
-        >
-          填寫匯款表單
-        </button>
-
-      </div>
-
-
-      <div class="card order-card">
-
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・代購
-          </div>
-
-
-          <div class="order-name">
+          <option value="run-it-japan-kuji">
             Run it JAPAN 一番賞
-          </div>
+          </option>
 
-        </div>
-
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="run-it-japan-kuji"
-          data-return="paymentStartPage"
-        >
-          查看剩餘庫存＆填寫表單
-        </button>
-
-      </div>
+        </optgroup>
 
 
-    </div>
+        <optgroup label="單特典">
 
-
-    <div
-      class="group-type-content"
-      data-group-content="單特典"
-    >
-
-
-      <div class="card order-card">
-
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・單特典
-          </div>
-
-
-          <div class="order-name">
+          <option value="nagoya-0905">
             9/5 名古屋場限
-          </div>
+          </option>
 
-        </div>
+        </optgroup>
 
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="nagoya-0905"
-          data-return="paymentStartPage"
-        >
-          填寫匯款表單
-        </button>
-
-      </div>
-
+      </select>
 
     </div>
 
+
+    <button
+      type="button"
+      id="paymentGroupStartButton"
+      class="payment-start-button"
+      disabled
+    >
+      填寫匯款表單
+    </button>
 
   </div>
 
@@ -2639,7 +2090,6 @@
       目前選擇團務
     </div>
 
-
     <div
       id="productGroupName"
       class="selected-group-name"
@@ -2658,17 +2108,14 @@
       🖼️ 商品圖鑑
     </div>
 
-
     <div class="catalog-note">
       點擊圖片可以放大查看商品款式。
     </div>
-
 
     <div
       id="catalogWarning"
       class="catalog-warning"
     ></div>
-
 
     <div
       id="catalogGallery"
@@ -2684,7 +2131,6 @@
       商品名稱與價錢
     </div>
 
-
     <div id="productContainer">
 
       <div class="product-placeholder">
@@ -2693,7 +2139,6 @@
 
     </div>
 
-
     <div
       id="selectedSummary"
       class="selected-summary"
@@ -2701,13 +2146,11 @@
       已選 0 件商品
     </div>
 
-
     <div class="total-box">
 
       <span>
         商品總金額
       </span>
-
 
       <span id="calculatedTotal">
         NT$ 0
@@ -2726,7 +2169,6 @@
         id="readNoticeCheckbox"
         type="checkbox"
       >
-
 
       <label for="readNoticeCheckbox">
         已閱讀注意事項
@@ -2792,7 +2234,6 @@
       📍下單規則
     </div>
 
-
     <p>
       所有團物皆為
       <strong>
@@ -2810,11 +2251,9 @@
       📍進度通知＆代購社群
     </div>
 
-
     <p>
       所有進度都在社群裡面告知。
     </p>
-
 
     <p style="margin-top:10px;">
       匯款填單完成後
@@ -2822,11 +2261,9 @@
       加入社群。
     </p>
 
-
     <p style="margin-top:12px;">
       社群連結🔗
     </p>
-
 
     <a
       class="notice-community-link"
@@ -2846,12 +2283,10 @@
       📍關於二補
     </div>
 
-
     <p>
       若商品需要二補，
       將於商品全部到貨後透過賣貨便收取二補。
     </p>
-
 
     <img
       class="notice-image"
@@ -2869,7 +2304,6 @@
       📍寄送方式
     </div>
 
-
     <p>
       全部商品皆使用賣貨便寄出，
       並酌收包材費 10 元＋手續費 10 元。
@@ -2884,32 +2318,20 @@
       📍商品須知
     </div>
 
-
     <p>
       商品皆默認接受：
     </p>
 
-
     <ul class="notice-list">
 
-      <li>
-        廠損
-      </li>
-
-      <li>
-        運輸損傷
-      </li>
-
-      <li>
-        商品瑕疵
-      </li>
-
+      <li>廠損</li>
+      <li>運輸損傷</li>
+      <li>商品瑕疵</li>
       <li>
         不湊套（專卡、滿額卡及隨機商品等）
       </li>
 
     </ul>
-
 
     <p style="margin-top:12px;">
       以上情況恕無法退換貨。
@@ -2921,7 +2343,7 @@
 
 
 <!-- ========================================
-     匯款表單
+     真正匯款資料
 ======================================== -->
 
 <section
@@ -2949,7 +2371,6 @@
       🛍️ 訂單確認
     </div>
 
-
     <div
       id="checkoutSummary"
       class="checkout-summary"
@@ -2967,19 +2388,12 @@
         基本資料
       </div>
 
-
       <div class="form-group">
 
         <label for="facebookName">
-
           Facebook 名稱
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <input
           id="facebookName"
@@ -3006,13 +2420,11 @@
           連線銀行（824）
         </strong>
 
-
         <div class="bank-number-row">
 
           <span class="bank-number">
             111019094603
           </span>
-
 
           <button
             type="button"
@@ -3033,13 +2445,11 @@
           台新銀行（812）
         </strong>
 
-
         <div class="bank-number-row">
 
           <span class="bank-number">
             20741000262603
           </span>
-
 
           <button
             type="button"
@@ -3060,13 +2470,11 @@
           中國信託（822）
         </strong>
 
-
         <div class="bank-number-row">
 
           <span class="bank-number">
             901567959612
           </span>
-
 
           <button
             type="button"
@@ -3093,15 +2501,9 @@
       <div class="form-group">
 
         <label for="paymentDate">
-
           匯款日期
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <div class="ios-date-wrap">
 
@@ -3119,15 +2521,9 @@
       <div class="form-group">
 
         <label for="paymentTime">
-
           匯款時間
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <div class="ios-date-wrap">
 
@@ -3145,15 +2541,9 @@
       <div class="form-group">
 
         <label for="paymentBank">
-
           匯款銀行
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <select
           id="paymentBank"
@@ -3164,16 +2554,13 @@
             請選擇匯款銀行
           </option>
 
-
           <option value="連線銀行">
             連線銀行
           </option>
 
-
           <option value="台新銀行">
             台新銀行
           </option>
-
 
           <option value="中國信託">
             中國信託
@@ -3187,15 +2574,9 @@
       <div class="form-group">
 
         <label for="paymentAmount">
-
           匯款金額
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <input
           id="paymentAmount"
@@ -3210,15 +2591,9 @@
       <div class="form-group">
 
         <label for="accountLastFive">
-
           匯款帳號後五碼
-
-          <span class="required">
-            *
-          </span>
-
+          <span class="required">*</span>
         </label>
-
 
         <input
           id="accountLastFive"
@@ -3238,7 +2613,6 @@
         <label for="note">
           備註
         </label>
-
 
         <textarea
           id="note"
@@ -3291,7 +2665,6 @@
       依團務分類
     </div>
 
-
     <div
       id="typeFilters"
       class="filter-row"
@@ -3305,7 +2678,6 @@
         全部
       </button>
 
-
       <button
         type="button"
         class="filter-button"
@@ -3313,7 +2685,6 @@
       >
         代購
       </button>
-
 
       <button
         type="button"
@@ -3330,7 +2701,6 @@
       依團體
     </div>
 
-
     <div
       id="groupFilters"
       class="filter-row"
@@ -3344,7 +2714,6 @@
         全部
       </button>
 
-
       <button
         type="button"
         class="filter-button"
@@ -3352,7 +2721,6 @@
       >
         TWS
       </button>
-
 
       <button
         type="button"
@@ -3368,7 +2736,6 @@
     <div class="filter-label">
       搜尋
     </div>
-
 
     <input
       id="communitySearch"
@@ -3414,11 +2781,9 @@
       官方 LINE
     </div>
 
-
     <div class="contact-value">
       @964kujbw
     </div>
-
 
     <a
       class="contact-button"
@@ -3438,11 +2803,9 @@
       代購社群
     </div>
 
-
     <div class="contact-value">
       LINE 代購／拆車社群
     </div>
-
 
     <a
       class="contact-button"
@@ -3462,11 +2825,9 @@
       Instagram
     </div>
 
-
     <div class="contact-value">
       @yiiiii_0704
     </div>
-
 
     <a
       class="contact-button"
@@ -3486,11 +2847,9 @@
       Facebook
     </div>
 
-
     <div class="contact-value">
       劉宜禎
     </div>
-
 
     <a
       class="contact-button"
@@ -3526,11 +2885,9 @@
       🦊
     </div>
 
-
     <div class="success-title">
       匯款資料已成功送出！
     </div>
-
 
     <div class="success-text">
 
@@ -3544,11 +2901,9 @@
 
     </div>
 
-
     <div class="success-important">
       填單完成後務必加入代購社群！
     </div>
-
 
     <a
       class="join-community-button"
@@ -3558,7 +2913,6 @@
     >
       🔗 一鍵加入代購社群
     </a>
-
 
     <button
       type="button"
@@ -3592,7 +2946,6 @@
       ×
     </button>
 
-
     <img
       id="modalImage"
       src=""
@@ -3621,25 +2974,19 @@ const WORKER_URL =
 
 const closedGroups =
   new Set([
-
     "this-that-lucky-draw",
-
     "sony-music-benefit"
-
   ]);
 
 
 /* ========================================
-   有即時庫存的團務
+   即時庫存團務
 ======================================== */
 
 const stockManagedGroups =
   new Set([
-
     "run-it-japan-kuji",
-
     "nagoya-0905"
-
   ]);
 
 
@@ -3647,37 +2994,21 @@ const stockManagedGroups =
    狀態
 ======================================== */
 
-let currentGroupId =
-  "";
-
-
-let currentInventory =
-  null;
-
-
-let productReturnPage =
-  "groupPage";
-
-
-let noticeReturnPage =
-  "homePage";
-
-
-let checkoutSnapshot =
-  null;
+let currentGroupId = "";
+let currentInventory = null;
+let productReturnPage = "groupPage";
+let noticeReturnPage = "homePage";
+let checkoutSnapshot = null;
 
 
 /* ========================================
-   Safari 捲動
+   Safari
 ======================================== */
 
 if (
   "scrollRestoration" in history
 ) {
-
-  history.scrollRestoration =
-    "manual";
-
+  history.scrollRestoration = "manual";
 }
 
 
@@ -3686,87 +3017,52 @@ if (
 ======================================== */
 
 const pages =
-  document.querySelectorAll(
-    ".page"
-  );
-
+  document.querySelectorAll(".page");
 
 const productContainer =
-  document.getElementById(
-    "productContainer"
-  );
-
+  document.getElementById("productContainer");
 
 const selectedSummary =
-  document.getElementById(
-    "selectedSummary"
-  );
-
+  document.getElementById("selectedSummary");
 
 const calculatedTotal =
-  document.getElementById(
-    "calculatedTotal"
-  );
-
+  document.getElementById("calculatedTotal");
 
 const productGroupName =
-  document.getElementById(
-    "productGroupName"
-  );
-
+  document.getElementById("productGroupName");
 
 const catalogCard =
-  document.getElementById(
-    "catalogCard"
-  );
-
+  document.getElementById("catalogCard");
 
 const catalogGallery =
-  document.getElementById(
-    "catalogGallery"
-  );
-
+  document.getElementById("catalogGallery");
 
 const catalogWarning =
-  document.getElementById(
-    "catalogWarning"
-  );
-
+  document.getElementById("catalogWarning");
 
 const readNoticeCheckbox =
-  document.getElementById(
-    "readNoticeCheckbox"
-  );
-
+  document.getElementById("readNoticeCheckbox");
 
 const nextPaymentButton =
-  document.getElementById(
-    "nextPaymentButton"
-  );
-
+  document.getElementById("nextPaymentButton");
 
 const checkoutSummary =
-  document.getElementById(
-    "checkoutSummary"
-  );
-
+  document.getElementById("checkoutSummary");
 
 const paymentForm =
-  document.getElementById(
-    "paymentForm"
-  );
-
+  document.getElementById("paymentForm");
 
 const paymentAmount =
-  document.getElementById(
-    "paymentAmount"
-  );
-
+  document.getElementById("paymentAmount");
 
 const noticeBackButton =
-  document.getElementById(
-    "noticeBackButton"
-  );
+  document.getElementById("noticeBackButton");
+
+const paymentGroupSelect =
+  document.getElementById("paymentGroupSelect");
+
+const paymentGroupStartButton =
+  document.getElementById("paymentGroupStartButton");
 
 
 /* ========================================
@@ -3775,118 +3071,70 @@ const noticeBackButton =
 
 function resetScroll() {
 
-  window.scrollTo(
-    0,
-    0
-  );
+  window.scrollTo(0, 0);
 
+  document.documentElement.scrollTop = 0;
 
-  document.documentElement.scrollTop =
-    0;
-
-
-  document.body.scrollTop =
-    0;
+  document.body.scrollTop = 0;
 
 }
 
 
 /* ========================================
-   只清空匯款資料
+   清空匯款欄位
 ======================================== */
 
 function clearPaymentFields() {
 
   paymentForm.reset();
 
-
-  if (
-    checkoutSnapshot
-  ) {
-
-    paymentAmount.value =
-      checkoutSnapshot.total;
-
-  }
-
-  else {
-
-    paymentAmount.value =
-      "";
-
-  }
+  paymentAmount.value = "";
 
 }
 
 
 /* ========================================
-   清空完整訂單
+   清空完整訂單流程
 ======================================== */
 
 function resetOrderFlow() {
 
   paymentForm.reset();
 
+  currentGroupId = "";
 
-  currentGroupId =
-    "";
+  currentInventory = null;
 
+  checkoutSnapshot = null;
 
-  currentInventory =
-    null;
+  readNoticeCheckbox.checked = false;
 
+  nextPaymentButton.disabled = true;
 
-  checkoutSnapshot =
-    null;
-
-
-  readNoticeCheckbox.checked =
-    false;
-
-
-  nextPaymentButton.disabled =
-    true;
-
-
-  productGroupName.textContent =
-    "";
-
+  productGroupName.textContent = "";
 
   productContainer.innerHTML = `
-
     <div class="product-placeholder">
       請先選擇團務
     </div>
-
   `;
-
 
   selectedSummary.textContent =
     "已選 0 件商品";
 
-
   calculatedTotal.textContent =
     "NT$ 0";
 
+  paymentAmount.value = "";
 
-  paymentAmount.value =
-    "";
-
-
-  checkoutSummary.innerHTML =
-    "";
-
+  checkoutSummary.innerHTML = "";
 
   catalogCard.style.display =
     "none";
 
+  catalogGallery.innerHTML = "";
 
-  catalogGallery.innerHTML =
-    "";
-
-
-  catalogWarning.textContent =
-    "";
+  catalogWarning.textContent = "";
 
 }
 
@@ -3907,45 +3155,33 @@ function showPage(
 
 
   /*
-    返回商品選購：
-    商品與數量保留
+    匯款頁 → 商品頁
+
+    商品、數量保留
     匯款資料清空
     注意事項重新勾選
   */
 
   if (
-    currentPage?.id ===
-      "paymentPage"
-
-    &&
-
-    pageId !==
-      "paymentPage"
-
-    &&
-
+    currentPage?.id === "paymentPage" &&
+    pageId !== "paymentPage" &&
     !options.skipPaymentReset
   ) {
 
     if (
-      pageId ===
-        "productPage"
+      pageId === "productPage"
     ) {
 
       clearPaymentFields();
 
-
       readNoticeCheckbox.checked =
         false;
-
 
       nextPaymentButton.disabled =
         true;
 
-
       checkoutSnapshot =
         null;
-
 
       checkoutSummary.innerHTML =
         "";
@@ -3963,9 +3199,7 @@ function showPage(
 
   document.body
     .classList
-    .remove(
-      "home-mode"
-    );
+    .remove("home-mode");
 
 
   pages.forEach(
@@ -3985,12 +3219,8 @@ function showPage(
     );
 
 
-  if (
-    !targetPage
-  ) {
-
+  if (!targetPage) {
     return;
-
   }
 
 
@@ -4003,8 +3233,7 @@ function showPage(
 
 
   if (
-    pageId ===
-      "homePage"
+    pageId === "homePage"
   ) {
 
     requestAnimationFrame(
@@ -4012,13 +3241,9 @@ function showPage(
 
         resetScroll();
 
-
         document.body
           .classList
-          .add(
-            "home-mode"
-          );
-
+          .add("home-mode");
 
         requestAnimationFrame(
           resetScroll
@@ -4037,9 +3262,7 @@ function showPage(
 ======================================== */
 
 document
-  .querySelectorAll(
-    "[data-target]"
-  )
+  .querySelectorAll("[data-target]")
   .forEach(
     button => {
 
@@ -4049,12 +3272,11 @@ document
 
           if (
             button.dataset.target ===
-              "noticePage"
+            "noticePage"
           ) {
 
             noticeReturnPage =
               "homePage";
-
 
             noticeBackButton.textContent =
               "← 返回首頁";
@@ -4115,7 +3337,7 @@ document
 
 
 /* ========================================
-   團務分類切換
+   團務分類
 ======================================== */
 
 document
@@ -4129,7 +3351,6 @@ document
         block.querySelectorAll(
           "[data-group-tab]"
         );
-
 
       const contents =
         block.querySelectorAll(
@@ -4149,13 +3370,10 @@ document
 
 
               buttons.forEach(
-                item => {
-
+                item =>
                   item.classList.remove(
                     "selected"
-                  );
-
-                }
+                  )
               );
 
 
@@ -4168,13 +3386,11 @@ document
                 content => {
 
                   content.classList.toggle(
-
                     "active",
 
                     content.dataset
                       .groupContent ===
                       selectedType
-
                   );
 
                 }
@@ -4191,11 +3407,86 @@ document
 
 
 /* ========================================
+   匯款表單下拉選單
+======================================== */
+
+paymentGroupSelect.addEventListener(
+  "change",
+  () => {
+
+    paymentGroupStartButton.disabled =
+      !paymentGroupSelect.value;
+
+  }
+);
+
+
+paymentGroupStartButton.addEventListener(
+  "click",
+  async () => {
+
+    const groupId =
+      paymentGroupSelect.value;
+
+
+    if (!groupId) {
+
+      alert(
+        "請先選擇團務。"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      closedGroups.has(groupId)
+    ) {
+
+      alert(
+        "此團務已結束，目前已停止收單。"
+      );
+
+      return;
+
+    }
+
+
+    resetOrderFlow();
+
+
+    currentGroupId =
+      groupId;
+
+
+    productReturnPage =
+      "paymentStartPage";
+
+
+    productGroupName.textContent =
+      groupMeta[groupId]
+        ?.activity || "";
+
+
+    showPage(
+      "productPage"
+    );
+
+
+    await renderProducts(
+      groupId
+    );
+
+  }
+);
+
+
+/* ========================================
    Stray Kids
 ======================================== */
 
 const skzMembers = [
-
   "Bang Chan",
   "Lee Know",
   "Changbin",
@@ -4204,35 +3495,14 @@ const skzMembers = [
   "Felix",
   "Seungmin",
   "I.N"
-
-];
-
-
-/*
-  9/5 名古屋場限
-  沒有 I.N
-*/
-
-const nagoyaMembers = [
-
-  "Bang Chan",
-  "Lee Know",
-  "Changbin",
-  "Hyunjin",
-  "HAN",
-  "Felix",
-  "Seungmin"
-
 ];
 
 
 const tShirtVariants =
   skzMembers.flatMap(
     member => [
-
       `${member} / M`,
       `${member} / L`
-
     ]
   );
 
@@ -4244,10 +3514,6 @@ const tShirtVariants =
 const productData = {
 
 
-  /* ======================================
-     RUN IT JAPAN
-  ====================================== */
-
   "run-it-japan": [
 
     {
@@ -4256,13 +3522,11 @@ const productData = {
       variants: tShirtVariants
     },
 
-
     {
       name: "照片 T-shirt",
       price: 990,
       variants: ["M", "L", "XL"]
     },
-
 
     {
       name: "防風外套",
@@ -4270,13 +3534,11 @@ const productData = {
       variants: ["M", "L"]
     },
 
-
     {
       name: "應援毛巾",
       price: 615,
       variants: skzMembers
     },
-
 
     {
       name: "扇子",
@@ -4287,18 +3549,15 @@ const productData = {
       ]
     },
 
-
     {
       name: "隨機小卡",
       price: 120
     },
 
-
     {
       name: "隨機迷你壓克力立牌吊飾",
       price: 180
     },
-
 
     {
       name: "壓克力立牌",
@@ -4306,13 +3565,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "照片徽章",
       price: 140,
       variants: skzMembers
     },
-
 
     {
       name: "小卡組",
@@ -4320,19 +3577,16 @@ const productData = {
       variants: ["A", "B"]
     },
 
-
     {
       name: "肖像應援毛巾",
       price: 550,
       variants: skzMembers
     },
 
-
     {
       name: "購物袋",
       price: 550
     },
-
 
     {
       name: "個人資料卡組",
@@ -4340,37 +3594,31 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "成員設計徽章組",
       price: 330,
       variants: skzMembers
     },
 
-
     {
       name: "收納套",
       price: 570
     },
-
 
     {
       name: "磁吸卡套",
       price: 550
     },
 
-
     {
       name: "隨機鑰匙圈",
       price: 310
     },
 
-
     {
       name: "隨機鑰匙圈吊飾",
       price: 220
     },
-
 
     {
       name: "肩背包",
@@ -4378,13 +3626,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "登山扣收納包",
       price: 620,
       variants: skzMembers
     },
-
 
     {
       name: "多功能掛繩",
@@ -4392,13 +3638,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "髮圈",
       price: 660,
       variants: skzMembers
     },
-
 
     {
       name: "手燈收納包",
@@ -4406,13 +3650,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "小卡冊",
       price: 990,
       variants: skzMembers
     },
-
 
     {
       name: "耳環",
@@ -4420,13 +3662,11 @@ const productData = {
       variants: skzMembers
     },
 
-
     {
       name: "毛巾掛帶",
       price: 330,
       variants: skzMembers
     },
-
 
     {
       name: "扇套",
@@ -4437,10 +3677,6 @@ const productData = {
   ],
 
 
-  /* ======================================
-     一番賞
-  ====================================== */
-
   "run-it-japan-kuji": [
 
     {
@@ -4449,13 +3685,11 @@ const productData = {
       stockManaged: true
     },
 
-
     {
       name: "貼紙B",
       price: 80,
       stockManaged: true
     },
-
 
     {
       name: "SKZOO 收納盒",
@@ -4466,29 +3700,16 @@ const productData = {
   ],
 
 
-  /* ======================================
-     ★ 9/5 名古屋場限
-  ====================================== */
-
   "nagoya-0905": [
 
-  {
-    name:
-      "9/5 名古屋場限",
+    {
+      name: "9/5 名古屋場限",
+      price: 325,
+      stockManaged: true
+    }
 
-    price:
-      325,
+  ],
 
-    stockManaged:
-      true
-  }
-
-],
-
-
-  /* ======================================
-     已結束團務
-  ====================================== */
 
   "this-that-lucky-draw": [
 
@@ -4496,8 +3717,7 @@ const productData = {
       name:
         "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
 
-      price:
-        470
+      price: 470
     }
 
   ],
@@ -4506,29 +3726,18 @@ const productData = {
   "sony-music-benefit": [
 
     {
-      name:
-        "THIS VER.",
-
-      price:
-        750
+      name: "THIS VER.",
+      price: 750
     },
 
-
     {
-      name:
-        "THAT VER.",
-
-      price:
-        750
+      name: "THAT VER.",
+      price: 750
     },
 
-
     {
-      name:
-        "& VER（8張一套）",
-
-      price:
-        4400
+      name: "& VER（8張一套）",
+      price: 4400
     }
 
   ]
@@ -4570,8 +3779,6 @@ const groupMeta = {
 
   },
 
-
-  /* ★ 新增 */
 
   "nagoya-0905": {
 
@@ -4632,29 +3839,18 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "run-it-1.jpg",
-
-        title:
-          "商品圖 1"
+        src: "run-it-1.jpg",
+        title: "商品圖 1"
       },
 
-
       {
-        src:
-          "run-it-2.jpg",
-
-        title:
-          "商品圖 2"
+        src: "run-it-2.jpg",
+        title: "商品圖 2"
       },
 
-
       {
-        src:
-          "run-it-3.jpg",
-
-        title:
-          "商品圖 3"
+        src: "run-it-3.jpg",
+        title: "商品圖 3"
       }
 
     ]
@@ -4670,30 +3866,19 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "kuji-1.jpeg.PNG",
-
-        title:
-          "商品圖 1"
+        src: "kuji-1.jpeg.PNG",
+        title: "商品圖 1"
       },
 
-
       {
-        src:
-          "kuji-2.jpeg.PNG",
-
-        title:
-          "商品圖 2"
+        src: "kuji-2.jpeg.PNG",
+        title: "商品圖 2"
       }
 
     ]
 
   },
 
-
-  /* ======================================
-     ★ 9/5 名古屋場限圖片
-  ====================================== */
 
   "nagoya-0905": {
 
@@ -4703,11 +3888,8 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "名古屋場限.JPG",
-
-        title:
-          "9/5 名古屋場限"
+        src: "名古屋場限.JPG",
+        title: "9/5 名古屋場限"
       }
 
     ]
@@ -4723,20 +3905,13 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "this-that-1.jpeg.jpg",
-
-        title:
-          "商品圖"
+        src: "this-that-1.jpeg.jpg",
+        title: "商品圖"
       },
 
-
       {
-        src:
-          "this-that-2.jpeg.jpg",
-
-        title:
-          "Lucky Draw 特典圖"
+        src: "this-that-2.jpeg.jpg",
+        title: "Lucky Draw 特典圖"
       }
 
     ]
@@ -4752,11 +3927,8 @@ const catalogData = {
     images: [
 
       {
-        src:
-          "sony-music-1.JPG",
-
-        title:
-          "Sony music 通路特典"
+        src: "sony-music-1.JPG",
+        title: "Sony music 通路特典"
       }
 
     ]
@@ -4775,43 +3947,21 @@ function escapeHTML(value) {
   return String(
     value ?? ""
   )
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
 /* ========================================
-   開始選購
+   團務頁開始選購
 ======================================== */
 
 document
-  .querySelectorAll(
-    "[data-order]"
-  )
+  .querySelectorAll("[data-order]")
   .forEach(
     button => {
 
@@ -4824,15 +3974,12 @@ document
 
 
           if (
-            closedGroups.has(
-              groupId
-            )
+            closedGroups.has(groupId)
           ) {
 
             alert(
               "此團務已結束，目前已停止收單。"
             );
-
 
             return;
 
@@ -4852,9 +3999,8 @@ document
 
 
           productGroupName.textContent =
-            groupMeta[
-              groupId
-            ]?.activity || "";
+            groupMeta[groupId]
+              ?.activity || "";
 
 
           showPage(
@@ -4885,11 +4031,15 @@ document
     "click",
     () => {
 
+      const returnPage =
+        productReturnPage;
+
+
       resetOrderFlow();
 
 
       showPage(
-        productReturnPage
+        returnPage
       );
 
     }
@@ -4897,7 +4047,7 @@ document
 
 
 /* ========================================
-   商品頁 → 查看注意事項
+   商品頁 → 注意事項
 ======================================== */
 
 document
@@ -4916,6 +4066,11 @@ document
         "← 返回商品選購";
 
 
+      /*
+        不重新產生商品，
+        因此選項、數量與勾選狀態保留
+      */
+
       showPage(
         "noticePage"
       );
@@ -4923,10 +4078,6 @@ document
     }
   );
 
-
-/* ========================================
-   注意事項返回
-======================================== */
 
 noticeBackButton.addEventListener(
   "click",
@@ -4947,9 +4098,7 @@ noticeBackButton.addEventListener(
 function renderCatalog(groupId) {
 
   const catalog =
-    catalogData[
-      groupId
-    ];
+    catalogData[groupId];
 
 
   if (
@@ -4960,10 +4109,8 @@ function renderCatalog(groupId) {
     catalogCard.style.display =
       "none";
 
-
     catalogGallery.innerHTML =
       "";
-
 
     return;
 
@@ -4975,8 +4122,7 @@ function renderCatalog(groupId) {
 
 
   catalogWarning.textContent =
-    catalog.warning ||
-    "";
+    catalog.warning || "";
 
 
   catalogGallery.className =
@@ -4984,38 +4130,30 @@ function renderCatalog(groupId) {
 
 
   if (
-    catalog.images.length ===
-      1
+    catalog.images.length === 1
   ) {
 
-    catalogGallery
-      .classList
-      .add(
-        "one-image"
-      );
+    catalogGallery.classList.add(
+      "one-image"
+    );
 
   }
 
   else if (
-    catalog.images.length ===
-      2
+    catalog.images.length === 2
   ) {
 
-    catalogGallery
-      .classList
-      .add(
-        "two-images"
-      );
+    catalogGallery.classList.add(
+      "two-images"
+    );
 
   }
 
   else {
 
-    catalogGallery
-      .classList
-      .add(
-        "three-images"
-      );
+    catalogGallery.classList.add(
+      "three-images"
+    );
 
   }
 
@@ -5029,24 +4167,13 @@ function renderCatalog(groupId) {
 
             <img
               class="catalog-image"
-
-              src="${escapeHTML(
-                image.src
-              )}"
-
-              alt="${escapeHTML(
-                image.title
-              )}"
-
+              src="${escapeHTML(image.src)}"
+              alt="${escapeHTML(image.title)}"
               loading="lazy"
             >
 
             <div class="catalog-caption">
-
-              ${escapeHTML(
-                image.title
-              )}
-
+              ${escapeHTML(image.title)}
             </div>
 
           </div>
@@ -5070,7 +4197,6 @@ const imageModal =
     "imageModal"
   );
 
-
 const modalImage =
   document.getElementById(
     "modalImage"
@@ -5093,16 +4219,12 @@ function bindCatalogImages() {
             modalImage.src =
               image.src;
 
-
             modalImage.alt =
               image.alt;
 
-
             imageModal
               .classList
-              .add(
-                "open"
-              );
+              .add("open");
 
           }
         );
@@ -5115,23 +4237,17 @@ function bindCatalogImages() {
 
 function closeImageModal() {
 
-  imageModal
-    .classList
-    .remove(
-      "open"
-    );
+  imageModal.classList.remove(
+    "open"
+  );
 
-
-  modalImage.src =
-    "";
+  modalImage.src = "";
 
 }
 
 
 document
-  .getElementById(
-    "imageClose"
-  )
+  .getElementById("imageClose")
   .addEventListener(
     "click",
     closeImageModal
@@ -5143,8 +4259,7 @@ imageModal.addEventListener(
   event => {
 
     if (
-      event.target ===
-        imageModal
+      event.target === imageModal
     ) {
 
       closeImageModal();
@@ -5156,7 +4271,7 @@ imageModal.addEventListener(
 
 
 /* ========================================
-   一番賞庫存
+   讀取庫存
 ======================================== */
 
 async function loadInventory(
@@ -5169,9 +4284,7 @@ async function loadInventory(
     )
   ) {
 
-    currentInventory =
-      null;
-
+    currentInventory = null;
 
     return;
 
@@ -5180,18 +4293,12 @@ async function loadInventory(
 
   const response =
     await fetch(
-
       WORKER_URL +
       "/inventory?groupId=" +
-      encodeURIComponent(
-        groupId
-      ),
-
+      encodeURIComponent(groupId),
       {
-        cache:
-          "no-store"
+        cache: "no-store"
       }
-
     );
 
 
@@ -5205,10 +4312,8 @@ async function loadInventory(
   ) {
 
     throw new Error(
-
       result.message ||
       "庫存讀取失敗"
-
     );
 
   }
@@ -5221,10 +4326,10 @@ async function loadInventory(
 
 
 /* ========================================
-   一番賞款式
+   取得庫存款式
 ======================================== */
 
-function getKujiVariants(
+function getStockVariants(
   productName
 ) {
 
@@ -5236,8 +4341,7 @@ function getKujiVariants(
 
   if (
     !product ||
-    typeof product !==
-      "object"
+    typeof product !== "object"
   ) {
 
     return [];
@@ -5245,15 +4349,13 @@ function getKujiVariants(
   }
 
 
-  return Object.keys(
-    product
-  );
+  return Object.keys(product);
 
 }
 
 
 /* ========================================
-   庫存
+   取得剩餘數量
 ======================================== */
 
 function getStock(
@@ -5262,21 +4364,17 @@ function getStock(
 ) {
 
   return Number(
-
     currentInventory
       ?.products
       ?.[productName]
-      ?.[variant]
-
-    ?? 0
-
+      ?.[variant] ?? 0
   );
 
 }
 
 
 /* ========================================
-   商品選項
+   建立商品選項
 ======================================== */
 
 function createChoiceHTML(
@@ -5285,18 +4383,15 @@ function createChoiceHTML(
 ) {
 
   const stockManaged =
-    product.stockManaged ===
-      true;
+    product.stockManaged === true;
 
 
   const stock =
     stockManaged
-
       ? getStock(
           product.name,
           variant
         )
-
       : 99;
 
 
@@ -5307,17 +4402,11 @@ function createChoiceHTML(
 
   const max =
     stockManaged
-
-      ? Math.max(
-          stock,
-          1
-        )
-
+      ? Math.max(stock, 1)
       : 99;
 
 
-  let stockHTML =
-    "";
+  let stockHTML = "";
 
 
   if (
@@ -5326,17 +4415,12 @@ function createChoiceHTML(
 
     stockHTML =
       soldOut
-
         ? `
-
           <span class="stock-text stock-out">
             已售罄
           </span>
-
         `
-
         : `
-
           <span
             class="
               stock-text
@@ -5345,7 +4429,6 @@ function createChoiceHTML(
           >
             剩餘 ${stock}
           </span>
-
         `;
 
   }
@@ -5364,36 +4447,22 @@ function createChoiceHTML(
 
         <input
           class="product-checkbox"
-
           type="checkbox"
-
-          data-product="${escapeHTML(
-            product.name
-          )}"
-
-          data-variant="${escapeHTML(
-            variant
-          )}"
-
+          data-product="${escapeHTML(product.name)}"
+          data-variant="${escapeHTML(variant)}"
           data-price="${product.price}"
-
           data-stock-managed="${stockManaged}"
-
           ${soldOut ? "disabled" : ""}
         >
-
 
         <span class="choice-label-wrap">
 
           <span class="choice-label">
-
             ${escapeHTML(
               variant ||
               "加入此商品"
             )}
-
           </span>
-
 
           ${stockHTML}
 
@@ -5412,23 +4481,15 @@ function createChoiceHTML(
           −
         </button>
 
-
         <input
           class="qty-input"
-
           type="number"
-
           inputmode="numeric"
-
           min="1"
-
           max="${max}"
-
           value="1"
-
           disabled
         >
-
 
         <button
           type="button"
@@ -5456,17 +4517,13 @@ async function renderProducts(
 ) {
 
   productContainer.innerHTML = `
-
     <div class="product-placeholder">
       讀取商品中…
     </div>
-
   `;
 
 
-  renderCatalog(
-    groupId
-  );
+  renderCatalog(groupId);
 
 
   try {
@@ -5479,19 +4536,13 @@ async function renderProducts(
 
   catch(error) {
 
-    console.error(
-      error
-    );
-
+    console.error(error);
 
     productContainer.innerHTML = `
-
       <div class="product-placeholder">
         庫存讀取失敗，請稍後重新整理再試
       </div>
-
     `;
-
 
     return;
 
@@ -5499,9 +4550,7 @@ async function renderProducts(
 
 
   const products =
-    productData[
-      groupId
-    ];
+    productData[groupId];
 
 
   if (
@@ -5509,31 +4558,25 @@ async function renderProducts(
   ) {
 
     productContainer.innerHTML = `
-
       <div class="product-placeholder">
         目前暫無商品
       </div>
-
     `;
 
-
     updateTotal();
-
 
     return;
 
   }
 
 
-  productContainer.innerHTML =
-    "";
+  productContainer.innerHTML = "";
 
 
   products.forEach(
     product => {
 
-      let variants =
-        [];
+      let variants = [];
 
 
       if (
@@ -5541,7 +4584,7 @@ async function renderProducts(
       ) {
 
         variants =
-          getKujiVariants(
+          getStockVariants(
             product.name
           );
 
@@ -5561,7 +4604,6 @@ async function renderProducts(
 
       const choicesHTML =
         variants.length
-
           ? variants
               .map(
                 variant =>
@@ -5571,7 +4613,6 @@ async function renderProducts(
                   )
               )
               .join("")
-
           : createChoiceHTML(
               product
             );
@@ -5586,7 +4627,7 @@ async function renderProducts(
       ) {
 
         hint =
-          "限量庫存・可增加數量";
+          "限量庫存・依剩餘數量選購";
 
       }
 
@@ -5617,59 +4658,40 @@ async function renderProducts(
           <div class="product-summary-left">
 
             <div class="product-name">
-
-              ${escapeHTML(
-                product.name
-              )}
-
+              ${escapeHTML(product.name)}
             </div>
 
-
             <div class="product-hint">
-
-              ${escapeHTML(
-                hint
-              )}
-
+              ${escapeHTML(hint)}
             </div>
 
           </div>
 
-
           <div class="product-price">
-
             NT$
             ${Number(
               product.price
-            ).toLocaleString(
-              "zh-TW"
-            )}
-
+            ).toLocaleString("zh-TW")}
           </div>
 
         </summary>
 
-
         <div class="variant-list">
-
           ${choicesHTML}
-
         </div>
 
       `;
 
 
-      productContainer
-        .appendChild(
-          card
-        );
+      productContainer.appendChild(
+        card
+      );
 
     }
   );
 
 
   bindProductEvents();
-
 
   updateTotal();
 
@@ -5694,18 +4716,15 @@ function bindProductEvents() {
             ".product-checkbox"
           );
 
-
         const qty =
           row.querySelector(
             ".qty-input"
           );
 
-
         const minus =
           row.querySelector(
             ".qty-minus"
           );
-
 
         const plus =
           row.querySelector(
@@ -5717,9 +4736,7 @@ function bindProductEvents() {
           !checkbox ||
           checkbox.disabled
         ) {
-
           return;
-
         }
 
 
@@ -5734,22 +4751,15 @@ function bindProductEvents() {
             qty.disabled =
               !enabled;
 
-
             minus.disabled =
               !enabled;
-
 
             plus.disabled =
               !enabled;
 
 
-            if (
-              !enabled
-            ) {
-
-              qty.value =
-                1;
-
+            if (!enabled) {
+              qty.value = 1;
             }
 
 
@@ -5771,14 +4781,10 @@ function bindProductEvents() {
 
             qty.value =
               Math.max(
-
                 1,
-
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 ) - 1
-
               );
 
 
@@ -5794,21 +4800,16 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max ||
-                99
+                qty.max || 99
               );
 
 
             qty.value =
               Math.min(
-
                 max,
-
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 ) + 1
-
               );
 
 
@@ -5824,38 +4825,29 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max ||
-                99
+                qty.max || 99
               );
 
 
             let value =
               Math.floor(
-
                 Number(
-                  qty.value ||
-                  1
+                  qty.value || 1
                 )
-
               );
 
 
             value =
               Math.max(
-
                 1,
-
                 Math.min(
                   max,
                   value
                 )
-
               );
 
 
-            qty.value =
-              value;
-
+            qty.value = value;
 
             updateTotal();
 
@@ -5869,111 +4861,100 @@ function bindProductEvents() {
 
 
 /* ========================================
-   取得商品
+   取得已選商品
 ======================================== */
 
 function collectSelectedProducts() {
 
   return [
-
     ...productContainer
       .querySelectorAll(
         ".product-checkbox:checked"
       )
+  ]
+    .map(
+      checkbox => {
 
-  ].map(
-    checkbox => {
-
-      const row =
-        checkbox.closest(
-          ".product-choice"
-        );
+        const row =
+          checkbox.closest(
+            ".product-choice"
+          );
 
 
-      const quantity =
-        Math.max(
+        const quantity =
+          Math.max(
+            1,
+            Number(
+              row
+                .querySelector(
+                  ".qty-input"
+                )
+                .value || 1
+            )
+          );
 
-          1,
 
+        const productName =
+          checkbox.dataset.product;
+
+
+        const variant =
+          checkbox.dataset.variant ||
+          "";
+
+
+        const unitPrice =
           Number(
-
-            row
-              .querySelector(
-                ".qty-input"
-              )
-              .value
-
-            || 1
-
-          )
-
-        );
+            checkbox.dataset.price ||
+            0
+          );
 
 
-      const productName =
-        checkbox.dataset.product;
+        const lineTotal =
+          unitPrice * quantity;
 
 
-      const variant =
-        checkbox.dataset.variant ||
-        "";
+        let displayName =
+          productName;
 
 
-      const unitPrice =
-        Number(
-          checkbox.dataset.price ||
-          0
-        );
+        if (variant) {
 
+          displayName +=
+            `｜${variant}`;
 
-      const lineTotal =
-        unitPrice *
-        quantity;
+        }
 
-
-      let displayName =
-        productName;
-
-
-      if (
-        variant
-      ) {
 
         displayName +=
-          `｜${variant}`;
+          ` ×${quantity}`;
+
+
+        return {
+
+          name:
+            displayName,
+
+          productName,
+
+          variant,
+
+          quantity,
+
+          unitPrice,
+
+          price:
+            lineTotal,
+
+          stockManaged:
+            checkbox.dataset
+              .stockManaged ===
+            "true"
+
+        };
 
       }
-
-
-      displayName +=
-        ` ×${quantity}`;
-
-
-      return {
-
-        name:
-          displayName,
-
-        productName,
-
-        variant,
-
-        quantity,
-
-        unitPrice,
-
-        price:
-          lineTotal,
-
-        stockManaged:
-          checkbox.dataset
-            .stockManaged ===
-          "true"
-
-      };
-
-    }
-  );
+    );
 
 }
 
@@ -6020,7 +5001,7 @@ function updateTotal() {
 
 
 /* ========================================
-   下一步狀態
+   下一步
 ======================================== */
 
 function updateNextButton() {
@@ -6050,7 +5031,7 @@ readNoticeCheckbox.addEventListener(
 
 
 /* ========================================
-   下一步 → 匯款頁
+   商品 → 匯款資料
 ======================================== */
 
 nextPaymentButton.addEventListener(
@@ -6061,14 +5042,11 @@ nextPaymentButton.addEventListener(
       collectSelectedProducts();
 
 
-    if (
-      !products.length
-    ) {
+    if (!products.length) {
 
       alert(
         "請至少選擇一項商品。"
       );
-
 
       return;
 
@@ -6082,7 +5060,6 @@ nextPaymentButton.addEventListener(
       alert(
         "請先勾選「已閱讀注意事項」。"
       );
-
 
       return;
 
@@ -6133,12 +5110,8 @@ nextPaymentButton.addEventListener(
 
 function renderCheckoutSummary() {
 
-  if (
-    !checkoutSnapshot
-  ) {
-
+  if (!checkoutSnapshot) {
     return;
-
   }
 
 
@@ -6155,16 +5128,12 @@ function renderCheckoutSummary() {
 
           <div class="checkout-product">
 
-            ${escapeHTML(
-              item.name
-            )}
+            ${escapeHTML(item.name)}
 
             ・NT$
             ${Number(
               item.price
-            ).toLocaleString(
-              "zh-TW"
-            )}
+            ).toLocaleString("zh-TW")}
 
           </div>
 
@@ -6176,17 +5145,12 @@ function renderCheckoutSummary() {
   checkoutSummary.innerHTML = `
 
     <div class="checkout-group">
-
       ${escapeHTML(
-        meta.activity ||
-        ""
+        meta.activity || ""
       )}
-
     </div>
 
-
     ${productsHTML}
-
 
     <div class="checkout-total">
 
@@ -6194,15 +5158,10 @@ function renderCheckoutSummary() {
         商品總金額
       </span>
 
-
       <span>
-
         NT$
         ${checkoutSnapshot.total
-          .toLocaleString(
-            "zh-TW"
-          )}
-
+          .toLocaleString("zh-TW")}
       </span>
 
     </div>
@@ -6253,9 +5212,7 @@ async function copyBankAccount(
     ) {
 
       await navigator.clipboard
-        .writeText(
-          account
-        );
+        .writeText(account);
 
     }
 
@@ -6275,31 +5232,24 @@ async function copyBankAccount(
       );
 
 
-    area.value =
-      account;
-
+    area.value = account;
 
     area.style.position =
       "fixed";
-
 
     area.style.left =
       "-9999px";
 
 
     document.body
-      .appendChild(
-        area
-      );
+      .appendChild(area);
 
 
     area.select();
 
-
     document.execCommand(
       "copy"
     );
-
 
     area.remove();
 
@@ -6308,7 +5258,6 @@ async function copyBankAccount(
 
   button.textContent =
     "✓ 已複製";
-
 
   button.classList.add(
     "copied"
@@ -6321,13 +5270,11 @@ async function copyBankAccount(
       button.textContent =
         originalText;
 
-
       button.classList.remove(
         "copied"
       );
 
     },
-
     1200
   );
 
@@ -6345,14 +5292,11 @@ paymentForm.addEventListener(
     event.preventDefault();
 
 
-    if (
-      !checkoutSnapshot
-    ) {
+    if (!checkoutSnapshot) {
 
       alert(
         "找不到商品資料，請重新選擇商品。"
       );
-
 
       return;
 
@@ -6364,15 +5308,12 @@ paymentForm.addEventListener(
 
 
     if (
-      closedGroups.has(
-        groupId
-      )
+      closedGroups.has(groupId)
     ) {
 
       alert(
         "此團務已結束，目前已停止收單。"
       );
-
 
       return;
 
@@ -6398,22 +5339,18 @@ paymentForm.addEventListener(
         "匯款帳號後五碼必須是 5 位數字。"
       );
 
-
       return;
 
     }
 
 
     const meta =
-      groupMeta[
-        groupId
-      ] || {};
+      groupMeta[groupId] || {};
 
 
     const formData = {
 
       groupId,
-
 
       facebookName:
         document
@@ -6423,30 +5360,20 @@ paymentForm.addEventListener(
           .value
           .trim(),
 
-
       community:
-        meta.activity ||
-        "",
-
+        meta.activity || "",
 
       groupType:
-        meta.groupType ||
-        "",
-
+        meta.groupType || "",
 
       group:
-        meta.group ||
-        "",
-
+        meta.group || "",
 
       activity:
-        meta.activity ||
-        "",
-
+        meta.activity || "",
 
       products:
         checkoutSnapshot.products,
-
 
       paymentDate:
         document
@@ -6455,14 +5382,12 @@ paymentForm.addEventListener(
           )
           .value,
 
-
       paymentTime:
         document
           .getElementById(
             "paymentTime"
           )
           .value,
-
 
       paymentBank:
         document
@@ -6471,13 +5396,10 @@ paymentForm.addEventListener(
           )
           .value,
 
-
       paymentAmount:
         checkoutSnapshot.total,
 
-
       accountLastFive,
-
 
       note:
         document
@@ -6491,55 +5413,40 @@ paymentForm.addEventListener(
 
 
     const submitButton =
-      paymentForm
-        .querySelector(
-          ".submit-button"
-        );
+      paymentForm.querySelector(
+        ".submit-button"
+      );
 
 
     submitButton.disabled =
       true;
 
 
-submitButton.textContent =
-  stockManagedGroups.has(
-    groupId
-  )
+    submitButton.textContent =
+      stockManagedGroups.has(groupId)
+        ? "確認庫存並送出中…"
+        : "送出中…";
 
-    ? "確認庫存並送出中…"
 
-    : "送出中…";
-    
-    
     try {
 
       const response =
         await fetch(
-
           WORKER_URL +
           "/submit",
-
           {
-
-            method:
-              "POST",
-
+            method: "POST",
 
             headers: {
-
               "Content-Type":
                 "application/json"
-
             },
-
 
             body:
               JSON.stringify(
                 formData
               )
-
           }
-
         );
 
 
@@ -6552,40 +5459,37 @@ submitButton.textContent =
         !result.success
       ) {
 
+        /*
+          限量庫存變動時，
+          重新抓最新庫存。
+        */
+
         if (
-  stockManagedGroups.has(
-    groupId
-  )
-) {
+          stockManagedGroups.has(
+            groupId
+          )
+        ) {
 
           alert(
-
             (
               result.message ||
               "庫存可能已經變更。"
             )
-
             +
-
             "\n請重新選擇商品。"
-
           );
 
 
           clearPaymentFields();
 
-
           readNoticeCheckbox.checked =
             false;
-
 
           nextPaymentButton.disabled =
             true;
 
-
           checkoutSnapshot =
             null;
-
 
           checkoutSummary.innerHTML =
             "";
@@ -6593,10 +5497,8 @@ submitButton.textContent =
 
           showPage(
             "productPage",
-
             {
-              skipPaymentReset:
-                true
+              skipPaymentReset: true
             }
           );
 
@@ -6612,12 +5514,9 @@ submitButton.textContent =
 
 
         alert(
-
           result.message ||
           "送出失敗，請稍後再試。"
-
         );
-
 
         return;
 
@@ -6627,15 +5526,20 @@ submitButton.textContent =
       resetOrderFlow();
 
 
+      paymentGroupSelect.value =
+        "";
+
+      paymentGroupStartButton.disabled =
+        true;
+
+
       loadPublicProgress();
 
 
       showPage(
         "successPage",
-
         {
-          skipPaymentReset:
-            true
+          skipPaymentReset: true
         }
       );
 
@@ -6643,10 +5547,7 @@ submitButton.textContent =
 
     catch(error) {
 
-      console.error(
-        error
-      );
-
+      console.error(error);
 
       alert(
         "目前無法送出資料，請確認網路後再試。"
@@ -6658,7 +5559,6 @@ submitButton.textContent =
 
       submitButton.disabled =
         false;
-
 
       submitButton.textContent =
         "送出匯款資料";
@@ -6673,16 +5573,9 @@ submitButton.textContent =
    公開對帳
 ======================================== */
 
-let defaultProgressData =
-  [];
-
-
-let currentTypeFilter =
-  "all";
-
-
-let currentGroupFilter =
-  "all";
+let defaultProgressData = [];
+let currentTypeFilter = "all";
+let currentGroupFilter = "all";
 
 
 const progressList =
@@ -6700,11 +5593,9 @@ const communitySearch =
 async function loadPublicProgress() {
 
   progressList.innerHTML = `
-
     <div class="card empty-message">
       讀取進度中… 🦊
     </div>
-
   `;
 
 
@@ -6712,15 +5603,11 @@ async function loadPublicProgress() {
 
     const response =
       await fetch(
-
         WORKER_URL +
         "/public/list",
-
         {
-          cache:
-            "no-store"
+          cache: "no-store"
         }
-
       );
 
 
@@ -6734,10 +5621,8 @@ async function loadPublicProgress() {
     ) {
 
       throw new Error(
-
         result.message ||
         "讀取失敗"
-
       );
 
     }
@@ -6747,9 +5632,7 @@ async function loadPublicProgress() {
       Array.isArray(
         result.submissions
       )
-
         ? result.submissions
-
         : [];
 
 
@@ -6759,17 +5642,13 @@ async function loadPublicProgress() {
 
   catch(error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     progressList.innerHTML = `
-
       <div class="card empty-message">
         暫時無法讀取進度 🦊
       </div>
-
     `;
 
   }
@@ -6796,108 +5675,72 @@ function renderProgress() {
 
         const itemType =
           String(
-            item.groupType ||
-            ""
+            item.groupType || ""
           );
-
 
         const itemGroup =
           String(
-            item.group ||
-            ""
+            item.group || ""
           );
-
 
         const community =
           String(
-            item.community ||
-            ""
+            item.community || ""
           );
-
 
         const facebook =
           String(
-            item.facebookName ||
-            ""
+            item.facebookName || ""
           );
 
 
         const matchesType =
-          currentTypeFilter ===
-            "all"
-
-          ||
-
-          itemType ===
-            currentTypeFilter;
+          currentTypeFilter === "all" ||
+          itemType === currentTypeFilter;
 
 
         const matchesGroup =
-          currentGroupFilter ===
-            "all"
-
-          ||
-
-          itemGroup ===
-            currentGroupFilter;
+          currentGroupFilter === "all" ||
+          itemGroup === currentGroupFilter;
 
 
         const matchesSearch =
-          !searchText
-
-          ||
-
+          !searchText ||
           community
             .toLowerCase()
-            .includes(
-              searchText
-            )
-
-          ||
-
+            .includes(searchText) ||
           facebook
             .toLowerCase()
-            .includes(
-              searchText
-            );
+            .includes(searchText);
 
 
         return (
-
           matchesType &&
           matchesGroup &&
           matchesSearch
-
         );
 
       }
     );
 
 
-  progressList.innerHTML =
-    "";
+  progressList.innerHTML = "";
 
 
-  if (
-    !filtered.length
-  ) {
+  if (!filtered.length) {
 
     progressList.innerHTML = `
-
       <div class="card empty-message">
         目前暫無團務資料 🦊
       </div>
-
     `;
-
 
     return;
 
   }
 
 
-  const groups =
-    {};
+  const groups = {};
 
 
   filtered.forEach(
@@ -6905,28 +5748,18 @@ function renderProgress() {
 
       const activity =
         item.activity ||
-
         item.community ||
-
         "團務進度";
 
 
-      if (
-        !groups[
-          activity
-        ]
-      ) {
+      if (!groups[activity]) {
 
-        groups[
-          activity
-        ] = [];
+        groups[activity] = [];
 
       }
 
 
-      groups[
-        activity
-      ].push(
+      groups[activity].push(
         item
       );
 
@@ -6934,9 +5767,7 @@ function renderProgress() {
   );
 
 
-  Object.entries(
-    groups
-  )
+  Object.entries(groups)
     .forEach(
       ([activity, items]) => {
 
@@ -6971,7 +5802,7 @@ function renderProgress() {
 
                 if (
                   paymentStatus ===
-                    "已匯款"
+                  "已匯款"
                 ) {
 
                   paymentClass =
@@ -6981,7 +5812,7 @@ function renderProgress() {
 
                 else if (
                   paymentStatus ===
-                    "需確認"
+                  "需確認"
                 ) {
 
                   paymentClass =
@@ -6995,8 +5826,7 @@ function renderProgress() {
 
 
                 if (
-                  progress ===
-                    "已下單"
+                  progress === "已下單"
                 ) {
 
                   progressClass =
@@ -7005,8 +5835,7 @@ function renderProgress() {
                 }
 
                 else if (
-                  progress ===
-                    "已到貨"
+                  progress === "已到貨"
                 ) {
 
                   progressClass =
@@ -7015,8 +5844,7 @@ function renderProgress() {
                 }
 
                 else if (
-                  progress ===
-                    "已寄出"
+                  progress === "已寄出"
                 ) {
 
                   progressClass =
@@ -7025,8 +5853,7 @@ function renderProgress() {
                 }
 
                 else if (
-                  progress ===
-                    "已完成"
+                  progress === "已完成"
                 ) {
 
                   progressClass =
@@ -7042,30 +5869,19 @@ function renderProgress() {
                     <div>
 
                       <div class="facebook-name">
-
                         ${escapeHTML(
-
                           item.facebookName ||
                           "未填 Facebook 名稱"
-
                         )}
-
                       </div>
 
-
                       <div class="community-small">
-
                         ${escapeHTML(
-
-                          item.community ||
-                          ""
-
+                          item.community || ""
                         )}
-
                       </div>
 
                     </div>
-
 
                     <div
                       class="
@@ -7073,13 +5889,10 @@ function renderProgress() {
                         ${paymentClass}
                       "
                     >
-
                       ${escapeHTML(
                         paymentStatus
                       )}
-
                     </div>
-
 
                     <div
                       class="
@@ -7087,11 +5900,9 @@ function renderProgress() {
                         ${progressClass}
                       "
                     >
-
                       ${escapeHTML(
                         progress
                       )}
-
                     </div>
 
                   </div>
@@ -7106,27 +5917,19 @@ function renderProgress() {
         element.innerHTML = `
 
           <div class="progress-group-header">
-
-            ${escapeHTML(
-              activity
-            )}
-
+            ${escapeHTML(activity)}
           </div>
 
-
           <div class="progress-group-body">
-
             ${rows}
-
           </div>
 
         `;
 
 
-        progressList
-          .appendChild(
-            element
-          );
+        progressList.appendChild(
+          element
+        );
 
       }
     );
@@ -7154,13 +5957,10 @@ document
               "#typeFilters .filter-button"
             )
             .forEach(
-              item => {
-
+              item =>
                 item.classList.remove(
                   "selected"
-                );
-
-              }
+                )
             );
 
 
@@ -7198,13 +5998,10 @@ document
               "#groupFilters .filter-button"
             )
             .forEach(
-              item => {
-
+              item =>
                 item.classList.remove(
                   "selected"
-                );
-
-              }
+                )
             );
 
 
@@ -7237,7 +6034,6 @@ communitySearch.addEventListener(
 ======================================== */
 
 resetScroll();
-
 
 loadPublicProgress();
 
