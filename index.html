@@ -3630,6 +3630,20 @@ const closedGroups =
 
 
 /* ========================================
+   有即時庫存的團務
+======================================== */
+
+const stockManagedGroups =
+  new Set([
+
+    "run-it-japan-kuji",
+
+    "nagoya-0905"
+
+  ]);
+
+
+/* ========================================
    狀態
 ======================================== */
 
@@ -4458,18 +4472,18 @@ const productData = {
 
   "nagoya-0905": [
 
-    {
-      name:
-        "9/5 名古屋場限",
+  {
+    name:
+      "9/5 名古屋場限",
 
-      price:
-        325,
+    price:
+      325,
 
-      variants:
-        nagoyaMembers
-    }
+    stockManaged:
+      true
+  }
 
-  ],
+],
 
 
   /* ======================================
@@ -5150,8 +5164,9 @@ async function loadInventory(
 ) {
 
   if (
-    groupId !==
-      "run-it-japan-kuji"
+    !stockManagedGroups.has(
+      groupId
+    )
   ) {
 
     currentInventory =
@@ -6486,15 +6501,16 @@ paymentForm.addEventListener(
       true;
 
 
-    submitButton.textContent =
-      groupId ===
-        "run-it-japan-kuji"
+submitButton.textContent =
+  stockManagedGroups.has(
+    groupId
+  )
 
-        ? "確認庫存並送出中…"
+    ? "確認庫存並送出中…"
 
-        : "送出中…";
-
-
+    : "送出中…";
+    
+    
     try {
 
       const response =
@@ -6537,9 +6553,10 @@ paymentForm.addEventListener(
       ) {
 
         if (
-          groupId ===
-            "run-it-japan-kuji"
-        ) {
+  stockManagedGroups.has(
+    groupId
+  )
+) {
 
           alert(
 
