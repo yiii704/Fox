@@ -67,7 +67,6 @@
     content="狐狸🦊日韓通路代購/拆車"
   >
 
-
   <meta
     name="twitter:card"
     content="summary_large_image"
@@ -188,6 +187,7 @@
     }
 
     @keyframes pageIn {
+
       from {
         opacity: 0;
         transform: translateY(7px);
@@ -197,6 +197,7 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
 
@@ -213,6 +214,7 @@
 
     body.home-mode > h1 {
       color: #ffffff;
+
       text-shadow:
         0 2px 8px
         rgba(0, 0, 0, 0.35);
@@ -483,7 +485,7 @@
 
 
     /* ========================================
-       匯款表單入口下拉式
+       匯款入口
     ======================================== */
 
     .payment-start-help {
@@ -846,7 +848,7 @@
 
 
     /* ========================================
-       商品總計
+       總計
     ======================================== */
 
     .total-box {
@@ -863,7 +865,7 @@
 
 
     /* ========================================
-       已閱讀注意事項
+       注意事項同意
     ======================================== */
 
     .agreement-card {
@@ -905,16 +907,6 @@
       border-radius: 999px;
       font-size: 16px;
       font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .view-notice-button:hover {
-      background: #f7f2ff;
-    }
-
-    .view-notice-button:active {
-      background: #f7f2ff;
-      transform: scale(0.98);
     }
 
     .agreement-help {
@@ -941,10 +933,6 @@
       background: #e8e5ec;
       color: #aaa3b0;
       cursor: not-allowed;
-    }
-
-    .next-button:not(:disabled):active {
-      transform: scale(0.98);
     }
 
 
@@ -1083,7 +1071,7 @@
 
       box-shadow:
         0 0 0 3px
-        rgba(159, 122, 234, 0.13);
+        rgba(159,122,234,0.13);
     }
 
     textarea {
@@ -1121,7 +1109,7 @@
 
       box-shadow:
         0 0 0 3px
-        rgba(159, 122, 234, 0.13);
+        rgba(159,122,234,0.13);
     }
 
     .ios-date-wrap input[type="date"],
@@ -1130,9 +1118,6 @@
       width: 100% !important;
       min-width: 0 !important;
       max-width: 100% !important;
-      inline-size: 100% !important;
-      min-inline-size: 0 !important;
-      max-inline-size: 100% !important;
       height: 100% !important;
       margin: 0 !important;
       padding: 12px 14px !important;
@@ -1143,18 +1128,6 @@
       outline: none !important;
       -webkit-appearance: none;
       appearance: none;
-      overflow: hidden !important;
-    }
-
-    .ios-date-wrap
-    input[type="date"]::-webkit-date-and-time-value,
-    .ios-date-wrap
-    input[type="time"]::-webkit-date-and-time-value {
-      width: 100%;
-      min-width: 0;
-      margin: 0;
-      padding: 0;
-      text-align: left;
     }
 
 
@@ -1191,11 +1164,8 @@
     }
 
     .bank-number {
-      color: #4f4660 !important;
-      text-decoration: none !important;
+      color: #4f4660;
       font-variant-numeric: tabular-nums;
-      user-select: all;
-      -webkit-user-select: all;
     }
 
     .copy-button {
@@ -1326,7 +1296,6 @@
       color: #71657d;
       font-size: 16px;
       line-height: 1.7;
-      word-break: break-word;
     }
 
     .contact-button {
@@ -1349,7 +1318,7 @@
 
 
     /* ========================================
-       對帳
+       對帳篩選
     ======================================== */
 
     .filter-label {
@@ -1384,6 +1353,11 @@
     .search-input {
       margin-top: 7px;
     }
+
+
+    /* ========================================
+       一般對帳表
+    ======================================== */
 
     .progress-group {
       margin-bottom: 18px;
@@ -1442,6 +1416,117 @@
       font-size: 13px;
       word-break: break-word;
     }
+
+
+    /* ========================================
+       ★ 搜尋名稱後的人員模式
+    ======================================== */
+
+    .public-person-group {
+      margin-bottom: 18px;
+      overflow: hidden;
+      background: #ffffff;
+
+      border:
+        1px solid #eee6ff;
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 6px 18px
+        rgba(116, 82, 165, 0.09);
+    }
+
+    .public-person-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+
+      padding: 15px 18px;
+
+      background: #eee6ff;
+
+      border-bottom:
+        1px solid #ded2f5;
+    }
+
+    .public-person-name {
+      color: #59349e;
+      font-size: 20px;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .public-person-count {
+      flex-shrink: 0;
+      color: #8a7a9b;
+      font-size: 12px;
+    }
+
+    .public-person-orders {
+      padding: 10px 15px 15px;
+    }
+
+    .public-person-order {
+      margin-top: 9px;
+      padding: 13px 14px;
+      background: #faf8ff;
+
+      border:
+        1px solid #eee6ff;
+
+      border-radius: 15px;
+    }
+
+    .public-order-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .public-order-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .public-order-name {
+      color: #594d68;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .public-order-type {
+      display: inline-flex;
+      margin-top: 6px;
+      padding: 4px 8px;
+      background: #eee3ff;
+      color: #6842b3;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .public-order-type.special {
+      background: #ffe8f1;
+      color: #a34d72;
+    }
+
+    .public-order-statuses {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+
+    /* ========================================
+       狀態
+    ======================================== */
 
     .status-pill,
     .stage-pill {
@@ -1640,6 +1725,30 @@
         font-size: 12px;
       }
 
+      .public-person-header {
+        padding: 13px 14px;
+      }
+
+      .public-person-name {
+        font-size: 18px;
+      }
+
+      .public-person-count {
+        font-size: 11px;
+      }
+
+      .public-person-orders {
+        padding: 8px 11px 12px;
+      }
+
+      .public-person-order {
+        padding: 11px 12px;
+      }
+
+      .public-order-name {
+        font-size: 14px;
+      }
+
     }
 
   </style>
@@ -1680,7 +1789,6 @@
       📦 團務
     </button>
 
-
     <button
       type="button"
       class="pill-button"
@@ -1688,7 +1796,6 @@
     >
       🗃️ 已結束團務
     </button>
-
 
     <button
       type="button"
@@ -1698,7 +1805,6 @@
       💰 匯款表單
     </button>
 
-
     <button
       type="button"
       class="pill-button"
@@ -1707,7 +1813,6 @@
       📌 注意事項
     </button>
 
-
     <button
       type="button"
       class="pill-button"
@@ -1715,7 +1820,6 @@
     >
       📊 對帳表＆進度表
     </button>
-
 
     <button
       type="button"
@@ -1764,7 +1868,6 @@
       >
         代購
       </button>
-
 
       <button
         type="button"
@@ -1838,7 +1941,7 @@
           data-order="run-it-japan-kuji"
           data-return="groupPage"
         >
-          查看剩餘庫存＆填寫表單
+          查看剩餘庫存＆填寫匯款表單
         </button>
 
       </div>
@@ -1875,7 +1978,7 @@
           data-order="nagoya-0905"
           data-return="groupPage"
         >
-          填寫匯款表單
+          查看剩餘庫存＆填寫匯款表單
         </button>
 
       </div>
@@ -1972,7 +2075,6 @@
 
 <!-- ========================================
      匯款表單入口
-     ★ 改回下拉式
 ======================================== -->
 
 <section
@@ -2062,7 +2164,7 @@
 
 
 <!-- ========================================
-     商品選購
+     商品
 ======================================== -->
 
 <section
@@ -2327,9 +2429,7 @@
       <li>廠損</li>
       <li>運輸損傷</li>
       <li>商品瑕疵</li>
-      <li>
-        不湊套（專卡、滿額卡及隨機商品等）
-      </li>
+      <li>不湊套（專卡、滿額卡及隨機商品等）</li>
 
     </ul>
 
@@ -2343,7 +2443,7 @@
 
 
 <!-- ========================================
-     真正匯款資料
+     匯款資料
 ======================================== -->
 
 <section
@@ -2734,14 +2834,15 @@
 
 
     <div class="filter-label">
-      搜尋
+      依名稱搜尋
     </div>
 
     <input
       id="communitySearch"
       class="search-input"
       type="search"
-      placeholder="社群名稱或 Facebook 名稱"
+      placeholder="輸入 Facebook 名稱"
+      autocomplete="off"
     >
 
   </div>
@@ -2753,7 +2854,7 @@
 
 
 <!-- ========================================
-     聯絡方式
+     聯絡
 ======================================== -->
 
 <section
@@ -2866,7 +2967,7 @@
 
 
 <!-- ========================================
-     成功頁
+     成功
 ======================================== -->
 
 <section
@@ -2969,7 +3070,7 @@ const WORKER_URL =
 
 
 /* ========================================
-   已結束團務
+   已結束
 ======================================== */
 
 const closedGroups =
@@ -2980,7 +3081,7 @@ const closedGroups =
 
 
 /* ========================================
-   即時庫存團務
+   庫存團務
 ======================================== */
 
 const stockManagedGroups =
@@ -3008,7 +3109,10 @@ let checkoutSnapshot = null;
 if (
   "scrollRestoration" in history
 ) {
-  history.scrollRestoration = "manual";
+
+  history.scrollRestoration =
+    "manual";
+
 }
 
 
@@ -3017,52 +3121,84 @@ if (
 ======================================== */
 
 const pages =
-  document.querySelectorAll(".page");
+  document.querySelectorAll(
+    ".page"
+  );
 
 const productContainer =
-  document.getElementById("productContainer");
+  document.getElementById(
+    "productContainer"
+  );
 
 const selectedSummary =
-  document.getElementById("selectedSummary");
+  document.getElementById(
+    "selectedSummary"
+  );
 
 const calculatedTotal =
-  document.getElementById("calculatedTotal");
+  document.getElementById(
+    "calculatedTotal"
+  );
 
 const productGroupName =
-  document.getElementById("productGroupName");
+  document.getElementById(
+    "productGroupName"
+  );
 
 const catalogCard =
-  document.getElementById("catalogCard");
+  document.getElementById(
+    "catalogCard"
+  );
 
 const catalogGallery =
-  document.getElementById("catalogGallery");
+  document.getElementById(
+    "catalogGallery"
+  );
 
 const catalogWarning =
-  document.getElementById("catalogWarning");
+  document.getElementById(
+    "catalogWarning"
+  );
 
 const readNoticeCheckbox =
-  document.getElementById("readNoticeCheckbox");
+  document.getElementById(
+    "readNoticeCheckbox"
+  );
 
 const nextPaymentButton =
-  document.getElementById("nextPaymentButton");
+  document.getElementById(
+    "nextPaymentButton"
+  );
 
 const checkoutSummary =
-  document.getElementById("checkoutSummary");
+  document.getElementById(
+    "checkoutSummary"
+  );
 
 const paymentForm =
-  document.getElementById("paymentForm");
+  document.getElementById(
+    "paymentForm"
+  );
 
 const paymentAmount =
-  document.getElementById("paymentAmount");
+  document.getElementById(
+    "paymentAmount"
+  );
 
 const noticeBackButton =
-  document.getElementById("noticeBackButton");
+  document.getElementById(
+    "noticeBackButton"
+  );
 
 const paymentGroupSelect =
-  document.getElementById("paymentGroupSelect");
+  document.getElementById(
+    "paymentGroupSelect"
+  );
 
 const paymentGroupStartButton =
-  document.getElementById("paymentGroupStartButton");
+  document.getElementById(
+    "paymentGroupStartButton"
+  );
 
 
 /* ========================================
@@ -3071,47 +3207,59 @@ const paymentGroupStartButton =
 
 function resetScroll() {
 
-  window.scrollTo(0, 0);
+  window.scrollTo(
+    0,
+    0
+  );
 
-  document.documentElement.scrollTop = 0;
+  document.documentElement.scrollTop =
+    0;
 
-  document.body.scrollTop = 0;
+  document.body.scrollTop =
+    0;
 
 }
 
 
 /* ========================================
-   清空匯款欄位
+   清匯款
 ======================================== */
 
 function clearPaymentFields() {
 
   paymentForm.reset();
 
-  paymentAmount.value = "";
+  paymentAmount.value =
+    "";
 
 }
 
 
 /* ========================================
-   清空完整訂單流程
+   清流程
 ======================================== */
 
 function resetOrderFlow() {
 
   paymentForm.reset();
 
-  currentGroupId = "";
+  currentGroupId =
+    "";
 
-  currentInventory = null;
+  currentInventory =
+    null;
 
-  checkoutSnapshot = null;
+  checkoutSnapshot =
+    null;
 
-  readNoticeCheckbox.checked = false;
+  readNoticeCheckbox.checked =
+    false;
 
-  nextPaymentButton.disabled = true;
+  nextPaymentButton.disabled =
+    true;
 
-  productGroupName.textContent = "";
+  productGroupName.textContent =
+    "";
 
   productContainer.innerHTML = `
     <div class="product-placeholder">
@@ -3125,22 +3273,26 @@ function resetOrderFlow() {
   calculatedTotal.textContent =
     "NT$ 0";
 
-  paymentAmount.value = "";
+  paymentAmount.value =
+    "";
 
-  checkoutSummary.innerHTML = "";
+  checkoutSummary.innerHTML =
+    "";
 
   catalogCard.style.display =
     "none";
 
-  catalogGallery.innerHTML = "";
+  catalogGallery.innerHTML =
+    "";
 
-  catalogWarning.textContent = "";
+  catalogWarning.textContent =
+    "";
 
 }
 
 
 /* ========================================
-   頁面切換
+   頁面
 ======================================== */
 
 function showPage(
@@ -3154,22 +3306,19 @@ function showPage(
     );
 
 
-  /*
-    匯款頁 → 商品頁
-
-    商品、數量保留
-    匯款資料清空
-    注意事項重新勾選
-  */
-
   if (
-    currentPage?.id === "paymentPage" &&
-    pageId !== "paymentPage" &&
+    currentPage?.id ===
+      "paymentPage"
+    &&
+    pageId !==
+      "paymentPage"
+    &&
     !options.skipPaymentReset
   ) {
 
     if (
-      pageId === "productPage"
+      pageId ===
+        "productPage"
     ) {
 
       clearPaymentFields();
@@ -3199,7 +3348,9 @@ function showPage(
 
   document.body
     .classList
-    .remove("home-mode");
+    .remove(
+      "home-mode"
+    );
 
 
   pages.forEach(
@@ -3233,7 +3384,8 @@ function showPage(
 
 
   if (
-    pageId === "homePage"
+    pageId ===
+      "homePage"
   ) {
 
     requestAnimationFrame(
@@ -3243,7 +3395,9 @@ function showPage(
 
         document.body
           .classList
-          .add("home-mode");
+          .add(
+            "home-mode"
+          );
 
         requestAnimationFrame(
           resetScroll
@@ -3258,11 +3412,13 @@ function showPage(
 
 
 /* ========================================
-   一般頁面切換
+   一般切換
 ======================================== */
 
 document
-  .querySelectorAll("[data-target]")
+  .querySelectorAll(
+    "[data-target]"
+  )
   .forEach(
     button => {
 
@@ -3272,7 +3428,7 @@ document
 
           if (
             button.dataset.target ===
-            "noticePage"
+              "noticePage"
           ) {
 
             noticeReturnPage =
@@ -3370,10 +3526,13 @@ document
 
 
               buttons.forEach(
-                item =>
+                item => {
+
                   item.classList.remove(
                     "selected"
-                  )
+                  );
+
+                }
               );
 
 
@@ -3386,11 +3545,12 @@ document
                 content => {
 
                   content.classList.toggle(
+
                     "active",
 
-                    content.dataset
-                      .groupContent ===
+                    content.dataset.groupContent ===
                       selectedType
+
                   );
 
                 }
@@ -3407,7 +3567,7 @@ document
 
 
 /* ========================================
-   匯款表單下拉選單
+   匯款團務下拉
 ======================================== */
 
 paymentGroupSelect.addEventListener(
@@ -3441,7 +3601,9 @@ paymentGroupStartButton.addEventListener(
 
 
     if (
-      closedGroups.has(groupId)
+      closedGroups.has(
+        groupId
+      )
     ) {
 
       alert(
@@ -3466,7 +3628,8 @@ paymentGroupStartButton.addEventListener(
 
     productGroupName.textContent =
       groupMeta[groupId]
-        ?.activity || "";
+        ?.activity ||
+      "";
 
 
     showPage(
@@ -3483,10 +3646,11 @@ paymentGroupStartButton.addEventListener(
 
 
 /* ========================================
-   Stray Kids
+   SKZ
 ======================================== */
 
 const skzMembers = [
+
   "Bang Chan",
   "Lee Know",
   "Changbin",
@@ -3495,20 +3659,23 @@ const skzMembers = [
   "Felix",
   "Seungmin",
   "I.N"
+
 ];
 
 
 const tShirtVariants =
   skzMembers.flatMap(
     member => [
+
       `${member} / M`,
       `${member} / L`
+
     ]
   );
 
 
 /* ========================================
-   商品資料
+   商品
 ======================================== */
 
 const productData = {
@@ -3525,13 +3692,20 @@ const productData = {
     {
       name: "照片 T-shirt",
       price: 990,
-      variants: ["M", "L", "XL"]
+      variants: [
+        "M",
+        "L",
+        "XL"
+      ]
     },
 
     {
       name: "防風外套",
       price: 2090,
-      variants: ["M", "L"]
+      variants: [
+        "M",
+        "L"
+      ]
     },
 
     {
@@ -3574,7 +3748,10 @@ const productData = {
     {
       name: "小卡組",
       price: 310,
-      variants: ["A", "B"]
+      variants: [
+        "A",
+        "B"
+      ]
     },
 
     {
@@ -3708,45 +3885,13 @@ const productData = {
       stockManaged: true
     }
 
-  ],
-
-
-  "this-that-lucky-draw": [
-
-    {
-      name:
-        "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)",
-
-      price: 470
-    }
-
-  ],
-
-
-  "sony-music-benefit": [
-
-    {
-      name: "THIS VER.",
-      price: 750
-    },
-
-    {
-      name: "THAT VER.",
-      price: 750
-    },
-
-    {
-      name: "& VER（8張一套）",
-      price: 4400
-    }
-
   ]
 
 };
 
 
 /* ========================================
-   團務資料
+   團務資訊
 ======================================== */
 
 const groupMeta = {
@@ -3791,41 +3936,13 @@ const groupMeta = {
     activity:
       "9/5 名古屋場限"
 
-  },
-
-
-  "this-that-lucky-draw": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
-
-    activity:
-      "[LUCKY DRAW] THIS & THAT (THIS VER., THAT VER.)"
-
-  },
-
-
-  "sony-music-benefit": {
-
-    groupType:
-      "代購",
-
-    group:
-      "Stray Kids",
-
-    activity:
-      "Sony music 通路特典（含專）"
-
   }
 
 };
 
 
 /* ========================================
-   商品圖片
+   商品圖
 ======================================== */
 
 const catalogData = {
@@ -3883,7 +4000,7 @@ const catalogData = {
   "nagoya-0905": {
 
     warning:
-      "9/5 名古屋場限",
+      "9/5 名古屋場限單特典，一張 NT$325。實際可選成員請以即時剩餘庫存為準。",
 
     images: [
 
@@ -3894,74 +4011,59 @@ const catalogData = {
 
     ]
 
-  },
-
-
-  "this-that-lucky-draw": {
-
-    warning:
-      "圖片為商品與 Lucky Draw 特典示意，實際商品及隨機特典以官方出貨內容為準。",
-
-    images: [
-
-      {
-        src: "this-that-1.jpeg.jpg",
-        title: "商品圖"
-      },
-
-      {
-        src: "this-that-2.jpeg.jpg",
-        title: "Lucky Draw 特典圖"
-      }
-
-    ]
-
-  },
-
-
-  "sony-music-benefit": {
-
-    warning:
-      "圖片為 Sony music 通路特典示意圖，實際商品與特典內容以官方出貨為準。",
-
-    images: [
-
-      {
-        src: "sony-music-1.JPG",
-        title: "Sony music 通路特典"
-      }
-
-    ]
-
   }
 
 };
 
 
 /* ========================================
-   HTML 安全
+   HTML
 ======================================== */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
   return String(
     value ?? ""
   )
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 /* ========================================
-   團務頁開始選購
+   團務按鈕
 ======================================== */
 
 document
-  .querySelectorAll("[data-order]")
+  .querySelectorAll(
+    "[data-order]"
+  )
   .forEach(
     button => {
 
@@ -3971,19 +4073,6 @@ document
 
           const groupId =
             button.dataset.order;
-
-
-          if (
-            closedGroups.has(groupId)
-          ) {
-
-            alert(
-              "此團務已結束，目前已停止收單。"
-            );
-
-            return;
-
-          }
 
 
           resetOrderFlow();
@@ -4000,7 +4089,8 @@ document
 
           productGroupName.textContent =
             groupMeta[groupId]
-              ?.activity || "";
+              ?.activity ||
+            "";
 
 
           showPage(
@@ -4020,7 +4110,7 @@ document
 
 
 /* ========================================
-   商品頁返回
+   商品返回
 ======================================== */
 
 document
@@ -4047,7 +4137,7 @@ document
 
 
 /* ========================================
-   商品頁 → 注意事項
+   商品 → 注意事項
 ======================================== */
 
 document
@@ -4065,11 +4155,6 @@ document
       noticeBackButton.textContent =
         "← 返回商品選購";
 
-
-      /*
-        不重新產生商品，
-        因此選項、數量與勾選狀態保留
-      */
 
       showPage(
         "noticePage"
@@ -4092,10 +4177,12 @@ noticeBackButton.addEventListener(
 
 
 /* ========================================
-   商品圖鑑
+   圖鑑
 ======================================== */
 
-function renderCatalog(groupId) {
+function renderCatalog(
+  groupId
+) {
 
   const catalog =
     catalogData[groupId];
@@ -4122,7 +4209,8 @@ function renderCatalog(groupId) {
 
 
   catalogWarning.textContent =
-    catalog.warning || "";
+    catalog.warning ||
+    "";
 
 
   catalogGallery.className =
@@ -4130,7 +4218,8 @@ function renderCatalog(groupId) {
 
 
   if (
-    catalog.images.length === 1
+    catalog.images.length ===
+      1
   ) {
 
     catalogGallery.classList.add(
@@ -4140,7 +4229,8 @@ function renderCatalog(groupId) {
   }
 
   else if (
-    catalog.images.length === 2
+    catalog.images.length ===
+      2
   ) {
 
     catalogGallery.classList.add(
@@ -4189,7 +4279,7 @@ function renderCatalog(groupId) {
 
 
 /* ========================================
-   圖片放大
+   圖片
 ======================================== */
 
 const imageModal =
@@ -4222,9 +4312,9 @@ function bindCatalogImages() {
             modalImage.alt =
               image.alt;
 
-            imageModal
-              .classList
-              .add("open");
+            imageModal.classList.add(
+              "open"
+            );
 
           }
         );
@@ -4241,13 +4331,16 @@ function closeImageModal() {
     "open"
   );
 
-  modalImage.src = "";
+  modalImage.src =
+    "";
 
 }
 
 
 document
-  .getElementById("imageClose")
+  .getElementById(
+    "imageClose"
+  )
   .addEventListener(
     "click",
     closeImageModal
@@ -4259,7 +4352,8 @@ imageModal.addEventListener(
   event => {
 
     if (
-      event.target === imageModal
+      event.target ===
+        imageModal
     ) {
 
       closeImageModal();
@@ -4271,7 +4365,7 @@ imageModal.addEventListener(
 
 
 /* ========================================
-   讀取庫存
+   庫存
 ======================================== */
 
 async function loadInventory(
@@ -4284,7 +4378,8 @@ async function loadInventory(
     )
   ) {
 
-    currentInventory = null;
+    currentInventory =
+      null;
 
     return;
 
@@ -4293,12 +4388,18 @@ async function loadInventory(
 
   const response =
     await fetch(
+
       WORKER_URL +
       "/inventory?groupId=" +
-      encodeURIComponent(groupId),
+      encodeURIComponent(
+        groupId
+      ),
+
       {
-        cache: "no-store"
+        cache:
+          "no-store"
       }
+
     );
 
 
@@ -4325,10 +4426,6 @@ async function loadInventory(
 }
 
 
-/* ========================================
-   取得庫存款式
-======================================== */
-
 function getStockVariants(
   productName
 ) {
@@ -4341,7 +4438,8 @@ function getStockVariants(
 
   if (
     !product ||
-    typeof product !== "object"
+    typeof product !==
+      "object"
   ) {
 
     return [];
@@ -4349,14 +4447,12 @@ function getStockVariants(
   }
 
 
-  return Object.keys(product);
+  return Object.keys(
+    product
+  );
 
 }
 
-
-/* ========================================
-   取得剩餘數量
-======================================== */
 
 function getStock(
   productName,
@@ -4364,17 +4460,21 @@ function getStock(
 ) {
 
   return Number(
+
     currentInventory
       ?.products
       ?.[productName]
-      ?.[variant] ?? 0
+      ?.[variant]
+    ??
+    0
+
   );
 
 }
 
 
 /* ========================================
-   建立商品選項
+   商品選項
 ======================================== */
 
 function createChoiceHTML(
@@ -4383,15 +4483,18 @@ function createChoiceHTML(
 ) {
 
   const stockManaged =
-    product.stockManaged === true;
+    product.stockManaged ===
+      true;
 
 
   const stock =
     stockManaged
+
       ? getStock(
           product.name,
           variant
         )
+
       : 99;
 
 
@@ -4402,11 +4505,17 @@ function createChoiceHTML(
 
   const max =
     stockManaged
-      ? Math.max(stock, 1)
+
+      ? Math.max(
+          stock,
+          1
+        )
+
       : 99;
 
 
-  let stockHTML = "";
+  let stockHTML =
+    "";
 
 
   if (
@@ -4415,21 +4524,23 @@ function createChoiceHTML(
 
     stockHTML =
       soldOut
+
         ? `
-          <span class="stock-text stock-out">
-            已售罄
-          </span>
-        `
+            <span class="stock-text stock-out">
+              已售罄
+            </span>
+          `
+
         : `
-          <span
-            class="
-              stock-text
-              ${stock <= 2 ? "stock-low" : ""}
-            "
-          >
-            剩餘 ${stock}
-          </span>
-        `;
+            <span
+              class="
+                stock-text
+                ${stock <= 2 ? "stock-low" : ""}
+              "
+            >
+              剩餘 ${stock}
+            </span>
+          `;
 
   }
 
@@ -4484,7 +4595,6 @@ function createChoiceHTML(
         <input
           class="qty-input"
           type="number"
-          inputmode="numeric"
           min="1"
           max="${max}"
           value="1"
@@ -4517,13 +4627,17 @@ async function renderProducts(
 ) {
 
   productContainer.innerHTML = `
+
     <div class="product-placeholder">
       讀取商品中…
     </div>
+
   `;
 
 
-  renderCatalog(groupId);
+  renderCatalog(
+    groupId
+  );
 
 
   try {
@@ -4536,12 +4650,16 @@ async function renderProducts(
 
   catch(error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
     productContainer.innerHTML = `
+
       <div class="product-placeholder">
         庫存讀取失敗，請稍後重新整理再試
       </div>
+
     `;
 
     return;
@@ -4558,9 +4676,11 @@ async function renderProducts(
   ) {
 
     productContainer.innerHTML = `
+
       <div class="product-placeholder">
         目前暫無商品
       </div>
+
     `;
 
     updateTotal();
@@ -4570,13 +4690,15 @@ async function renderProducts(
   }
 
 
-  productContainer.innerHTML = "";
+  productContainer.innerHTML =
+    "";
 
 
   products.forEach(
     product => {
 
-      let variants = [];
+      let variants =
+        [];
 
 
       if (
@@ -4604,6 +4726,7 @@ async function renderProducts(
 
       const choicesHTML =
         variants.length
+
           ? variants
               .map(
                 variant =>
@@ -4613,6 +4736,7 @@ async function renderProducts(
                   )
               )
               .join("")
+
           : createChoiceHTML(
               product
             );
@@ -4736,7 +4860,9 @@ function bindProductEvents() {
           !checkbox ||
           checkbox.disabled
         ) {
+
           return;
+
         }
 
 
@@ -4781,10 +4907,14 @@ function bindProductEvents() {
 
             qty.value =
               Math.max(
+
                 1,
+
                 Number(
-                  qty.value || 1
+                  qty.value ||
+                  1
                 ) - 1
+
               );
 
 
@@ -4800,16 +4930,21 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max || 99
+                qty.max ||
+                99
               );
 
 
             qty.value =
               Math.min(
+
                 max,
+
                 Number(
-                  qty.value || 1
+                  qty.value ||
+                  1
                 ) + 1
+
               );
 
 
@@ -4825,29 +4960,36 @@ function bindProductEvents() {
 
             const max =
               Number(
-                qty.max || 99
+                qty.max ||
+                99
               );
 
 
             let value =
               Math.floor(
                 Number(
-                  qty.value || 1
+                  qty.value ||
+                  1
                 )
               );
 
 
             value =
               Math.max(
+
                 1,
+
                 Math.min(
                   max,
                   value
                 )
+
               );
 
 
-            qty.value = value;
+            qty.value =
+              value;
+
 
             updateTotal();
 
@@ -4861,16 +5003,18 @@ function bindProductEvents() {
 
 
 /* ========================================
-   取得已選商品
+   已選商品
 ======================================== */
 
 function collectSelectedProducts() {
 
   return [
+
     ...productContainer
       .querySelectorAll(
         ".product-checkbox:checked"
       )
+
   ]
     .map(
       checkbox => {
@@ -4883,14 +5027,18 @@ function collectSelectedProducts() {
 
         const quantity =
           Math.max(
+
             1,
+
             Number(
               row
                 .querySelector(
                   ".qty-input"
                 )
-                .value || 1
+                .value ||
+              1
             )
+
           );
 
 
@@ -4911,14 +5059,17 @@ function collectSelectedProducts() {
 
 
         const lineTotal =
-          unitPrice * quantity;
+          unitPrice *
+          quantity;
 
 
         let displayName =
           productName;
 
 
-        if (variant) {
+        if (
+          variant
+        ) {
 
           displayName +=
             `｜${variant}`;
@@ -4947,9 +5098,8 @@ function collectSelectedProducts() {
             lineTotal,
 
           stockManaged:
-            checkbox.dataset
-              .stockManaged ===
-            "true"
+            checkbox.dataset.stockManaged ===
+              "true"
 
         };
 
@@ -4960,7 +5110,7 @@ function collectSelectedProducts() {
 
 
 /* ========================================
-   金額
+   總金額
 ======================================== */
 
 function updateTotal() {
@@ -4972,7 +5122,8 @@ function updateTotal() {
   const totalQuantity =
     products.reduce(
       (sum, item) =>
-        sum + item.quantity,
+        sum +
+        item.quantity,
       0
     );
 
@@ -4980,7 +5131,8 @@ function updateTotal() {
   const total =
     products.reduce(
       (sum, item) =>
-        sum + item.price,
+        sum +
+        item.price,
       0
     );
 
@@ -4990,9 +5142,7 @@ function updateTotal() {
 
 
   calculatedTotal.textContent =
-    `NT$ ${total.toLocaleString(
-      "zh-TW"
-    )}`;
+    `NT$ ${total.toLocaleString("zh-TW")}`;
 
 
   updateNextButton();
@@ -5008,7 +5158,8 @@ function updateNextButton() {
 
   const hasProduct =
     collectSelectedProducts()
-      .length > 0;
+      .length >
+    0;
 
 
   const hasReadNotice =
@@ -5031,7 +5182,7 @@ readNoticeCheckbox.addEventListener(
 
 
 /* ========================================
-   商品 → 匯款資料
+   商品 → 匯款
 ======================================== */
 
 nextPaymentButton.addEventListener(
@@ -5042,7 +5193,9 @@ nextPaymentButton.addEventListener(
       collectSelectedProducts();
 
 
-    if (!products.length) {
+    if (
+      !products.length
+    ) {
 
       alert(
         "請至少選擇一項商品。"
@@ -5069,7 +5222,8 @@ nextPaymentButton.addEventListener(
     const total =
       products.reduce(
         (sum, item) =>
-          sum + item.price,
+          sum +
+          item.price,
         0
       );
 
@@ -5105,20 +5259,25 @@ nextPaymentButton.addEventListener(
 
 
 /* ========================================
-   訂單摘要
+   摘要
 ======================================== */
 
 function renderCheckoutSummary() {
 
-  if (!checkoutSnapshot) {
+  if (
+    !checkoutSnapshot
+  ) {
+
     return;
+
   }
 
 
   const meta =
     groupMeta[
       checkoutSnapshot.groupId
-    ] || {};
+    ] ||
+    {};
 
 
   const productsHTML =
@@ -5146,7 +5305,8 @@ function renderCheckoutSummary() {
 
     <div class="checkout-group">
       ${escapeHTML(
-        meta.activity || ""
+        meta.activity ||
+        ""
       )}
     </div>
 
@@ -5172,7 +5332,7 @@ function renderCheckoutSummary() {
 
 
 /* ========================================
-   匯款頁返回商品
+   匯款返回商品
 ======================================== */
 
 document
@@ -5192,7 +5352,7 @@ document
 
 
 /* ========================================
-   複製帳號
+   複製
 ======================================== */
 
 async function copyBankAccount(
@@ -5206,21 +5366,9 @@ async function copyBankAccount(
 
   try {
 
-    if (
-      navigator.clipboard &&
-      window.isSecureContext
-    ) {
-
-      await navigator.clipboard
-        .writeText(account);
-
-    }
-
-    else {
-
-      throw new Error();
-
-    }
+    await navigator.clipboard.writeText(
+      account
+    );
 
   }
 
@@ -5232,24 +5380,22 @@ async function copyBankAccount(
       );
 
 
-    area.value = account;
-
-    area.style.position =
-      "fixed";
-
-    area.style.left =
-      "-9999px";
+    area.value =
+      account;
 
 
-    document.body
-      .appendChild(area);
+    document.body.appendChild(
+      area
+    );
 
 
     area.select();
 
+
     document.execCommand(
       "copy"
     );
+
 
     area.remove();
 
@@ -5258,6 +5404,7 @@ async function copyBankAccount(
 
   button.textContent =
     "✓ 已複製";
+
 
   button.classList.add(
     "copied"
@@ -5275,6 +5422,7 @@ async function copyBankAccount(
       );
 
     },
+
     1200
   );
 
@@ -5282,7 +5430,7 @@ async function copyBankAccount(
 
 
 /* ========================================
-   送出表單
+   送出
 ======================================== */
 
 paymentForm.addEventListener(
@@ -5292,7 +5440,9 @@ paymentForm.addEventListener(
     event.preventDefault();
 
 
-    if (!checkoutSnapshot) {
+    if (
+      !checkoutSnapshot
+    ) {
 
       alert(
         "找不到商品資料，請重新選擇商品。"
@@ -5305,19 +5455,6 @@ paymentForm.addEventListener(
 
     const groupId =
       checkoutSnapshot.groupId;
-
-
-    if (
-      closedGroups.has(groupId)
-    ) {
-
-      alert(
-        "此團務已結束，目前已停止收單。"
-      );
-
-      return;
-
-    }
 
 
     const accountLastFive =
@@ -5345,7 +5482,8 @@ paymentForm.addEventListener(
 
 
     const meta =
-      groupMeta[groupId] || {};
+      groupMeta[groupId] ||
+      {};
 
 
     const formData = {
@@ -5361,16 +5499,20 @@ paymentForm.addEventListener(
           .trim(),
 
       community:
-        meta.activity || "",
+        meta.activity ||
+        "",
 
       groupType:
-        meta.groupType || "",
+        meta.groupType ||
+        "",
 
       group:
-        meta.group || "",
+        meta.group ||
+        "",
 
       activity:
-        meta.activity || "",
+        meta.activity ||
+        "",
 
       products:
         checkoutSnapshot.products,
@@ -5423,8 +5565,12 @@ paymentForm.addEventListener(
 
 
     submitButton.textContent =
-      stockManagedGroups.has(groupId)
+      stockManagedGroups.has(
+        groupId
+      )
+
         ? "確認庫存並送出中…"
+
         : "送出中…";
 
 
@@ -5435,17 +5581,22 @@ paymentForm.addEventListener(
           WORKER_URL +
           "/submit",
           {
-            method: "POST",
+
+            method:
+              "POST",
 
             headers: {
+
               "Content-Type":
                 "application/json"
+
             },
 
             body:
               JSON.stringify(
                 formData
               )
+
           }
         );
 
@@ -5458,11 +5609,6 @@ paymentForm.addEventListener(
         !response.ok ||
         !result.success
       ) {
-
-        /*
-          限量庫存變動時，
-          重新抓最新庫存。
-        */
 
         if (
           stockManagedGroups.has(
@@ -5482,14 +5628,18 @@ paymentForm.addEventListener(
 
           clearPaymentFields();
 
+
           readNoticeCheckbox.checked =
             false;
+
 
           nextPaymentButton.disabled =
             true;
 
+
           checkoutSnapshot =
             null;
+
 
           checkoutSummary.innerHTML =
             "";
@@ -5498,7 +5648,8 @@ paymentForm.addEventListener(
           showPage(
             "productPage",
             {
-              skipPaymentReset: true
+              skipPaymentReset:
+                true
             }
           );
 
@@ -5518,6 +5669,7 @@ paymentForm.addEventListener(
           "送出失敗，請稍後再試。"
         );
 
+
         return;
 
       }
@@ -5529,6 +5681,7 @@ paymentForm.addEventListener(
       paymentGroupSelect.value =
         "";
 
+
       paymentGroupStartButton.disabled =
         true;
 
@@ -5539,7 +5692,8 @@ paymentForm.addEventListener(
       showPage(
         "successPage",
         {
-          skipPaymentReset: true
+          skipPaymentReset:
+            true
         }
       );
 
@@ -5547,7 +5701,10 @@ paymentForm.addEventListener(
 
     catch(error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
+
 
       alert(
         "目前無法送出資料，請確認網路後再試。"
@@ -5559,6 +5716,7 @@ paymentForm.addEventListener(
 
       submitButton.disabled =
         false;
+
 
       submitButton.textContent =
         "送出匯款資料";
@@ -5573,9 +5731,14 @@ paymentForm.addEventListener(
    公開對帳
 ======================================== */
 
-let defaultProgressData = [];
-let currentTypeFilter = "all";
-let currentGroupFilter = "all";
+let defaultProgressData =
+  [];
+
+let currentTypeFilter =
+  "all";
+
+let currentGroupFilter =
+  "all";
 
 
 const progressList =
@@ -5593,9 +5756,11 @@ const communitySearch =
 async function loadPublicProgress() {
 
   progressList.innerHTML = `
+
     <div class="card empty-message">
       讀取進度中… 🦊
     </div>
+
   `;
 
 
@@ -5606,7 +5771,8 @@ async function loadPublicProgress() {
         WORKER_URL +
         "/public/list",
         {
-          cache: "no-store"
+          cache:
+            "no-store"
         }
       );
 
@@ -5632,7 +5798,9 @@ async function loadPublicProgress() {
       Array.isArray(
         result.submissions
       )
+
         ? result.submissions
+
         : [];
 
 
@@ -5642,16 +5810,112 @@ async function loadPublicProgress() {
 
   catch(error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     progressList.innerHTML = `
+
       <div class="card empty-message">
         暫時無法讀取進度 🦊
       </div>
+
     `;
 
   }
+
+}
+
+
+/* ========================================
+   狀態樣式
+======================================== */
+
+function getPaymentStatusInfo(
+  paymentStatus
+) {
+
+  let paymentClass =
+    "status-unpaid";
+
+
+  if (
+    paymentStatus ===
+      "已匯款"
+  ) {
+
+    paymentClass =
+      "status-paid";
+
+  }
+
+  else if (
+    paymentStatus ===
+      "需確認"
+  ) {
+
+    paymentClass =
+      "status-waiting";
+
+  }
+
+
+  return paymentClass;
+
+}
+
+
+function getProgressStatusInfo(
+  progress
+) {
+
+  let progressClass =
+    "stage-registered";
+
+
+  if (
+    progress ===
+      "已下單"
+  ) {
+
+    progressClass =
+      "stage-ordered";
+
+  }
+
+  else if (
+    progress ===
+      "已到貨"
+  ) {
+
+    progressClass =
+      "stage-arrived";
+
+  }
+
+  else if (
+    progress ===
+      "已寄出"
+  ) {
+
+    progressClass =
+      "stage-shipped";
+
+  }
+
+  else if (
+    progress ===
+      "已完成"
+  ) {
+
+    progressClass =
+      "stage-complete";
+
+  }
+
+
+  return progressClass;
 
 }
 
@@ -5675,43 +5939,52 @@ function renderProgress() {
 
         const itemType =
           String(
-            item.groupType || ""
+            item.groupType ||
+            ""
           );
+
 
         const itemGroup =
           String(
-            item.group || ""
+            item.group ||
+            ""
           );
 
-        const community =
-          String(
-            item.community || ""
-          );
 
         const facebook =
           String(
-            item.facebookName || ""
-          );
+            item.facebookName ||
+            ""
+          )
+            .trim()
+            .toLowerCase();
 
 
         const matchesType =
-          currentTypeFilter === "all" ||
-          itemType === currentTypeFilter;
+          currentTypeFilter ===
+            "all"
+          ||
+          itemType ===
+            currentTypeFilter;
 
 
         const matchesGroup =
-          currentGroupFilter === "all" ||
-          itemGroup === currentGroupFilter;
+          currentGroupFilter ===
+            "all"
+          ||
+          itemGroup ===
+            currentGroupFilter;
 
+
+        /*
+          ★ 搜尋只搜尋 Facebook 名稱
+        */
 
         const matchesSearch =
           !searchText ||
-          community
-            .toLowerCase()
-            .includes(searchText) ||
-          facebook
-            .toLowerCase()
-            .includes(searchText);
+          facebook.includes(
+            searchText
+          );
 
 
         return (
@@ -5724,42 +5997,238 @@ function renderProgress() {
     );
 
 
-  progressList.innerHTML = "";
+  progressList.innerHTML =
+    "";
 
 
-  if (!filtered.length) {
+  if (
+    !filtered.length
+  ) {
 
     progressList.innerHTML = `
+
       <div class="card empty-message">
-        目前暫無團務資料 🦊
+        目前暫無符合的團務資料 🦊
       </div>
+
     `;
+
 
     return;
 
   }
 
 
-  const groups = {};
+  /* =====================================
+     沒搜尋名字
+     → 維持原本依團務顯示
+  ===================================== */
+
+  if (
+    !searchText
+  ) {
+
+    const groups =
+      {};
+
+
+    filtered.forEach(
+      item => {
+
+        const activity =
+          item.activity ||
+          item.community ||
+          "團務進度";
+
+
+        if (
+          !groups[activity]
+        ) {
+
+          groups[activity] =
+            [];
+
+        }
+
+
+        groups[activity].push(
+          item
+        );
+
+      }
+    );
+
+
+    Object.entries(
+      groups
+    )
+      .forEach(
+        ([activity, items]) => {
+
+          const element =
+            document.createElement(
+              "div"
+            );
+
+
+          element.className =
+            "progress-group";
+
+
+          const rows =
+            items
+              .map(
+                item => {
+
+                  const paymentStatus =
+                    item.paymentStatus ||
+                    "待對帳";
+
+
+                  const progress =
+                    item.progress ||
+                    "已登記";
+
+
+                  const paymentClass =
+                    getPaymentStatusInfo(
+                      paymentStatus
+                    );
+
+
+                  const progressClass =
+                    getProgressStatusInfo(
+                      progress
+                    );
+
+
+                  return `
+
+                    <div class="progress-member-row">
+
+                      <div>
+
+                        <div class="facebook-name">
+
+                          ${escapeHTML(
+                            item.facebookName ||
+                            "未填 Facebook 名稱"
+                          )}
+
+                        </div>
+
+                        <div class="community-small">
+
+                          ${escapeHTML(
+                            item.community ||
+                            ""
+                          )}
+
+                        </div>
+
+                      </div>
+
+
+                      <div
+                        class="
+                          status-pill
+                          ${paymentClass}
+                        "
+                      >
+
+                        ${escapeHTML(
+                          paymentStatus
+                        )}
+
+                      </div>
+
+
+                      <div
+                        class="
+                          stage-pill
+                          ${progressClass}
+                        "
+                      >
+
+                        ${escapeHTML(
+                          progress
+                        )}
+
+                      </div>
+
+                    </div>
+
+                  `;
+
+                }
+              )
+              .join("");
+
+
+          element.innerHTML = `
+
+            <div class="progress-group-header">
+
+              ${escapeHTML(
+                activity
+              )}
+
+            </div>
+
+            <div class="progress-group-body">
+
+              ${rows}
+
+            </div>
+
+          `;
+
+
+          progressList.appendChild(
+            element
+          );
+
+        }
+      );
+
+
+    return;
+
+  }
+
+
+  /* =====================================
+     ★ 有搜尋名字
+     → 一個名字只出現一次
+     → 下面放這個人的全部團務
+  ===================================== */
+
+  const people =
+    {};
 
 
   filtered.forEach(
     item => {
 
-      const activity =
-        item.activity ||
-        item.community ||
-        "團務進度";
+      const name =
+        String(
+          item.facebookName ||
+          "未填 Facebook 名稱"
+        )
+          .trim();
 
 
-      if (!groups[activity]) {
+      if (
+        !people[name]
+      ) {
 
-        groups[activity] = [];
+        people[name] =
+          [];
 
       }
 
 
-      groups[activity].push(
+      people[name].push(
         item
       );
 
@@ -5767,21 +6236,24 @@ function renderProgress() {
   );
 
 
-  Object.entries(groups)
+  Object
+    .entries(
+      people
+    )
     .forEach(
-      ([activity, items]) => {
+      ([name, items]) => {
 
-        const element =
+        const personElement =
           document.createElement(
             "div"
           );
 
 
-        element.className =
-          "progress-group";
+        personElement.className =
+          "public-person-group";
 
 
-        const rows =
+        const ordersHTML =
           items
             .map(
               item => {
@@ -5796,113 +6268,102 @@ function renderProgress() {
                   "已登記";
 
 
-                let paymentClass =
-                  "status-unpaid";
+                const paymentClass =
+                  getPaymentStatusInfo(
+                    paymentStatus
+                  );
 
 
-                if (
-                  paymentStatus ===
-                  "已匯款"
-                ) {
-
-                  paymentClass =
-                    "status-paid";
-
-                }
-
-                else if (
-                  paymentStatus ===
-                  "需確認"
-                ) {
-
-                  paymentClass =
-                    "status-waiting";
-
-                }
+                const progressClass =
+                  getProgressStatusInfo(
+                    progress
+                  );
 
 
-                let progressClass =
-                  "stage-registered";
+                const groupType =
+                  item.groupType ||
+                  "未分類";
 
 
-                if (
-                  progress === "已下單"
-                ) {
+                const typeClass =
+                  groupType ===
+                    "單特典"
 
-                  progressClass =
-                    "stage-ordered";
+                    ? "special"
 
-                }
+                    : "";
 
-                else if (
-                  progress === "已到貨"
-                ) {
 
-                  progressClass =
-                    "stage-arrived";
-
-                }
-
-                else if (
-                  progress === "已寄出"
-                ) {
-
-                  progressClass =
-                    "stage-shipped";
-
-                }
-
-                else if (
-                  progress === "已完成"
-                ) {
-
-                  progressClass =
-                    "stage-complete";
-
-                }
+                const activity =
+                  item.activity ||
+                  item.community ||
+                  "團務進度";
 
 
                 return `
 
-                  <div class="progress-member-row">
+                  <div class="public-person-order">
 
-                    <div>
+                    <div class="public-order-top">
 
-                      <div class="facebook-name">
-                        ${escapeHTML(
-                          item.facebookName ||
-                          "未填 Facebook 名稱"
-                        )}
-                      </div>
+                      <div class="public-order-info">
 
-                      <div class="community-small">
-                        ${escapeHTML(
-                          item.community || ""
-                        )}
+                        <div class="public-order-name">
+
+                          ${escapeHTML(
+                            activity
+                          )}
+
+                        </div>
+
+
+                        <div
+                          class="
+                            public-order-type
+                            ${typeClass}
+                          "
+                        >
+
+                          ${escapeHTML(
+                            groupType
+                          )}
+
+                        </div>
+
                       </div>
 
                     </div>
 
-                    <div
-                      class="
-                        status-pill
-                        ${paymentClass}
-                      "
-                    >
-                      ${escapeHTML(
-                        paymentStatus
-                      )}
-                    </div>
 
-                    <div
-                      class="
-                        stage-pill
-                        ${progressClass}
-                      "
-                    >
-                      ${escapeHTML(
-                        progress
-                      )}
+                    <div class="public-order-statuses">
+
+                      <div
+                        class="
+                          status-pill
+                          ${paymentClass}
+                        "
+                      >
+
+                        ${escapeHTML(
+                          paymentStatus
+                        )}
+
+                      </div>
+
+
+                      <div
+                        class="
+                          stage-pill
+                          ${progressClass}
+                        "
+                      >
+
+                        ${escapeHTML(
+                          progress
+                        )}
+
+                      </div>
+
                     </div>
 
                   </div>
@@ -5914,21 +6375,41 @@ function renderProgress() {
             .join("");
 
 
-        element.innerHTML = `
+        personElement.innerHTML = `
 
-          <div class="progress-group-header">
-            ${escapeHTML(activity)}
+          <div class="public-person-header">
+
+            <div class="public-person-name">
+
+              ${escapeHTML(
+                name
+              )}
+
+            </div>
+
+
+            <div class="public-person-count">
+
+              共參加
+              ${items.length}
+              筆團務
+
+            </div>
+
           </div>
 
-          <div class="progress-group-body">
-            ${rows}
+
+          <div class="public-person-orders">
+
+            ${ordersHTML}
+
           </div>
 
         `;
 
 
         progressList.appendChild(
-          element
+          personElement
         );
 
       }
@@ -5957,10 +6438,13 @@ document
               "#typeFilters .filter-button"
             )
             .forEach(
-              item =>
+              item => {
+
                 item.classList.remove(
                   "selected"
-                )
+                );
+
+              }
             );
 
 
@@ -5998,10 +6482,13 @@ document
               "#groupFilters .filter-button"
             )
             .forEach(
-              item =>
+              item => {
+
                 item.classList.remove(
                   "selected"
-                )
+                );
+
+              }
             );
 
 
