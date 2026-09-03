@@ -2,6 +2,7 @@
 <html lang="zh-TW">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -15,6 +16,7 @@
   >
 
   <title>狐狸🦊 管理後台</title>
+
 
   <style>
 
@@ -34,10 +36,15 @@
 
     body {
       min-height: 100vh;
-      padding: 28px 16px 60px;
 
-      background: #faf8ff;
-      color: #4f4660;
+      padding:
+        28px 16px 60px;
+
+      background:
+        #faf8ff;
+
+      color:
+        #4f4660;
 
       font-family:
         "PingFang TC",
@@ -63,6 +70,7 @@
     .container {
       width: 100%;
       max-width: 1000px;
+
       margin: 0 auto;
     }
 
@@ -74,31 +82,37 @@
     h1 {
       margin-bottom: 8px;
 
-      color: #6b46c1;
+      color:
+        #6b46c1;
 
       font-size: 28px;
+
       text-align: center;
     }
 
     .subtitle {
       margin-bottom: 26px;
 
-      color: #9589a7;
+      color:
+        #9589a7;
 
       font-size: 14px;
+
       text-align: center;
     }
 
 
     /* =====================================================
-       卡片
+       共用卡片
     ===================================================== */
 
     .card {
       margin-bottom: 18px;
+
       padding: 22px;
 
-      background: #ffffff;
+      background:
+        #ffffff;
 
       border:
         1px solid #eee6ff;
@@ -112,55 +126,37 @@
 
 
     /* =====================================================
-       登入
+       輸入欄位
     ===================================================== */
-
-    #adminPage {
-      display: none;
-    }
-
-    .login-card {
-      max-width: 430px;
-      margin: 50px auto 0;
-    }
-
-    .login-icon {
-      margin-bottom: 12px;
-
-      font-size: 40px;
-      text-align: center;
-    }
-
-    .login-title {
-      margin-bottom: 18px;
-
-      color: #6b46c1;
-
-      font-size: 20px;
-      font-weight: 700;
-      text-align: center;
-    }
 
     label {
       display: block;
 
       margin-bottom: 8px;
 
-      color: #6d6379;
+      color:
+        #6d6379;
 
       font-size: 14px;
+
       font-weight: 600;
     }
 
     input,
     select {
+      display: block;
+
       width: 100%;
       min-width: 0;
 
-      padding: 13px 15px;
+      padding:
+        13px 15px;
 
-      background: #ffffff;
-      color: #4f4660;
+      background:
+        #ffffff;
+
+      color:
+        #4f4660;
 
       border:
         1.5px solid #ded1fa;
@@ -172,17 +168,64 @@
 
     input:focus,
     select:focus {
-      border-color: #b99bf5;
+      border-color:
+        #b99bf5;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(185, 155, 245, 0.11);
+    }
+
+
+    /* =====================================================
+       登入
+    ===================================================== */
+
+    #adminPage {
+      display: none;
+    }
+
+    .login-card {
+      max-width: 430px;
+
+      margin:
+        50px auto 0;
+    }
+
+    .login-icon {
+      margin-bottom: 12px;
+
+      font-size: 40px;
+
+      text-align: center;
+    }
+
+    .login-title {
+      margin-bottom: 18px;
+
+      color:
+        #6b46c1;
+
+      font-size: 20px;
+
+      font-weight: 700;
+
+      text-align: center;
     }
 
     .login-button {
       width: 100%;
 
       margin-top: 16px;
-      padding: 13px 18px;
 
-      background: #dccfff;
-      color: #59349e;
+      padding:
+        13px 18px;
+
+      background:
+        #dccfff;
+
+      color:
+        #59349e;
 
       border:
         1.5px solid #b99bf5;
@@ -206,15 +249,17 @@
 
       margin-top: 12px;
 
-      color: #c55b73;
+      color:
+        #c55b73;
 
       font-size: 13px;
+
       text-align: center;
     }
 
 
     /* =====================================================
-       後台上方按鈕
+       上方操作
     ===================================================== */
 
     .top-actions {
@@ -228,10 +273,14 @@
     .small-button {
       flex: 1;
 
-      padding: 10px 14px;
+      padding:
+        10px 14px;
 
-      background: #ffffff;
-      color: #6b46c1;
+      background:
+        #ffffff;
+
+      color:
+        #6b46c1;
 
       border:
         1.5px solid #d9c8ff;
@@ -242,16 +291,21 @@
     }
 
     .small-button:hover {
-      background: #f7f2ff;
+      background:
+        #f7f2ff;
     }
 
     .small-button:active {
-      transform: scale(0.98);
+      transform:
+        scale(0.98);
     }
 
     .small-button:disabled {
-      opacity: 0.55;
-      cursor: default;
+      opacity:
+        0.55;
+
+      cursor:
+        default;
     }
 
 
@@ -263,20 +317,95 @@
       display: flex;
 
       align-items: center;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
     }
 
     .summary-label {
-      color: #867a94;
+      color:
+        #867a94;
 
       font-size: 14px;
     }
 
     .summary-number {
-      color: #6b46c1;
+      color:
+        #6b46c1;
 
       font-size: 25px;
+
       font-weight: 700;
+    }
+
+
+    /* =====================================================
+       分類
+    ===================================================== */
+
+    .filter-box {
+      margin-bottom: 14px;
+    }
+
+    .filter-title {
+      margin-bottom: 8px;
+
+      color:
+        #867a94;
+
+      font-size: 13px;
+
+      font-weight: 600;
+    }
+
+    .filter-buttons {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 8px;
+    }
+
+    .filter-button {
+      width: 100%;
+
+      padding:
+        9px 12px;
+
+      background:
+        #ffffff;
+
+      color:
+        #6b46c1;
+
+      border:
+        1.5px solid #d9c8ff;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      transition:
+        0.2s ease;
+    }
+
+    .filter-button.selected {
+      background:
+        #dccfff;
+
+      border-color:
+        #b99bf5;
+
+      color:
+        #59349e;
+    }
+
+    .filter-button:active {
+      transform:
+        scale(0.98);
     }
 
 
@@ -288,9 +417,20 @@
       margin-bottom: 18px;
     }
 
+    .search-title {
+      margin-bottom: 8px;
+
+      color:
+        #867a94;
+
+      font-size: 13px;
+
+      font-weight: 600;
+    }
+
 
     /* =====================================================
-       匯款卡片列表
+       一般訂單列表
     ===================================================== */
 
     #submissionList {
@@ -304,10 +444,16 @@
       align-items: start;
     }
 
+
+    /* =====================================================
+       訂單卡片
+    ===================================================== */
+
     .submission-card {
       min-width: 0;
 
       margin-bottom: 0;
+
       padding: 16px;
 
       border-radius: 20px;
@@ -315,14 +461,16 @@
 
 
     /* =====================================================
-       卡片標題
+       訂單標題
     ===================================================== */
 
     .submission-header {
       display: flex;
 
       flex-direction: column;
-      align-items: flex-start;
+
+      align-items:
+        flex-start;
 
       gap: 8px;
 
@@ -330,57 +478,81 @@
     }
 
     .person-name {
-      color: #59349e;
+      color:
+        #59349e;
 
       font-size: 16px;
+
       font-weight: 700;
 
       line-height: 1.4;
 
-      word-break: break-word;
+      word-break:
+        break-word;
     }
 
     .community-name {
       margin-top: 4px;
 
-      color: #92859f;
+      color:
+        #786a86;
 
-      font-size: 11px;
+      font-size: 12px;
+
+      font-weight: 600;
 
       line-height: 1.5;
 
-      word-break: break-word;
+      word-break:
+        break-word;
     }
 
     .type-text {
-      display: inline-block;
+      display:
+        inline-block;
 
       margin-top: 5px;
-      padding: 4px 8px;
 
-      background: #f5efff;
-      color: #7c5db4;
+      padding:
+        4px 8px;
 
-      border-radius: 999px;
+      background:
+        #f5efff;
+
+      color:
+        #7c5db4;
+
+      border-radius:
+        999px;
 
       font-size: 10px;
+
       font-weight: 600;
     }
 
     .type-text.special {
-      background: #fff0f6;
-      color: #a85d7c;
+      background:
+        #fff0f6;
+
+      color:
+        #a85d7c;
     }
 
     .amount-pill {
-      padding: 6px 10px;
+      padding:
+        6px 10px;
 
-      background: #f1eaff;
-      color: #6b46c1;
+      background:
+        #f1eaff;
 
-      border-radius: 999px;
+      color:
+        #6b46c1;
+
+      border-radius:
+        999px;
 
       font-size: 13px;
+
       font-weight: 700;
     }
 
@@ -392,7 +564,8 @@
     .info-grid {
       display: grid;
 
-      grid-template-columns: 1fr;
+      grid-template-columns:
+        1fr;
 
       gap: 7px;
 
@@ -402,9 +575,11 @@
     .info-item {
       min-width: 0;
 
-      padding: 9px 10px;
+      padding:
+        9px 10px;
 
-      background: #fbf9ff;
+      background:
+        #fbf9ff;
 
       border-radius: 13px;
     }
@@ -412,19 +587,22 @@
     .info-label {
       margin-bottom: 3px;
 
-      color: #a095ac;
+      color:
+        #a095ac;
 
       font-size: 10px;
     }
 
     .info-value {
-      color: #554b62;
+      color:
+        #554b62;
 
       font-size: 12px;
 
       line-height: 1.45;
 
-      word-break: break-word;
+      word-break:
+        break-word;
     }
 
 
@@ -434,9 +612,12 @@
 
     .product-box {
       margin-bottom: 11px;
-      padding: 10px 11px;
 
-      background: #fbf9ff;
+      padding:
+        10px 11px;
+
+      background:
+        #fbf9ff;
 
       border-radius: 13px;
     }
@@ -444,21 +625,25 @@
     .product-title {
       margin-bottom: 6px;
 
-      color: #998ca4;
+      color:
+        #998ca4;
 
       font-size: 10px;
     }
 
     .product-line {
-      padding: 3px 0;
+      padding:
+        3px 0;
 
-      color: #554b62;
+      color:
+        #554b62;
 
       font-size: 12px;
 
       line-height: 1.55;
 
-      word-break: break-word;
+      word-break:
+        break-word;
     }
 
 
@@ -468,9 +653,12 @@
 
     .note-box {
       margin-bottom: 11px;
-      padding: 10px 11px;
 
-      background: #fffafc;
+      padding:
+        10px 11px;
+
+      background:
+        #fffafc;
 
       border-radius: 13px;
     }
@@ -478,21 +666,25 @@
     .note-title {
       margin-bottom: 4px;
 
-      color: #a58b98;
+      color:
+        #a58b98;
 
       font-size: 10px;
     }
 
     .note-text {
-      color: #62545c;
+      color:
+        #62545c;
 
       font-size: 12px;
 
       line-height: 1.5;
 
-      white-space: pre-wrap;
+      white-space:
+        pre-wrap;
 
-      word-break: break-word;
+      word-break:
+        break-word;
     }
 
 
@@ -503,7 +695,8 @@
     .status-area {
       display: grid;
 
-      grid-template-columns: 1fr;
+      grid-template-columns:
+        1fr;
 
       gap: 9px;
     }
@@ -515,7 +708,8 @@
     }
 
     .status-area select {
-      padding: 9px 8px;
+      padding:
+        9px 8px;
 
       border-radius: 12px;
 
@@ -531,10 +725,15 @@
       width: 100%;
 
       margin-top: 11px;
-      padding: 9px 7px;
 
-      background: #dccfff;
-      color: #59349e;
+      padding:
+        9px 7px;
+
+      background:
+        #dccfff;
+
+      color:
+        #59349e;
 
       border:
         1.5px solid #b99bf5;
@@ -542,23 +741,101 @@
       border-radius: 999px;
 
       font-size: 12px;
+
       font-weight: 700;
     }
 
     .save-button:active {
-      transform: scale(0.98);
+      transform:
+        scale(0.98);
     }
 
     .save-button:disabled {
-      opacity: 0.55;
-      cursor: default;
+      opacity:
+        0.55;
+
+      cursor:
+        default;
     }
 
     .save-button.saved {
-      background: #e4f5e8;
-      color: #287747;
+      background:
+        #e4f5e8;
 
-      border-color: #b8dfc4;
+      color:
+        #287747;
+
+      border-color:
+        #b8dfc4;
+    }
+
+
+    /* =====================================================
+       搜尋後：人員群組
+    ===================================================== */
+
+    .person-search-group {
+      grid-column:
+        1 / -1;
+
+      width: 100%;
+    }
+
+    .person-search-header {
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap: 12px;
+
+      margin-bottom: 12px;
+
+      padding:
+        15px 18px;
+
+      background:
+        #eee6ff;
+
+      border:
+        1px solid #d9c8ff;
+
+      border-radius: 18px;
+    }
+
+    .person-search-name {
+      color:
+        #59349e;
+
+      font-size: 19px;
+
+      font-weight: 700;
+
+      word-break:
+        break-word;
+    }
+
+    .person-search-count {
+      flex-shrink: 0;
+
+      color:
+        #89779d;
+
+      font-size: 12px;
+    }
+
+    .person-orders-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 9px;
+
+      align-items: start;
     }
 
 
@@ -567,15 +844,19 @@
     ===================================================== */
 
     .empty-box {
-      grid-column: 1 / -1;
+      grid-column:
+        1 / -1;
 
       width: 100%;
 
-      padding: 45px 20px;
+      padding:
+        45px 20px;
 
-      color: #9a8da7;
+      color:
+        #9a8da7;
 
-      text-align: center;
+      text-align:
+        center;
     }
 
 
@@ -586,6 +867,13 @@
     @media (min-width: 760px) {
 
       #submissionList {
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+        gap: 14px;
+      }
+
+      .person-orders-grid {
         grid-template-columns:
           repeat(3, minmax(0, 1fr));
 
@@ -625,6 +913,13 @@
         gap: 9px;
       }
 
+      .person-orders-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+      }
+
       .submission-card {
         padding: 12px;
 
@@ -640,7 +935,8 @@
       }
 
       .amount-pill {
-        padding: 5px 8px;
+        padding:
+          5px 8px;
 
         font-size: 11px;
       }
@@ -677,14 +973,29 @@
       }
 
       .status-area select {
-        padding: 8px 5px;
+        padding:
+          8px 5px;
 
         font-size: 11px;
       }
 
       .save-button {
-        padding: 8px 5px;
+        padding:
+          8px 5px;
 
+        font-size: 11px;
+      }
+
+      .person-search-header {
+        padding:
+          12px 14px;
+      }
+
+      .person-search-name {
+        font-size: 17px;
+      }
+
+      .person-search-count {
         font-size: 11px;
       }
 
@@ -698,7 +1009,8 @@
         padding-right: 8px;
       }
 
-      #submissionList {
+      #submissionList,
+      .person-orders-grid {
         gap: 7px;
       }
 
@@ -718,6 +1030,7 @@
 
 
 <body>
+
 
 <div class="container">
 
@@ -754,6 +1067,7 @@
           管理員密碼
         </label>
 
+
         <input
           id="adminPassword"
           type="password"
@@ -762,6 +1076,7 @@
           required
         >
 
+
         <button
           class="login-button"
           type="submit"
@@ -769,6 +1084,7 @@
         >
           登入
         </button>
+
 
         <div
           class="error-text"
@@ -788,6 +1104,7 @@
 
   <section id="adminPage">
 
+
     <h1>
       狐狸🦊
     </h1>
@@ -796,6 +1113,8 @@
       匯款管理後台
     </div>
 
+
+    <!-- 操作 -->
 
     <div class="top-actions">
 
@@ -819,12 +1138,14 @@
     </div>
 
 
+    <!-- 筆數 -->
+
     <div class="card summary-card">
 
       <div>
 
         <div class="summary-label">
-          目前讀取
+          目前顯示
         </div>
 
         <div>
@@ -844,16 +1165,77 @@
     </div>
 
 
+    <!-- =====================================================
+         分類
+    ====================================================== -->
+
+    <div class="filter-box">
+
+      <div class="filter-title">
+        團務分類
+      </div>
+
+
+      <div
+        id="typeFilters"
+        class="filter-buttons"
+      >
+
+        <button
+          type="button"
+          class="filter-button selected"
+          data-type-filter="all"
+        >
+          全部
+        </button>
+
+
+        <button
+          type="button"
+          class="filter-button"
+          data-type-filter="代購"
+        >
+          代購
+        </button>
+
+
+        <button
+          type="button"
+          class="filter-button"
+          data-type-filter="單特典"
+        >
+          單特典
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         依名稱搜尋
+    ====================================================== -->
+
     <div class="search-box">
+
+      <div class="search-title">
+        依名稱搜尋
+      </div>
+
 
       <input
         id="searchInput"
         type="search"
-        placeholder="搜尋 Facebook 名稱／團務名稱"
+        placeholder="輸入 Facebook 名稱"
+        autocomplete="off"
       >
 
     </div>
 
+
+    <!-- =====================================================
+         訂單
+    ====================================================== -->
 
     <div id="submissionList">
 
@@ -863,7 +1245,9 @@
 
     </div>
 
+
   </section>
+
 
 </div>
 
@@ -880,12 +1264,17 @@ const WORKER_URL =
 
 
 /* =====================================================
-   變數
+   狀態
 ===================================================== */
 
-let adminPassword = "";
+let adminPassword =
+  "";
 
-let submissions = [];
+let submissions =
+  [];
+
+let currentTypeFilter =
+  "all";
 
 
 /* =====================================================
@@ -897,50 +1286,60 @@ const loginPage =
     "loginPage"
   );
 
+
 const adminPage =
   document.getElementById(
     "adminPage"
   );
+
 
 const loginForm =
   document.getElementById(
     "loginForm"
   );
 
+
 const passwordInput =
   document.getElementById(
     "adminPassword"
   );
+
 
 const loginButton =
   document.getElementById(
     "loginButton"
   );
 
+
 const loginError =
   document.getElementById(
     "loginError"
   );
+
 
 const submissionList =
   document.getElementById(
     "submissionList"
   );
 
+
 const submissionCount =
   document.getElementById(
     "submissionCount"
   );
+
 
 const refreshButton =
   document.getElementById(
     "refreshButton"
   );
 
+
 const logoutButton =
   document.getElementById(
     "logoutButton"
   );
+
 
 const searchInput =
   document.getElementById(
@@ -949,10 +1348,12 @@ const searchInput =
 
 
 /* =====================================================
-   避免文字被當 HTML
+   HTML 安全
 ===================================================== */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
   return String(
     value ?? ""
@@ -990,12 +1391,15 @@ function escapeHTML(value) {
    金額
 ===================================================== */
 
-function formatMoney(value) {
+function formatMoney(
+  value
+) {
 
   const number =
     Number(
       value || 0
     );
+
 
   return (
     "NT$ " +
@@ -1011,7 +1415,9 @@ function formatMoney(value) {
    日期
 ===================================================== */
 
-function formatDate(value) {
+function formatDate(
+  value
+) {
 
   if (!value) {
     return "—";
@@ -1019,7 +1425,9 @@ function formatDate(value) {
 
 
   const date =
-    new Date(value);
+    new Date(
+      value
+    );
 
 
   if (
@@ -1027,7 +1435,11 @@ function formatDate(value) {
       date.getTime()
     )
   ) {
-    return String(value);
+
+    return String(
+      value
+    );
+
   }
 
 
@@ -1054,7 +1466,9 @@ function formatDate(value) {
         "2-digit"
 
     }
-  ).format(date);
+  ).format(
+    date
+  );
 
 }
 
@@ -1077,13 +1491,16 @@ function createOptions(
             ? "selected"
             : "";
 
+
         return `
+
           <option
             value="${escapeHTML(option)}"
             ${isSelected}
           >
             ${escapeHTML(option)}
           </option>
+
         `;
 
       }
@@ -1103,7 +1520,10 @@ loginForm.addEventListener(
 
     event.preventDefault();
 
-    loginError.textContent = "";
+
+    loginError.textContent =
+      "";
+
 
     adminPassword =
       passwordInput
@@ -1121,14 +1541,18 @@ loginForm.addEventListener(
     }
 
 
-    loginButton.disabled = true;
+    loginButton.disabled =
+      true;
+
 
     loginButton.textContent =
       "登入中…";
 
 
     const success =
-      await loadSubmissions(true);
+      await loadSubmissions(
+        true
+      );
 
 
     if (success) {
@@ -1136,11 +1560,14 @@ loginForm.addEventListener(
       loginPage.style.display =
         "none";
 
+
       adminPage.style.display =
         "block";
 
+
       passwordInput.value =
         "";
+
 
       window.scrollTo(
         0,
@@ -1153,6 +1580,7 @@ loginForm.addEventListener(
     loginButton.disabled =
       false;
 
+
     loginButton.textContent =
       "登入";
 
@@ -1161,7 +1589,7 @@ loginForm.addEventListener(
 
 
 /* =====================================================
-   讀取後台資料
+   讀取後台
 ===================================================== */
 
 async function loadSubmissions(
@@ -1227,11 +1655,15 @@ async function loadSubmissions(
         loginError.textContent =
           "管理員密碼錯誤";
 
-        adminPassword = "";
+
+        adminPassword =
+          "";
 
       }
 
-      else if (isLogin) {
+      else if (
+        isLogin
+      ) {
 
         loginError.textContent =
           result.message ||
@@ -1262,10 +1694,6 @@ async function loadSubmissions(
         : [];
 
 
-    submissionCount.textContent =
-      submissions.length;
-
-
     renderSubmissions();
 
 
@@ -1275,10 +1703,14 @@ async function loadSubmissions(
 
   catch(error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
-    if (isLogin) {
+    if (
+      isLogin
+    ) {
 
       loginError.textContent =
         "無法連線到後台";
@@ -1302,6 +1734,442 @@ async function loadSubmissions(
 
 
 /* =====================================================
+   建立單張訂單卡片
+===================================================== */
+
+function createSubmissionCard(
+  item,
+  realIndex,
+  showPersonName = true
+) {
+
+  /* =====================
+     商品
+  ===================== */
+
+  const products =
+    Array.isArray(
+      item.products
+    )
+      ? item.products
+      : [];
+
+
+  const productsHTML =
+    products.length > 0
+
+      ? products
+          .map(
+            product => {
+
+              let productName =
+                product.name ||
+                product.productName ||
+                "商品";
+
+
+              /*
+                舊資料若 name 裡沒有款式，
+                額外補 variant
+              */
+
+              if (
+                product.variant &&
+                !productName.includes(
+                  product.variant
+                )
+              ) {
+
+                productName +=
+                  `｜${product.variant}`;
+
+              }
+
+
+              const productPrice =
+                product.price ??
+                product.lineTotal ??
+                (
+                  Number(
+                    product.unitPrice || 0
+                  )
+                  *
+                  Number(
+                    product.quantity || 1
+                  )
+                );
+
+
+              return `
+
+                <div class="product-line">
+
+                  ${escapeHTML(
+                    productName
+                  )}
+
+                  ・
+
+                  ${formatMoney(
+                    productPrice
+                  )}
+
+                </div>
+
+              `;
+
+            }
+          )
+          .join("")
+
+      : `
+
+          <div class="product-line">
+            無商品資料
+          </div>
+
+        `;
+
+
+  /* =====================
+     匯款狀態
+  ===================== */
+
+  const paymentOptions = [
+
+    "待對帳",
+    "已匯款",
+    "需確認"
+
+  ];
+
+
+  /* =====================
+     團務進度
+  ===================== */
+
+  const progressOptions = [
+
+    "已登記",
+    "已下單",
+    "已到貨",
+    "已寄出",
+    "已完成"
+
+  ];
+
+
+  const groupType =
+    item.groupType ||
+    "未分類";
+
+
+  const typeClass =
+    groupType === "單特典"
+      ? "special"
+      : "";
+
+
+  const activityName =
+    item.activity ||
+    item.community ||
+    "未填團務";
+
+
+  return `
+
+    <div
+      class="card submission-card"
+      data-index="${realIndex}"
+    >
+
+
+      <!-- =====================
+           標題
+      ====================== -->
+
+      <div class="submission-header">
+
+        <div>
+
+
+          ${
+            showPersonName
+
+              ? `
+
+                  <div class="person-name">
+
+                    ${escapeHTML(
+                      item.facebookName ||
+                      "未填名稱"
+                    )}
+
+                  </div>
+
+                `
+
+              : ""
+          }
+
+
+          <div class="community-name">
+
+            ${escapeHTML(
+              activityName
+            )}
+
+          </div>
+
+
+          <div
+            class="
+              type-text
+              ${typeClass}
+            "
+          >
+
+            ${escapeHTML(
+              groupType
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div class="amount-pill">
+
+          ${formatMoney(
+            item.paymentAmount
+          )}
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================
+           匯款資料
+      ====================== -->
+
+      <div class="info-grid">
+
+
+        <div class="info-item">
+
+          <div class="info-label">
+            匯款日期
+          </div>
+
+          <div class="info-value">
+
+            ${escapeHTML(
+              item.paymentDate ||
+              "—"
+            )}
+
+            ${
+              item.paymentTime
+
+                ? " " +
+                  escapeHTML(
+                    item.paymentTime
+                  )
+
+                : ""
+            }
+
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <div class="info-label">
+            匯款銀行
+          </div>
+
+          <div class="info-value">
+
+            ${escapeHTML(
+              item.paymentBank ||
+              "—"
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <div class="info-label">
+            帳號後五碼
+          </div>
+
+          <div class="info-value">
+
+            ${escapeHTML(
+              item.accountLastFive ||
+              "—"
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <div class="info-label">
+            表單送出時間
+          </div>
+
+          <div class="info-value">
+
+            ${escapeHTML(
+
+              formatDate(
+
+                item.submittedAt ||
+                item.createdAt ||
+                item.timestamp
+
+              )
+
+            )}
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================
+           商品
+      ====================== -->
+
+      <div class="product-box">
+
+        <div class="product-title">
+          商品
+        </div>
+
+        ${productsHTML}
+
+      </div>
+
+
+      <!-- =====================
+           備註
+      ====================== -->
+
+      ${
+        item.note
+
+          ? `
+
+              <div class="note-box">
+
+                <div class="note-title">
+                  備註
+                </div>
+
+                <div class="note-text">${escapeHTML(
+                  item.note
+                )}</div>
+
+              </div>
+
+            `
+
+          : ""
+      }
+
+
+      <!-- =====================
+           狀態
+      ====================== -->
+
+      <div class="status-area">
+
+
+        <div>
+
+          <label>
+            匯款狀態
+          </label>
+
+
+          <select
+            class="payment-status"
+          >
+
+            ${createOptions(
+
+              paymentOptions,
+
+              item.paymentStatus ||
+              "待對帳"
+
+            )}
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label>
+            團務進度
+          </label>
+
+
+          <select
+            class="progress-status"
+          >
+
+            ${createOptions(
+
+              progressOptions,
+
+              item.progress ||
+              "已登記"
+
+            )}
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================
+           儲存
+      ====================== -->
+
+      <button
+        class="save-button"
+        type="button"
+        data-index="${realIndex}"
+      >
+        儲存狀態
+      </button>
+
+
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================================
    顯示資料
 ===================================================== */
 
@@ -1314,449 +2182,238 @@ function renderSubmissions() {
       .toLowerCase();
 
 
+  /* ===================================================
+     篩選
+  =================================================== */
+
   const filtered =
     submissions.filter(
       item => {
 
-        const productSearch =
-          Array.isArray(
-            item.products
+        /* =====================
+           分類
+        ===================== */
+
+        const itemType =
+          String(
+            item.groupType || ""
+          );
+
+
+        const matchesType =
+          currentTypeFilter === "all" ||
+          itemType === currentTypeFilter;
+
+
+        /* =====================
+           名稱
+        ===================== */
+
+        const facebookName =
+          String(
+            item.facebookName || ""
           )
-
-            ? item.products
-                .map(
-                  product =>
-                    product.name ||
-                    product.productName ||
-                    ""
-                )
-                .join(" ")
-
-            : "";
+            .trim()
+            .toLowerCase();
 
 
-        const text = [
-
-          item.facebookName,
-          item.community,
-          item.activity,
-          item.group,
-          item.groupType,
-          productSearch
-
-        ]
-          .map(
-            value =>
-              String(
-                value || ""
-              )
-          )
-          .join(" ")
-          .toLowerCase();
+        const matchesName =
+          !keyword ||
+          facebookName.includes(
+            keyword
+          );
 
 
-        return text.includes(
-          keyword
+        return (
+          matchesType &&
+          matchesName
         );
 
       }
     );
 
 
+  submissionCount.textContent =
+    filtered.length;
+
+
+  /* ===================================================
+     沒資料
+  =================================================== */
+
   if (
     filtered.length === 0
   ) {
 
     submissionList.innerHTML = `
+
       <div class="card empty-box">
         目前沒有符合的匯款資料 🦊
       </div>
+
     `;
+
 
     return;
 
   }
 
 
-  submissionList.innerHTML =
-    filtered
-      .map(
-        item => {
+  /* ===================================================
+     沒搜尋名稱
+     → 保留原本畫面
+  =================================================== */
 
-          const realIndex =
-            submissions.indexOf(
-              item
+  if (!keyword) {
+
+    submissionList.innerHTML =
+      filtered
+        .map(
+          item => {
+
+            const realIndex =
+              submissions.indexOf(
+                item
+              );
+
+
+            return createSubmissionCard(
+
+              item,
+
+              realIndex,
+
+              true
+
             );
 
-
-          /* =====================
-             商品
-          ===================== */
-
-          const products =
-            Array.isArray(
-              item.products
-            )
-              ? item.products
-              : [];
+          }
+        )
+        .join("");
 
 
-          const productsHTML =
-            products.length > 0
+    return;
 
-              ? products
-                  .map(
-                    product => {
-
-                      let productName =
-                        product.name ||
-                        product.productName ||
-                        "商品";
+  }
 
 
-                      /*
-                        如果舊資料沒有把款式放進 name，
-                        額外補上 variant
-                      */
+  /* ===================================================
+     有搜尋名稱
+     → 同一個人只顯示一次
+  =================================================== */
 
-                      if (
-                        product.variant &&
-                        !productName.includes(
-                          product.variant
-                        )
-                      ) {
-
-                        productName +=
-                          `｜${product.variant}`;
-
-                      }
+  const people = {};
 
 
-                      const productPrice =
-                        product.price ??
-                        product.lineTotal ??
-                        (
-                          Number(
-                            product.unitPrice || 0
-                          )
-                          *
-                          Number(
-                            product.quantity || 1
-                          )
-                        );
+  filtered.forEach(
+    item => {
+
+      const name =
+        String(
+          item.facebookName ||
+          "未填名稱"
+        )
+          .trim();
 
 
-                      return `
-                        <div class="product-line">
+      if (
+        !people[name]
+      ) {
 
-                          ${escapeHTML(
-                            productName
-                          )}
+        people[name] =
+          [];
 
-                          ・
-
-                          ${formatMoney(
-                            productPrice
-                          )}
-
-                        </div>
-                      `;
-
-                    }
-                  )
-                  .join("")
-
-              : `
-                  <div class="product-line">
-                    無商品資料
-                  </div>
-                `;
+      }
 
 
-          /* =====================
-             匯款狀態
-          ===================== */
+      people[name].push(
+        item
+      );
 
-          const paymentOptions = [
-
-            "待對帳",
-            "已匯款",
-            "需確認"
-
-          ];
+    }
+  );
 
 
-          /* =====================
-             團務進度
-          ===================== */
+  /* ===================================================
+     顯示人員群組
+  =================================================== */
 
-          const progressOptions = [
-
-            "已登記",
-            "已下單",
-            "已到貨",
-            "已寄出",
-            "已完成"
-
-          ];
+  submissionList.innerHTML =
+    Object
+      .entries(
+        people
+      )
+      .map(
+        ([name, items]) => {
 
 
-          const groupType =
-            item.groupType ||
-            "未分類";
+          const cardsHTML =
+            items
+              .map(
+                item => {
+
+                  const realIndex =
+                    submissions.indexOf(
+                      item
+                    );
 
 
-          const typeClass =
-            groupType === "單特典"
-              ? "special"
-              : "";
+                  /*
+                    false =
+                    卡片裡不要重複顯示人名
+                  */
+
+                  return createSubmissionCard(
+
+                    item,
+
+                    realIndex,
+
+                    false
+
+                  );
+
+                }
+              )
+              .join("");
 
 
           return `
 
-            <div
-              class="card submission-card"
-              data-index="${realIndex}"
-            >
+            <div class="person-search-group">
 
 
-              <!-- Facebook -->
+              <!-- 人名只出現一次 -->
 
-              <div class="submission-header">
+              <div class="person-search-header">
 
-                <div>
+                <div class="person-search-name">
 
-                  <div class="person-name">
-
-                    ${escapeHTML(
-                      item.facebookName ||
-                      "未填名稱"
-                    )}
-
-                  </div>
-
-
-                  <div class="community-name">
-
-                    ${escapeHTML(
-                      item.community ||
-                      item.activity ||
-                      "未填團務"
-                    )}
-
-                  </div>
-
-
-                  <div
-                    class="
-                      type-text
-                      ${typeClass}
-                    "
-                  >
-                    ${escapeHTML(
-                      groupType
-                    )}
-                  </div>
-
-                </div>
-
-
-                <div class="amount-pill">
-
-                  ${formatMoney(
-                    item.paymentAmount
+                  ${escapeHTML(
+                    name
                   )}
 
                 </div>
 
-              </div>
 
+                <div class="person-search-count">
 
-              <!-- 匯款資料 -->
-
-              <div class="info-grid">
-
-
-                <div class="info-item">
-
-                  <div class="info-label">
-                    匯款日期
-                  </div>
-
-                  <div class="info-value">
-
-                    ${escapeHTML(
-                      item.paymentDate ||
-                      "—"
-                    )}
-
-                    ${
-                      item.paymentTime
-                        ? " " +
-                          escapeHTML(
-                            item.paymentTime
-                          )
-                        : ""
-                    }
-
-                  </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                  <div class="info-label">
-                    匯款銀行
-                  </div>
-
-                  <div class="info-value">
-
-                    ${escapeHTML(
-                      item.paymentBank ||
-                      "—"
-                    )}
-
-                  </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                  <div class="info-label">
-                    帳號後五碼
-                  </div>
-
-                  <div class="info-value">
-
-                    ${escapeHTML(
-                      item.accountLastFive ||
-                      "—"
-                    )}
-
-                  </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                  <div class="info-label">
-                    表單送出時間
-                  </div>
-
-                  <div class="info-value">
-
-                    ${escapeHTML(
-                      formatDate(
-                        item.submittedAt ||
-                        item.createdAt ||
-                        item.timestamp
-                      )
-                    )}
-
-                  </div>
+                  共參加
+                  ${items.length}
+                  筆團務
 
                 </div>
 
               </div>
 
 
-              <!-- 商品 -->
+              <!-- 這個人的所有團務 -->
 
-              <div class="product-box">
+              <div class="person-orders-grid">
 
-                <div class="product-title">
-                  商品
-                </div>
-
-                ${productsHTML}
+                ${cardsHTML}
 
               </div>
-
-
-              <!-- 備註 -->
-
-              ${
-                item.note
-
-                  ? `
-                      <div class="note-box">
-
-                        <div class="note-title">
-                          備註
-                        </div>
-
-                        <div class="note-text">${escapeHTML(
-                          item.note
-                        )}</div>
-
-                      </div>
-                    `
-
-                  : ""
-              }
-
-
-              <!-- 狀態 -->
-
-              <div class="status-area">
-
-
-                <div>
-
-                  <label>
-                    匯款狀態
-                  </label>
-
-                  <select
-                    class="payment-status"
-                  >
-
-                    ${createOptions(
-                      paymentOptions,
-
-                      item.paymentStatus ||
-                      "待對帳"
-                    )}
-
-                  </select>
-
-                </div>
-
-
-                <div>
-
-                  <label>
-                    團務進度
-                  </label>
-
-                  <select
-                    class="progress-status"
-                  >
-
-                    ${createOptions(
-                      progressOptions,
-
-                      item.progress ||
-                      "已登記"
-                    )}
-
-                  </select>
-
-                </div>
-
-              </div>
-
-
-              <button
-                class="save-button"
-                type="button"
-                data-index="${realIndex}"
-              >
-                儲存狀態
-              </button>
 
 
             </div>
@@ -1768,6 +2425,64 @@ function renderSubmissions() {
       .join("");
 
 }
+
+
+/* =====================================================
+   分類按鈕
+===================================================== */
+
+document
+  .querySelectorAll(
+    "[data-type-filter]"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          currentTypeFilter =
+            button.dataset.typeFilter;
+
+
+          document
+            .querySelectorAll(
+              "[data-type-filter]"
+            )
+            .forEach(
+              item => {
+
+                item.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+
+          button.classList.add(
+            "selected"
+          );
+
+
+          renderSubmissions();
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   搜尋名稱
+===================================================== */
+
+searchInput.addEventListener(
+  "input",
+  renderSubmissions
+);
 
 
 /* =====================================================
@@ -1804,10 +2519,6 @@ submissionList.addEventListener(
     }
 
 
-    /*
-      Worker 更新需要這筆資料的 _path
-    */
-
     if (!item._path) {
 
       alert(
@@ -1841,7 +2552,8 @@ submissionList.addEventListener(
         .value;
 
 
-    button.disabled = true;
+    button.disabled =
+      true;
 
 
     button.classList.remove(
@@ -1922,7 +2634,9 @@ submissionList.addEventListener(
             "管理員登入已失效，請重新登入。"
           );
 
+
           logoutAdmin();
+
 
           return;
 
@@ -1933,6 +2647,11 @@ submissionList.addEventListener(
           result.message ||
           "更新失敗"
         );
+
+
+        button.textContent =
+          "儲存狀態";
+
 
         return;
 
@@ -1973,6 +2692,7 @@ submissionList.addEventListener(
             "saved"
           );
 
+
           button.textContent =
             "儲存狀態";
 
@@ -1985,7 +2705,9 @@ submissionList.addEventListener(
 
     catch(error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
 
       alert(
@@ -2006,16 +2728,6 @@ submissionList.addEventListener(
     }
 
   }
-);
-
-
-/* =====================================================
-   搜尋
-===================================================== */
-
-searchInput.addEventListener(
-  "input",
-  renderSubmissions
 );
 
 
@@ -2055,9 +2767,40 @@ refreshButton.addEventListener(
 
 function logoutAdmin() {
 
-  adminPassword = "";
+  adminPassword =
+    "";
 
-  submissions = [];
+
+  submissions =
+    [];
+
+
+  searchInput.value =
+    "";
+
+
+  currentTypeFilter =
+    "all";
+
+
+  document
+    .querySelectorAll(
+      "[data-type-filter]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+
+          "selected",
+
+          button.dataset.typeFilter ===
+            "all"
+
+        );
+
+      }
+    );
 
 
   submissionList.innerHTML =
@@ -2066,10 +2809,6 @@ function logoutAdmin() {
 
   submissionCount.textContent =
     "0";
-
-
-  searchInput.value =
-    "";
 
 
   loginError.textContent =
@@ -2107,5 +2846,7 @@ logoutButton.addEventListener(
 
 </script>
 
+
 </body>
+
 </html>
