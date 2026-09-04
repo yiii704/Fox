@@ -566,6 +566,44 @@
       word-break: break-word;
     }
 
+/* =====================================================
+   匯款資料同一排
+===================================================== */
+
+.payment-inline-value {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 2px;
+
+  color: #554b62;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+
+  white-space: nowrap;
+
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.payment-inline-value::-webkit-scrollbar {
+  display: none;
+}
+
+.payment-inline-value span {
+  flex-shrink: 0;
+}
+
+.payment-divider {
+  color: #b9afc1;
+}
 
     /* =====================================================
        商品
@@ -1957,53 +1995,60 @@ function createSubmissionCard(
         </div>
 
 
-        <!-- 匯款 -->
+<!-- 匯款 -->
 
-        <div class="payment-summary">
+<div class="payment-summary">
 
-          <div class="mini-title">
-            匯款資料
-          </div>
-
-
-          <div class="mini-value">
-
-            ${escapeHTML(
-              item.paymentBank ||
-              "—"
-            )}
-
-            ｜
-
-            ${escapeHTML(
-              item.accountLastFive ||
-              "—"
-            )}
-
-          </div>
+  <div class="mini-title">
+    匯款資料
+  </div>
 
 
-          <div class="mini-value">
+  <div class="payment-inline-value">
 
-            ${escapeHTML(
-              item.paymentDate ||
-              "—"
-            )}
+    <span>
+      ${escapeHTML(
+        item.paymentBank ||
+        "—"
+      )}
+    </span>
 
-            ${
-              item.paymentTime
+    <span class="payment-divider">
+      ｜
+    </span>
 
-                ? " " +
-                  escapeHTML(
-                    item.paymentTime
-                  )
+    <span>
+      ${escapeHTML(
+        item.accountLastFive ||
+        "—"
+      )}
+    </span>
 
-                : ""
-            }
+    <span class="payment-divider">
+      ｜
+    </span>
 
-          </div>
+    <span>
+      ${escapeHTML(
+        item.paymentDate ||
+        "—"
+      )}
+    </span>
 
-        </div>
+    <span class="payment-divider">
+      ｜
+    </span>
+
+    <span>
+      ${escapeHTML(
+        item.paymentTime ||
+        "—"
+      )}
+    </span>
+
+  </div>
+
+</div>
 
 
         <!-- 商品 -->
