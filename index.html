@@ -2443,7 +2443,7 @@
 
 
           <div class="order-status upcoming">
-            即將開放
+            開放中
           </div>
 
         </div>
@@ -2451,8 +2451,8 @@
 
         <button
           type="button"
-          class="order-action upcoming"
-          disabled
+          data-order="osaka-0919"
+          data-return="groupPage"
         >
           填寫匯款表單
         </button>
@@ -2653,11 +2653,8 @@
         </option>
 
 
-        <option
-          value="osaka-0919"
-          disabled
-        >
-          9/19大阪場限（即將開放）
+        <option value="osaka-0919">
+          9/19大阪場限
         </option>
 
 
@@ -3686,8 +3683,6 @@ const closedGroups =
 
 const upcomingGroups =
   new Set([
-
-    "osaka-0919",
 
     "osaka-0920"
 
