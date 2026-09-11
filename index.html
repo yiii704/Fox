@@ -15,11 +15,13 @@
     content="telephone=no"
   >
 
-  <title>狐狸🦊日韓通路代購/拆車</title>
+  <title>
+    狐狸🦊日韓通路代購/拆車
+  </title>
 
 
   <!-- ========================================
-       分享縮圖
+       分享資訊
   ======================================== -->
 
   <meta
@@ -223,12 +225,13 @@
 
       text-shadow:
         0 2px 8px
-        rgba(0, 0, 0, 0.35);
+        rgba(0, 0, 0, .35);
     }
 
 
     body:not(.home-mode) > h1 {
       color: #6b46c1;
+
       text-shadow: none;
     }
 
@@ -303,7 +306,7 @@
 
       box-shadow:
         0 4px 12px
-        rgba(126, 92, 190, 0.10);
+        rgba(126, 92, 190, .10);
 
       font-size: 15px;
 
@@ -311,7 +314,7 @@
 
       text-align: center;
 
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
 
@@ -321,7 +324,7 @@
 
 
     .pill-button:active {
-      transform: scale(0.97);
+      transform: scale(.97);
     }
 
 
@@ -376,7 +379,7 @@
 
       box-shadow:
         0 6px 18px
-        rgba(116, 82, 165, 0.09);
+        rgba(116, 82, 165, .09);
     }
 
 
@@ -405,16 +408,16 @@
 
 
     /* ========================================
-       團務分類
+       團務分頁
     ======================================== */
 
     .group-type-tabs {
       display: grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(3, minmax(0, 1fr));
 
-      gap: 10px;
+      gap: 9px;
 
       margin-bottom: 18px;
     }
@@ -423,7 +426,7 @@
     .group-type-button {
       width: 100%;
 
-      padding: 9px 14px;
+      padding: 9px 8px;
 
       background: #ffffff;
 
@@ -434,7 +437,7 @@
 
       border-radius: 999px;
 
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
     }
 
@@ -459,11 +462,12 @@
 
 
     /* ========================================
-       團務卡
+       團務卡片
     ======================================== */
 
     .order-card {
       overflow: hidden;
+
       padding: 0;
     }
 
@@ -621,7 +625,6 @@
       color: #59349e;
 
       font-size: 18px;
-
       font-weight: 600;
 
       line-height: 1.6;
@@ -629,7 +632,7 @@
 
 
     /* ========================================
-       商品圖鑑
+       商品圖
     ======================================== */
 
     .catalog-note {
@@ -648,15 +651,17 @@
 
       padding: 10px 12px;
 
-      background: #fff8e8;
+      background: #f7f2ff;
 
-      color: #8a6a24;
+      color: #765ca4;
 
       border-radius: 13px;
 
-      font-size: 13px;
+      font-size: 14px;
 
       line-height: 1.65;
+
+      text-align: center;
     }
 
 
@@ -721,11 +726,13 @@
 
 
     .catalog-caption {
-      padding: 8px;
+      padding: 9px;
 
       color: #7b6d89;
 
       font-size: 13px;
+
+      line-height: 1.5;
 
       text-align: center;
     }
@@ -878,7 +885,7 @@
 
 
     .product-choice.sold-out {
-      opacity: 0.48;
+      opacity: .48;
 
       background: #f4f3f6;
     }
@@ -969,13 +976,11 @@
         1px solid #d9c8ff;
 
       border-radius: 50%;
-
-      font-size: 17px;
     }
 
 
     .qty-button:disabled {
-      opacity: 0.3;
+      opacity: .3;
     }
 
 
@@ -987,14 +992,12 @@
 
       background: #ffffff;
 
+      color: #554b62;
+
       border:
         1px solid #e5daf8;
 
       border-radius: 9px;
-
-      color: #554b62;
-
-      font-size: 14px;
 
       text-align: center;
     }
@@ -1014,8 +1017,6 @@
     .total-box {
       display: flex;
 
-      align-items: center;
-
       justify-content: space-between;
 
       margin-top: 14px;
@@ -1024,16 +1025,16 @@
 
       background: #eee6ff;
 
-      border-radius: 16px;
-
       color: #59349e;
+
+      border-radius: 16px;
 
       font-weight: 600;
     }
 
 
     /* ========================================
-       注意事項同意
+       注意事項確認
     ======================================== */
 
     .agreement-row {
@@ -1054,10 +1055,7 @@
 
 
     .agreement-row label {
-      color: #594d68;
-
       font-size: 17px;
-
       font-weight: 600;
     }
 
@@ -1122,16 +1120,18 @@
     }
 
 
-    .notice-community-link {
-      display: inline-flex;
+    .notice-community-link,
+    .contact-button {
+      display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      margin-top: 10px;
+      width: 100%;
 
-      padding: 9px 16px;
+      margin-top: 12px;
+
+      padding: 10px 16px;
 
       background: #f1eaff;
 
@@ -1141,8 +1141,6 @@
         1.5px solid #d9c8ff;
 
       border-radius: 999px;
-
-      font-weight: 600;
 
       text-decoration: none;
     }
@@ -1181,7 +1179,6 @@
       color: #59349e;
 
       font-size: 17px;
-
       font-weight: 600;
     }
 
@@ -1190,8 +1187,6 @@
       padding: 6px 0;
 
       color: #62576d;
-
-      font-size: 14px;
 
       border-bottom:
         1px dashed #e8dff5;
@@ -1259,6 +1254,7 @@
       display: block;
 
       width: 100%;
+
       min-width: 0;
       max-width: 100%;
 
@@ -1277,17 +1273,6 @@
     }
 
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #9f7aea;
-
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, 0.13);
-    }
-
-
     textarea {
       min-height: 95px;
 
@@ -1301,7 +1286,7 @@
 
 
     /* ========================================
-       iPhone 日期時間
+       iPhone Date
     ======================================== */
 
     .ios-date-wrap {
@@ -1382,7 +1367,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: space-between;
 
       gap: 12px;
@@ -1392,8 +1376,6 @@
 
 
     .copy-button {
-      flex-shrink: 0;
-
       padding: 7px 14px;
 
       background: #f1eaff;
@@ -1405,7 +1387,6 @@
 
       border-radius: 999px;
 
-      font-size: 15px;
       font-weight: 600;
     }
 
@@ -1446,14 +1427,12 @@
 
 
     .success-icon {
-      margin-bottom: 14px;
-
       font-size: 46px;
     }
 
 
     .success-title {
-      margin-bottom: 14px;
+      margin: 14px 0;
 
       color: #59349e;
 
@@ -1477,7 +1456,6 @@
       color: #59349e;
 
       font-size: 19px;
-
       font-weight: 900;
     }
 
@@ -1492,7 +1470,7 @@
 
       margin-top: 22px;
 
-      padding: 14px 18px;
+      padding: 14px;
 
       background: #dccfff;
 
@@ -1503,9 +1481,6 @@
 
       border-radius: 999px;
 
-      font-size: 19px;
-      font-weight: 600;
-
       text-decoration: none;
     }
 
@@ -1515,7 +1490,7 @@
 
       margin-top: 12px;
 
-      padding: 12px 18px;
+      padding: 12px;
 
       background: #ffffff;
 
@@ -1525,8 +1500,6 @@
         2px solid #d9c8ff;
 
       border-radius: 999px;
-
-      font-weight: 600;
     }
 
 
@@ -1546,40 +1519,11 @@
       margin-top: 5px;
 
       color: #71657d;
-
-      font-size: 16px;
-    }
-
-
-    .contact-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-
-      margin-top: 12px;
-
-      padding: 10px 16px;
-
-      background: #f1eaff;
-
-      color: #6842b3;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-
-      font-weight: 600;
-
-      text-decoration: none;
     }
 
 
     /* ========================================
-       對帳篩選
+       Filters
     ======================================== */
 
     .filter-label {
@@ -1624,7 +1568,7 @@
 
 
     /* ========================================
-       對帳列表
+       Progress
     ======================================== */
 
     .progress-group {
@@ -1641,7 +1585,7 @@
 
       box-shadow:
         0 6px 18px
-        rgba(116, 82, 165, 0.09);
+        rgba(116, 82, 165, .09);
     }
 
 
@@ -1687,8 +1631,6 @@
 
       font-size: 16px;
       font-weight: 600;
-
-      word-break: break-word;
     }
 
 
@@ -1700,8 +1642,6 @@
       font-size: 13px;
 
       line-height: 1.45;
-
-      word-break: break-word;
     }
 
 
@@ -1709,15 +1649,6 @@
       display: block;
 
       margin-top: 2px;
-
-      line-height: 1.45;
-
-      word-break: break-word;
-    }
-
-
-    .public-product-line:first-child {
-      margin-top: 0;
     }
 
 
@@ -1727,8 +1658,6 @@
 
       align-items: center;
       justify-content: center;
-
-      width: 100%;
 
       min-height: 32px;
 
@@ -1800,7 +1729,7 @@
 
 
     /* ========================================
-       搜尋名字
+       搜尋
     ======================================== */
 
     .public-person-group {
@@ -1820,10 +1749,9 @@
     .public-person-header {
       display: flex;
 
-      align-items: center;
       justify-content: space-between;
 
-      gap: 12px;
+      gap: 10px;
 
       padding: 15px 18px;
 
@@ -1871,8 +1799,6 @@
 
       font-size: 15px;
       font-weight: 600;
-
-      line-height: 1.5;
     }
 
 
@@ -1890,7 +1816,6 @@
       border-radius: 999px;
 
       font-size: 11px;
-      font-weight: 600;
     }
 
 
@@ -1907,8 +1832,6 @@
       color: #81758d;
 
       font-size: 13px;
-
-      line-height: 1.45;
     }
 
 
@@ -1925,7 +1848,7 @@
 
 
     /* ========================================
-       圖片放大
+       Image Modal
     ======================================== */
 
     .image-modal {
@@ -1940,7 +1863,7 @@
       padding: 18px;
 
       background:
-        rgba(35, 29, 45, 0.84);
+        rgba(35, 29, 45, .84);
 
       align-items: center;
       justify-content: center;
@@ -1956,7 +1879,6 @@
       position: relative;
 
       width: 100%;
-
       max-width: 760px;
 
       max-height: 92vh;
@@ -1973,8 +1895,6 @@
       display: block;
 
       width: 100%;
-
-      height: auto;
     }
 
 
@@ -1993,8 +1913,7 @@
       margin:
         10px 10px -48px 0;
 
-      background:
-        rgba(255, 255, 255, 0.94);
+      background: #ffffff;
 
       color: #59349e;
 
@@ -2002,8 +1921,6 @@
         1px solid #d9c8ff;
 
       border-radius: 50%;
-
-      font-size: 20px;
     }
 
 
@@ -2020,9 +1937,9 @@
 
 
       h1 {
-        font-size: 23px;
-
         margin-bottom: 25px;
+
+        font-size: 23px;
       }
 
 
@@ -2042,12 +1959,22 @@
       .pill-button {
         min-height: 40px;
 
-        padding:
-          5px 8px;
+        padding: 5px 8px;
 
         font-size: 14px;
+      }
 
-        line-height: 1.2;
+
+      .group-type-tabs {
+        gap: 7px;
+      }
+
+
+      .group-type-button {
+        padding:
+          8px 4px;
+
+        font-size: 14px;
       }
 
 
@@ -2086,18 +2013,6 @@
       }
 
 
-      .qty-button {
-        width: 26px;
-        height: 26px;
-      }
-
-
-      .qty-input {
-        width: 34px;
-        height: 28px;
-      }
-
-
       .progress-member-row {
         grid-template-columns:
           minmax(105px, 1fr)
@@ -2105,16 +2020,6 @@
           92px;
 
         gap: 5px;
-      }
-
-
-      .facebook-name {
-        font-size: 15px;
-      }
-
-
-      .community-small {
-        font-size: 12px;
       }
 
 
@@ -2129,6 +2034,11 @@
     @media (max-width: 370px) {
 
       .pill-button {
+        font-size: 13px;
+      }
+
+
+      .group-type-button {
         font-size: 13px;
       }
 
@@ -2158,7 +2068,6 @@
 
   <div
     class="home-background"
-    aria-hidden="true"
   ></div>
 
 
@@ -2247,6 +2156,9 @@
 
   <div class="group-tab-block">
 
+
+    <!-- 分頁 -->
+
     <div class="group-type-tabs">
 
       <button
@@ -2266,10 +2178,21 @@
         單特典
       </button>
 
+
+      <button
+        type="button"
+        class="group-type-button"
+        data-group-tab="現貨"
+      >
+        現貨
+      </button>
+
     </div>
 
 
-    <!-- 代購 -->
+    <!-- ========================================
+         代購
+    ======================================== -->
 
     <div
       class="group-type-content active"
@@ -2308,43 +2231,12 @@
 
       </div>
 
-
-      <div class="card order-card">
-
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・代購
-          </div>
-
-
-          <div class="order-name">
-            Run it JAPAN 一番賞
-          </div>
-
-
-          <div class="order-status">
-            開放中
-          </div>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="run-it-japan-kuji"
-          data-return="groupPage"
-        >
-          填寫匯款表單
-        </button>
-
-      </div>
-
     </div>
 
 
-    <!-- 單特典 -->
+    <!-- ========================================
+         單特典
+    ======================================== -->
 
     <div
       class="group-type-content"
@@ -2387,7 +2279,7 @@
       </div>
 
 
-      <!-- FANS LUCK DRAW & ver -->
+      <!-- 9/19 -->
 
       <div class="card order-card">
 
@@ -2395,6 +2287,121 @@
 
           <div class="order-group">
             Stray Kids・單特典
+          </div>
+
+
+          <div class="order-name">
+            9/19大阪場限
+          </div>
+
+
+          <div class="order-status upcoming">
+            即將開放
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action upcoming"
+          disabled
+        >
+          填寫匯款表單
+        </button>
+
+      </div>
+
+
+      <!-- 9/20 -->
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・單特典
+          </div>
+
+
+          <div class="order-name">
+            9/20大阪場限
+          </div>
+
+
+          <div class="order-status upcoming">
+            即將開放
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action upcoming"
+          disabled
+        >
+          填寫匯款表單
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================================
+         現貨
+    ======================================== -->
+
+    <div
+      class="group-type-content"
+      data-group-content="現貨"
+    >
+
+
+      <!-- Run it JAPAN 一番賞 -->
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・現貨
+          </div>
+
+
+          <div class="order-name">
+            Run it JAPAN 一番賞
+          </div>
+
+
+          <div class="order-status">
+            開放中
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="order-action"
+          data-order="run-it-japan-kuji"
+          data-return="groupPage"
+        >
+          填寫匯款表單
+        </button>
+
+      </div>
+
+
+      <!-- FANS LUCK DRAW & ver -->
+
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・現貨
           </div>
 
 
@@ -2429,7 +2436,7 @@
         <div class="order-top">
 
           <div class="order-group">
-            Stray Kids・單特典
+            Stray Kids・現貨
           </div>
 
 
@@ -2450,74 +2457,6 @@
           class="order-action"
           data-order="nagoya-0905"
           data-return="groupPage"
-        >
-          填寫匯款表單
-        </button>
-
-      </div>
-
-
-      <!-- 9/19 大阪 -->
-
-      <div class="card order-card">
-
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・單特典
-          </div>
-
-
-          <div class="order-name">
-            9/19大阪場限
-          </div>
-
-
-          <div class="order-status upcoming">
-            即將開放
-          </div>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="order-action upcoming"
-          disabled
-        >
-          填寫匯款表單
-        </button>
-
-      </div>
-
-
-      <!-- 9/20 大阪 -->
-
-      <div class="card order-card">
-
-        <div class="order-top">
-
-          <div class="order-group">
-            Stray Kids・單特典
-          </div>
-
-
-          <div class="order-name">
-            9/20大阪場限
-          </div>
-
-
-          <div class="order-status upcoming">
-            即將開放
-          </div>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="order-action upcoming"
-          disabled
         >
           填寫匯款表單
         </button>
@@ -2668,11 +2607,6 @@
           Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
         </option>
 
-
-        <option value="run-it-japan-kuji">
-          Run it JAPAN 一番賞
-        </option>
-
       </optgroup>
 
 
@@ -2680,16 +2614,6 @@
 
         <option value="fans-lucky-draw-digital">
           FANS LUCKY DRAW（電子專）
-        </option>
-
-
-        <option value="fans-luck-draw-and-ver">
-          FANS LUCK DRAW（&amp; ver）
-        </option>
-
-
-        <option value="nagoya-0905">
-          9/5 名古屋場限
         </option>
 
 
@@ -2706,6 +2630,25 @@
           disabled
         >
           9/20大阪場限（即將開放）
+        </option>
+
+      </optgroup>
+
+
+      <optgroup label="現貨">
+
+        <option value="run-it-japan-kuji">
+          Run it JAPAN 一番賞
+        </option>
+
+
+        <option value="fans-luck-draw-and-ver">
+          FANS LUCK DRAW（&amp; ver）
+        </option>
+
+
+        <option value="nagoya-0905">
+          9/5 名古屋場限
         </option>
 
       </optgroup>
@@ -2728,7 +2671,7 @@
 
 
 <!-- ========================================
-     商品
+     商品選購
 ======================================== -->
 
 <section
@@ -2777,7 +2720,7 @@
 
 
     <div class="catalog-note">
-      點擊圖片可以放大查看商品款式。
+      點擊圖片可以放大查看。
     </div>
 
 
@@ -2942,7 +2885,6 @@
       class="notice-community-link"
       href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
       target="_blank"
-      rel="noopener noreferrer"
     >
       點我加入代購社群
     </a>
@@ -2997,9 +2939,14 @@
     <ul class="notice-list">
 
       <li>廠損</li>
+
       <li>運輸損傷</li>
+
       <li>商品瑕疵</li>
-      <li>不湊套（專卡、滿額卡及隨機商品等）</li>
+
+      <li>
+        不湊套（專卡、滿額卡及隨機商品等）
+      </li>
 
     </ul>
 
@@ -3077,7 +3024,6 @@
         <input
           id="facebookName"
           type="text"
-          placeholder="請輸入 Facebook 名稱"
           required
         >
 
@@ -3333,7 +3279,6 @@
 
         <textarea
           id="note"
-          placeholder="沒有備註可以留空"
         ></textarea>
 
       </div>
@@ -3354,7 +3299,7 @@
 
 
 <!-- ========================================
-     對帳
+     對帳表
 ======================================== -->
 
 <section
@@ -3465,7 +3410,6 @@
       id="communitySearch"
       type="search"
       placeholder="輸入 Facebook 名稱"
-      autocomplete="off"
     >
 
   </div>
@@ -3515,7 +3459,6 @@
       class="contact-button"
       href="https://line.me/R/ti/p/@964kujbw"
       target="_blank"
-      rel="noopener noreferrer"
     >
       開啟官方 LINE
     </a>
@@ -3534,7 +3477,6 @@
       class="contact-button"
       href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
       target="_blank"
-      rel="noopener noreferrer"
     >
       加入代購社群
     </a>
@@ -3558,7 +3500,6 @@
       class="contact-button"
       href="https://www.instagram.com/yiiiii_0704"
       target="_blank"
-      rel="noopener noreferrer"
     >
       前往 Instagram
     </a>
@@ -3582,7 +3523,6 @@
       class="contact-button"
       href="https://ssur.cc/f2JS2n4b"
       target="_blank"
-      rel="noopener noreferrer"
     >
       前往 Facebook
     </a>
@@ -3624,9 +3564,7 @@
 
       <br><br>
 
-      所有團務進度都會在
-      <br>
-      代購社群裡面統一告知。
+      所有團務進度都會在代購社群裡統一告知。
 
     </div>
 
@@ -3640,7 +3578,6 @@
       class="join-community-button"
       href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
       target="_blank"
-      rel="noopener noreferrer"
     >
       🔗 一鍵加入代購社群
     </a>
@@ -3694,7 +3631,7 @@
 
 
 /* ========================================
-   Worker
+   API
 ======================================== */
 
 const WORKER_URL =
@@ -3716,7 +3653,7 @@ const upcomingGroups =
 
 
 /* ========================================
-   庫存團務
+   庫存制團務
 ======================================== */
 
 const stockManagedGroups =
@@ -4043,11 +3980,6 @@ function showPage(
   }
 
 
-  document.body.classList.remove(
-    "home-mode"
-  );
-
-
   pages.forEach(
     page => {
 
@@ -4059,25 +3991,27 @@ function showPage(
   );
 
 
-  const targetPage =
+  document.body.classList.remove(
+    "home-mode"
+  );
+
+
+  const target =
     document.getElementById(
       pageId
     );
 
 
-  if (!targetPage) {
+  if (!target) {
 
     return;
 
   }
 
 
-  targetPage.classList.add(
+  target.classList.add(
     "active-page"
   );
-
-
-  resetScroll();
 
 
   if (
@@ -4090,6 +4024,9 @@ function showPage(
     );
 
   }
+
+
+  resetScroll();
 
 }
 
@@ -4136,7 +4073,7 @@ document
 
 
 /* ========================================
-   首頁 selected
+   Menu Selected
 ======================================== */
 
 document
@@ -4177,7 +4114,7 @@ document
 
 
 /* ========================================
-   Tabs
+   團務 Tabs
 ======================================== */
 
 document
@@ -4233,7 +4170,8 @@ document
 
                     "active",
 
-                    content.dataset.groupContent ===
+                    content.dataset
+                      .groupContent ===
                       type
 
                   );
@@ -4289,7 +4227,7 @@ const tShirtVariants =
 
 
 /* ========================================
-   商品
+   Products
 ======================================== */
 
 const productData = {
@@ -4545,11 +4483,6 @@ const productData = {
   ],
 
 
-  /* ========================================
-     ★ FANS LUCKY DRAW 電子專
-     無庫存限制
-  ======================================== */
-
   "fans-lucky-draw-digital": [
 
     {
@@ -4574,7 +4507,7 @@ const productData = {
 
 
 /* ========================================
-   團務資訊
+   Meta
 ======================================== */
 
 const groupMeta = {
@@ -4593,6 +4526,11 @@ const groupMeta = {
 
   },
 
+
+  /*
+    雖然前台現在放在「現貨」頁籤，
+    這裡先保留原分類，避免影響目前後台篩選。
+  */
 
   "run-it-japan-kuji": {
 
@@ -4664,8 +4602,6 @@ const groupMeta = {
   },
 
 
-  /* ★ 新團 */
-
   "fans-lucky-draw-digital": {
 
     groupType:
@@ -4683,7 +4619,7 @@ const groupMeta = {
 
 
 /* ========================================
-   圖片
+   Catalog
 ======================================== */
 
 const catalogData = {
@@ -4692,7 +4628,7 @@ const catalogData = {
   "run-it-japan": {
 
     warning:
-      "圖片中的 ¥ 為官方日本定價，實際跟團價格請以本頁面標示的 NT$ 金額為準。",
+      "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 商品預覽圖",
 
     images: [
 
@@ -4701,7 +4637,7 @@ const catalogData = {
           "run-it-1.jpg",
 
         title:
-          "商品圖 1"
+          "RUN IT JAPAN 商品預覽圖 1"
       },
 
       {
@@ -4709,7 +4645,7 @@ const catalogData = {
           "run-it-2.jpg",
 
         title:
-          "商品圖 2"
+          "RUN IT JAPAN 商品預覽圖 2"
       },
 
       {
@@ -4717,7 +4653,7 @@ const catalogData = {
           "run-it-3.jpg",
 
         title:
-          "商品圖 3"
+          "RUN IT JAPAN 商品預覽圖 3"
       }
 
     ]
@@ -4728,7 +4664,7 @@ const catalogData = {
   "run-it-japan-kuji": {
 
     warning:
-      "圖片為一番賞商品款式參考，實際可購買數量請以即時剩餘庫存為準。",
+      "Run it JAPAN 一番賞",
 
     images: [
 
@@ -4737,7 +4673,7 @@ const catalogData = {
           "kuji-1.jpeg.PNG",
 
         title:
-          "商品圖 1"
+          "Run it JAPAN 一番賞"
       },
 
       {
@@ -4745,7 +4681,7 @@ const catalogData = {
           "kuji-2.jpeg.PNG",
 
         title:
-          "商品圖 2"
+          "Run it JAPAN 一番賞"
       }
 
     ]
@@ -4756,7 +4692,7 @@ const catalogData = {
   "nagoya-0905": {
 
     warning:
-      "9/5 名古屋場限",
+      "9/5 名古屋場限預覽圖",
 
     images: [
 
@@ -4765,7 +4701,7 @@ const catalogData = {
           "名古屋場限 2.JPG",
 
         title:
-          "9/5 名古屋場限"
+          "9/5 名古屋場限預覽圖"
       }
 
     ]
@@ -4776,7 +4712,7 @@ const catalogData = {
   "osaka-0919": {
 
     warning:
-      "9/19大阪場限",
+      "9/19大阪場限預覽圖",
 
     images: [
 
@@ -4785,7 +4721,7 @@ const catalogData = {
           "大阪場限 1.JPG",
 
         title:
-          "9/19大阪場限"
+          "9/19大阪場限預覽圖"
       }
 
     ]
@@ -4796,7 +4732,7 @@ const catalogData = {
   "osaka-0920": {
 
     warning:
-      "9/20大阪場限",
+      "9/20大阪場限預覽圖",
 
     images: [
 
@@ -4805,7 +4741,7 @@ const catalogData = {
           "大阪場限 2.JPG",
 
         title:
-          "9/20大阪場限"
+          "9/20大阪場限預覽圖"
       }
 
     ]
@@ -4816,16 +4752,16 @@ const catalogData = {
   "fans-luck-draw-and-ver": {
 
     warning:
-      "FANS LUCK DRAW（& ver）",
+      "FANS LUCK DRAW（& ver）特典預覽圖",
 
     images: [
 
       {
         src:
-          "FANS LUCK DRAW.jpg",
+          "FANS LUCK DRAW.JPG",
 
         title:
-          "FANS LUCK DRAW（& ver）"
+          "FANS LUCK DRAW（& ver）特典預覽圖"
       }
 
     ]
@@ -4833,14 +4769,10 @@ const catalogData = {
   },
 
 
-  /* ========================================
-     ★ FANS LUCKY DRAW 電子專
-  ======================================== */
-
   "fans-lucky-draw-digital": {
 
     warning:
-      "FANS LUCKY DRAW（電子專）",
+      "FANS LUCKY DRAW（電子專）特典預覽圖",
 
     images: [
 
@@ -4849,7 +4781,7 @@ const catalogData = {
           "FANS LD.jpg",
 
         title:
-          "FANS LUCKY DRAW（電子專）"
+          "FANS LUCKY DRAW（電子專）特典預覽圖"
       }
 
     ]
@@ -4860,7 +4792,7 @@ const catalogData = {
 
 
 /* ========================================
-   匯款入口
+   Payment Select
 ======================================== */
 
 paymentGroupSelect.addEventListener(
@@ -5005,7 +4937,7 @@ document
 
 
 /* ========================================
-   商品返回
+   Product Back
 ======================================== */
 
 document
@@ -5032,7 +4964,7 @@ document
 
 
 /* ========================================
-   商品 → 注意事項
+   Notice
 ======================================== */
 
 document
@@ -5113,7 +5045,8 @@ function renderCatalog(
 
 
   if (
-    catalog.images.length === 1
+    catalog.images.length ===
+      1
   ) {
 
     catalogGallery.classList.add(
@@ -5123,7 +5056,8 @@ function renderCatalog(
   }
 
   else if (
-    catalog.images.length === 2
+    catalog.images.length ===
+      2
   ) {
 
     catalogGallery.classList.add(
@@ -5176,7 +5110,7 @@ function renderCatalog(
 
 
 /* ========================================
-   圖片放大
+   Modal
 ======================================== */
 
 const imageModal =
@@ -5439,10 +5373,12 @@ function createChoiceHTML(
         <span>
 
           <span>
+
             ${escapeHTML(
               variant ||
               "加入此商品"
             )}
+
           </span>
 
 
@@ -5519,7 +5455,7 @@ function createChoiceHTML(
 
 
 /* ========================================
-   Render Products
+   Products
 ======================================== */
 
 async function renderProducts(
@@ -5730,7 +5666,7 @@ async function renderProducts(
 
 
 /* ========================================
-   商品事件
+   Product Events
 ======================================== */
 
 function bindProductEvents() {
@@ -5922,7 +5858,7 @@ function bindProductEvents() {
 
 
 /* ========================================
-   Selected Products
+   Collect
 ======================================== */
 
 function collectSelectedProducts() {
@@ -6088,7 +6024,7 @@ readNoticeCheckbox.addEventListener(
 
 
 /* ========================================
-   下一步
+   Next
 ======================================== */
 
 nextPaymentButton.addEventListener(
@@ -6119,6 +6055,22 @@ nextPaymentButton.addEventListener(
 
       alert(
         "請先勾選「已閱讀注意事項」。"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      upcomingGroups.has(
+        currentGroupId
+      )
+    ) {
+
+      alert(
+        "此團務目前尚未開放。"
       );
 
 
@@ -6284,9 +6236,10 @@ async function copyBankAccount(
 
   try {
 
-    await navigator.clipboard.writeText(
-      account
-    );
+    await navigator.clipboard
+      .writeText(
+        account
+      );
 
   }
 
@@ -6374,6 +6327,22 @@ paymentForm.addEventListener(
 
     const groupId =
       checkoutSnapshot.groupId;
+
+
+    if (
+      upcomingGroups.has(
+        groupId
+      )
+    ) {
+
+      alert(
+        "此團務目前尚未開放。"
+      );
+
+
+      return;
+
+    }
 
 
     const accountLastFive =
@@ -6599,7 +6568,7 @@ paymentForm.addEventListener(
 
         alert(
           result.message ||
-          "送出失敗，請稍後再試。"
+          "送出失敗。"
         );
 
 
@@ -6664,7 +6633,7 @@ paymentForm.addEventListener(
 
 
 /* ========================================
-   公開對帳商品
+   Public Product
 ======================================== */
 
 function getPublicProductHTML(
@@ -6675,9 +6644,7 @@ function getPublicProductHTML(
     Array.isArray(
       item.products
     )
-
       ? item.products
-
       : [];
 
 
@@ -6692,13 +6659,9 @@ function getPublicProductHTML(
 
   const activity =
     String(
-
       item.activity ||
-
       item.community ||
-
       ""
-
     ).trim();
 
 
@@ -6722,14 +6685,11 @@ function getPublicProductHTML(
 
         const quantity =
           Math.max(
-
             1,
-
             Number(
               product.quantity ||
               1
             )
-
           );
 
 
@@ -6746,13 +6706,10 @@ function getPublicProductHTML(
 
           text =
             variant
-
               ? `${variant} ×${quantity}`
-
               : `×${quantity}`;
 
         }
-
 
         else if (
           productName
@@ -6776,7 +6733,6 @@ function getPublicProductHTML(
             ` ×${quantity}`;
 
         }
-
 
         else if (
           product.name
@@ -6806,7 +6762,6 @@ function getPublicProductHTML(
 
         }
 
-
         else {
 
           text =
@@ -6835,7 +6790,7 @@ function getPublicProductHTML(
 
 
 /* ========================================
-   Public Progress
+   Progress
 ======================================== */
 
 let defaultProgressData =
@@ -6910,9 +6865,7 @@ async function loadPublicProgress() {
       Array.isArray(
         result.submissions
       )
-
         ? result.submissions
-
         : [];
 
 
@@ -6941,7 +6894,7 @@ async function loadPublicProgress() {
 
 
 /* ========================================
-   狀態 Class
+   狀態
 ======================================== */
 
 function getPaymentClass(
@@ -6998,15 +6951,11 @@ function getProgressClass(
 
 
   return (
-
     map[
       status
     ]
-
     ||
-
     "stage-registered"
-
   );
 
 }
@@ -7069,21 +7018,13 @@ function renderProgress() {
 
 
         return (
-
           matchesType &&
-
           matchesGroup &&
-
           matchesName
-
         );
 
       }
     );
-
-
-  progressList.innerHTML =
-    "";
 
 
   if (
@@ -7117,9 +7058,7 @@ function renderProgress() {
 
         const activity =
           item.activity ||
-
           item.community ||
-
           "團務";
 
 
@@ -7157,7 +7096,6 @@ function renderProgress() {
 
             <div class="progress-group">
 
-
               <div class="progress-group-header">
 
                 ${escapeHTML(
@@ -7169,92 +7107,82 @@ function renderProgress() {
 
               <div class="progress-group-body">
 
+                ${items.map(
+                  item => `
 
-                ${items
-                  .map(
-                    item => {
-
-                      const paymentStatus =
-                        item.paymentStatus ||
-                        "待對帳";
+                    <div class="progress-member-row">
 
 
-                      const progress =
-                        item.progress ||
-                        "已登記";
+                      <div>
 
+                        <div class="facebook-name">
 
-                      return `
+                          ${escapeHTML(
 
-                        <div class="progress-member-row">
+                            item.facebookName ||
 
+                            "未填名稱"
 
-                          <div>
-
-                            <div class="facebook-name">
-
-                              ${escapeHTML(
-
-                                item.facebookName ||
-
-                                "未填名稱"
-
-                              )}
-
-                            </div>
-
-
-                            <div class="community-small">
-
-                              ${getPublicProductHTML(
-                                item
-                              )}
-
-                            </div>
-
-                          </div>
-
-
-                          <div
-                            class="
-                              status-pill
-                              ${getPaymentClass(
-                                paymentStatus
-                              )}
-                            "
-                          >
-
-                            ${escapeHTML(
-                              paymentStatus
-                            )}
-
-                          </div>
-
-
-                          <div
-                            class="
-                              stage-pill
-                              ${getProgressClass(
-                                progress
-                              )}
-                            "
-                          >
-
-                            ${escapeHTML(
-                              progress
-                            )}
-
-                          </div>
-
+                          )}
 
                         </div>
 
-                      `;
 
-                    }
-                  )
-                  .join("")}
+                        <div class="community-small">
 
+                          ${getPublicProductHTML(
+                            item
+                          )}
+
+                        </div>
+
+                      </div>
+
+
+                      <div
+                        class="
+                          status-pill
+                          ${getPaymentClass(
+                            item.paymentStatus
+                          )}
+                        "
+                      >
+
+                        ${escapeHTML(
+
+                          item.paymentStatus ||
+
+                          "待對帳"
+
+                        )}
+
+                      </div>
+
+
+                      <div
+                        class="
+                          stage-pill
+                          ${getProgressClass(
+                            item.progress
+                          )}
+                        "
+                      >
+
+                        ${escapeHTML(
+
+                          item.progress ||
+
+                          "已登記"
+
+                        )}
+
+                      </div>
+
+
+                    </div>
+
+                  `
+                ).join("")}
 
               </div>
 
@@ -7343,118 +7271,106 @@ function renderProgress() {
 
             <div class="public-person-orders">
 
+              ${items.map(
+                item => `
 
-              ${items
-                .map(
-                  item => {
-
-                    const paymentStatus =
-                      item.paymentStatus ||
-                      "待對帳";
+                  <div class="public-person-order">
 
 
-                    const progress =
-                      item.progress ||
-                      "已登記";
+                    <div class="public-order-name">
+
+                      ${escapeHTML(
+
+                        item.activity ||
+
+                        item.community ||
+
+                        "團務"
+
+                      )}
+
+                    </div>
 
 
-                    return `
+                    <span
+                      class="
+                        public-order-type
+                        ${
+                          item.groupType ===
+                            "單特典"
 
-                      <div class="public-person-order">
+                            ? "special"
+
+                            : ""
+                        }
+                      "
+                    >
+
+                      ${escapeHTML(
+                        item.groupType ||
+                        ""
+                      )}
+
+                    </span>
 
 
-                        <div class="public-order-name">
+                    <div class="public-search-products">
 
-                          ${escapeHTML(
+                      ${getPublicProductHTML(
+                        item
+                      )}
 
-                            item.activity ||
+                    </div>
 
-                            item.community ||
 
-                            "團務"
+                    <div class="public-order-statuses">
 
+                      <div
+                        class="
+                          status-pill
+                          ${getPaymentClass(
+                            item.paymentStatus
                           )}
+                        "
+                      >
 
-                        </div>
+                        ${escapeHTML(
 
+                          item.paymentStatus ||
 
-                        <span
-                          class="
-                            public-order-type
-                            ${
-                              item.groupType ===
-                                "單特典"
+                          "待對帳"
 
-                                ? "special"
-
-                                : ""
-                            }
-                          "
-                        >
-
-                          ${escapeHTML(
-                            item.groupType ||
-                            ""
-                          )}
-
-                        </span>
-
-
-                        <div class="public-search-products">
-
-                          ${getPublicProductHTML(
-                            item
-                          )}
-
-                        </div>
-
-
-                        <div class="public-order-statuses">
-
-
-                          <div
-                            class="
-                              status-pill
-                              ${getPaymentClass(
-                                paymentStatus
-                              )}
-                            "
-                          >
-
-                            ${escapeHTML(
-                              paymentStatus
-                            )}
-
-                          </div>
-
-
-                          <div
-                            class="
-                              stage-pill
-                              ${getProgressClass(
-                                progress
-                              )}
-                            "
-                          >
-
-                            ${escapeHTML(
-                              progress
-                            )}
-
-                          </div>
-
-
-                        </div>
-
+                        )}
 
                       </div>
 
-                    `;
 
-                  }
-                )
-                .join("")}
+                      <div
+                        class="
+                          stage-pill
+                          ${getProgressClass(
+                            item.progress
+                          )}
+                        "
+                      >
 
+                        ${escapeHTML(
+
+                          item.progress ||
+
+                          "已登記"
+
+                        )}
+
+                      </div>
+
+                    </div>
+
+
+                  </div>
+
+                `
+              ).join("")}
 
             </div>
 
@@ -7566,7 +7482,7 @@ communitySearch.addEventListener(
 
 
 /* ========================================
-   初始化
+   Init
 ======================================== */
 
 resetScroll();
