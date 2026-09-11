@@ -20,10 +20,6 @@
   </title>
 
 
-  <!-- ========================================
-       分享資訊
-  ======================================== -->
-
   <meta
     property="og:title"
     content="狐狸🦊日韓通路代購/拆車"
@@ -635,36 +631,6 @@
        商品圖
     ======================================== */
 
-    .catalog-note {
-      margin-bottom: 13px;
-
-      color: #8b8295;
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-
-    .catalog-warning {
-      margin-bottom: 14px;
-
-      padding: 10px 12px;
-
-      background: #f7f2ff;
-
-      color: #765ca4;
-
-      border-radius: 13px;
-
-      font-size: 14px;
-
-      line-height: 1.65;
-
-      text-align: center;
-    }
-
-
     .catalog-gallery {
       display: grid;
 
@@ -722,19 +688,6 @@
       max-height: 430px;
 
       object-fit: contain;
-    }
-
-
-    .catalog-caption {
-      padding: 9px;
-
-      color: #7b6d89;
-
-      font-size: 13px;
-
-      line-height: 1.5;
-
-      text-align: center;
     }
 
 
@@ -1848,7 +1801,7 @@
 
 
     /* ========================================
-       Image Modal
+       圖片放大
     ======================================== */
 
     .image-modal {
@@ -2157,8 +2110,6 @@
   <div class="group-tab-block">
 
 
-    <!-- 分頁 -->
-
     <div class="group-type-tabs">
 
       <button
@@ -2244,8 +2195,6 @@
     >
 
 
-      <!-- FANS LUCKY DRAW 電子專 -->
-
       <div class="card order-card">
 
         <div class="order-top">
@@ -2279,8 +2228,6 @@
       </div>
 
 
-      <!-- 9/19 -->
-
       <div class="card order-card">
 
         <div class="order-top">
@@ -2312,8 +2259,6 @@
 
       </div>
 
-
-      <!-- 9/20 -->
 
       <div class="card order-card">
 
@@ -2359,8 +2304,6 @@
     >
 
 
-      <!-- Run it JAPAN 一番賞 -->
-
       <div class="card order-card">
 
         <div class="order-top">
@@ -2394,8 +2337,6 @@
       </div>
 
 
-      <!-- FANS LUCK DRAW & ver -->
-
       <div class="card order-card">
 
         <div class="order-top">
@@ -2428,8 +2369,6 @@
 
       </div>
 
-
-      <!-- 名古屋 -->
 
       <div class="card order-card">
 
@@ -2719,17 +2658,6 @@
     </div>
 
 
-    <div class="catalog-note">
-      點擊圖片可以放大查看。
-    </div>
-
-
-    <div
-      id="catalogWarning"
-      class="catalog-warning"
-    ></div>
-
-
     <div
       id="catalogGallery"
       class="catalog-gallery"
@@ -2938,11 +2866,17 @@
 
     <ul class="notice-list">
 
-      <li>廠損</li>
+      <li>
+        廠損
+      </li>
 
-      <li>運輸損傷</li>
+      <li>
+        運輸損傷
+      </li>
 
-      <li>商品瑕疵</li>
+      <li>
+        商品瑕疵
+      </li>
 
       <li>
         不湊套（專卡、滿額卡及隨機商品等）
@@ -3742,12 +3676,6 @@ const catalogGallery =
   );
 
 
-const catalogWarning =
-  document.getElementById(
-    "catalogWarning"
-  );
-
-
 const readNoticeCheckbox =
   document.getElementById(
     "readNoticeCheckbox"
@@ -3912,10 +3840,6 @@ function resetOrderFlow() {
 
 
   catalogGallery.innerHTML =
-    "";
-
-
-  catalogWarning.textContent =
     "";
 
 }
@@ -4527,11 +4451,6 @@ const groupMeta = {
   },
 
 
-  /*
-    雖然前台現在放在「現貨」頁籤，
-    這裡先保留原分類，避免影響目前後台篩選。
-  */
-
   "run-it-japan-kuji": {
 
     groupType:
@@ -4619,7 +4538,8 @@ const groupMeta = {
 
 
 /* ========================================
-   Catalog
+   圖片
+   不顯示任何圖片備註
 ======================================== */
 
 const catalogData = {
@@ -4627,33 +4547,30 @@ const catalogData = {
 
   "run-it-japan": {
 
-    warning:
-      "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 商品預覽圖",
-
     images: [
 
       {
         src:
           "run-it-1.jpg",
 
-        title:
-          "RUN IT JAPAN 商品預覽圖 1"
+        alt:
+          "RUN IT JAPAN 商品圖 1"
       },
 
       {
         src:
           "run-it-2.jpg",
 
-        title:
-          "RUN IT JAPAN 商品預覽圖 2"
+        alt:
+          "RUN IT JAPAN 商品圖 2"
       },
 
       {
         src:
           "run-it-3.jpg",
 
-        title:
-          "RUN IT JAPAN 商品預覽圖 3"
+        alt:
+          "RUN IT JAPAN 商品圖 3"
       }
 
     ]
@@ -4663,25 +4580,22 @@ const catalogData = {
 
   "run-it-japan-kuji": {
 
-    warning:
-      "Run it JAPAN 一番賞",
-
     images: [
 
       {
         src:
           "kuji-1.jpeg.PNG",
 
-        title:
-          "Run it JAPAN 一番賞"
+        alt:
+          "Run it JAPAN 一番賞商品圖 1"
       },
 
       {
         src:
           "kuji-2.jpeg.PNG",
 
-        title:
-          "Run it JAPAN 一番賞"
+        alt:
+          "Run it JAPAN 一番賞商品圖 2"
       }
 
     ]
@@ -4691,17 +4605,14 @@ const catalogData = {
 
   "nagoya-0905": {
 
-    warning:
-      "9/5 名古屋場限預覽圖",
-
     images: [
 
       {
         src:
           "名古屋場限 2.JPG",
 
-        title:
-          "9/5 名古屋場限預覽圖"
+        alt:
+          "9/5 名古屋場限"
       }
 
     ]
@@ -4711,17 +4622,14 @@ const catalogData = {
 
   "osaka-0919": {
 
-    warning:
-      "9/19大阪場限預覽圖",
-
     images: [
 
       {
         src:
           "大阪場限 1.JPG",
 
-        title:
-          "9/19大阪場限預覽圖"
+        alt:
+          "9/19大阪場限"
       }
 
     ]
@@ -4731,17 +4639,14 @@ const catalogData = {
 
   "osaka-0920": {
 
-    warning:
-      "9/20大阪場限預覽圖",
-
     images: [
 
       {
         src:
           "大阪場限 2.JPG",
 
-        title:
-          "9/20大阪場限預覽圖"
+        alt:
+          "9/20大阪場限"
       }
 
     ]
@@ -4751,17 +4656,14 @@ const catalogData = {
 
   "fans-luck-draw-and-ver": {
 
-    warning:
-      "FANS LUCK DRAW（& ver）特典預覽圖",
-
     images: [
 
       {
         src:
-          "FANS LUCK DRAW.JPG",
+          "FANS LUCK DRAW.jpg",
 
-        title:
-          "FANS LUCK DRAW（& ver）特典預覽圖"
+        alt:
+          "FANS LUCK DRAW（& ver）"
       }
 
     ]
@@ -4771,17 +4673,14 @@ const catalogData = {
 
   "fans-lucky-draw-digital": {
 
-    warning:
-      "FANS LUCKY DRAW（電子專）特典預覽圖",
-
     images: [
 
       {
         src:
           "FANS LD.jpg",
 
-        title:
-          "FANS LUCKY DRAW（電子專）特典預覽圖"
+        alt:
+          "FANS LUCKY DRAW（電子專）"
       }
 
     ]
@@ -5035,18 +4934,12 @@ function renderCatalog(
     "block";
 
 
-  catalogWarning.textContent =
-    catalog.warning ||
-    "";
-
-
   catalogGallery.className =
     "catalog-gallery";
 
 
   if (
-    catalog.images.length ===
-      1
+    catalog.images.length === 1
   ) {
 
     catalogGallery.classList.add(
@@ -5056,8 +4949,7 @@ function renderCatalog(
   }
 
   else if (
-    catalog.images.length ===
-      2
+    catalog.images.length === 2
   ) {
 
     catalogGallery.classList.add(
@@ -5085,17 +4977,9 @@ function renderCatalog(
             <img
               class="catalog-image"
               src="${escapeHTML(image.src)}"
-              alt="${escapeHTML(image.title)}"
+              alt="${escapeHTML(image.alt || "")}"
               loading="lazy"
             >
-
-            <div class="catalog-caption">
-
-              ${escapeHTML(
-                image.title
-              )}
-
-            </div>
 
           </div>
 
