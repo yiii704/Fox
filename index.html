@@ -7377,6 +7377,865 @@ loadPublicProgress();
 
 </script>
 
+
+<style>
+  .stock-combined-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .stock-combined-item {
+    padding: 9px 12px;
+    background: #faf8ff;
+    color: #6d607a;
+    border: 1px solid #eee6ff;
+    border-radius: 13px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .stock-combined-help {
+    margin-top: 12px;
+    color: #8c7c9c;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .combined-source-section {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed #d9c8ff;
+  }
+
+  .combined-source-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .combined-source-title {
+    margin-bottom: 12px;
+    color: #59349e;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .combined-source-gallery {
+    margin-bottom: 14px;
+  }
+
+  .combined-source-products .product-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .combined-breakdown {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #faf8ff;
+    border: 1px solid #eee6ff;
+    border-radius: 14px;
+  }
+
+  .combined-breakdown.active {
+    display: block;
+  }
+
+  .combined-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 0;
+    color: #746780;
+    font-size: 13px;
+  }
+
+  .combined-breakdown-row span:last-child {
+    white-space: nowrap;
+  }
+
+  .checkout-source-title {
+    margin-top: 10px;
+    padding-top: 9px;
+    color: #725e8c;
+    font-size: 14px;
+    font-weight: 700;
+    border-top: 1px dashed #e8dff5;
+  }
+
+  .public-product-source {
+    display: block;
+    margin-top: 5px;
+    color: #6d5c80;
+    font-weight: 700;
+  }
+
+  .public-order-type.stock {
+    background: #e4f5e8;
+    color: #287747;
+  }
+</style>
+
+<script>
+(() => {
+  const FOX_COMBINED_ID = "in-stock-combined";
+
+  const FOX_STOCK_SOURCES = [
+    "run-it-japan-kuji",
+    "fans-luck-draw-and-ver",
+    "nagoya-0905"
+  ];
+
+  const foxInventories = {};
+
+  const originalRenderProducts = renderProducts;
+  const originalResetOrderFlow = resetOrderFlow;
+  const originalRenderCheckoutSummary = renderCheckoutSummary;
+  const originalGetPublicProductHTML = getPublicProductHTML;
+
+  stockManagedGroups.add(FOX_COMBINED_ID);
+
+  groupMeta[FOX_COMBINED_ID] = {
+    groupType: "現貨",
+    group: "Stray Kids",
+    activity: "現貨合併訂單"
+  };
+
+  const stockContent = document.querySelector(
+    '[data-group-content="現貨"]'
+  );
+
+  if (stockContent) {
+    stockContent.innerHTML = `
+      <div class="card order-card">
+
+        <div class="order-top">
+
+          <div class="order-group">
+            Stray Kids・現貨
+          </div>
+
+          <div class="order-name">
+            現貨商品合併選購
+          </div>
+
+          <div class="order-status">
+            開放中
+          </div>
+
+          <div class="stock-combined-list">
+
+            <div class="stock-combined-item">
+              Run it JAPAN 一番賞
+            </div>
+
+            <div class="stock-combined-item">
+              FANS LUCK DRAW（&amp; ver）
+            </div>
+
+            <div class="stock-combined-item">
+              9/5 名古屋場限
+            </div>
+
+          </div>
+
+          <div class="stock-combined-help">
+            可以同時選購以上不同現貨團務的商品，
+            最後自動合併總金額，只需要匯款及填單一次。
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          id="foxCombinedStockButton"
+          class="order-action"
+        >
+          選購現貨商品
+        </button>
+
+      </div>
+    `;
+  }
+
+  const stockOptgroup = paymentGroupSelect.querySelector(
+    'optgroup[label="現貨"]'
+  );
+
+  if (stockOptgroup) {
+    stockOptgroup.innerHTML = `
+      <option value="in-stock-combined">
+        現貨商品合併結帳
+      </option>
+    `;
+  }
+
+  const foxCombinedBreakdown =
+    document.createElement("div");
+
+  foxCombinedBreakdown.id =
+    "foxCombinedBreakdown";
+
+  foxCombinedBreakdown.className =
+    "combined-breakdown";
+
+  selectedSummary.insertAdjacentElement(
+    "afterend",
+    foxCombinedBreakdown
+  );
+
+  const typeFilters =
+    document.getElementById("typeFilters");
+
+  if (
+    typeFilters &&
+    !typeFilters.querySelector('[data-filter="現貨"]')
+  ) {
+    const stockFilter =
+      document.createElement("button");
+
+    stockFilter.type = "button";
+    stockFilter.className = "filter-button";
+    stockFilter.dataset.filter = "現貨";
+    stockFilter.textContent = "現貨";
+
+    stockFilter.addEventListener("click", () => {
+      typeFilters
+        .querySelectorAll(".filter-button")
+        .forEach(item => {
+          item.classList.remove("selected");
+        });
+
+      stockFilter.classList.add("selected");
+
+      currentTypeFilter = "現貨";
+
+      renderProgress();
+    });
+
+    typeFilters.appendChild(stockFilter);
+  }
+
+  async function foxLoadInventory(groupId) {
+    const response = await fetch(
+      WORKER_URL +
+        "/inventory?groupId=" +
+        encodeURIComponent(groupId),
+      {
+        cache: "no-store"
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(
+        result.message || "庫存讀取失敗"
+      );
+    }
+
+    foxInventories[groupId] =
+      result.inventory;
+  }
+
+  function foxGetStockVariants(
+    groupId,
+    productName
+  ) {
+    return Object.keys(
+      foxInventories[groupId]
+        ?.products
+        ?.[productName] || {}
+    );
+  }
+
+  function foxGetStock(
+    groupId,
+    productName,
+    variant
+  ) {
+    return Number(
+      foxInventories[groupId]
+        ?.products
+        ?.[productName]
+        ?.[variant] ?? 0
+    );
+  }
+
+  function foxChoiceHTML(
+    product,
+    variant,
+    sourceGroupId
+  ) {
+    const stock = foxGetStock(
+      sourceGroupId,
+      product.name,
+      variant
+    );
+
+    const soldOut = stock <= 0;
+
+    const sourceActivity =
+      groupMeta[sourceGroupId]?.activity || "";
+
+    return `
+      <div
+        class="product-choice ${
+          soldOut ? "sold-out" : ""
+        }"
+      >
+
+        <label class="choice-main">
+
+          <input
+            class="product-checkbox"
+            type="checkbox"
+            data-product="${escapeHTML(product.name)}"
+            data-variant="${escapeHTML(variant)}"
+            data-price="${product.price}"
+            data-stock-managed="true"
+            data-source-group-id="${escapeHTML(sourceGroupId)}"
+            data-source-activity="${escapeHTML(sourceActivity)}"
+            ${soldOut ? "disabled" : ""}
+          >
+
+          <span>
+
+            <span>
+              ${escapeHTML(variant || "加入此商品")}
+            </span>
+
+            ${
+              soldOut
+                ? `
+                  <span class="stock-text stock-out">
+                    已售罄
+                  </span>
+                `
+                : `
+                  <span
+                    class="stock-text ${
+                      stock <= 2 ? "stock-low" : ""
+                    }"
+                  >
+                    剩餘 ${stock}
+                  </span>
+                `
+            }
+
+          </span>
+
+        </label>
+
+        <div class="quantity-control">
+
+          <button
+            type="button"
+            class="qty-button qty-minus"
+            disabled
+          >
+            −
+          </button>
+
+          <input
+            class="qty-input"
+            type="number"
+            min="1"
+            max="${Math.max(stock, 1)}"
+            value="1"
+            disabled
+          >
+
+          <button
+            type="button"
+            class="qty-button qty-plus"
+            disabled
+          >
+            ＋
+          </button>
+
+        </div>
+
+      </div>
+    `;
+  }
+
+  function foxProductCardHTML(
+    product,
+    sourceGroupId
+  ) {
+    const variants = foxGetStockVariants(
+      sourceGroupId,
+      product.name
+    );
+
+    const choices = variants.length
+      ? variants
+          .map(variant =>
+            foxChoiceHTML(
+              product,
+              variant,
+              sourceGroupId
+            )
+          )
+          .join("")
+      : foxChoiceHTML(
+          product,
+          "",
+          sourceGroupId
+        );
+
+    return `
+      <details class="product-card">
+
+        <summary class="product-summary">
+
+          <div class="product-summary-left">
+
+            <div class="product-name">
+              ${escapeHTML(product.name)}
+            </div>
+
+            <div class="product-hint">
+              限量庫存・依剩餘數量選購
+            </div>
+
+          </div>
+
+          <div class="product-price">
+            NT$
+            ${Number(product.price).toLocaleString("zh-TW")}
+          </div>
+
+        </summary>
+
+        <div class="variant-list">
+          ${choices}
+        </div>
+
+      </details>
+    `;
+  }
+
+  async function foxRenderCombinedProducts() {
+    catalogCard.style.display = "none";
+    catalogGallery.innerHTML = "";
+
+    productContainer.innerHTML = `
+      <div class="product-placeholder">
+        讀取現貨庫存中…
+      </div>
+    `;
+
+    try {
+      await Promise.all(
+        FOX_STOCK_SOURCES.map(foxLoadInventory)
+      );
+    } catch (error) {
+      console.error(error);
+
+      productContainer.innerHTML = `
+        <div class="product-placeholder">
+          庫存讀取失敗，請稍後重新整理
+        </div>
+      `;
+
+      return;
+    }
+
+    productContainer.innerHTML =
+      FOX_STOCK_SOURCES
+        .map(sourceGroupId => {
+          const meta =
+            groupMeta[sourceGroupId] || {};
+
+          const products =
+            productData[sourceGroupId] || [];
+
+          const images =
+            catalogData[sourceGroupId]?.images || [];
+
+          const galleryClass =
+            images.length === 1
+              ? "one-image"
+              : images.length === 2
+                ? "two-images"
+                : "three-images";
+
+          const gallery = images.length
+            ? `
+              <div class="catalog-gallery ${galleryClass}">
+
+                ${images
+                  .map(image => `
+                    <div class="catalog-image-card">
+
+                      <img
+                        class="catalog-image fox-stock-image"
+                        src="${escapeHTML(image.src)}"
+                        alt="${escapeHTML(image.alt || "")}"
+                        loading="lazy"
+                      >
+
+                    </div>
+                  `)
+                  .join("")}
+
+              </div>
+            `
+            : "";
+
+          return `
+            <section class="combined-source-section">
+
+              <div class="combined-source-title">
+                ${escapeHTML(
+                  meta.activity || sourceGroupId
+                )}
+              </div>
+
+              <div class="combined-source-gallery">
+                ${gallery}
+              </div>
+
+              <div class="combined-source-products">
+
+                ${products
+                  .map(product =>
+                    foxProductCardHTML(
+                      product,
+                      sourceGroupId
+                    )
+                  )
+                  .join("")}
+
+              </div>
+
+            </section>
+          `;
+        })
+        .join("");
+
+    productContainer
+      .querySelectorAll(".fox-stock-image")
+      .forEach(image => {
+        image.addEventListener("click", () => {
+          modalImage.src = image.src;
+          modalImage.alt = image.alt;
+
+          imageModal.classList.add("open");
+        });
+      });
+
+    bindProductEvents();
+
+    updateTotal();
+  }
+
+  renderProducts = async function(groupId) {
+    if (groupId === FOX_COMBINED_ID) {
+      await foxRenderCombinedProducts();
+      return;
+    }
+
+    await originalRenderProducts(groupId);
+  };
+
+  collectSelectedProducts = function() {
+    return [
+      ...productContainer.querySelectorAll(
+        ".product-checkbox:checked"
+      )
+    ].map(checkbox => {
+      const row = checkbox.closest(
+        ".product-choice"
+      );
+
+      const quantity = Math.max(
+        1,
+        Number(
+          row.querySelector(".qty-input").value || 1
+        )
+      );
+
+      const productName =
+        checkbox.dataset.product;
+
+      const variant =
+        checkbox.dataset.variant || "";
+
+      const unitPrice = Number(
+        checkbox.dataset.price || 0
+      );
+
+      const sourceGroupId =
+        checkbox.dataset.sourceGroupId ||
+        currentGroupId;
+
+      const sourceActivity =
+        checkbox.dataset.sourceActivity ||
+        groupMeta[sourceGroupId]?.activity ||
+        "";
+
+      let name = productName;
+
+      if (variant) {
+        name += `｜${variant}`;
+      }
+
+      name += ` ×${quantity}`;
+
+      return {
+        name,
+        productName,
+        variant,
+        quantity,
+        unitPrice,
+        price: unitPrice * quantity,
+        stockManaged:
+          checkbox.dataset.stockManaged === "true",
+        sourceGroupId,
+        sourceActivity
+      };
+    });
+  };
+
+  updateTotal = function() {
+    const products =
+      collectSelectedProducts();
+
+    const quantity = products.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+
+    const total = products.reduce(
+      (sum, item) => sum + item.price,
+      0
+    );
+
+    selectedSummary.textContent =
+      `已選 ${quantity} 件商品`;
+
+    calculatedTotal.textContent =
+      `NT$ ${total.toLocaleString("zh-TW")}`;
+
+    if (
+      currentGroupId === FOX_COMBINED_ID &&
+      products.length
+    ) {
+      const totals = {};
+
+      products.forEach(item => {
+        const source =
+          item.sourceActivity ||
+          item.sourceGroupId ||
+          "現貨";
+
+        totals[source] =
+          (totals[source] || 0) +
+          item.price;
+      });
+
+      foxCombinedBreakdown.innerHTML =
+        Object.entries(totals)
+          .map(([source, subtotal]) => `
+            <div class="combined-breakdown-row">
+
+              <span>
+                ${escapeHTML(source)}
+              </span>
+
+              <span>
+                NT$
+                ${Number(subtotal).toLocaleString("zh-TW")}
+              </span>
+
+            </div>
+          `)
+          .join("");
+
+      foxCombinedBreakdown.classList.add(
+        "active"
+      );
+    } else {
+      foxCombinedBreakdown.innerHTML = "";
+
+      foxCombinedBreakdown.classList.remove(
+        "active"
+      );
+    }
+
+    updateNextButton();
+  };
+
+  renderCheckoutSummary = function() {
+    if (
+      !checkoutSnapshot ||
+      checkoutSnapshot.groupId !== FOX_COMBINED_ID
+    ) {
+      originalRenderCheckoutSummary();
+      return;
+    }
+
+    const grouped = {};
+
+    checkoutSnapshot.products.forEach(item => {
+      const source =
+        item.sourceActivity ||
+        item.sourceGroupId ||
+        "現貨";
+
+      if (!grouped[source]) {
+        grouped[source] = [];
+      }
+
+      grouped[source].push(item);
+    });
+
+    checkoutSummary.innerHTML = `
+      <div class="checkout-group">
+        現貨合併訂單
+      </div>
+
+      ${Object.entries(grouped)
+        .map(([source, items]) => `
+          <div class="checkout-source-title">
+            ${escapeHTML(source)}
+          </div>
+
+          ${items
+            .map(item => `
+              <div class="checkout-product">
+
+                ${escapeHTML(item.name)}
+
+                ・NT$
+                ${Number(item.price).toLocaleString("zh-TW")}
+
+              </div>
+            `)
+            .join("")}
+        `)
+        .join("")}
+
+      <div class="checkout-total">
+
+        <span>
+          合併匯款總金額
+        </span>
+
+        <span>
+          NT$
+          ${checkoutSnapshot.total.toLocaleString("zh-TW")}
+        </span>
+
+      </div>
+    `;
+  };
+
+  resetOrderFlow = function() {
+    originalResetOrderFlow();
+
+    foxCombinedBreakdown.innerHTML = "";
+
+    foxCombinedBreakdown.classList.remove(
+      "active"
+    );
+  };
+
+  getPublicProductHTML = function(item) {
+    if (
+      item.groupId !== FOX_COMBINED_ID &&
+      item.groupType !== "現貨"
+    ) {
+      return originalGetPublicProductHTML(item);
+    }
+
+    const products =
+      Array.isArray(item.products)
+        ? item.products
+        : [];
+
+    let lastSource = "";
+
+    return products
+      .map(product => {
+        const source = String(
+          product.sourceActivity || "現貨"
+        ).trim();
+
+        const productName = String(
+          product.productName || ""
+        ).trim();
+
+        const variant = String(
+          product.variant || ""
+        ).trim();
+
+        const quantity = Math.max(
+          1,
+          Number(product.quantity || 1)
+        );
+
+        let text = productName;
+
+        if (variant) {
+          text += `｜${variant}`;
+        }
+
+        text += ` ×${quantity}`;
+
+        const sourceHTML =
+          source && source !== lastSource
+            ? `
+              <span class="public-product-source">
+                ${escapeHTML(source)}
+              </span>
+            `
+            : "";
+
+        lastSource = source;
+
+        return `
+          ${sourceHTML}
+
+          <div class="public-product-line">
+            ${escapeHTML(text)}
+          </div>
+        `;
+      })
+      .join("");
+  };
+
+  document
+    .getElementById("foxCombinedStockButton")
+    ?.addEventListener(
+      "click",
+      async () => {
+        resetOrderFlow();
+
+        currentGroupId =
+          FOX_COMBINED_ID;
+
+        productReturnPage =
+          "groupPage";
+
+        productGroupName.textContent =
+          "現貨商品合併選購";
+
+        showPage("productPage");
+
+        await renderProducts(
+          FOX_COMBINED_ID
+        );
+      }
+    );
+})();
+</script>
+
 </body>
 
 </html>
