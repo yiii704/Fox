@@ -1505,6 +1505,31 @@
         <div class="card order-card">
           <div class="order-top">
             <div class="order-group">
+              TWS・單特典
+            </div>
+
+            <div class="order-name">
+              SODA SODA 冬季限定
+            </div>
+
+            <div class="order-status">
+              開放中
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="order-action"
+            data-order="soda-soda-winter"
+            data-return="groupPage"
+          >
+            填寫匯款表單
+          </button>
+        </div>
+
+        <div class="card order-card">
+          <div class="order-top">
+            <div class="order-group">
               Stray Kids・單特典
             </div>
 
@@ -1512,15 +1537,16 @@
               9/19大阪場限
             </div>
 
-            <div class="order-status upcoming">
-              即將開放
+            <div class="order-status">
+              開放中
             </div>
           </div>
 
           <button
             type="button"
-            class="order-action upcoming"
-            disabled
+            class="order-action"
+            data-order="osaka-0919"
+            data-return="groupPage"
           >
             填寫匯款表單
           </button>
@@ -1536,15 +1562,16 @@
               9/20大阪場限
             </div>
 
-            <div class="order-status upcoming">
-              即將開放
+            <div class="order-status">
+              開放中
             </div>
           </div>
 
           <button
             type="button"
-            class="order-action upcoming"
-            disabled
+            class="order-action"
+            data-order="osaka-0920"
+            data-return="groupPage"
           >
             填寫匯款表單
           </button>
@@ -1562,7 +1589,7 @@
             </div>
 
             <div class="order-name">
-              現貨商品
+              現貨商品合併選購
             </div>
 
             <div class="order-status">
@@ -1584,7 +1611,8 @@
             </div>
 
             <div class="stock-combined-help">
-              現貨商品
+              可以同時選購以上不同現貨團務的商品，
+              最後會自動合併總金額，只需要匯款及填單一次。
             </div>
           </div>
 
@@ -1594,7 +1622,7 @@
             data-order="in-stock-combined"
             data-return="groupPage"
           >
-            填寫匯款表單
+            選購現貨商品
           </button>
         </div>
       </div>
@@ -1723,24 +1751,22 @@
         </optgroup>
 
         <optgroup label="單特典">
-          <option
-            value="osaka-0919"
-            disabled
-          >
-            9/19大阪場限（即將開放）
+          <option value="soda-soda-winter">
+            SODA SODA 冬季限定
           </option>
 
-          <option
-            value="osaka-0920"
-            disabled
-          >
-            9/20大阪場限（即將開放）
+          <option value="osaka-0919">
+            9/19大阪場限
+          </option>
+
+          <option value="osaka-0920">
+            9/20大阪場限
           </option>
         </optgroup>
 
         <optgroup label="現貨">
           <option value="in-stock-combined">
-            現貨商品
+            現貨商品合併結帳
           </option>
         </optgroup>
       </select>
@@ -2436,10 +2462,7 @@
       "in-stock-combined";
 
     const upcomingGroups =
-      new Set([
-        "osaka-0919",
-        "osaka-0920"
-      ]);
+      new Set([]);
 
     const stockManagedGroups =
       new Set([
@@ -2447,6 +2470,7 @@
         "nagoya-0905",
         "osaka-0919",
         "osaka-0920",
+        "soda-soda-winter",
         "fans-luck-draw-and-ver",
         COMBINED_STOCK_GROUP_ID
       ]);
@@ -2742,6 +2766,15 @@
         `${member} / L`
       ]);
 
+    const twsMembers = [
+      "申惟",
+      "道勳",
+      "英宰",
+      "韓振",
+      "志薫",
+      "炅潣"
+    ];
+
     const productData = {
       "run-it-japan": [
         {
@@ -2919,6 +2952,19 @@
         }
       ],
 
+      "soda-soda-winter": [
+        {
+          name: "WVS",
+          price: 235,
+          stockManaged: true
+        },
+        {
+          name: "環球",
+          price: 235,
+          stockManaged: true
+        }
+      ],
+
       "fans-luck-draw-and-ver": [
         {
           name: "FANS LUCK DRAW（& ver）",
@@ -2975,6 +3021,13 @@
           "9/20大阪場限"
       },
 
+      "soda-soda-winter": {
+        groupType: "單特典",
+        group: "TWS",
+        activity:
+          "SODA SODA 冬季限定"
+      },
+
       "fans-luck-draw-and-ver": {
         groupType: "單特典",
         group: "Stray Kids",
@@ -2993,7 +3046,7 @@
         groupType: "現貨",
         group: "Stray Kids",
         activity:
-          "現貨商品"
+          "現貨合併訂單"
       }
     };
 
@@ -3051,6 +3104,19 @@
           {
             src: "大阪場限 2.JPG",
             alt: "9/20大阪場限"
+          }
+        ]
+      },
+
+      "soda-soda-winter": {
+        images: [
+          {
+            src: "SODA WVS.JPG",
+            alt: "SODA SODA 冬季限定 WVS"
+          },
+          {
+            src: "SODA 環球.JPG",
+            alt: "SODA SODA 冬季限定 環球"
           }
         ]
       },
@@ -3876,9 +3942,11 @@
           quantity,
           unitPrice,
           price,
+
           stockManaged:
             checkbox.dataset.stockManaged ===
             "true",
+
           sourceGroupId,
           sourceActivity
         };
