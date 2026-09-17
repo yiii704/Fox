@@ -1,51 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="format-detection"
-    content="telephone=no"
-  >
-
-  <title>
-    狐狸🦊後台管理
-  </title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>狐狸🦊管理後台</title>
 
   <style>
-
     * {
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
     }
 
-
     body {
       min-height: 100vh;
-
-      padding: 26px 16px;
-
+      padding: 28px 16px 50px;
       background: #faf8ff;
-
       color: #4f4660;
-
-      font-family:
-        "PingFang TC",
-        "Microsoft JhengHei",
-        sans-serif;
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
     }
-
 
     button,
     input,
@@ -53,2889 +27,950 @@
       font: inherit;
     }
 
-
     button {
       cursor: pointer;
     }
 
-
-    .container {
+    .page-shell {
       width: 100%;
-
-      max-width: 1400px;
-
+      max-width: 1180px;
       margin: 0 auto;
     }
 
-
-    /* =====================================================
-       Login
-    ===================================================== */
-
-    #loginPage {
-      width: 100%;
-
-      max-width: 430px;
-
-      margin:
-        80px auto 0;
+    h1 {
+      margin-bottom: 24px;
+      color: #6b46c1;
+      font-size: 28px;
+      text-align: center;
     }
 
+    .card {
+      margin-bottom: 16px;
+      padding: 18px;
+      background: #ffffff;
+      border: 1px solid #eee6ff;
+      border-radius: 20px;
+      box-shadow: 0 5px 16px rgba(116, 82, 165, 0.08);
+    }
 
     .login-card {
-      padding: 28px 24px;
-
-      background: #ffffff;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 24px;
-
-      box-shadow:
-        0 8px 26px
-        rgba(116, 82, 165, 0.10);
+      max-width: 430px;
+      margin: 60px auto 0;
     }
-
 
     .login-title {
-      margin-bottom: 8px;
-
+      margin-bottom: 15px;
       color: #59349e;
-
-      font-size: 26px;
-
-      font-weight: 800;
-
+      font-size: 20px;
+      font-weight: 700;
       text-align: center;
     }
 
-
-    .login-subtitle {
-      margin-bottom: 22px;
-
-      color: #968b9f;
-
-      font-size: 14px;
-
-      text-align: center;
-    }
-
-
-    .login-input {
+    input,
+    select {
       width: 100%;
-
-      height: 50px;
-
-      padding: 12px 15px;
-
+      padding: 11px 13px;
       background: #ffffff;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 15px;
-
+      color: #4f4660;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 13px;
       outline: none;
     }
 
-
-    .login-input:focus {
+    input:focus,
+    select:focus {
       border-color: #9f7aea;
-
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, .12);
+      box-shadow: 0 0 0 3px rgba(159, 122, 234, 0.12);
     }
 
-
-    .login-button {
-      width: 100%;
-
-      margin-top: 14px;
-
-      padding: 12px;
-
-      background: #cbb8f5;
-
-      color: #4c2e83;
-
-      border: 0;
-
+    .primary-button,
+    .secondary-button,
+    .save-button,
+    .delete-button {
+      border: none;
       border-radius: 999px;
-
       font-weight: 700;
     }
 
-
-    .login-message {
-      min-height: 20px;
-
+    .primary-button {
+      width: 100%;
       margin-top: 12px;
-
-      color: #b34545;
-
-      font-size: 13px;
-
-      text-align: center;
+      padding: 11px 16px;
+      background: #cbb8f5;
+      color: #4c2e83;
     }
 
+    .secondary-button {
+      padding: 9px 15px;
+      background: #ffffff;
+      color: #6842b3;
+      border: 1.5px solid #d9c8ff;
+    }
 
-    /* =====================================================
-       Admin
-    ===================================================== */
-
-    #adminPage {
+    #adminArea {
       display: none;
     }
 
-
-    .admin-header {
+    .top-actions {
       display: flex;
-
-      align-items: center;
-
+      flex-wrap: wrap;
       justify-content: space-between;
-
-      gap: 16px;
-
-      margin-bottom: 20px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
-
-    .admin-title {
-      color: #59349e;
-
-      font-size: 28px;
-
-      font-weight: 800;
-    }
-
-
-    .admin-actions {
+    .top-button-group {
       display: flex;
-
+      flex-wrap: wrap;
       gap: 8px;
     }
 
-
-    .top-button {
-      padding: 8px 14px;
-
-      background: #ffffff;
-
-      color: #6b46c1;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-
-      font-weight: 600;
-    }
-
-
     .summary-text {
-      margin-bottom: 15px;
-
-      color: #887b94;
-
+      color: #7d6d8c;
       font-size: 14px;
     }
 
-
-    /* =====================================================
-       Filters
-    ===================================================== */
-
-    .admin-filter-card {
-      margin-bottom: 18px;
-
-      padding: 22px 20px;
-
-      background: #ffffff;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 23px;
-
-      box-shadow:
-        0 6px 18px
-        rgba(116, 82, 165, 0.08);
-    }
-
-
-    .admin-filter-section {
-      margin-bottom: 22px;
-    }
-
-
-    .admin-filter-section:last-child {
-      margin-bottom: 0;
-    }
-
-
-    .admin-filter-title {
-      margin-bottom: 10px;
-
-      color: #807689;
-
-      font-size: 17px;
-
-      font-weight: 700;
-    }
-
-
-    .admin-filter-buttons {
-      display: flex;
-
-      align-items: center;
-
-      flex-wrap: wrap;
-
-      gap: 9px;
-    }
-
-
-    .filter-button {
-      width: auto;
-
-      min-width: 76px;
-
-      padding: 9px 18px;
-
-      background: #ffffff;
-
+    .filter-title {
+      margin-bottom: 8px;
       color: #6b46c1;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 999px;
-
       font-size: 15px;
-
-      font-weight: 500;
+      font-weight: 700;
     }
 
-
-    .filter-button.selected {
-      background: #dccfff;
-
-      border-color: #b99bf5;
-
-      color: #59349e;
-    }
-
-
-    .admin-search-input {
-      width: 100%;
-
-      height: 50px;
-
-      padding: 12px 16px;
-
-      background: #ffffff;
-
-      color: #4f4660;
-
-      border:
-        1.5px solid #d9c8ff;
-
-      border-radius: 17px;
-
-      outline: none;
-    }
-
-
-    /* =====================================================
-       Empty
-    ===================================================== */
-
-    .empty-card {
-      padding: 34px 20px;
-
-      background: #ffffff;
-
-      color: #93899c;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 22px;
-
-      text-align: center;
-    }
-
-
-    /* =====================================================
-       Search person group
-    ===================================================== */
-
-    .person-search-group {
-      margin-bottom: 18px;
-
-      overflow: hidden;
-
-      background: #ffffff;
-
-      border:
-        1px solid #e8ddfb;
-
-      border-radius: 23px;
-    }
-
-
-    .person-search-header {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 12px;
-
-      padding: 15px 18px;
-
-      background: #eee6ff;
-    }
-
-
-    .person-search-name {
-      color: #59349e;
-
-      font-size: 21px;
-
-      font-weight: 800;
-    }
-
-
-    .person-search-count {
-      color: #8c7d9d;
-
-      font-size: 13px;
-    }
-
-
-    .person-search-orders {
-      padding: 12px;
-    }
-
-
-    /* =====================================================
-       Submission Card
-    ===================================================== */
-
-    .submission-card {
-      margin-bottom: 11px;
-
-      overflow: hidden;
-
-      background: #ffffff;
-
-      border:
-        1px solid #eee6ff;
-
-      border-radius: 18px;
-
-      box-shadow:
-        0 4px 12px
-        rgba(116, 82, 165, .06);
-    }
-
-
-    .person-search-orders
-    .submission-card {
-      border-radius: 15px;
-
-      box-shadow: none;
-    }
-
-
-    .order-row {
+    .filter-grid {
       display: grid;
-
-      grid-template-columns:
-        135px
-        minmax(180px, 1.35fr)
-        95px
-        minmax(190px, 1fr)
-        minmax(180px, 1.1fr)
-        220px;
-
-      align-items: start;
-
-      gap: 14px;
-
-      padding: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
-
-    .column-title,
-    .mini-title {
-      margin-bottom: 5px;
-
-      color: #9a8ea5;
-
-      font-size: 11px;
-
-      font-weight: 700;
-    }
-
-
-    .person-name {
-      color: #554b62;
-
-      font-size: 15px;
-
-      font-weight: 800;
-
-      word-break: break-word;
-    }
-
-
-    .submitted-time {
-      margin-top: 5px;
-
-      color: #a097a6;
-
-      font-size: 10px;
-
-      line-height: 1.5;
-    }
-
-
-    .activity-name {
-      color: #59349e;
-
-      font-size: 14px;
-
-      font-weight: 700;
-
-      line-height: 1.5;
-
-      word-break: break-word;
-    }
-
-
-    .activity-meta {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 5px;
-
-      margin-top: 6px;
-    }
-
-
-    .type-pill,
-    .group-pill {
-      display: inline-flex;
-
-      padding: 4px 7px;
-
-      border-radius: 999px;
-
-      font-size: 10px;
-
-      font-weight: 700;
-    }
-
-
-    .type-pill {
-      background: #eee3ff;
-
-      color: #6842b3;
-    }
-
-
-    .type-pill.special {
-      background: #ffe8f1;
-
-      color: #a34d72;
-    }
-
-
-    .group-pill {
-      background: #eef2ff;
-
-      color: #596d9d;
-    }
-
-
-    .amount-value {
-      color: #59349e;
-
-      font-size: 15px;
-
-      font-weight: 800;
-
-      white-space: nowrap;
-    }
-
-
-    .payment-summary,
-    .products-summary {
+    .filter-block {
       min-width: 0;
     }
 
-
-    .mini-value {
-      color: #554b62;
-
-      font-size: 11px;
-
-      line-height: 1.55;
-    }
-
-
-    /* =====================================================
-       匯款資料同一排
-    ===================================================== */
-
-    .payment-inline-value {
+    .filter-buttons {
       display: flex;
-
-      align-items: center;
-
-      width: 100%;
-
-      gap: 2px;
-
-      color: #554b62;
-
-      font-size: 11px;
-
-      line-height: 1.55;
-
-      white-space: nowrap;
-
-      overflow-x: auto;
-
-      -webkit-overflow-scrolling: touch;
-
-      scrollbar-width: none;
-    }
-
-
-    .payment-inline-value::-webkit-scrollbar {
-      display: none;
-    }
-
-
-    .payment-inline-value span {
-      flex-shrink: 0;
-    }
-
-
-    .payment-divider {
-      color: #b9afc1;
-    }
-
-
-    .product-line {
-      margin-bottom: 3px;
-
-      color: #554b62;
-
-      font-size: 11px;
-
-      line-height: 1.5;
-
-      word-break: break-word;
-    }
-
-
-    .product-line:last-child {
-      margin-bottom: 0;
-    }
-
-
-    /* =====================================================
-       Status controls
-    ===================================================== */
-
-    .status-column {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
+      flex-wrap: wrap;
       gap: 7px;
     }
 
-
-    .status-select {
-      width: 100%;
-
-      min-width: 0;
-
-      padding: 8px 7px;
-
+    .filter-button {
+      padding: 7px 12px;
       background: #ffffff;
-
-      color: #554b62;
-
-      border:
-        1px solid #ded1f6;
-
-      border-radius: 10px;
-
-      outline: none;
-
-      font-size: 11px;
+      color: #6842b3;
+      border: 1.5px solid #d9c8ff;
+      border-radius: 999px;
     }
 
+    .filter-button.selected {
+      background: #dccfff;
+      border-color: #b99bf5;
+      color: #59349e;
+    }
+
+    .empty-message,
+    .loading-message {
+      padding: 25px;
+      color: #8b8295;
+      text-align: center;
+    }
+
+    .person-group {
+      margin-bottom: 22px;
+    }
+
+    .person-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 13px 17px;
+      background: #eee6ff;
+      border-radius: 17px;
+    }
+
+    .person-name {
+      color: #59349e;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .person-count {
+      color: #837493;
+      font-size: 13px;
+    }
+
+    .submission-card {
+      overflow: hidden;
+      margin-bottom: 14px;
+      padding: 0;
+    }
+
+    .submission-main {
+      display: grid;
+      grid-template-columns: minmax(230px, 1.35fr) minmax(220px, 1fr) minmax(180px, 0.85fr);
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .submission-section {
+      min-width: 0;
+    }
+
+    .small-label {
+      margin-bottom: 5px;
+      color: #988ba5;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .main-name {
+      color: #4f4660;
+      font-size: 19px;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .activity-name {
+      margin-top: 7px;
+      color: #6842b3;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .meta-pill {
+      padding: 4px 8px;
+      background: #f1eaff;
+      color: #6842b3;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .meta-pill.stock {
+      background: #e4f5e8;
+      color: #287747;
+    }
+
+    .product-list {
+      margin-top: 5px;
+    }
+
+    .source-title {
+      margin-top: 9px;
+      color: #654f80;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .source-title:first-child {
+      margin-top: 0;
+    }
+
+    .product-line {
+      margin-top: 4px;
+      color: #675b72;
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .payment-inline {
+      overflow-x: auto;
+      margin-top: 5px;
+      padding: 10px 12px;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 12px;
+    }
+
+    .payment-inline-value {
+      min-width: max-content;
+      color: #62576d;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    .note-box {
+      margin-top: 8px;
+      padding: 9px 11px;
+      background: #fff9ea;
+      color: #79632d;
+      border-radius: 11px;
+      font-size: 13px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .status-grid {
+      display: grid;
+      gap: 9px;
+    }
+
+    .status-label {
+      color: #837493;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status-label select {
+      margin-top: 5px;
+    }
+
+    .submission-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+      padding: 12px 18px 16px;
+      background: #fcfaff;
+      border-top: 1px solid #eee6ff;
+    }
+
+    .save-button,
+    .delete-button {
+      padding: 9px 16px;
+    }
 
     .save-button {
-      grid-column:
-        1 / -1;
-
-      width: 100%;
-
-      padding: 8px 10px;
-
-      background: #dccfff;
-
-      color: #59349e;
-
-      border:
-        1px solid #c5adf4;
-
-      border-radius: 999px;
-
-      font-size: 12px;
-
-      font-weight: 700;
+      background: #cbb8f5;
+      color: #4c2e83;
     }
-
-
-    /* =====================================================
-       ★ Delete button
-    ===================================================== */
 
     .delete-button {
-      grid-column:
-        1 / -1;
-
-      width: 100%;
-
-      padding: 8px 10px;
-
-      background: #fff3f3;
-
-      color: #b34545;
-
-      border:
-        1px solid #f1c5c5;
-
-      border-radius: 999px;
-
-      font-size: 11px;
-
-      font-weight: 700;
+      background: #fff0f0;
+      color: #aa4141;
+      border: 1px solid #f0caca;
     }
-
 
     .delete-button.stock-delete {
-      background: #fff7eb;
-
-      color: #a56620;
-
-      border-color: #f0d2aa;
+      background: #fff4e7;
+      color: #a45c1c;
+      border-color: #efd1ad;
     }
 
-
-    .save-button:disabled,
-    .delete-button:disabled {
-      opacity: .55;
-
-      cursor: default;
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
     }
 
-
-    /* =====================================================
-       Note
-    ===================================================== */
-
-    .note-row {
-      padding:
-        10px 16px 14px;
-
-      background: #faf8ff;
-
-      color: #766b80;
-
-      border-top:
-        1px solid #f0e9fa;
-
-      font-size: 12px;
-
-      line-height: 1.6;
-    }
-
-
-    .note-label {
-      color: #9b8fa7;
-
-      font-weight: 700;
-    }
-
-
-    /* =====================================================
-       1000px
-    ===================================================== */
-
-    @media (max-width: 1000px) {
-
-      .order-row {
-        grid-template-columns:
-          125px
-          minmax(180px, 1.4fr)
-          90px
-          minmax(170px, 1fr)
-          minmax(170px, 1fr);
+    @media (max-width: 850px) {
+      .filter-grid {
+        grid-template-columns: 1fr;
       }
 
-
-      .status-column {
-        grid-column:
-          1 / -1;
-
-        grid-template-columns:
-          1fr 1fr 130px 180px;
+      .submission-main {
+        grid-template-columns: 1fr;
       }
-
-
-      .save-button,
-      .delete-button {
-        grid-column:
-          auto;
-      }
-
     }
 
-
-    /* =====================================================
-       Mobile
-    ===================================================== */
-
-    @media (max-width: 650px) {
-
+    @media (max-width: 520px) {
       body {
-        padding: 18px 12px;
+        padding: 22px 12px 40px;
       }
 
-
-      .admin-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-      }
-
-
-      .admin-actions {
-        width: 100%;
-      }
-
-
-      .top-button {
-        flex: 1;
-      }
-
-
-      .admin-title {
+      h1 {
         font-size: 24px;
       }
 
-
-      .admin-filter-card {
-        padding: 18px 15px;
-      }
-
-
-      .order-row {
-        grid-template-columns:
-          minmax(0, 1fr)
-          auto;
-
-        gap: 11px;
-
-        padding: 14px;
-      }
-
-
-      .order-person {
-        grid-column: 1;
-      }
-
-
-      .order-amount {
-        grid-column: 2;
-
-        text-align: right;
-      }
-
-
-      .order-activity,
-      .payment-summary,
-      .products-summary,
-      .status-column {
-        grid-column:
-          1 / -1;
-      }
-
-
-      .order-activity {
-        padding-top: 8px;
-
-        border-top:
-          1px dashed #eee4fa;
-      }
-
-
-      .payment-summary,
-      .products-summary {
-        padding-top: 8px;
-      }
-
-
-      .status-column {
-        grid-template-columns:
-          1fr 1fr;
-      }
-
-
-      .save-button,
-      .delete-button {
-        grid-column:
-          1 / -1;
-      }
-
-
-      .person-search-header {
+      .top-actions,
+      .person-header {
         align-items: flex-start;
-
         flex-direction: column;
       }
 
-
-      .person-search-count {
-        margin-top: -5px;
+      .submission-actions {
+        justify-content: stretch;
       }
 
+      .save-button,
+      .delete-button {
+        flex: 1;
+      }
     }
-
   </style>
-
 </head>
 
-
 <body>
+  <div class="page-shell">
+    <h1>狐狸🦊管理後台</h1>
 
+    <section id="loginArea" class="card login-card">
+      <div class="login-title">管理員登入</div>
+      <input id="passwordInput" type="password" placeholder="請輸入管理員密碼" autocomplete="current-password">
+      <button id="loginButton" type="button" class="primary-button">登入</button>
+    </section>
 
-<div class="container">
+    <section id="adminArea">
+      <div class="top-actions">
+        <div id="summaryText" class="summary-text">目前共 0 筆資料</div>
 
-
-  <!-- =====================================================
-       LOGIN
-  ====================================================== -->
-
-  <section id="loginPage">
-
-    <div class="login-card">
-
-      <div class="login-title">
-        🦊 後台管理
-      </div>
-
-
-      <div class="login-subtitle">
-        請輸入管理員密碼
-      </div>
-
-
-      <input
-        id="passwordInput"
-        class="login-input"
-        type="password"
-        placeholder="管理員密碼"
-        autocomplete="current-password"
-      >
-
-
-      <button
-        id="loginButton"
-        class="login-button"
-        type="button"
-      >
-        登入
-      </button>
-
-
-      <div
-        id="loginMessage"
-        class="login-message"
-      ></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       ADMIN
-  ====================================================== -->
-
-  <section id="adminPage">
-
-    <div class="admin-header">
-
-      <div class="admin-title">
-        🦊 對帳後台
-      </div>
-
-
-      <div class="admin-actions">
-
-        <button
-          id="refreshButton"
-          class="top-button"
-          type="button"
-        >
-          重新整理
-        </button>
-
-
-        <button
-          id="logoutButton"
-          class="top-button"
-          type="button"
-        >
-          登出
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="summaryText"
-      class="summary-text"
-    >
-      讀取中…
-    </div>
-
-
-    <!-- ===================================================
-         FILTER
-    ==================================================== -->
-
-    <div class="admin-filter-card">
-
-
-      <div class="admin-filter-section">
-
-        <div class="admin-filter-title">
-          依團務分類
+        <div class="top-button-group">
+          <button id="refreshButton" type="button" class="secondary-button">重新整理</button>
+          <button id="logoutButton" type="button" class="secondary-button">登出</button>
         </div>
-
-
-        <div
-          id="typeFilters"
-          class="admin-filter-buttons"
-        >
-
-          <button
-            type="button"
-            class="filter-button selected"
-            data-filter="all"
-          >
-            全部
-          </button>
-
-
-          <button
-            type="button"
-            class="filter-button"
-            data-filter="代購"
-          >
-            代購
-          </button>
-
-
-          <button
-            type="button"
-            class="filter-button"
-            data-filter="單特典"
-          >
-            單特典
-          </button>
-
-        </div>
-
       </div>
 
+      <div class="card">
+        <div class="filter-grid">
+          <div class="filter-block">
+            <div class="filter-title">依團務分類</div>
+            <div id="typeFilters" class="filter-buttons">
+              <button type="button" class="filter-button selected" data-filter="all">全部</button>
+              <button type="button" class="filter-button" data-filter="代購">代購</button>
+              <button type="button" class="filter-button" data-filter="單特典">單特典</button>
+              <button type="button" class="filter-button" data-filter="現貨">現貨</button>
+            </div>
+          </div>
 
-      <div class="admin-filter-section">
+          <div class="filter-block">
+            <div class="filter-title">依團體</div>
+            <div id="groupFilters" class="filter-buttons">
+              <button type="button" class="filter-button selected" data-filter="all">全部</button>
+              <button type="button" class="filter-button" data-filter="TWS">TWS</button>
+              <button type="button" class="filter-button" data-filter="Stray Kids">Stray Kids</button>
+            </div>
+          </div>
 
-        <div class="admin-filter-title">
-          依團體
+          <div class="filter-block">
+            <div class="filter-title">依名稱搜尋</div>
+            <input id="nameSearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
+          </div>
         </div>
-
-
-        <div
-          id="groupFilters"
-          class="admin-filter-buttons"
-        >
-
-          <button
-            type="button"
-            class="filter-button selected"
-            data-filter="all"
-          >
-            全部
-          </button>
-
-
-          <button
-            type="button"
-            class="filter-button"
-            data-filter="TWS"
-          >
-            TWS
-          </button>
-
-
-          <button
-            type="button"
-            class="filter-button"
-            data-filter="Stray Kids"
-          >
-            Stray Kids
-          </button>
-
-        </div>
-
       </div>
 
-
-      <div class="admin-filter-section">
-
-        <div class="admin-filter-title">
-          依名稱搜尋
-        </div>
-
-
-        <input
-          id="nameSearch"
-          class="admin-search-input"
-          type="search"
-          placeholder="輸入 Facebook 名稱"
-          autocomplete="off"
-        >
-
-      </div>
-
-    </div>
-
-
-    <div id="submissionsList"></div>
-
-  </section>
-
-</div>
-
-
-<script>
-
-
-/* =========================================================
-   Worker
-========================================================= */
-
-const WORKER_URL =
-  "https://fox-form-api.a0983707826.workers.dev";
-
-
-/* =========================================================
-   庫存團務
-========================================================= */
-
-const stockManagedGroups =
-  new Set([
-
-    "run-it-japan-kuji",
-
-    "nagoya-0905",
-
-    "osaka-0919",
-
-    "osaka-0920",
-
-    "fans-luck-draw-and-ver"
-
-  ]);
-
-
-/* =========================================================
-   State
-========================================================= */
-
-let adminPassword =
-  "";
-
-
-let submissions =
-  [];
-
-
-let currentTypeFilter =
-  "all";
-
-
-let currentGroupFilter =
-  "all";
-
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const loginPage =
-  document.getElementById(
-    "loginPage"
-  );
-
-
-const adminPage =
-  document.getElementById(
-    "adminPage"
-  );
-
-
-const passwordInput =
-  document.getElementById(
-    "passwordInput"
-  );
-
-
-const loginButton =
-  document.getElementById(
-    "loginButton"
-  );
-
-
-const loginMessage =
-  document.getElementById(
-    "loginMessage"
-  );
-
-
-const refreshButton =
-  document.getElementById(
-    "refreshButton"
-  );
-
-
-const logoutButton =
-  document.getElementById(
-    "logoutButton"
-  );
-
-
-const summaryText =
-  document.getElementById(
-    "summaryText"
-  );
-
-
-const submissionsList =
-  document.getElementById(
-    "submissionsList"
-  );
-
-
-const nameSearch =
-  document.getElementById(
-    "nameSearch"
-  );
-
-
-/* =========================================================
-   Escape
-========================================================= */
-
-function escapeHTML(
-  value
-) {
-
-  return String(
-    value ??
-    ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-
-/* =========================================================
-   Date
-========================================================= */
-
-function formatSubmittedAt(
-  value
-) {
-
-  if (
-    !value
-  ) {
-
-    return "";
-
-  }
-
-
-  const date =
-    new Date(
-      value
-    );
-
-
-  if (
-    Number.isNaN(
-      date.getTime()
-    )
-  ) {
-
-    return String(
-      value
-    );
-
-  }
-
-
-  return date.toLocaleString(
-    "zh-TW",
-    {
-      year:
-        "numeric",
-
-      month:
-        "2-digit",
-
-      day:
-        "2-digit",
-
-      hour:
-        "2-digit",
-
-      minute:
-        "2-digit",
-
-      hour12:
-        false
+      <div id="submissionList"></div>
+    </section>
+  </div>
+
+  <script>
+    const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
+    const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
+
+    const inStockSourceGroups = new Set([
+      "run-it-japan-kuji",
+      "fans-luck-draw-and-ver",
+      "nagoya-0905"
+    ]);
+
+    const stockManagedGroups = new Set([
+      "run-it-japan-kuji",
+      "nagoya-0905",
+      "osaka-0919",
+      "osaka-0920",
+      "fans-luck-draw-and-ver",
+      COMBINED_STOCK_GROUP_ID
+    ]);
+
+    let adminPassword = "";
+    let submissions = [];
+    let currentTypeFilter = "all";
+    let currentGroupFilter = "all";
+
+    const loginArea = document.getElementById("loginArea");
+    const adminArea = document.getElementById("adminArea");
+    const passwordInput = document.getElementById("passwordInput");
+    const loginButton = document.getElementById("loginButton");
+    const refreshButton = document.getElementById("refreshButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const submissionList = document.getElementById("submissionList");
+    const summaryText = document.getElementById("summaryText");
+    const nameSearch = document.getElementById("nameSearch");
+
+    function escapeHTML(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
-  );
 
-}
+    function formatMoney(value) {
+      const number = Number(value || 0);
+      return `NT$${number.toLocaleString("zh-TW")}`;
+    }
 
+    function formatCreatedAt(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
 
-/* =========================================================
-   Products
-========================================================= */
+      return new Intl.DateTimeFormat("zh-TW", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(date);
+    }
 
-function createProductsHTML(
-  item
-) {
+    function getTypeClass(groupType) {
+      return groupType === "現貨" ? "stock" : "";
+    }
 
-  const products =
-    Array.isArray(
-      item.products
-    )
-      ? item.products
-      : [];
+    function normalizeAdminSubmission(item) {
+      const groupId = String(item?.groupId || "").trim();
 
+      if (
+        groupId === COMBINED_STOCK_GROUP_ID
+        || inStockSourceGroups.has(groupId)
+      ) {
+        return {
+          ...item,
+          groupType: "現貨"
+        };
+      }
 
-  if (
-    !products.length
-  ) {
+      return item;
+    }
 
-    return `
+    function getAdminProductHTML(item) {
+      const products = Array.isArray(item.products) ? item.products : [];
 
-      <div class="product-line">
-        —
-      </div>
+      if (!products.length) {
+        return `<div class="product-line">沒有商品資料</div>`;
+      }
 
-    `;
+      if (item.groupId === COMBINED_STOCK_GROUP_ID || item.groupType === "現貨") {
+        let lastSource = "";
 
-  }
+        return products.map(product => {
+          const source = String(product.sourceActivity || "現貨").trim();
+          const productName = String(product.productName || "商品").trim();
+          const variant = String(product.variant || "").trim();
+          const quantity = Math.max(1, Number(product.quantity || 1));
+          const price = Number(product.price || product.unitPrice * quantity || 0);
 
+          let text = productName;
+          if (variant) text += `｜${variant}`;
+          text += ` ×${quantity}`;
+          if (price > 0) text += `・${formatMoney(price)}`;
 
-  return products
-    .map(
-      product => {
+          const sourceHTML = source && source !== lastSource
+            ? `<div class="source-title">${escapeHTML(source)}</div>`
+            : "";
 
-        const productName =
-          String(
-            product.productName ||
-            ""
-          ).trim();
+          lastSource = source;
+          return `${sourceHTML}<div class="product-line">${escapeHTML(text)}</div>`;
+        }).join("");
+      }
 
+      return products.map(product => {
+        const productName = String(product.productName || "").trim();
+        const variant = String(product.variant || "").trim();
+        const quantity = Math.max(1, Number(product.quantity || 1));
+        const price = Number(product.price || product.unitPrice * quantity || 0);
 
-        const variant =
-          String(
-            product.variant ||
-            ""
-          ).trim();
+        let text = "";
 
+        if (productName) {
+          text = productName;
+          if (variant) text += `｜${variant}`;
+          text += ` ×${quantity}`;
+        } else {
+          text = String(product.name || "商品");
+        }
 
-        const quantity =
-          Math.max(
-            1,
-            Number(
-              product.quantity ||
-              1
-            )
-          );
+        if (price > 0) text += `・${formatMoney(price)}`;
 
+        return `<div class="product-line">${escapeHTML(text)}</div>`;
+      }).join("");
+    }
 
-        let text =
-          "";
+    function renderSubmissionCard(item, realIndex) {
+      const stockManaged = stockManagedGroups.has(item.groupId);
+      const paymentStatus = item.paymentStatus || "待對帳";
+      const progress = item.progress || "已登記";
+      const activity = item.activity || item.community || "團務";
+      const groupType = item.groupType || "";
+      const group = item.group || "";
+      const createdAt = formatCreatedAt(item.createdAt);
+      const note = String(item.note || "").trim();
 
+      return `
+        <article class="card submission-card" data-card-index="${realIndex}">
+          <div class="submission-main">
+            <div class="submission-section">
+              <div class="small-label">Facebook 名稱</div>
+              <div class="main-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
+              <div class="activity-name">${escapeHTML(activity)}</div>
 
-        if (
-          productName
-        ) {
+              <div class="meta-pills">
+                ${groupType ? `<span class="meta-pill ${getTypeClass(groupType)}">${escapeHTML(groupType)}</span>` : ""}
+                ${group ? `<span class="meta-pill">${escapeHTML(group)}</span>` : ""}
+                ${createdAt ? `<span class="meta-pill">${escapeHTML(createdAt)}</span>` : ""}
+              </div>
+            </div>
 
-          text =
-            productName;
+            <div class="submission-section">
+              <div class="small-label">商品</div>
+              <div class="product-list">${getAdminProductHTML(item)}</div>
 
+              <div class="small-label" style="margin-top:13px;">匯款資料</div>
+              <div class="payment-inline">
+                <div class="payment-inline-value">
+                  ${escapeHTML(item.paymentBank || "未填銀行")}｜後五碼 ${escapeHTML(item.accountLastFive || "-")}｜${escapeHTML(item.paymentDate || "-")}｜${escapeHTML(item.paymentTime || "-")}｜${escapeHTML(formatMoney(item.paymentAmount || 0))}
+                </div>
+              </div>
 
-          if (
-            variant
-          ) {
+              ${note ? `<div class="note-box">備註：${escapeHTML(note)}</div>` : ""}
+            </div>
 
-            text +=
-              `｜${variant}`;
+            <div class="submission-section">
+              <div class="status-grid">
+                <label class="status-label">
+                  對帳狀態
+                  <select class="payment-status-select" data-index="${realIndex}">
+                    <option value="待對帳" ${paymentStatus === "待對帳" ? "selected" : ""}>待對帳</option>
+                    <option value="已匯款" ${paymentStatus === "已匯款" ? "selected" : ""}>已匯款</option>
+                    <option value="需確認" ${paymentStatus === "需確認" ? "selected" : ""}>需確認</option>
+                  </select>
+                </label>
 
+                <label class="status-label">
+                  團務進度
+                  <select class="progress-select" data-index="${realIndex}">
+                    <option value="已登記" ${progress === "已登記" ? "selected" : ""}>已登記</option>
+                    <option value="已下單" ${progress === "已下單" ? "selected" : ""}>已下單</option>
+                    <option value="已到貨" ${progress === "已到貨" ? "selected" : ""}>已到貨</option>
+                    <option value="已寄出" ${progress === "已寄出" ? "selected" : ""}>已寄出</option>
+                    <option value="已完成" ${progress === "已完成" ? "selected" : ""}>已完成</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="submission-actions">
+            <button type="button" class="save-button" data-save-index="${realIndex}">儲存狀態</button>
+            <button
+              type="button"
+              class="delete-button ${stockManaged ? "stock-delete" : ""}"
+              data-delete-index="${realIndex}"
+            >
+              ${stockManaged ? "刪除並恢復庫存" : "刪除資料"}
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    function getFilteredSubmissions() {
+      const searchText = nameSearch.value.trim().toLowerCase();
+
+      return submissions
+        .map((item, realIndex) => ({ item, realIndex }))
+        .filter(({ item }) => {
+          const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
+          const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
+          const name = String(item.facebookName || "").trim().toLowerCase();
+          const matchesSearch = !searchText || name.includes(searchText);
+
+          return matchesType && matchesGroup && matchesSearch;
+        });
+    }
+
+    function bindRenderedActions() {
+      document.querySelectorAll("[data-save-index]").forEach(button => {
+        button.addEventListener("click", () => {
+          saveSubmission(Number(button.dataset.saveIndex), button);
+        });
+      });
+
+      document.querySelectorAll("[data-delete-index]").forEach(button => {
+        button.addEventListener("click", () => {
+          deleteSubmission(Number(button.dataset.deleteIndex), button);
+        });
+      });
+    }
+
+    function renderSubmissions() {
+      const filtered = getFilteredSubmissions();
+      const searchText = nameSearch.value.trim().toLowerCase();
+
+      summaryText.textContent = `目前共 ${submissions.length} 筆資料・顯示 ${filtered.length} 筆`;
+
+      if (!filtered.length) {
+        submissionList.innerHTML = `<div class="card empty-message">目前沒有符合的資料 🦊</div>`;
+        return;
+      }
+
+      if (!searchText) {
+        submissionList.innerHTML = filtered
+          .map(({ item, realIndex }) => renderSubmissionCard(item, realIndex))
+          .join("");
+
+        bindRenderedActions();
+        return;
+      }
+
+      const people = {};
+
+      filtered.forEach(entry => {
+        const name = String(entry.item.facebookName || "未填名稱").trim();
+        if (!people[name]) people[name] = [];
+        people[name].push(entry);
+      });
+
+      submissionList.innerHTML = Object.entries(people).map(([name, entries]) => `
+        <section class="person-group">
+          <div class="person-header">
+            <div class="person-name">${escapeHTML(name)}</div>
+            <div class="person-count">共 ${entries.length} 筆訂單</div>
+          </div>
+
+          ${entries.map(({ item, realIndex }) => renderSubmissionCard(item, realIndex)).join("")}
+        </section>
+      `).join("");
+
+      bindRenderedActions();
+    }
+
+    async function loadSubmissions() {
+      submissionList.innerHTML = `<div class="card loading-message">讀取後台資料中…</div>`;
+      refreshButton.disabled = true;
+
+      try {
+        const response = await fetch(WORKER_URL + "/admin/list", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": adminPassword
+          }
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          if (response.status === 401) {
+            adminPassword = "";
+            adminArea.style.display = "none";
+            loginArea.style.display = "block";
+            passwordInput.value = "";
           }
 
-
-          text +=
-            ` ×${quantity}`;
-
+          throw new Error(result.message || "讀取失敗");
         }
 
-        else {
+        submissions = Array.isArray(result.submissions)
+          ? result.submissions.map(normalizeAdminSubmission)
+          : [];
 
-          text =
-            String(
-              product.name ||
-              "商品"
-            );
-
-        }
-
-
-        return `
-
-          <div class="product-line">
-
-            ${escapeHTML(
-              text
-            )}
-
-          </div>
-
-        `;
-
+        renderSubmissions();
+      } catch (error) {
+        console.error(error);
+        submissionList.innerHTML = `<div class="card empty-message">${escapeHTML(error.message || "後台資料讀取失敗")}</div>`;
+      } finally {
+        refreshButton.disabled = false;
       }
-    )
-    .join("");
-
-}
-
-
-/* =========================================================
-   Create card
-========================================================= */
-
-function createSubmissionCard(
-  item,
-  realIndex,
-  options = {}
-) {
-
-  const hidePersonName =
-    options.hidePersonName ===
-    true;
-
-
-  const orderNumber =
-    Number(
-      options.orderNumber ||
-      0
-    );
-
-
-  const stockManaged =
-    stockManagedGroups.has(
-      item.groupId
-    );
-
-
-  const personDisplay =
-    hidePersonName
-
-      ? `團務 ${orderNumber}`
-
-      : (
-          item.facebookName ||
-          "未填名稱"
-        );
-
-
-  const typeClass =
-    item.groupType ===
-      "單特典"
-
-      ? "special"
-
-      : "";
-
-
-  return `
-
-    <article
-      class="submission-card"
-      data-index="${realIndex}"
-    >
-
-
-      <div class="order-row">
-
-
-        <!-- 姓名 -->
-
-        <div class="order-person">
-
-          <div class="column-title">
-
-            ${
-              hidePersonName
-                ? "編號"
-                : "Facebook"
-            }
-
-          </div>
-
-
-          <div class="person-name">
-
-            ${escapeHTML(
-              personDisplay
-            )}
-
-          </div>
-
-
-          <div class="submitted-time">
-
-            ${escapeHTML(
-              formatSubmittedAt(
-                item.submittedAt
-              )
-            )}
-
-          </div>
-
-        </div>
-
-
-        <!-- 團務 -->
-
-        <div class="order-activity">
-
-          <div class="column-title">
-            團務
-          </div>
-
-
-          <div class="activity-name">
-
-            ${escapeHTML(
-
-              item.activity ||
-
-              item.community ||
-
-              "—"
-
-            )}
-
-          </div>
-
-
-          <div class="activity-meta">
-
-            ${
-              item.groupType
-
-                ? `
-
-                  <span
-                    class="
-                      type-pill
-                      ${typeClass}
-                    "
-                  >
-
-                    ${escapeHTML(
-                      item.groupType
-                    )}
-
-                  </span>
-
-                `
-
-                : ""
-            }
-
-
-            ${
-              item.group
-
-                ? `
-
-                  <span class="group-pill">
-
-                    ${escapeHTML(
-                      item.group
-                    )}
-
-                  </span>
-
-                `
-
-                : ""
-            }
-
-          </div>
-
-        </div>
-
-
-        <!-- 金額 -->
-
-        <div class="order-amount">
-
-          <div class="column-title">
-            金額
-          </div>
-
-
-          <div class="amount-value">
-
-            NT$
-            ${Number(
-              item.paymentAmount ||
-              0
-            ).toLocaleString(
-              "zh-TW"
-            )}
-
-          </div>
-
-        </div>
-
-
-        <!-- 匯款 -->
-
-        <div class="payment-summary">
-
-          <div class="mini-title">
-            匯款資料
-          </div>
-
-
-          <div class="payment-inline-value">
-
-            <span>
-
-              ${escapeHTML(
-                item.paymentBank ||
-                "—"
-              )}
-
-            </span>
-
-
-            <span class="payment-divider">
-              ｜
-            </span>
-
-
-            <span>
-
-              ${escapeHTML(
-                item.accountLastFive ||
-                "—"
-              )}
-
-            </span>
-
-
-            <span class="payment-divider">
-              ｜
-            </span>
-
-
-            <span>
-
-              ${escapeHTML(
-                item.paymentDate ||
-                "—"
-              )}
-
-            </span>
-
-
-            <span class="payment-divider">
-              ｜
-            </span>
-
-
-            <span>
-
-              ${escapeHTML(
-                item.paymentTime ||
-                "—"
-              )}
-
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <!-- 商品 -->
-
-        <div class="products-summary">
-
-          <div class="mini-title">
-            商品
-          </div>
-
-
-          ${createProductsHTML(
-            item
-          )}
-
-        </div>
-
-
-        <!-- 狀態 -->
-
-        <div class="status-column">
-
-
-          <select
-            class="status-select payment-status-select"
-          >
-
-            ${[
-              "待對帳",
-              "已匯款",
-              "需確認"
-            ]
-              .map(
-                value => `
-
-                  <option
-                    value="${value}"
-
-                    ${
-                      (
-                        item.paymentStatus ||
-                        "待對帳"
-                      ) === value
-                        ? "selected"
-                        : ""
-                    }
-                  >
-
-                    ${value}
-
-                  </option>
-
-                `
-              )
-              .join("")}
-
-          </select>
-
-
-          <select
-            class="status-select progress-select"
-          >
-
-            ${[
-              "已登記",
-              "已下單",
-              "已到貨",
-              "已寄出",
-              "已完成"
-            ]
-              .map(
-                value => `
-
-                  <option
-                    value="${value}"
-
-                    ${
-                      (
-                        item.progress ||
-                        "已登記"
-                      ) === value
-                        ? "selected"
-                        : ""
-                    }
-                  >
-
-                    ${value}
-
-                  </option>
-
-                `
-              )
-              .join("")}
-
-          </select>
-
-
-          <button
-            type="button"
-            class="save-button"
-            onclick="saveSubmission(${realIndex}, this)"
-          >
-            儲存狀態
-          </button>
-
-
-          <!-- ★ 刪除 -->
-
-          <button
-            type="button"
-            class="
-              delete-button
-              ${stockManaged ? "stock-delete" : ""}
-            "
-            onclick="deleteSubmission(${realIndex}, this)"
-          >
-
-            ${
-              stockManaged
-
-                ? "刪除並恢復庫存"
-
-                : "刪除資料"
-            }
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      ${
-        item.note
-
-          ? `
-
-            <div class="note-row">
-
-              <span class="note-label">
-                備註：
-              </span>
-
-              ${escapeHTML(
-                item.note
-              )}
-
-            </div>
-
-          `
-
-          : ""
-      }
-
-    </article>
-
-  `;
-
-}
-
-
-/* =========================================================
-   Login
-========================================================= */
-
-async function login() {
-
-  const password =
-    passwordInput
-      .value
-      .trim();
-
-
-  if (
-    !password
-  ) {
-
-    loginMessage.textContent =
-      "請輸入管理員密碼";
-
-    return;
-
-  }
-
-
-  adminPassword =
-    password;
-
-
-  loginButton.disabled =
-    true;
-
-
-  loginButton.textContent =
-    "登入中…";
-
-
-  loginMessage.textContent =
-    "";
-
-
-  try {
-
-    const success =
-      await loadSubmissions(
-        true
-      );
-
-
-    if (
-      !success
-    ) {
-
-      adminPassword =
-        "";
-
-      return;
-
     }
 
+    async function login() {
+      const password = passwordInput.value;
 
-    loginPage.style.display =
-      "none";
+      if (!password) {
+        alert("請輸入管理員密碼");
+        return;
+      }
 
+      adminPassword = password;
+      loginButton.disabled = true;
+      loginButton.textContent = "登入中…";
 
-    adminPage.style.display =
-      "block";
-
-  }
-
-  finally {
-
-    loginButton.disabled =
-      false;
-
-
-    loginButton.textContent =
-      "登入";
-
-  }
-
-}
-
-
-/* =========================================================
-   Load
-========================================================= */
-
-async function loadSubmissions(
-  loginAttempt = false
-) {
-
-  if (
-    !adminPassword
-  ) {
-
-    return false;
-
-  }
-
-
-  summaryText.textContent =
-    "資料讀取中…";
-
-
-  submissionsList.innerHTML = `
-
-    <div class="empty-card">
-      讀取中… 🦊
-    </div>
-
-  `;
-
-
-  try {
-
-    const response =
-      await fetch(
-
-        WORKER_URL +
-        "/admin/list",
-
-        {
-          method:
-            "POST",
-
+      try {
+        const response = await fetch(WORKER_URL + "/admin/list", {
+          method: "POST",
           headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": adminPassword
+          }
+        });
 
-            "Content-Type":
-              "application/json",
+        const result = await response.json();
 
-            "X-Admin-Password":
-              adminPassword
-
-          },
-
-          body:
-            JSON.stringify(
-              {}
-            )
-
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "登入失敗");
         }
 
-      );
+        submissions = Array.isArray(result.submissions)
+          ? result.submissions
+          : [];
 
-
-    const result =
-      await response.json();
-
-
-    if (
-      !response.ok ||
-      !result.success
-    ) {
-
-      if (
-        loginAttempt
-      ) {
-
-        loginMessage.textContent =
-          result.message ||
-          "登入失敗";
-
+        passwordInput.value = "";
+        loginArea.style.display = "none";
+        adminArea.style.display = "block";
+        renderSubmissions();
+      } catch (error) {
+        adminPassword = "";
+        alert(error.message || "登入失敗");
+      } finally {
+        loginButton.disabled = false;
+        loginButton.textContent = "登入";
       }
+    }
 
-      else {
+    async function saveSubmission(realIndex, button) {
+      const item = submissions[realIndex];
+      if (!item) return;
 
-        alert(
-          result.message ||
-          "資料讀取失敗"
-        );
+      const card = document.querySelector(`[data-card-index="${realIndex}"]`);
+      if (!card) return;
 
+      const paymentStatus = card.querySelector(".payment-status-select")?.value || "待對帳";
+      const progress = card.querySelector(".progress-select")?.value || "已登記";
+
+      button.disabled = true;
+      const oldText = button.textContent;
+      button.textContent = "儲存中…";
+
+      try {
+        const response = await fetch(WORKER_URL + "/admin/update", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": adminPassword
+          },
+          body: JSON.stringify({
+            path: item._path,
+            paymentStatus,
+            progress
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "儲存失敗");
+        }
+
+        submissions[realIndex].paymentStatus = paymentStatus;
+        submissions[realIndex].progress = progress;
+        alert("狀態已儲存");
+      } catch (error) {
+        alert(error.message || "儲存失敗");
+      } finally {
+        button.disabled = false;
+        button.textContent = oldText;
       }
-
-
-      return false;
-
     }
 
+    async function deleteSubmission(realIndex, button) {
+      const item = submissions[realIndex];
+      if (!item) return;
 
-    submissions =
-      Array.isArray(
-        result.submissions
-      )
-        ? result.submissions
-        : [];
+      const stockManaged = stockManagedGroups.has(item.groupId);
+      const activity = item.activity || item.community || "此團務";
+      const facebookName = item.facebookName || "此客人";
 
-
-    renderSubmissions();
-
-
-    return true;
-
-  }
-
-  catch(error) {
-
-    console.error(
-      error
-    );
-
-
-    if (
-      loginAttempt
-    ) {
-
-      loginMessage.textContent =
-        "目前無法連線到後台";
-
-    }
-
-    else {
-
-      alert(
-        "目前無法讀取資料"
-      );
-
-    }
-
-
-    return false;
-
-  }
-
-}
-
-
-/* =========================================================
-   Render
-========================================================= */
-
-function renderSubmissions() {
-
-  const keyword =
-    nameSearch
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const filtered =
-    submissions
-
-      .map(
-        (item, index) => ({
-
-          item,
-
-          realIndex:
-            index
-
-        })
-      )
-
-      .filter(
-        entry => {
-
-          const item =
-            entry.item;
-
-
-          const matchesType =
-            currentTypeFilter ===
-              "all"
-
-            ||
-
-            item.groupType ===
-              currentTypeFilter;
-
-
-          const matchesGroup =
-            currentGroupFilter ===
-              "all"
-
-            ||
-
-            item.group ===
-              currentGroupFilter;
-
-
-          const facebookName =
-            String(
-              item.facebookName ||
-              ""
-            )
-              .trim()
-              .toLowerCase();
-
-
-          const matchesName =
-            !keyword
-
-            ||
-
-            facebookName.includes(
-              keyword
-            );
-
-
-          return (
-
-            matchesType
-
-            &&
-
-            matchesGroup
-
-            &&
-
-            matchesName
-
+      const confirmMessage = stockManaged
+        ? (
+            `確定要刪除這筆資料嗎？\n\n` +
+            `${facebookName}\n` +
+            `${activity}\n\n` +
+            `此操作會：\n` +
+            `1. 刪除這筆對帳資料\n` +
+            `2. 自動把這筆訂單涉及的所有現貨商品庫存補回\n\n` +
+            `如果這是合併現貨訂單，三個團務的庫存會依實際購買內容分別恢復。\n\n` +
+            `確定要繼續嗎？`
+          )
+        : (
+            `確定要刪除這筆資料嗎？\n\n` +
+            `${facebookName}\n` +
+            `${activity}\n\n` +
+            `刪除後將不會出現在後台與公開對帳表。`
           );
 
+      if (!window.confirm(confirmMessage)) return;
+
+      button.disabled = true;
+      const oldText = button.textContent;
+      button.textContent = stockManaged ? "恢復庫存並刪除中…" : "刪除中…";
+
+      try {
+        const response = await fetch(WORKER_URL + "/admin/delete", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": adminPassword
+          },
+          body: JSON.stringify({
+            path: item._path
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "刪除失敗");
         }
-      );
 
-
-  summaryText.textContent =
-    `共 ${filtered.length} 筆資料`;
-
-
-  if (
-    !filtered.length
-  ) {
-
-    submissionsList.innerHTML = `
-
-      <div class="empty-card">
-
-        目前沒有符合的資料 🦊
-
-      </div>
-
-    `;
-
-
-    return;
-
-  }
-
-
-  /* =======================================================
-     一般模式
-  ======================================================= */
-
-  if (
-    !keyword
-  ) {
-
-    submissionsList.innerHTML =
-      filtered
-        .map(
-          entry =>
-            createSubmissionCard(
-
-              entry.item,
-
-              entry.realIndex
-
-            )
-        )
-        .join("");
-
-
-    return;
-
-  }
-
-
-  /* =======================================================
-     搜尋名字模式
-  ======================================================= */
-
-  const people =
-    {};
-
-
-  filtered.forEach(
-    entry => {
-
-      const name =
-        String(
-
-          entry.item
-            .facebookName
-
-          ||
-
-          "未填名稱"
-
-        ).trim();
-
-
-      if (
-        !people[
-          name
-        ]
-      ) {
-
-        people[
-          name
-        ] =
-          [];
-
+        alert(result.message || "資料已刪除");
+        await loadSubmissions();
+      } catch (error) {
+        alert(error.message || "刪除失敗");
+        button.disabled = false;
+        button.textContent = oldText;
       }
-
-
-      people[
-        name
-      ].push(
-        entry
-      );
-
-    }
-  );
-
-
-  submissionsList.innerHTML =
-    Object
-      .entries(
-        people
-      )
-      .map(
-        ([name, entries]) => `
-
-          <section class="person-search-group">
-
-
-            <div class="person-search-header">
-
-              <div class="person-search-name">
-
-                ${escapeHTML(
-                  name
-                )}
-
-              </div>
-
-
-              <div class="person-search-count">
-
-                共參加
-                ${entries.length}
-                筆團務
-
-              </div>
-
-            </div>
-
-
-            <div class="person-search-orders">
-
-              ${entries
-                .map(
-                  (
-                    entry,
-                    orderIndex
-                  ) =>
-
-                    createSubmissionCard(
-
-                      entry.item,
-
-                      entry.realIndex,
-
-                      {
-                        hidePersonName:
-                          true,
-
-                        orderNumber:
-                          orderIndex + 1
-                      }
-
-                    )
-
-                )
-                .join("")}
-
-            </div>
-
-          </section>
-
-        `
-      )
-      .join("");
-
-}
-
-
-/* =========================================================
-   Save
-========================================================= */
-
-async function saveSubmission(
-  realIndex,
-  button
-) {
-
-  const item =
-    submissions[
-      realIndex
-    ];
-
-
-  if (
-    !item
-  ) {
-
-    return;
-
-  }
-
-
-  const card =
-    button.closest(
-      ".submission-card"
-    );
-
-
-  const paymentStatus =
-    card
-      .querySelector(
-        ".payment-status-select"
-      )
-      .value;
-
-
-  const progress =
-    card
-      .querySelector(
-        ".progress-select"
-      )
-      .value;
-
-
-  const originalText =
-    button.textContent;
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    "儲存中…";
-
-
-  try {
-
-    const response =
-      await fetch(
-
-        WORKER_URL +
-        "/admin/update",
-
-        {
-          method:
-            "POST",
-
-          headers: {
-
-            "Content-Type":
-              "application/json",
-
-            "X-Admin-Password":
-              adminPassword
-
-          },
-
-          body:
-            JSON.stringify(
-              {
-                path:
-                  item._path,
-
-                paymentStatus,
-
-                progress
-              }
-            )
-
-        }
-
-      );
-
-
-    const result =
-      await response.json();
-
-
-    if (
-      !response.ok ||
-      !result.success
-    ) {
-
-      alert(
-        result.message ||
-        "儲存失敗"
-      );
-
-
-      return;
-
     }
 
-
-    submissions[
-      realIndex
-    ].paymentStatus =
-      paymentStatus;
-
-
-    submissions[
-      realIndex
-    ].progress =
-      progress;
-
-
-    button.textContent =
-      "✓ 已儲存";
-
-
-    setTimeout(
-      () => {
-
-        button.textContent =
-          originalText;
-
-      },
-      1100
-    );
-
-  }
-
-  catch(error) {
-
-    console.error(
-      error
-    );
-
-
-    alert(
-      "目前無法儲存資料"
-    );
-
-  }
-
-  finally {
-
-    button.disabled =
-      false;
-
-  }
-
-}
-
-
-/* =========================================================
-   ★ Delete
-========================================================= */
-
-async function deleteSubmission(
-  realIndex,
-  button
-) {
-
-  const item =
-    submissions[
-      realIndex
-    ];
-
-
-  if (
-    !item
-  ) {
-
-    return;
-
-  }
-
-
-  const stockManaged =
-    stockManagedGroups.has(
-      item.groupId
-    );
-
-
-  const activity =
-    item.activity ||
-    item.community ||
-    "此團務";
-
-
-  const facebookName =
-    item.facebookName ||
-    "此客人";
-
-
-  const confirmMessage =
-    stockManaged
-
-      ? (
-          `確定要刪除這筆資料嗎？\n\n`
-          +
-          `${facebookName}\n`
-          +
-          `${activity}\n\n`
-          +
-          `此操作會：\n`
-          +
-          `1. 刪除這筆對帳資料\n`
-          +
-          `2. 自動把此筆訂單的商品庫存補回\n\n`
-          +
-          `確定要繼續嗎？`
-        )
-
-      : (
-          `確定要刪除這筆資料嗎？\n\n`
-          +
-          `${facebookName}\n`
-          +
-          `${activity}\n\n`
-          +
-          `刪除後將不會出現在後台與公開對帳表。`
-        );
-
-
-  const confirmed =
-    window.confirm(
-      confirmMessage
-    );
-
-
-  if (
-    !confirmed
-  ) {
-
-    return;
-
-  }
-
-
-  const originalText =
-    button.textContent;
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    stockManaged
-
-      ? "恢復庫存並刪除中…"
-
-      : "刪除中…";
-
-
-  try {
-
-    const response =
-      await fetch(
-
-        WORKER_URL +
-        "/admin/delete",
-
-        {
-          method:
-            "POST",
-
-          headers: {
-
-            "Content-Type":
-              "application/json",
-
-            "X-Admin-Password":
-              adminPassword
-
-          },
-
-          body:
-            JSON.stringify(
-              {
-                path:
-                  item._path
-              }
-            )
-
-        }
-
-      );
-
-
-    const result =
-      await response.json();
-
-
-    if (
-      !response.ok ||
-      !result.success
-    ) {
-
-      alert(
-        result.message ||
-        "刪除失敗"
-      );
-
-
-      return;
-
-    }
-
-
-    alert(
-      result.message ||
-      "資料已刪除"
-    );
-
-
-    await loadSubmissions();
-
-  }
-
-  catch(error) {
-
-    console.error(
-      error
-    );
-
-
-    alert(
-      "目前無法刪除資料"
-    );
-
-  }
-
-  finally {
-
-    button.disabled =
-      false;
-
-
-    button.textContent =
-      originalText;
-
-  }
-
-}
-
-
-/* =========================================================
-   Filters
-========================================================= */
-
-document
-  .querySelectorAll(
-    "#typeFilters .filter-button"
-  )
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(
-              "#typeFilters .filter-button"
-            )
-            .forEach(
-              item => {
-
-                item.classList.remove(
-                  "selected"
-                );
-
-              }
-            );
-
-
-          button.classList.add(
-            "selected"
-          );
-
-
-          currentTypeFilter =
-            button.dataset.filter;
-
-
-          renderSubmissions();
-
-        }
-      );
-
-    }
-  );
-
-
-document
-  .querySelectorAll(
-    "#groupFilters .filter-button"
-  )
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(
-              "#groupFilters .filter-button"
-            )
-            .forEach(
-              item => {
-
-                item.classList.remove(
-                  "selected"
-                );
-
-              }
-            );
-
-
-          button.classList.add(
-            "selected"
-          );
-
-
-          currentGroupFilter =
-            button.dataset.filter;
-
-
-          renderSubmissions();
-
-        }
-      );
-
-    }
-  );
-
-
-nameSearch.addEventListener(
-  "input",
-  renderSubmissions
-);
-
-
-/* =========================================================
-   Buttons
-========================================================= */
-
-loginButton.addEventListener(
-  "click",
-  login
-);
-
-
-passwordInput.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key ===
-      "Enter"
-    ) {
-
-      login();
-
-    }
-
-  }
-);
-
-
-refreshButton.addEventListener(
-  "click",
-  async () => {
-
-    refreshButton.disabled =
-      true;
-
-
-    refreshButton.textContent =
-      "更新中…";
-
-
-    await loadSubmissions();
-
-
-    refreshButton.disabled =
-      false;
-
-
-    refreshButton.textContent =
-      "重新整理";
-
-  }
-);
-
-
-logoutButton.addEventListener(
-  "click",
-  () => {
-
-    adminPassword =
-      "";
-
-
-    submissions =
-      [];
-
-
-    passwordInput.value =
-      "";
-
-
-    adminPage.style.display =
-      "none";
-
-
-    loginPage.style.display =
-      "block";
-
-
-    loginMessage.textContent =
-      "";
-
-  }
-);
-
-
-</script>
-
+    loginButton.addEventListener("click", login);
+
+    passwordInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        login();
+      }
+    });
+
+    refreshButton.addEventListener("click", loadSubmissions);
+
+    logoutButton.addEventListener("click", () => {
+      adminPassword = "";
+      submissions = [];
+      adminArea.style.display = "none";
+      loginArea.style.display = "block";
+      passwordInput.value = "";
+      submissionList.innerHTML = "";
+      summaryText.textContent = "目前共 0 筆資料";
+    });
+
+    document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
+          item.classList.remove("selected");
+        });
+
+        button.classList.add("selected");
+        currentTypeFilter = button.dataset.filter;
+        renderSubmissions();
+      });
+    });
+
+    document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
+          item.classList.remove("selected");
+        });
+
+        button.classList.add("selected");
+        currentGroupFilter = button.dataset.filter;
+        renderSubmissions();
+      });
+    });
+
+    nameSearch.addEventListener("input", renderSubmissions);
+  </script>
 </body>
-
 </html>
