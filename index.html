@@ -1,83 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>狐狸🦊日韓通路代購/拆車</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta property="og:title" content="狐狸🦊日韓通路代購/拆車">
+  <meta property="og:description" content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yiii704.github.io/Fox/">
+  <meta property="og:image" content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=3">
+  <meta property="og:image:secure_url" content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=3">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="540">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <meta
-    name="format-detection"
-    content="telephone=no"
-  >
-
-  <title>
-    狐狸🦊日韓通路代購/拆車
-  </title>
-
-  <meta
-    property="og:title"
-    content="狐狸🦊日韓通路代購/拆車"
-  >
-
-  <meta
-    property="og:description"
-    content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢"
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:url"
-    content="https://yiii704.github.io/Fox/"
-  >
-
-  <meta
-    property="og:image"
-    content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=3"
-  >
-
-  <meta
-    property="og:image:secure_url"
-    content="https://yiii704.github.io/Fox/share-thumbnail.jpg?v=3"
-  >
-
-  <meta
-    property="og:image:width"
-    content="960"
-  >
-
-  <meta
-    property="og:image:height"
-    content="540"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=ChenYuluoyan&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ChenYuluoyan&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -97,13 +38,7 @@
       padding: 32px 18px;
       background: #faf8ff;
       color: #4f4660;
-
-      font-family:
-        "ChenYuluoyan",
-        "HanziPen TC",
-        "Hannotate TC",
-        "Kaiti TC",
-        cursive;
+      font-family: "ChenYuluoyan", "HanziPen TC", "Hannotate TC", "Kaiti TC", cursive;
     }
 
     button,
@@ -159,7 +94,6 @@
         opacity: 0;
         transform: translateY(7px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -175,9 +109,7 @@
 
     body.home-mode > h1 {
       color: #ffffff;
-      text-shadow:
-        0 2px 8px
-        rgba(0, 0, 0, 0.35);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
 
     body:not(.home-mode) > h1 {
@@ -211,8 +143,7 @@
 
     .menu-grid {
       display: grid;
-      grid-template-columns:
-        repeat(2, minmax(0, 155px));
+      grid-template-columns: repeat(2, minmax(0, 155px));
       justify-content: center;
       gap: 12px;
     }
@@ -224,9 +155,7 @@
       color: #6b46c1;
       border: 2px solid #d9c8ff;
       border-radius: 999px;
-      box-shadow:
-        0 4px 12px
-        rgba(126, 92, 190, 0.10);
+      box-shadow: 0 4px 12px rgba(126, 92, 190, 0.10);
       font-size: 15px;
       line-height: 1.2;
       text-align: center;
@@ -264,9 +193,7 @@
       background: #ffffff;
       border: 1px solid #eee6ff;
       border-radius: 22px;
-      box-shadow:
-        0 6px 18px
-        rgba(116, 82, 165, 0.09);
+      box-shadow: 0 6px 18px rgba(116, 82, 165, 0.09);
     }
 
     .card-title {
@@ -288,8 +215,7 @@
 
     .group-type-tabs {
       display: grid;
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 9px;
       margin-bottom: 18px;
     }
@@ -457,13 +383,11 @@
     }
 
     .catalog-gallery.two-images {
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .catalog-gallery.three-images {
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .catalog-image-card {
@@ -482,19 +406,19 @@
       cursor: zoom-in;
     }
 
-    .catalog-gallery.one-image .catalog-image {
-      height: auto;
-      max-height: 430px;
-      object-fit: contain;
-    }
+  .catalog-gallery.one-image .catalog-image {
+    height: auto;
+    max-height: 430px;
+    object-fit: contain;
+  }
 
-    .catalog-image-caption {
-      padding: 9px 10px;
-      color: #6b46c1;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-    }
+  .catalog-image-caption {
+    padding: 9px 10px;
+    color: #6b46c1;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
 
     .product-placeholder {
       padding: 18px;
@@ -569,9 +493,7 @@
 
     .product-choice {
       display: grid;
-      grid-template-columns:
-        minmax(0, 1fr)
-        auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: 10px;
       margin-top: 7px;
@@ -590,7 +512,8 @@
       opacity: 0.48;
       background: #f4f3f6;
     }
-        .choice-main {
+
+    .choice-main {
       display: flex !important;
       align-items: center;
       gap: 8px;
@@ -887,9 +810,7 @@
     select:focus,
     textarea:focus {
       border-color: #9f7aea;
-      box-shadow:
-        0 0 0 3px
-        rgba(159, 122, 234, 0.13);
+      box-shadow: 0 0 0 3px rgba(159, 122, 234, 0.13);
     }
 
     textarea {
@@ -1072,9 +993,7 @@
       background: #ffffff;
       border: 1px solid #eee6ff;
       border-radius: 22px;
-      box-shadow:
-        0 6px 18px
-        rgba(116, 82, 165, 0.09);
+      box-shadow: 0 6px 18px rgba(116, 82, 165, 0.09);
     }
 
     .progress-group-header {
@@ -1092,10 +1011,7 @@
 
     .progress-member-row {
       display: grid;
-      grid-template-columns:
-        minmax(130px, 1fr)
-        105px
-        105px;
+      grid-template-columns: minmax(130px, 1fr) 105px 105px;
       align-items: start;
       gap: 8px;
       padding: 8px 0;
@@ -1261,8 +1177,7 @@
 
     .public-order-statuses {
       display: grid;
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 7px;
       margin-top: 10px;
     }
@@ -1273,8 +1188,7 @@
       z-index: 9999;
       inset: 0;
       padding: 18px;
-      background:
-        rgba(35, 29, 45, 0.84);
+      background: rgba(35, 29, 45, 0.84);
       align-items: center;
       justify-content: center;
     }
@@ -1307,8 +1221,7 @@
       width: 38px;
       height: 38px;
       margin: 10px 10px -48px 0;
-      background:
-        rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.94);
       color: #59349e;
       border: 1px solid #d9c8ff;
       border-radius: 50%;
@@ -1330,8 +1243,7 @@
       }
 
       .menu-grid {
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
       }
 
@@ -1362,8 +1274,7 @@
         height: 150px;
       }
 
-      .catalog-gallery.one-image
-      .catalog-image {
+      .catalog-gallery.one-image .catalog-image {
         height: auto;
       }
 
@@ -1387,10 +1298,7 @@
       }
 
       .progress-member-row {
-        grid-template-columns:
-          minmax(105px, 1fr)
-          92px
-          92px;
+        grid-template-columns: minmax(105px, 1fr) 92px 92px;
         gap: 5px;
       }
 
@@ -1419,240 +1327,83 @@
 
 <body class="home-mode">
 
-<h1>
-  狐狸🦊日韓通路代購/拆車
-</h1>
+<h1>狐狸🦊日韓通路代購/拆車</h1>
 
-<main
-  id="homePage"
-  class="page active-page"
->
-  <div
-    class="home-background"
-    aria-hidden="true"
-  ></div>
+<main id="homePage" class="page active-page">
+  <div class="home-background" aria-hidden="true"></div>
 
   <div class="menu-grid">
-    <button
-      type="button"
-      class="pill-button"
-      data-target="groupPage"
-    >
-      📦 團務
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="closedGroupPage"
-    >
-      🗃️ 已結束團務
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="paymentStartPage"
-    >
-      💰 匯款表單
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="noticePage"
-    >
-      📌 注意事項
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="progressPage"
-    >
-      📊 對帳表＆進度表
-    </button>
-
-    <button
-      type="button"
-      class="pill-button"
-      data-target="contactPage"
-    >
-      💬 聯絡方式 &amp; 代購社群
-    </button>
+    <button type="button" class="pill-button" data-target="groupPage">📦 團務</button>
+    <button type="button" class="pill-button" data-target="closedGroupPage">🗃️ 已結束團務</button>
+    <button type="button" class="pill-button" data-target="paymentStartPage">💰 匯款表單</button>
+    <button type="button" class="pill-button" data-target="noticePage">📌 注意事項</button>
+    <button type="button" class="pill-button" data-target="progressPage">📊 對帳表＆進度表</button>
+    <button type="button" class="pill-button" data-target="contactPage">💬 聯絡方式 &amp; 代購社群</button>
   </div>
 </main>
 
-<section
-  id="groupPage"
-  class="page"
->
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
+<section id="groupPage" class="page">
+  <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
   <h2>📦 團務</h2>
 
   <div class="group-tab-block">
     <div class="group-type-tabs">
-      <button
-        type="button"
-        class="group-type-button selected"
-        data-group-tab="代購"
-      >
-        代購
-      </button>
-
-      <button
-        type="button"
-        class="group-type-button"
-        data-group-tab="單特典"
-      >
-        單特典
-      </button>
-
-      <button
-        type="button"
-        class="group-type-button"
-        data-group-tab="現貨"
-      >
-        現貨
-      </button>
+      <button type="button" class="group-type-button selected" data-group-tab="代購">代購</button>
+      <button type="button" class="group-type-button" data-group-tab="單特典">單特典</button>
+      <button type="button" class="group-type-button" data-group-tab="現貨">現貨</button>
     </div>
 
-    <div
-      class="group-type-content active"
-      data-group-content="代購"
-    >
+    <div class="group-type-content active" data-group-content="代購">
       <div class="card order-card">
         <div class="order-top">
-          <div class="order-group">
-            Stray Kids・代購
-          </div>
-
-          <div class="order-name">
-            Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
-          </div>
-
-          <div class="order-status">
-            開放中
-          </div>
+          <div class="order-group">Stray Kids・代購</div>
+          <div class="order-name">Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團</div>
+          <div class="order-status">開放中</div>
         </div>
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="run-it-japan"
-          data-return="groupPage"
-        >
-          填寫匯款表單
-        </button>
+        <button type="button" class="order-action" data-order="run-it-japan" data-return="groupPage">填寫匯款表單</button>
       </div>
     </div>
 
-    <div
-      class="group-type-content"
-      data-group-content="單特典"
-    >
+    <div class="group-type-content" data-group-content="單特典">
       <div class="card order-card">
         <div class="order-top">
-          <div class="order-group">
-            TWS・單特典
-          </div>
-
-          <div class="order-name">
-            SODA SODA 冬季限定
-          </div>
-
-          <div class="order-status">
-            開放中
-          </div>
+          <div class="order-group">TWS・單特典</div>
+          <div class="order-name">SODA SODA 冬季限定</div>
+          <div class="order-status">開放中</div>
         </div>
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="soda-soda-winter"
-          data-return="groupPage"
-        >
-          填寫匯款表單
-        </button>
+        <button type="button" class="order-action" data-order="soda-soda-winter" data-return="groupPage">填寫匯款表單</button>
       </div>
 
       <div class="card order-card">
         <div class="order-top">
-          <div class="order-group">
-            Stray Kids・單特典
-          </div>
-
-          <div class="order-name">
-            9/19、9/20 大阪場限
-          </div>
-
-          <div class="order-status">
-            開放中
-          </div>
+          <div class="order-group">Stray Kids・單特典</div>
+          <div class="order-name">大阪場限 9/19＋9/20 合併選購</div>
+          <div class="order-status">開放中</div>
 
           <div class="stock-combined-list">
-            <div class="stock-combined-item">
-              9/19大阪場限
-            </div>
-
-            <div class="stock-combined-item">
-              9/20大阪場限
-            </div>
+            <div class="stock-combined-item">9/19大阪場限</div>
+            <div class="stock-combined-item">9/20大阪場限</div>
           </div>
 
           <div class="stock-combined-help">
-             
+            兩天的場限可以一起選購，最後只需要匯款及填單一次。
           </div>
         </div>
-
-        <button
-          type="button"
-          class="order-action"
-          data-order="osaka-combined"
-          data-return="groupPage"
-        >
-          填寫匯款表單
-        </button>
+        <button type="button" class="order-action" data-order="osaka-combined" data-return="groupPage">選購大阪場限</button>
       </div>
     </div>
 
-    <div
-      class="group-type-content"
-      data-group-content="現貨"
-    >
+    <div class="group-type-content" data-group-content="現貨">
       <div class="card order-card">
         <div class="order-top">
-          <div class="order-group">
-            Stray Kids・現貨
-          </div>
-
-          <div class="order-name">
-            現貨商品合併選購
-          </div>
-
-          <div class="order-status">
-            開放中
-          </div>
+          <div class="order-group">Stray Kids・現貨</div>
+          <div class="order-name">現貨商品合併選購</div>
+          <div class="order-status">開放中</div>
 
           <div class="stock-combined-list">
-            <div class="stock-combined-item">
-              Run it JAPAN 一番賞
-            </div>
-
-            <div class="stock-combined-item">
-              FANS LUCK DRAW（&amp; ver）
-            </div>
-
-            <div class="stock-combined-item">
-              9/5 名古屋場限
-            </div>
+            <div class="stock-combined-item">Run it JAPAN 一番賞</div>
+            <div class="stock-combined-item">FANS LUCK DRAW（&amp; ver）</div>
+            <div class="stock-combined-item">9/5 名古屋場限</div>
           </div>
 
           <div class="stock-combined-help">
@@ -1660,230 +1411,96 @@
           </div>
         </div>
 
-        <button
-          type="button"
-          class="order-action"
-          data-order="in-stock-combined"
-          data-return="groupPage"
-        >
-          選購現貨商品
-        </button>
+        <button type="button" class="order-action" data-order="in-stock-combined" data-return="groupPage">選購現貨商品</button>
       </div>
     </div>
   </div>
 </section>
 
-<section
-  id="closedGroupPage"
-  class="page"
->
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
+<section id="closedGroupPage" class="page">
+  <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
   <h2>🗃️ 已結束團務</h2>
 
   <div class="card order-card">
     <div class="order-top">
-      <div class="order-group">
-        Stray Kids・單特典
-      </div>
-
-      <div class="order-name">
-        FANS LUCKY DRAW（電子專）
-      </div>
-
-      <div class="order-status closed">
-        已結束
-      </div>
+      <div class="order-group">Stray Kids・單特典</div>
+      <div class="order-name">FANS LUCKY DRAW（電子專）</div>
+      <div class="order-status closed">已結束</div>
     </div>
-
-    <button
-      type="button"
-      class="order-action closed"
-      disabled
-    >
-      已結束
-    </button>
+    <button type="button" class="order-action closed" disabled>已結束</button>
   </div>
 
   <div class="card order-card">
     <div class="order-top">
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        [LUCKY DRAW] THIS &amp; THAT
-      </div>
-
-      <div class="order-status closed">
-        已結束
-      </div>
+      <div class="order-group">Stray Kids</div>
+      <div class="order-name">[LUCKY DRAW] THIS &amp; THAT</div>
+      <div class="order-status closed">已結束</div>
     </div>
-
-    <button
-      type="button"
-      class="order-action closed"
-      disabled
-    >
-      已結束
-    </button>
+    <button type="button" class="order-action closed" disabled>已結束</button>
   </div>
 
   <div class="card order-card">
     <div class="order-top">
-      <div class="order-group">
-        Stray Kids
-      </div>
-
-      <div class="order-name">
-        Sony music 通路特典（含專）
-      </div>
-
-      <div class="order-status closed">
-        已結束
-      </div>
+      <div class="order-group">Stray Kids</div>
+      <div class="order-name">Sony music 通路特典（含專）</div>
+      <div class="order-status closed">已結束</div>
     </div>
-
-    <button
-      type="button"
-      class="order-action closed"
-      disabled
-    >
-      已結束
-    </button>
+    <button type="button" class="order-action closed" disabled>已結束</button>
   </div>
 </section>
 
-<section
-  id="paymentStartPage"
-  class="page"
->
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
+<section id="paymentStartPage" class="page">
+  <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
   <h2>💰 匯款表單</h2>
 
   <div class="card">
-    <div class="card-title">
-      選擇團務
-    </div>
-
-    <div class="payment-start-help">
-      請選擇要填寫的團務，再選擇商品／特典。
-    </div>
+    <div class="card-title">選擇團務</div>
+    <div class="payment-start-help">請選擇要填寫的團務，再選擇商品／特典。</div>
 
     <select id="paymentGroupSelect">
-      <option value="">
-        請選擇團務
-      </option>
+      <option value="">請選擇團務</option>
 
       <optgroup label="代購">
-        <option value="run-it-japan">
-          Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團
-        </option>
+        <option value="run-it-japan">Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團</option>
       </optgroup>
 
       <optgroup label="單特典">
-        <option value="soda-soda-winter">
-          SODA SODA 冬季限定
-        </option>
-
-        <option value="osaka-combined">
-          9/19、9/20 大阪場限
-        </option>
+        <option value="soda-soda-winter">SODA SODA 冬季限定</option>
+        <option value="osaka-combined">大阪場限 9/19＋9/20 合併結帳</option>
       </optgroup>
 
       <optgroup label="現貨">
-        <option value="in-stock-combined">
-          現貨商品合併結帳
-        </option>
+        <option value="in-stock-combined">現貨商品合併結帳</option>
       </optgroup>
     </select>
 
-    <button
-      type="button"
-      id="paymentGroupStartButton"
-      class="payment-start-button"
-      disabled
-    >
-      填寫匯款表單
-    </button>
+    <button type="button" id="paymentGroupStartButton" class="payment-start-button" disabled>填寫匯款表單</button>
   </div>
 </section>
 
-<section
-  id="productPage"
-  class="page"
->
-  <button
-    type="button"
-    id="productBackButton"
-    class="back-button"
-  >
-    ← 返回團務
-  </button>
-
+<section id="productPage" class="page">
+  <button type="button" id="productBackButton" class="back-button">← 返回團務</button>
   <h2>🛍️ 商品選購</h2>
 
   <div class="card selected-group-card">
-    <div class="selected-group-label">
-      目前選擇團務
-    </div>
-
-    <div
-      id="productGroupName"
-      class="selected-group-name"
-    ></div>
+    <div class="selected-group-label">目前選擇團務</div>
+    <div id="productGroupName" class="selected-group-name"></div>
   </div>
 
-  <div
-    id="catalogCard"
-    class="card"
-    style="display:none;"
-  >
-    <div class="card-title">
-      🖼️ 商品圖鑑
-    </div>
-
-    <div
-      id="catalogGallery"
-      class="catalog-gallery"
-    ></div>
+  <div id="catalogCard" class="card" style="display:none;">
+    <div class="card-title">🖼️ 商品圖鑑</div>
+    <div id="catalogGallery" class="catalog-gallery"></div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      商品名稱與價錢
-    </div>
+    <div class="card-title">商品名稱與價錢</div>
 
     <div id="productContainer">
-      <div class="product-placeholder">
-        請先選擇團務
-      </div>
+      <div class="product-placeholder">請先選擇團務</div>
     </div>
 
-    <div
-      id="selectedSummary"
-      class="selected-summary"
-    >
-      已選 0 件商品
-    </div>
-
-    <div
-      id="combinedBreakdown"
-      class="combined-breakdown"
-    ></div>
+    <div id="selectedSummary" class="selected-summary">已選 0 件商品</div>
+    <div id="combinedBreakdown" class="combined-breakdown"></div>
 
     <div class="total-box">
       <span>商品總金額</span>
@@ -1893,568 +1510,208 @@
 
   <div class="card">
     <div class="agreement-row">
-      <input
-        id="readNoticeCheckbox"
-        type="checkbox"
-      >
-
-      <label for="readNoticeCheckbox">
-        已閱讀注意事項
-      </label>
+      <input id="readNoticeCheckbox" type="checkbox">
+      <label for="readNoticeCheckbox">已閱讀注意事項</label>
     </div>
 
-    <button
-      type="button"
-      id="viewNoticeButton"
-      class="view-notice-button"
-    >
-      📌 查看注意事項
-    </button>
-
-    <div class="agreement-help">
-      請確認已閱讀注意事項內容後再進行匯款。
-    </div>
-
-    <button
-      type="button"
-      id="nextPaymentButton"
-      class="next-button"
-      disabled
-    >
-      下一步：填寫匯款資料
-    </button>
+    <button type="button" id="viewNoticeButton" class="view-notice-button">📌 查看注意事項</button>
+    <div class="agreement-help">請確認已閱讀注意事項內容後再進行匯款。</div>
+    <button type="button" id="nextPaymentButton" class="next-button" disabled>下一步：填寫匯款資料</button>
   </div>
 </section>
 
-<section
-  id="noticePage"
-  class="page"
->
-  <button
-    type="button"
-    id="noticeBackButton"
-    class="back-button"
-  >
-    ← 返回首頁
-  </button>
-
+<section id="noticePage" class="page">
+  <button type="button" id="noticeBackButton" class="back-button">← 返回首頁</button>
   <h2>📌 注意事項</h2>
 
   <article class="card">
-    <div class="card-title">
-      📍下單規則
-    </div>
-
-    <p>
-      所有團物皆為
-      <strong>收齊全部車員款項後</strong>
-      才會統一下單。
-    </p>
+    <div class="card-title">📍下單規則</div>
+    <p>所有團物皆為 <strong>收齊全部車員款項後</strong> 才會統一下單。</p>
   </article>
 
   <article class="card">
-    <div class="card-title">
-      📍進度通知＆代購社群
-    </div>
-
-    <p>
-      所有進度都在社群裡面告知。
-    </p>
-
-    <p style="margin-top:10px;">
-      匯款填單完成後
-      <strong>務必</strong>
-      加入社群。
-    </p>
-
-    <a
-      class="notice-community-link"
-      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      點我加入代購社群
-    </a>
+    <div class="card-title">📍進度通知＆代購社群</div>
+    <p>所有進度都在社群裡面告知。</p>
+    <p style="margin-top:10px;">匯款填單完成後 <strong>務必</strong> 加入社群。</p>
+    <a class="notice-community-link" href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">點我加入代購社群</a>
   </article>
 
   <article class="card">
-    <div class="card-title">
-      📍關於二補
-    </div>
-
-    <p>
-      若商品需要二補，將於商品全部到貨後透過賣貨便收取二補。
-    </p>
-
-    <img
-      class="notice-image"
-      src="second-payment-info.JPG"
-      alt="二補資訊"
-    >
+    <div class="card-title">📍關於二補</div>
+    <p>若商品需要二補，將於商品全部到貨後透過賣貨便收取二補。</p>
+    <img class="notice-image" src="second-payment-info.JPG" alt="二補資訊">
   </article>
 
   <article class="card">
-    <div class="card-title">
-      📍寄送方式
-    </div>
-
-    <p>
-      全部商品皆使用賣貨便寄出，並酌收包材費 10 元＋手續費 10 元。
-    </p>
+    <div class="card-title">📍寄送方式</div>
+    <p>全部商品皆使用賣貨便寄出，並酌收包材費 10 元＋手續費 10 元。</p>
   </article>
 
   <article class="card">
-    <div class="card-title">
-      📍商品須知
-    </div>
-
+    <div class="card-title">📍商品須知</div>
     <ul class="notice-list">
       <li>廠損</li>
       <li>運輸損傷</li>
       <li>商品瑕疵</li>
-      <li>
-        不湊套（專卡、滿額卡及隨機商品等）
-      </li>
+      <li>不湊套（專卡、滿額卡及隨機商品等）</li>
     </ul>
-
-    <p style="margin-top:12px;">
-      以上情況恕無法退換貨。
-    </p>
+    <p style="margin-top:12px;">以上情況恕無法退換貨。</p>
   </article>
 </section>
 
-<section
-  id="paymentPage"
-  class="page"
->
-  <button
-    type="button"
-    id="paymentBackButton"
-    class="back-button"
-  >
-    ← 返回商品選購
-  </button>
-
+<section id="paymentPage" class="page">
+  <button type="button" id="paymentBackButton" class="back-button">← 返回商品選購</button>
   <h2>💰 匯款表單</h2>
 
   <div class="card">
-    <div class="card-title">
-      🛍️ 訂單確認
-    </div>
-
-    <div
-      id="checkoutSummary"
-      class="checkout-summary"
-    ></div>
+    <div class="card-title">🛍️ 訂單確認</div>
+    <div id="checkoutSummary" class="checkout-summary"></div>
   </div>
 
   <form id="paymentForm">
     <div class="card">
-      <div class="card-title">
-        基本資料
-      </div>
+      <div class="card-title">基本資料</div>
 
       <div class="form-group">
-        <label for="facebookName">
-          Facebook 名稱
-          <span class="required">*</span>
-        </label>
-
-        <input
-          id="facebookName"
-          type="text"
-          placeholder="請輸入 Facebook 名稱"
-          required
-        >
+        <label for="facebookName">Facebook 名稱 <span class="required">*</span></label>
+        <input id="facebookName" type="text" placeholder="請輸入 Facebook 名稱" required>
       </div>
     </div>
 
     <div class="card">
-  <div class="card-title">
-    匯款帳號
-  </div>
+      <div class="card-title">匯款帳號</div>
 
-  <div class="bank-account">
-    <strong>中國信託（822）</strong>
-
-    <div class="bank-number-row">
-      <span>901567959612</span>
-
-      <button
-        type="button"
-        class="copy-button"
-        onclick="copyBankAccount('901567959612',this)"
-      >
-        複製
-      </button>
+      <div class="bank-account">
+        <strong>中國信託（822）</strong>
+        <div class="bank-number-row">
+          <span>901567959612</span>
+          <button type="button" class="copy-button" onclick="copyBankAccount('901567959612',this)">複製</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <div class="card">
-      <div class="card-title">
-        匯款資料
-      </div>
+      <div class="card-title">匯款資料</div>
 
       <div class="form-group">
-        <label for="paymentDate">
-          匯款日期
-          <span class="required">*</span>
-        </label>
-
+        <label for="paymentDate">匯款日期 <span class="required">*</span></label>
         <div class="ios-date-wrap">
-          <input
-            id="paymentDate"
-            type="date"
-            required
-          >
+          <input id="paymentDate" type="date" required>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="paymentTime">
-          匯款時間
-          <span class="required">*</span>
-        </label>
-
+        <label for="paymentTime">匯款時間 <span class="required">*</span></label>
         <div class="ios-date-wrap">
-          <input
-            id="paymentTime"
-            type="time"
-            required
-          >
+          <input id="paymentTime" type="time" required>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="paymentBank">
-          匯款銀行
-          <span class="required">*</span>
-        </label>
-
-        <select
-  id="paymentBank"
-  required
->
-  <option value="">
-    請選擇匯款銀行
-  </option>
-
-  <option value="中國信託">
-    中國信託
-  </option>
-</select>
-      <div class="form-group">
-        <label for="paymentAmount">
-          匯款金額
-        </label>
-
-        <input
-          id="paymentAmount"
-          type="number"
-          readonly
-        >
+        <label for="paymentBank">匯款銀行 <span class="required">*</span></label>
+        <select id="paymentBank" required>
+          <option value="">請選擇匯款銀行</option>
+          <option value="中國信託">中國信託</option>
+        </select>
       </div>
 
       <div class="form-group">
-        <label for="accountLastFive">
-          匯款帳號後五碼
-          <span class="required">*</span>
-        </label>
-
-        <input
-          id="accountLastFive"
-          type="text"
-          inputmode="numeric"
-          maxlength="5"
-          pattern="[0-9]{5}"
-          placeholder="請輸入自己的帳號後五碼"
-          required
-        >
-
-        <div class="field-note">
-          麻煩請填自己的帳號後五碼
-        </div>
+        <label for="paymentAmount">匯款金額</label>
+        <input id="paymentAmount" type="number" readonly>
       </div>
 
       <div class="form-group">
-        <label for="note">
-          備註
-        </label>
-
-        <textarea
-          id="note"
-          placeholder="沒有備註可以留空"
-        ></textarea>
+        <label for="accountLastFive">匯款帳號後五碼 <span class="required">*</span></label>
+        <input id="accountLastFive" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="請輸入自己的帳號後五碼" required>
+        <div class="field-note">麻煩請填自己的帳號後五碼</div>
       </div>
 
-      <button
-        type="submit"
-        class="submit-button"
-      >
-        送出匯款資料
-      </button>
+      <div class="form-group">
+        <label for="note">備註</label>
+        <textarea id="note" placeholder="沒有備註可以留空"></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">送出匯款資料</button>
     </div>
   </form>
 </section>
 
-<section
-  id="progressPage"
-  class="page"
->
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
+<section id="progressPage" class="page">
+  <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
   <h2>📊 對帳表＆進度表</h2>
 
   <div class="card">
-    <div class="filter-label">
-      依團務分類
+    <div class="filter-label">依團務分類</div>
+    <div id="typeFilters" class="filter-row">
+      <button type="button" class="filter-button selected" data-filter="all">全部</button>
+      <button type="button" class="filter-button" data-filter="代購">代購</button>
+      <button type="button" class="filter-button" data-filter="單特典">單特典</button>
+      <button type="button" class="filter-button" data-filter="現貨">現貨</button>
     </div>
 
-    <div
-      id="typeFilters"
-      class="filter-row"
-    >
-      <button
-        type="button"
-        class="filter-button selected"
-        data-filter="all"
-      >
-        全部
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="代購"
-      >
-        代購
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="單特典"
-      >
-        單特典
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="現貨"
-      >
-        現貨
-      </button>
+    <div class="filter-label">依團體</div>
+    <div id="groupFilters" class="filter-row">
+      <button type="button" class="filter-button selected" data-filter="all">全部</button>
+      <button type="button" class="filter-button" data-filter="TWS">TWS</button>
+      <button type="button" class="filter-button" data-filter="Stray Kids">Stray Kids</button>
     </div>
 
-    <div class="filter-label">
-      依團體
-    </div>
-
-    <div
-      id="groupFilters"
-      class="filter-row"
-    >
-      <button
-        type="button"
-        class="filter-button selected"
-        data-filter="all"
-      >
-        全部
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="TWS"
-      >
-        TWS
-      </button>
-
-      <button
-        type="button"
-        class="filter-button"
-        data-filter="Stray Kids"
-      >
-        Stray Kids
-      </button>
-    </div>
-
-    <div class="filter-label">
-      依名稱搜尋
-    </div>
-
-    <input
-      id="communitySearch"
-      type="search"
-      placeholder="輸入 Facebook 名稱"
-      autocomplete="off"
-    >
+    <div class="filter-label">依名稱搜尋</div>
+    <input id="communitySearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
   </div>
 
   <div id="progressList"></div>
 </section>
 
-<section
-  id="contactPage"
-  class="page"
->
-  <button
-    type="button"
-    class="back-button"
-    data-target="homePage"
-  >
-    ← 返回首頁
-  </button>
-
-  <h2>
-    💬 聯絡方式 &amp; 代購社群
-  </h2>
+<section id="contactPage" class="page">
+  <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
+  <h2>💬 聯絡方式 &amp; 代購社群</h2>
 
   <div class="card">
-    <div class="contact-name">
-      官方 LINE
-    </div>
-
-    <div class="contact-value">
-      @964kujbw
-    </div>
-
-    <a
-      class="contact-button"
-      href="https://line.me/R/ti/p/@964kujbw"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      開啟官方 LINE
-    </a>
+    <div class="contact-name">官方 LINE</div>
+    <div class="contact-value">@964kujbw</div>
+    <a class="contact-button" href="https://line.me/R/ti/p/@964kujbw" target="_blank" rel="noopener noreferrer">開啟官方 LINE</a>
   </div>
 
   <div class="card">
-    <div class="contact-name">
-      代購社群
-    </div>
-
-    <a
-      class="contact-button"
-      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      加入代購社群
-    </a>
+    <div class="contact-name">代購社群</div>
+    <a class="contact-button" href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">加入代購社群</a>
   </div>
 
   <div class="card">
-    <div class="contact-name">
-      Instagram
-    </div>
-
-    <div class="contact-value">
-      @yiiiii_0704
-    </div>
-
-    <a
-      class="contact-button"
-      href="https://www.instagram.com/yiiiii_0704"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      前往 Instagram
-    </a>
+    <div class="contact-name">Instagram</div>
+    <div class="contact-value">@yiiiii_0704</div>
+    <a class="contact-button" href="https://www.instagram.com/yiiiii_0704" target="_blank" rel="noopener noreferrer">前往 Instagram</a>
   </div>
 
   <div class="card">
-    <div class="contact-name">
-      Facebook
-    </div>
-
-    <div class="contact-value">
-      劉宜禎
-    </div>
-
-    <a
-      class="contact-button"
-      href="https://ssur.cc/f2JS2n4b"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      前往 Facebook
-    </a>
+    <div class="contact-name">Facebook</div>
+    <div class="contact-value">劉宜禎</div>
+    <a class="contact-button" href="https://ssur.cc/f2JS2n4b" target="_blank" rel="noopener noreferrer">前往 Facebook</a>
   </div>
 </section>
 
-<section
-  id="successPage"
-  class="page"
->
+<section id="successPage" class="page">
   <h2>💜 填單完成</h2>
 
   <div class="card success-card">
-    <div class="success-icon">
-      🦊
-    </div>
-
-    <div class="success-title">
-      匯款資料已成功送出！
-    </div>
-
+    <div class="success-icon">🦊</div>
+    <div class="success-title">匯款資料已成功送出！</div>
     <div class="success-text">
       謝謝你完成匯款填單 ♡
-
       <br><br>
-
       所有團務進度都會在代購社群裡統一告知。
     </div>
-
-    <div class="success-important">
-      填單完成後務必加入代購社群！
-    </div>
-
-    <a
-      class="join-community-button"
-      href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🔗 一鍵加入代購社群
-    </a>
-
-    <button
-      type="button"
-      class="success-home-button"
-      data-target="homePage"
-    >
-      ← 返回首頁
-    </button>
+    <div class="success-important">填單完成後務必加入代購社群！</div>
+    <a class="join-community-button" href="https://line.me/ti/g2/Om1L-AEsL1ZuEVQvDSKMLhDs7GP1I-Rm2D47eA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">🔗 一鍵加入代購社群</a>
+    <button type="button" class="success-home-button" data-target="homePage">← 返回首頁</button>
   </div>
 </section>
 
-<div
-  id="imageModal"
-  class="image-modal"
->
+<div id="imageModal" class="image-modal">
   <div class="image-modal-content">
-    <button
-      type="button"
-      id="imageClose"
-      class="image-close"
-    >
-      ×
-    </button>
-
-    <img
-      id="modalImage"
-      src=""
-      alt="商品圖"
-    >
+    <button type="button" id="imageClose" class="image-close">×</button>
+    <img id="modalImage" src="" alt="商品圖">
   </div>
 </div>
 
@@ -2485,12 +1742,10 @@
       "fans-luck-draw-and-ver",
       "nagoya-0905"
     ],
-
     [COMBINED_OSAKA_GROUP_ID]: [
       "osaka-0919",
       "osaka-0920"
     ],
-
     [COMBINED_SODA_GROUP_ID]: [
       "soda-soda-wvs",
       "soda-soda-universal"
@@ -2498,10 +1753,7 @@
   };
 
   function isCombinedGroup(groupId) {
-    return Object.prototype.hasOwnProperty.call(
-      combinedGroupSources,
-      groupId
-    );
+    return Object.prototype.hasOwnProperty.call(combinedGroupSources, groupId);
   }
 
   let currentGroupId = "";
@@ -2510,53 +1762,22 @@
   let noticeReturnPage = "homePage";
   let checkoutSnapshot = null;
 
-  const pages =
-    document.querySelectorAll(".page");
-
-  const productContainer =
-    document.getElementById("productContainer");
-
-  const selectedSummary =
-    document.getElementById("selectedSummary");
-
-  const combinedBreakdown =
-    document.getElementById("combinedBreakdown");
-
-  const calculatedTotal =
-    document.getElementById("calculatedTotal");
-
-  const productGroupName =
-    document.getElementById("productGroupName");
-
-  const catalogCard =
-    document.getElementById("catalogCard");
-
-  const catalogGallery =
-    document.getElementById("catalogGallery");
-
-  const readNoticeCheckbox =
-    document.getElementById("readNoticeCheckbox");
-
-  const nextPaymentButton =
-    document.getElementById("nextPaymentButton");
-
-  const checkoutSummary =
-    document.getElementById("checkoutSummary");
-
-  const paymentForm =
-    document.getElementById("paymentForm");
-
-  const paymentAmount =
-    document.getElementById("paymentAmount");
-
-  const noticeBackButton =
-    document.getElementById("noticeBackButton");
-
-  const paymentGroupSelect =
-    document.getElementById("paymentGroupSelect");
-
-  const paymentGroupStartButton =
-    document.getElementById("paymentGroupStartButton");
+  const pages = document.querySelectorAll(".page");
+  const productContainer = document.getElementById("productContainer");
+  const selectedSummary = document.getElementById("selectedSummary");
+  const combinedBreakdown = document.getElementById("combinedBreakdown");
+  const calculatedTotal = document.getElementById("calculatedTotal");
+  const productGroupName = document.getElementById("productGroupName");
+  const catalogCard = document.getElementById("catalogCard");
+  const catalogGallery = document.getElementById("catalogGallery");
+  const readNoticeCheckbox = document.getElementById("readNoticeCheckbox");
+  const nextPaymentButton = document.getElementById("nextPaymentButton");
+  const checkoutSummary = document.getElementById("checkoutSummary");
+  const paymentForm = document.getElementById("paymentForm");
+  const paymentAmount = document.getElementById("paymentAmount");
+  const noticeBackButton = document.getElementById("noticeBackButton");
+  const paymentGroupSelect = document.getElementById("paymentGroupSelect");
+  const paymentGroupStartButton = document.getElementById("paymentGroupStartButton");
 
   function escapeHTML(value) {
     return String(value ?? "")
@@ -2582,29 +1803,15 @@
 
   function resetOrderFlow() {
     paymentForm.reset();
-
     currentGroupId = "";
     currentInventories = {};
     checkoutSnapshot = null;
-
     readNoticeCheckbox.checked = false;
     nextPaymentButton.disabled = true;
-
     productGroupName.textContent = "";
-
-    productContainer.innerHTML = `
-      <div class="product-placeholder">
-        請先選擇團務
-      </div>
-    `;
-
-    selectedSummary.textContent =
-      "已選 0 件商品";
-
-    combinedBreakdown.classList.remove(
-      "active"
-    );
-
+    productContainer.innerHTML = `<div class="product-placeholder">請先選擇團務</div>`;
+    selectedSummary.textContent = "已選 0 件商品";
+    combinedBreakdown.classList.remove("active");
     combinedBreakdown.innerHTML = "";
     calculatedTotal.textContent = "NT$ 0";
     paymentAmount.value = "";
@@ -2614,8 +1821,7 @@
   }
 
   function showPage(pageId, options = {}) {
-    const currentPage =
-      document.querySelector(".page.active-page");
+    const currentPage = document.querySelector(".page.active-page");
 
     if (
       currentPage?.id === "paymentPage" &&
@@ -2624,10 +1830,8 @@
     ) {
       if (pageId === "productPage") {
         clearPaymentFields();
-
         readNoticeCheckbox.checked = false;
         nextPaymentButton.disabled = true;
-
         checkoutSnapshot = null;
         checkoutSummary.innerHTML = "";
       } else {
@@ -2635,92 +1839,60 @@
       }
     }
 
-    pages.forEach(page => {
-      page.classList.remove("active-page");
-    });
+    pages.forEach(page => page.classList.remove("active-page"));
+    document.body.classList.remove("home-mode");
 
-    document.body.classList.remove(
-      "home-mode"
-    );
-
-    const target =
-      document.getElementById(pageId);
-
-    if (!target) {
-      return;
-    }
+    const target = document.getElementById(pageId);
+    if (!target) return;
 
     target.classList.add("active-page");
 
     if (pageId === "homePage") {
-      document.body.classList.add(
-        "home-mode"
-      );
+      document.body.classList.add("home-mode");
     }
 
     resetScroll();
   }
 
-  document
-    .querySelectorAll("[data-target]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        if (
-          button.dataset.target ===
-          "noticePage"
-        ) {
-          noticeReturnPage = "homePage";
-          noticeBackButton.textContent =
-            "← 返回首頁";
-        }
-
-        showPage(button.dataset.target);
-      });
+  document.querySelectorAll("[data-target]").forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.dataset.target === "noticePage") {
+        noticeReturnPage = "homePage";
+        noticeBackButton.textContent = "← 返回首頁";
+      }
+      showPage(button.dataset.target);
     });
+  });
 
-  document
-    .querySelectorAll(".menu-grid .pill-button")
-    .forEach(button => {
+  document.querySelectorAll(".menu-grid .pill-button").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".menu-grid .pill-button").forEach(item => {
+        item.classList.remove("selected");
+      });
+      button.classList.add("selected");
+    });
+  });
+
+  document.querySelectorAll(".group-tab-block").forEach(block => {
+    const buttons = block.querySelectorAll("[data-group-tab]");
+    const contents = block.querySelectorAll("[data-group-content]");
+
+    buttons.forEach(button => {
       button.addEventListener("click", () => {
-        document
-          .querySelectorAll(".menu-grid .pill-button")
-          .forEach(item => {
-            item.classList.remove("selected");
-          });
+        const type = button.dataset.groupTab;
 
+        buttons.forEach(item => item.classList.remove("selected"));
         button.classList.add("selected");
-      });
-    });
 
-  document
-    .querySelectorAll(".group-tab-block")
-    .forEach(block => {
-      const buttons =
-        block.querySelectorAll("[data-group-tab]");
-
-      const contents =
-        block.querySelectorAll("[data-group-content]");
-
-      buttons.forEach(button => {
-        button.addEventListener("click", () => {
-          const type =
-            button.dataset.groupTab;
-
-          buttons.forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-
-          contents.forEach(content => {
-            content.classList.toggle(
-              "active",
-              content.dataset.groupContent === type
-            );
-          });
+        contents.forEach(content => {
+          content.classList.toggle(
+            "active",
+            content.dataset.groupContent === type
+          );
         });
       });
     });
+  });
 
   const skzMembers = [
     "Bang Chan",
@@ -2733,11 +1905,10 @@
     "I.N"
   ];
 
-  const tShirtVariants =
-    skzMembers.flatMap(member => [
-      `${member} / M`,
-      `${member} / L`
-    ]);
+  const tShirtVariants = skzMembers.flatMap(member => [
+    `${member} / M`,
+    `${member} / L`
+  ]);
 
   const twsMembers = [
     "申惟",
@@ -2750,240 +1921,68 @@
 
   const productData = {
     "run-it-japan": [
-      {
-        name: "T-shirt",
-        price: 990,
-        variants: tShirtVariants
-      },
-
-      {
-        name: "照片 T-shirt",
-        price: 990,
-        variants: ["M", "L", "XL"]
-      },
-
-      {
-        name: "防風外套",
-        price: 2090,
-        variants: ["M", "L"]
-      },
-
-      {
-        name: "應援毛巾",
-        price: 615,
-        variants: skzMembers
-      },
-
-      {
-        name: "扇子",
-        price: 180,
-        variants: ["團體", ...skzMembers]
-      },
-
-      {
-        name: "隨機小卡",
-        price: 120
-      },
-
-      {
-        name: "隨機迷你壓克力立牌吊飾",
-        price: 180
-      },
-
-      {
-        name: "壓克力立牌",
-        price: 350,
-        variants: skzMembers
-      },
-
-      {
-        name: "照片徽章",
-        price: 140,
-        variants: skzMembers
-      },
-
-      {
-        name: "小卡組",
-        price: 310,
-        variants: ["A", "B"]
-      },
-
-      {
-        name: "肖像應援毛巾",
-        price: 550,
-        variants: skzMembers
-      },
-
-      {
-        name: "購物袋",
-        price: 550
-      },
-
-      {
-        name: "個人資料卡組",
-        price: 220,
-        variants: skzMembers
-      },
-
-      {
-        name: "成員設計徽章組",
-        price: 330,
-        variants: skzMembers
-      },
-
-      {
-        name: "收納套",
-        price: 570
-      },
-
-      {
-        name: "磁吸卡套",
-        price: 550
-      },
-
-      {
-        name: "隨機鑰匙圈",
-        price: 310
-      },
-
-      {
-        name: "隨機鑰匙圈吊飾",
-        price: 220
-      },
-
-      {
-        name: "肩背包",
-        price: 700,
-        variants: skzMembers
-      },
-
-      {
-        name: "登山扣收納包",
-        price: 620,
-        variants: skzMembers
-      },
-
-      {
-        name: "多功能掛繩",
-        price: 660,
-        variants: skzMembers
-      },
-
-      {
-        name: "髮圈",
-        price: 660,
-        variants: skzMembers
-      },
-
-      {
-        name: "手燈收納包",
-        price: 990,
-        variants: skzMembers
-      },
-
-      {
-        name: "小卡冊",
-        price: 990,
-        variants: skzMembers
-      },
-
-      {
-        name: "耳環",
-        price: 450,
-        variants: skzMembers
-      },
-
-      {
-        name: "毛巾掛帶",
-        price: 330,
-        variants: skzMembers
-      },
-
-      {
-        name: "扇套",
-        price: 660,
-        variants: skzMembers
-      }
+      { name: "T-shirt", price: 990, variants: tShirtVariants },
+      { name: "照片 T-shirt", price: 990, variants: ["M", "L", "XL"] },
+      { name: "防風外套", price: 2090, variants: ["M", "L"] },
+      { name: "應援毛巾", price: 615, variants: skzMembers },
+      { name: "扇子", price: 180, variants: ["團體", ...skzMembers] },
+      { name: "隨機小卡", price: 120 },
+      { name: "隨機迷你壓克力立牌吊飾", price: 180 },
+      { name: "壓克力立牌", price: 350, variants: skzMembers },
+      { name: "照片徽章", price: 140, variants: skzMembers },
+      { name: "小卡組", price: 310, variants: ["A", "B"] },
+      { name: "肖像應援毛巾", price: 550, variants: skzMembers },
+      { name: "購物袋", price: 550 },
+      { name: "個人資料卡組", price: 220, variants: skzMembers },
+      { name: "成員設計徽章組", price: 330, variants: skzMembers },
+      { name: "收納套", price: 570 },
+      { name: "磁吸卡套", price: 550 },
+      { name: "隨機鑰匙圈", price: 310 },
+      { name: "隨機鑰匙圈吊飾", price: 220 },
+      { name: "肩背包", price: 700, variants: skzMembers },
+      { name: "登山扣收納包", price: 620, variants: skzMembers },
+      { name: "多功能掛繩", price: 660, variants: skzMembers },
+      { name: "髮圈", price: 660, variants: skzMembers },
+      { name: "手燈收納包", price: 990, variants: skzMembers },
+      { name: "小卡冊", price: 990, variants: skzMembers },
+      { name: "耳環", price: 450, variants: skzMembers },
+      { name: "毛巾掛帶", price: 330, variants: skzMembers },
+      { name: "扇套", price: 660, variants: skzMembers }
     ],
 
     "run-it-japan-kuji": [
-      {
-        name: "貼紙A",
-        price: 80,
-        stockManaged: true
-      },
-
-      {
-        name: "貼紙B",
-        price: 80,
-        stockManaged: true
-      },
-
-      {
-        name: "SKZOO 收納盒",
-        price: 150,
-        stockManaged: true
-      }
+      { name: "貼紙A", price: 80, stockManaged: true },
+      { name: "貼紙B", price: 80, stockManaged: true },
+      { name: "SKZOO 收納盒", price: 150, stockManaged: true }
     ],
 
     "nagoya-0905": [
-      {
-        name: "9/5 名古屋場限",
-        price: 325,
-        stockManaged: true
-      }
+      { name: "9/5 名古屋場限", price: 325, stockManaged: true }
     ],
 
     "osaka-0919": [
-      {
-        name: "9/19大阪場限",
-        price: 350,
-        stockManaged: true
-      }
+      { name: "9/19大阪場限", price: 325, stockManaged: true }
     ],
 
     "osaka-0920": [
-      {
-        name: "9/20大阪場限",
-        price: 350,
-        stockManaged: true
-      }
+      { name: "9/20大阪場限", price: 325, stockManaged: true }
     ],
 
     "soda-soda-wvs": [
-      {
-        name: "WVS",
-        price: 235,
-        stockManaged: true
-      }
+      { name: "WVS", price: 235, stockManaged: true }
     ],
 
     "soda-soda-universal": [
-      {
-        name: "環球",
-        price: 235,
-        stockManaged: true
-      }
+      { name: "環球", price: 235, stockManaged: true }
     ],
 
     "fans-luck-draw-and-ver": [
-      {
-        name: "FANS LUCK DRAW（& ver）",
-        price: 320,
-        stockManaged: true
-      }
+      { name: "FANS LUCK DRAW（& ver）", price: 320, stockManaged: true }
     ],
 
     "fans-lucky-draw-digital": [
-      {
-        name: "1卡1專",
-        price: 335
-      },
-
-      {
-        name: "4卡4專",
-        price: 1340
-      }
+      { name: "1卡1專", price: 335 },
+      { name: "4卡4專", price: 1340 }
     ]
   };
 
@@ -2991,12 +1990,11 @@
     "run-it-japan": {
       groupType: "代購",
       group: "Stray Kids",
-      activity:
-        "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
+      activity: "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
     },
 
     "run-it-japan-kuji": {
-      groupType: "代購",
+      groupType: "現貨",
       group: "Stray Kids",
       activity: "Run it JAPAN 一番賞"
     },
@@ -3046,7 +2044,7 @@
     [COMBINED_STOCK_GROUP_ID]: {
       groupType: "現貨",
       group: "Stray Kids",
-      activity: "現貨合併訂單"
+      activity: "現貨"
     },
 
     [COMBINED_OSAKA_GROUP_ID]: {
@@ -3065,43 +2063,22 @@
   const catalogData = {
     "run-it-japan": {
       images: [
-        {
-          src: "run-it-1.jpg",
-          alt: "RUN IT JAPAN 商品圖 1"
-        },
-
-        {
-          src: "run-it-2.jpg",
-          alt: "RUN IT JAPAN 商品圖 2"
-        },
-
-        {
-          src: "run-it-3.jpg",
-          alt: "RUN IT JAPAN 商品圖 3"
-        }
+        { src: "run-it-1.jpg", alt: "RUN IT JAPAN 商品圖 1" },
+        { src: "run-it-2.jpg", alt: "RUN IT JAPAN 商品圖 2" },
+        { src: "run-it-3.jpg", alt: "RUN IT JAPAN 商品圖 3" }
       ]
     },
 
     "run-it-japan-kuji": {
       images: [
-        {
-          src: "kuji-1.jpeg.PNG",
-          alt: "Run it JAPAN 一番賞商品圖 1"
-        },
-
-        {
-          src: "kuji-2.jpeg.PNG",
-          alt: "Run it JAPAN 一番賞商品圖 2"
-        }
+        { src: "kuji-1.jpeg.PNG", alt: "Run it JAPAN 一番賞商品圖 1" },
+        { src: "kuji-2.jpeg.PNG", alt: "Run it JAPAN 一番賞商品圖 2" }
       ]
     },
 
     "nagoya-0905": {
       images: [
-        {
-          src: "名古屋場限 2.JPG",
-          alt: "9/5 名古屋場限"
-        }
+        { src: "名古屋場限 2.JPG", alt: "9/5 名古屋場限" }
       ]
     },
 
@@ -3109,7 +2086,8 @@
       images: [
         {
           src: "大阪場限1-1.JPG",
-          alt: "9/19大阪場限"
+          alt: "9/19大阪場限",
+          caption: "9/19大阪場限"
         }
       ]
     },
@@ -3118,7 +2096,8 @@
       images: [
         {
           src: "大阪場限2-1.JPG",
-          alt: "9/20大阪場限"
+          alt: "9/20大阪場限",
+          caption: "9/20大阪場限"
         }
       ]
     },
@@ -3127,7 +2106,8 @@
       images: [
         {
           src: "SODA WVS.JPG",
-          alt: "SODA SODA 冬季限定 WVS"
+          alt: "SODA SODA 冬季限定 WVS",
+          caption: "WVS"
         }
       ]
     },
@@ -3136,47 +2116,49 @@
       images: [
         {
           src: "SODA 環球.JPG",
-          alt: "SODA SODA 冬季限定 環球"
+          alt: "SODA SODA 冬季限定 環球",
+          caption: "環球"
         }
       ]
     },
 
     "fans-luck-draw-and-ver": {
       images: [
-        {
-          src: "FANS LUCK DRAW.jpg",
-          alt: "FANS LUCK DRAW（& ver）"
-        }
+        { src: "FANS LUCK DRAW.jpg", alt: "FANS LUCK DRAW（& ver）" }
       ]
     },
 
     "fans-lucky-draw-digital": {
       images: [
-        {
-          src: "FANS LD.jpg",
-          alt: "FANS LUCKY DRAW（電子專）"
-        }
+        { src: "FANS LD.jpg", alt: "FANS LUCKY DRAW（電子專）" }
       ]
     }
   };
 
-  paymentGroupSelect.addEventListener(
-    "change",
-    () => {
-      paymentGroupStartButton.disabled =
-        !paymentGroupSelect.value;
+  paymentGroupSelect.addEventListener("change", () => {
+    paymentGroupStartButton.disabled = !paymentGroupSelect.value;
+  });
+
+  paymentGroupStartButton.addEventListener("click", async () => {
+    const groupId = paymentGroupSelect.value;
+    if (!groupId) return;
+
+    if (upcomingGroups.has(groupId)) {
+      alert("此團務目前尚未開放。");
+      return;
     }
-  );
 
-  paymentGroupStartButton.addEventListener(
-    "click",
-    async () => {
-      const groupId =
-        paymentGroupSelect.value;
+    resetOrderFlow();
+    currentGroupId = groupId;
+    productReturnPage = "paymentStartPage";
+    productGroupName.textContent = groupMeta[groupId]?.activity || "";
+    showPage("productPage");
+    await renderProducts(groupId);
+  });
 
-      if (!groupId) {
-        return;
-      }
+  document.querySelectorAll("[data-order]").forEach(button => {
+    button.addEventListener("click", async () => {
+      const groupId = button.dataset.order;
 
       if (upcomingGroups.has(groupId)) {
         alert("此團務目前尚未開放。");
@@ -3184,124 +2166,59 @@
       }
 
       resetOrderFlow();
-
       currentGroupId = groupId;
-      productReturnPage = "paymentStartPage";
-
-      productGroupName.textContent =
-        groupMeta[groupId]?.activity || "";
-
+      productReturnPage = button.dataset.return || "groupPage";
+      productGroupName.textContent = groupMeta[groupId]?.activity || "";
       showPage("productPage");
-
       await renderProducts(groupId);
-    }
-  );
-
-  document
-    .querySelectorAll("[data-order]")
-    .forEach(button => {
-      button.addEventListener(
-        "click",
-        async () => {
-          const groupId =
-            button.dataset.order;
-
-          if (upcomingGroups.has(groupId)) {
-            alert("此團務目前尚未開放。");
-            return;
-          }
-
-          resetOrderFlow();
-
-          currentGroupId = groupId;
-
-          productReturnPage =
-            button.dataset.return ||
-            "groupPage";
-
-          productGroupName.textContent =
-            groupMeta[groupId]?.activity || "";
-
-          showPage("productPage");
-
-          await renderProducts(groupId);
-        }
-      );
     });
+  });
 
-  document
-    .getElementById("productBackButton")
-    .addEventListener("click", () => {
-      const returnPage =
-        productReturnPage;
+  document.getElementById("productBackButton").addEventListener("click", () => {
+    const returnPage = productReturnPage;
+    resetOrderFlow();
+    showPage(returnPage);
+  });
 
-      resetOrderFlow();
-      showPage(returnPage);
-    });
+  document.getElementById("viewNoticeButton").addEventListener("click", () => {
+    noticeReturnPage = "productPage";
+    noticeBackButton.textContent = "← 返回商品選購";
+    showPage("noticePage");
+  });
 
-  document
-    .getElementById("viewNoticeButton")
-    .addEventListener("click", () => {
-      noticeReturnPage = "productPage";
+  noticeBackButton.addEventListener("click", () => {
+    showPage(noticeReturnPage);
+  });
 
-      noticeBackButton.textContent =
-        "← 返回商品選購";
+  function buildImageGalleryHTML(groupId, extraClass = "") {
+    const images = catalogData[groupId]?.images || [];
+    if (!images.length) return "";
 
-      showPage("noticePage");
-    });
-
-  noticeBackButton.addEventListener(
-    "click",
-    () => {
-      showPage(noticeReturnPage);
-    }
-  );
-
-  function buildImageGalleryHTML(
-    groupId,
-    extraClass = ""
-  ) {
-    const images =
-      catalogData[groupId]?.images || [];
-
-    if (!images.length) {
-      return "";
-    }
-
-    let galleryClass =
-      "catalog-gallery";
-
-    if (images.length === 1) {
-      galleryClass += " one-image";
-    } else if (images.length === 2) {
-      galleryClass += " two-images";
-    } else {
-      galleryClass += " three-images";
-    }
+    let galleryClass = "catalog-gallery";
+    if (images.length === 1) galleryClass += " one-image";
+    else if (images.length === 2) galleryClass += " two-images";
+    else galleryClass += " three-images";
 
     return `
-      <div
-        class="${galleryClass} ${escapeHTML(extraClass)}"
-      >
+      <div class="${galleryClass} ${escapeHTML(extraClass)}">
         ${images.map(image => `
-          <div class="catalog-image-card">
-            <img
-              class="catalog-image"
-              src="${escapeHTML(image.src)}"
-              alt="${escapeHTML(image.alt || "")}"
-              loading="lazy"
-            >
+            <div class="catalog-image-card">
+              <img
+                class="catalog-image"
+                src="${escapeHTML(image.src)}"
+                alt="${escapeHTML(image.alt || "")}"
+                loading="lazy"
+              >
 
-            ${
-              image.caption
+              ${image.caption
                 ? `
                   <div class="catalog-image-caption">
                     ${escapeHTML(image.caption)}
                   </div>
                 `
                 : ""
-            }
-          </div>
+              }
+            </div>
         `).join("")}
       </div>
     `;
@@ -3314,8 +2231,7 @@
       return;
     }
 
-    const images =
-      catalogData[groupId]?.images || [];
+    const images = catalogData[groupId]?.images || [];
 
     if (!images.length) {
       catalogCard.style.display = "none";
@@ -3324,32 +2240,21 @@
     }
 
     catalogCard.style.display = "block";
-
-    catalogGallery.innerHTML =
-      buildImageGalleryHTML(groupId);
-
+    catalogGallery.innerHTML = buildImageGalleryHTML(groupId);
     bindCatalogImages(catalogGallery);
   }
 
-  const imageModal =
-    document.getElementById("imageModal");
+  const imageModal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
 
-  const modalImage =
-    document.getElementById("modalImage");
-
-  function bindCatalogImages(
-    root = document
-  ) {
-    root
-      .querySelectorAll(".catalog-image")
-      .forEach(image => {
-        image.addEventListener("click", () => {
-          modalImage.src = image.src;
-          modalImage.alt = image.alt;
-
-          imageModal.classList.add("open");
-        });
+  function bindCatalogImages(root = document) {
+    root.querySelectorAll(".catalog-image").forEach(image => {
+      image.addEventListener("click", () => {
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+        imageModal.classList.add("open");
       });
+    });
   }
 
   function closeImageModal() {
@@ -3357,136 +2262,66 @@
     modalImage.src = "";
   }
 
-  document
-    .getElementById("imageClose")
-    .addEventListener(
-      "click",
-      closeImageModal
-    );
+  document.getElementById("imageClose").addEventListener("click", closeImageModal);
 
-  imageModal.addEventListener(
-    "click",
-    event => {
-      if (event.target === imageModal) {
-        closeImageModal();
-      }
+  imageModal.addEventListener("click", event => {
+    if (event.target === imageModal) {
+      closeImageModal();
     }
-  );
+  });
 
-  async function loadInventoryForGroup(
-    groupId
-  ) {
-    if (
-      !stockManagedGroups.has(groupId) ||
-      isCombinedGroup(groupId)
-    ) {
+  async function loadInventoryForGroup(groupId) {
+    if (!stockManagedGroups.has(groupId) || isCombinedGroup(groupId)) {
       return null;
     }
 
     const response = await fetch(
-      WORKER_URL +
-      "/inventory?groupId=" +
-      encodeURIComponent(groupId),
-      {
-        cache: "no-store"
-      }
+      WORKER_URL + "/inventory?groupId=" + encodeURIComponent(groupId),
+      { cache: "no-store" }
     );
 
-    const result =
-      await response.json();
+    const result = await response.json();
 
-    if (
-      !response.ok ||
-      !result.success
-    ) {
-      throw new Error(
-        result.message ||
-        "庫存讀取失敗"
-      );
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "庫存讀取失敗");
     }
 
-    currentInventories[groupId] =
-      result.inventory;
-
+    currentInventories[groupId] = result.inventory;
     return result.inventory;
   }
 
-  async function loadCombinedInventories(
-    groupId
-  ) {
+  async function loadCombinedInventories(groupId) {
     currentInventories = {};
 
     await Promise.all(
-      combinedGroupSources[groupId]
-        .map(sourceGroupId =>
-          loadInventoryForGroup(
-            sourceGroupId
-          )
-        )
+      combinedGroupSources[groupId].map(sourceGroupId => loadInventoryForGroup(sourceGroupId))
     );
   }
 
-  function getStockVariants(
-    groupId,
-    productName
-  ) {
+  function getStockVariants(groupId, productName) {
     return Object.keys(
-      currentInventories[groupId]
-        ?.products?.[productName] ||
-      {}
+      currentInventories[groupId]?.products?.[productName] || {}
     );
   }
 
-  function getStock(
-    groupId,
-    productName,
-    variant
-  ) {
+  function getStock(groupId, productName, variant) {
     return Number(
-      currentInventories[groupId]
-        ?.products?.[productName]
-        ?.[variant] ??
-      0
+      currentInventories[groupId]?.products?.[productName]?.[variant] ?? 0
     );
   }
 
-  function createChoiceHTML(
-    product,
-    variant = "",
-    sourceGroupId = currentGroupId
-  ) {
-    const stockManaged =
-      product.stockManaged === true;
-
+  function createChoiceHTML(product, variant = "", sourceGroupId = currentGroupId) {
+    const stockManaged = product.stockManaged === true;
     const stock = stockManaged
-      ? getStock(
-          sourceGroupId,
-          product.name,
-          variant
-        )
+      ? getStock(sourceGroupId, product.name, variant)
       : 99;
 
-    const soldOut =
-      stockManaged &&
-      stock <= 0;
-
-    const max =
-      stockManaged
-        ? Math.max(stock, 1)
-        : 99;
-
-    const sourceActivity =
-      groupMeta[sourceGroupId]
-        ?.activity ||
-      "";
+    const soldOut = stockManaged && stock <= 0;
+    const max = stockManaged ? Math.max(stock, 1) : 99;
+    const sourceActivity = groupMeta[sourceGroupId]?.activity || "";
 
     return `
-      <div
-        class="
-          product-choice
-          ${soldOut ? "sold-out" : ""}
-        "
-      >
+      <div class="product-choice ${soldOut ? "sold-out" : ""}">
         <label class="choice-main">
           <input
             class="product-checkbox"
@@ -3501,108 +2336,44 @@
           >
 
           <span>
-            <span>
-              ${escapeHTML(
-                variant ||
-                "加入此商品"
-              )}
-            </span>
-
+            <span>${escapeHTML(variant || "加入此商品")}</span>
             ${
               stockManaged
                 ? soldOut
-                  ? `
-                    <span class="stock-text stock-out">
-                      已售罄
-                    </span>
-                  `
-                  : `
-                    <span
-                      class="
-                        stock-text
-                        ${stock <= 2 ? "stock-low" : ""}
-                      "
-                    >
-                      剩餘 ${stock}
-                    </span>
-                  `
+                  ? `<span class="stock-text stock-out">已售罄</span>`
+                  : `<span class="stock-text ${stock <= 2 ? "stock-low" : ""}">剩餘 ${stock}</span>`
                 : ""
             }
           </span>
         </label>
 
         <div class="quantity-control">
-          <button
-            type="button"
-            class="qty-button qty-minus"
-            disabled
-          >
-            −
-          </button>
-
-          <input
-            class="qty-input"
-            type="number"
-            min="1"
-            max="${max}"
-            value="1"
-            disabled
-          >
-
-          <button
-            type="button"
-            class="qty-button qty-plus"
-            disabled
-          >
-            ＋
-          </button>
+          <button type="button" class="qty-button qty-minus" disabled>−</button>
+          <input class="qty-input" type="number" min="1" max="${max}" value="1" disabled>
+          <button type="button" class="qty-button qty-plus" disabled>＋</button>
         </div>
       </div>
     `;
   }
 
-  function createProductCardHTML(
-    product,
-    sourceGroupId
-  ) {
+  function createProductCardHTML(product, sourceGroupId) {
     let variants = [];
 
     if (product.stockManaged) {
-      variants = getStockVariants(
-        sourceGroupId,
-        product.name
-      );
+      variants = getStockVariants(sourceGroupId, product.name);
     } else {
-      variants =
-        product.variants ||
-        [];
+      variants = product.variants || [];
     }
 
-    const choices =
-      variants.length
-        ? variants
-            .map(variant =>
-              createChoiceHTML(
-                product,
-                variant,
-                sourceGroupId
-              )
-            )
-            .join("")
-        : createChoiceHTML(
-            product,
-            "",
-            sourceGroupId
-          );
+    const choices = variants.length
+      ? variants.map(variant => createChoiceHTML(product, variant, sourceGroupId)).join("")
+      : createChoiceHTML(product, "", sourceGroupId);
 
     return `
       <details class="product-card">
         <summary class="product-summary">
           <div class="product-summary-left">
-            <div class="product-name">
-              ${escapeHTML(product.name)}
-            </div>
-
+            <div class="product-name">${escapeHTML(product.name)}</div>
             <div class="product-hint">
               ${
                 product.stockManaged
@@ -3615,10 +2386,7 @@
           </div>
 
           <div class="product-price">
-            NT$
-            ${Number(product.price)
-              .toLocaleString("zh-TW")
-            }
+            NT$ ${Number(product.price).toLocaleString("zh-TW")}
           </div>
         </summary>
 
@@ -3628,72 +2396,36 @@
       </details>
     `;
   }
-    async function renderCombinedProducts(groupId) {
+
+  async function renderCombinedProducts(groupId) {
     catalogCard.style.display = "none";
     catalogGallery.innerHTML = "";
-
-    productContainer.innerHTML = `
-      <div class="product-placeholder">
-        讀取庫存中…
-      </div>
-    `;
+    productContainer.innerHTML = `<div class="product-placeholder">讀取庫存中…</div>`;
 
     try {
       await loadCombinedInventories(groupId);
     } catch (error) {
       console.error(error);
-
-      productContainer.innerHTML = `
-        <div class="product-placeholder">
-          庫存讀取失敗，請稍後重新整理
-        </div>
-      `;
-
+      productContainer.innerHTML = `<div class="product-placeholder">庫存讀取失敗，請稍後重新整理</div>`;
       return;
     }
 
-    productContainer.innerHTML =
-      combinedGroupSources[groupId]
-        .map(sourceGroupId => {
-          const meta =
-            groupMeta[sourceGroupId] ||
-            {};
+    productContainer.innerHTML = combinedGroupSources[groupId].map(sourceGroupId => {
+      const meta = groupMeta[sourceGroupId] || {};
+      const products = productData[sourceGroupId] || [];
 
-          const products =
-            productData[sourceGroupId] ||
-            [];
-
-          return `
-            <section
-              class="combined-source-section"
-              data-source-section="${escapeHTML(sourceGroupId)}"
-            >
-              <div class="combined-source-title">
-                ${escapeHTML(
-                  meta.activity ||
-                  sourceGroupId
-                )}
-              </div>
-
-              <div class="combined-source-gallery">
-                ${buildImageGalleryHTML(sourceGroupId)}
-              </div>
-
-              <div class="combined-source-products">
-                ${products
-                  .map(product =>
-                    createProductCardHTML(
-                      product,
-                      sourceGroupId
-                    )
-                  )
-                  .join("")
-                }
-              </div>
-            </section>
-          `;
-        })
-        .join("");
+      return `
+        <section class="combined-source-section" data-source-section="${escapeHTML(sourceGroupId)}">
+          <div class="combined-source-title">${escapeHTML(meta.activity || sourceGroupId)}</div>
+          <div class="combined-source-gallery">
+            ${buildImageGalleryHTML(sourceGroupId)}
+          </div>
+          <div class="combined-source-products">
+            ${products.map(product => createProductCardHTML(product, sourceGroupId)).join("")}
+          </div>
+        </section>
+      `;
+    }).join("");
 
     bindCatalogImages(productContainer);
     bindProductEvents();
@@ -3702,12 +2434,7 @@
 
   async function renderProducts(groupId) {
     if (upcomingGroups.has(groupId)) {
-      productContainer.innerHTML = `
-        <div class="product-placeholder">
-          此團務即將開放 🦊
-        </div>
-      `;
-
+      productContainer.innerHTML = `<div class="product-placeholder">此團務即將開放 🦊</div>`;
       return;
     }
 
@@ -3716,303 +2443,142 @@
       return;
     }
 
-    productContainer.innerHTML = `
-      <div class="product-placeholder">
-        讀取商品中…
-      </div>
-    `;
-
+    productContainer.innerHTML = `<div class="product-placeholder">讀取商品中…</div>`;
     renderCatalog(groupId);
 
     try {
       currentInventories = {};
-
       if (stockManagedGroups.has(groupId)) {
         await loadInventoryForGroup(groupId);
       }
     } catch (error) {
       console.error(error);
-
-      productContainer.innerHTML = `
-        <div class="product-placeholder">
-          庫存讀取失敗，請稍後重新整理
-        </div>
-      `;
-
+      productContainer.innerHTML = `<div class="product-placeholder">庫存讀取失敗，請稍後重新整理</div>`;
       return;
     }
 
-    const products =
-      productData[groupId] ||
-      [];
+    const products = productData[groupId] || [];
 
     if (!products.length) {
-      productContainer.innerHTML = `
-        <div class="product-placeholder">
-          目前沒有可選商品
-        </div>
-      `;
-
+      productContainer.innerHTML = `<div class="product-placeholder">目前沒有可選商品</div>`;
       return;
     }
 
-    productContainer.innerHTML =
-      products
-        .map(product =>
-          createProductCardHTML(
-            product,
-            groupId
-          )
-        )
-        .join("");
+    productContainer.innerHTML = products
+      .map(product => createProductCardHTML(product, groupId))
+      .join("");
 
     bindProductEvents();
     updateTotal();
   }
 
   function bindProductEvents() {
-    productContainer
-      .querySelectorAll(".product-choice")
-      .forEach(row => {
-        const checkbox =
-          row.querySelector(".product-checkbox");
+    productContainer.querySelectorAll(".product-choice").forEach(row => {
+      const checkbox = row.querySelector(".product-checkbox");
+      const qty = row.querySelector(".qty-input");
+      const minus = row.querySelector(".qty-minus");
+      const plus = row.querySelector(".qty-plus");
 
-        const qty =
-          row.querySelector(".qty-input");
+      if (!checkbox || checkbox.disabled) return;
 
-        const minus =
-          row.querySelector(".qty-minus");
+      checkbox.addEventListener("change", () => {
+        const enabled = checkbox.checked;
+        qty.disabled = !enabled;
+        minus.disabled = !enabled;
+        plus.disabled = !enabled;
 
-        const plus =
-          row.querySelector(".qty-plus");
-
-        if (
-          !checkbox ||
-          checkbox.disabled
-        ) {
-          return;
+        if (!enabled) {
+          qty.value = 1;
         }
 
-        checkbox.addEventListener(
-          "change",
-          () => {
-            const enabled =
-              checkbox.checked;
-
-            qty.disabled = !enabled;
-            minus.disabled = !enabled;
-            plus.disabled = !enabled;
-
-            if (!enabled) {
-              qty.value = 1;
-            }
-
-            row.classList.toggle(
-              "selected-choice",
-              enabled
-            );
-
-            updateTotal();
-          }
-        );
-
-        minus.addEventListener(
-          "click",
-          () => {
-            qty.value = Math.max(
-              1,
-              Number(qty.value || 1) - 1
-            );
-
-            updateTotal();
-          }
-        );
-
-        plus.addEventListener(
-          "click",
-          () => {
-            const max =
-              Number(qty.max || 99);
-
-            qty.value = Math.min(
-              max,
-              Number(qty.value || 1) + 1
-            );
-
-            updateTotal();
-          }
-        );
-
-        qty.addEventListener(
-          "change",
-          () => {
-            const max =
-              Number(qty.max || 99);
-
-            let value =
-              Math.floor(
-                Number(qty.value || 1)
-              );
-
-            value = Math.max(
-              1,
-              Math.min(max, value)
-            );
-
-            qty.value = value;
-
-            updateTotal();
-          }
-        );
+        row.classList.toggle("selected-choice", enabled);
+        updateTotal();
       });
-  }
 
-  function collectSelectedProducts() {
-    return [
-      ...productContainer.querySelectorAll(
-        ".product-checkbox:checked"
-      )
-    ].map(checkbox => {
-      const row =
-        checkbox.closest(".product-choice");
+      minus.addEventListener("click", () => {
+        qty.value = Math.max(1, Number(qty.value || 1) - 1);
+        updateTotal();
+      });
 
-      const quantity = Math.max(
-        1,
-        Number(
-          row.querySelector(".qty-input").value ||
-          1
-        )
-      );
+      plus.addEventListener("click", () => {
+        const max = Number(qty.max || 99);
+        qty.value = Math.min(max, Number(qty.value || 1) + 1);
+        updateTotal();
+      });
 
-      const productName =
-        checkbox.dataset.product;
-
-      const variant =
-        checkbox.dataset.variant ||
-        "";
-
-      const unitPrice =
-        Number(
-          checkbox.dataset.price ||
-          0
-        );
-
-      const price =
-        unitPrice *
-        quantity;
-
-      const sourceGroupId =
-        checkbox.dataset.sourceGroupId ||
-        currentGroupId;
-
-      const sourceActivity =
-        checkbox.dataset.sourceActivity ||
-        groupMeta[sourceGroupId]?.activity ||
-        "";
-
-      let name =
-        productName;
-
-      if (variant) {
-        name += `｜${variant}`;
-      }
-
-      name += ` ×${quantity}`;
-
-      return {
-        name,
-        productName,
-        variant,
-        quantity,
-        unitPrice,
-        price,
-
-        stockManaged:
-          checkbox.dataset.stockManaged ===
-          "true",
-
-        sourceGroupId,
-        sourceActivity
-      };
+      qty.addEventListener("change", () => {
+        const max = Number(qty.max || 99);
+        let value = Math.floor(Number(qty.value || 1));
+        value = Math.max(1, Math.min(max, value));
+        qty.value = value;
+        updateTotal();
+      });
     });
   }
 
+  function collectSelectedProducts() {
+    return [...productContainer.querySelectorAll(".product-checkbox:checked")]
+      .map(checkbox => {
+        const row = checkbox.closest(".product-choice");
+        const quantity = Math.max(1, Number(row.querySelector(".qty-input").value || 1));
+        const productName = checkbox.dataset.product;
+        const variant = checkbox.dataset.variant || "";
+        const unitPrice = Number(checkbox.dataset.price || 0);
+        const price = unitPrice * quantity;
+        const sourceGroupId = checkbox.dataset.sourceGroupId || currentGroupId;
+        const sourceActivity = checkbox.dataset.sourceActivity || groupMeta[sourceGroupId]?.activity || "";
+
+        let name = productName;
+        if (variant) name += `｜${variant}`;
+        name += ` ×${quantity}`;
+
+        return {
+          name,
+          productName,
+          variant,
+          quantity,
+          unitPrice,
+          price,
+          stockManaged: checkbox.dataset.stockManaged === "true",
+          sourceGroupId,
+          sourceActivity
+        };
+      });
+  }
+
   function updateCombinedBreakdown(products) {
-    if (
-      !isCombinedGroup(currentGroupId) ||
-      !products.length
-    ) {
-      combinedBreakdown.classList.remove(
-        "active"
-      );
-
+    if (!isCombinedGroup(currentGroupId) || !products.length) {
+      combinedBreakdown.classList.remove("active");
       combinedBreakdown.innerHTML = "";
-
       return;
     }
 
     const totals = {};
 
     products.forEach(item => {
-      const key =
-        item.sourceActivity ||
-        item.sourceGroupId ||
-        "團務";
-
-      totals[key] =
-        (totals[key] || 0) +
-        item.price;
+      const key = item.sourceActivity || item.sourceGroupId || "團務";
+      totals[key] = (totals[key] || 0) + item.price;
     });
 
-    combinedBreakdown.innerHTML =
-      Object.entries(totals)
-        .map(([name, total]) => `
-          <div class="combined-breakdown-row">
-            <span>
-              ${escapeHTML(name)}
-            </span>
+    combinedBreakdown.innerHTML = Object.entries(totals)
+      .map(([name, total]) => `
+        <div class="combined-breakdown-row">
+          <span>${escapeHTML(name)}</span>
+          <span>NT$ ${Number(total).toLocaleString("zh-TW")}</span>
+        </div>
+      `)
+      .join("");
 
-            <span>
-              NT$
-              ${Number(total)
-                .toLocaleString("zh-TW")
-              }
-            </span>
-          </div>
-        `)
-        .join("");
-
-    combinedBreakdown.classList.add(
-      "active"
-    );
+    combinedBreakdown.classList.add("active");
   }
 
   function updateTotal() {
-    const products =
-      collectSelectedProducts();
+    const products = collectSelectedProducts();
+    const quantity = products.reduce((sum, item) => sum + item.quantity, 0);
+    const total = products.reduce((sum, item) => sum + item.price, 0);
 
-    const quantity =
-      products.reduce(
-        (sum, item) =>
-          sum +
-          item.quantity,
-        0
-      );
-
-    const total =
-      products.reduce(
-        (sum, item) =>
-          sum +
-          item.price,
-        0
-      );
-
-    selectedSummary.textContent =
-      `已選 ${quantity} 件商品`;
-
-    calculatedTotal.textContent =
-      `NT$ ${total.toLocaleString("zh-TW")}`;
-
+    selectedSummary.textContent = `已選 ${quantity} 件商品`;
+    calculatedTotal.textContent = `NT$ ${total.toLocaleString("zh-TW")}`;
     updateCombinedBreakdown(products);
     updateNextButton();
   }
@@ -4024,132 +2590,69 @@
     );
   }
 
-  readNoticeCheckbox.addEventListener(
-    "change",
-    updateNextButton
-  );
+  readNoticeCheckbox.addEventListener("change", updateNextButton);
 
-  nextPaymentButton.addEventListener(
-    "click",
-    () => {
-      const products =
-        collectSelectedProducts();
+  nextPaymentButton.addEventListener("click", () => {
+    const products = collectSelectedProducts();
 
-      if (!products.length) {
-        alert("請至少選擇一項商品。");
-        return;
-      }
-
-      if (!readNoticeCheckbox.checked) {
-        alert(
-          "請先勾選「已閱讀注意事項」。"
-        );
-
-        return;
-      }
-
-      if (
-        upcomingGroups.has(currentGroupId)
-      ) {
-        alert("此團務目前尚未開放。");
-        return;
-      }
-
-      const total =
-        products.reduce(
-          (sum, item) =>
-            sum +
-            item.price,
-          0
-        );
-
-      checkoutSnapshot = {
-        groupId: currentGroupId,
-        products,
-        total
-      };
-
-      renderCheckoutSummary();
-      clearPaymentFields();
-
-      paymentAmount.value = total;
-
-      showPage("paymentPage");
-    }
-  );
-
-  function renderCheckoutSummary() {
-    if (!checkoutSnapshot) {
+    if (!products.length) {
+      alert("請至少選擇一項商品。");
       return;
     }
 
-    const meta =
-      groupMeta[
-        checkoutSnapshot.groupId
-      ] || {};
+    if (!readNoticeCheckbox.checked) {
+      alert("請先勾選「已閱讀注意事項」。");
+      return;
+    }
 
-    if (
-      isCombinedGroup(
-        checkoutSnapshot.groupId
-      )
-    ) {
+    if (upcomingGroups.has(currentGroupId)) {
+      alert("此團務目前尚未開放。");
+      return;
+    }
+
+    const total = products.reduce((sum, item) => sum + item.price, 0);
+
+    checkoutSnapshot = {
+      groupId: currentGroupId,
+      products,
+      total
+    };
+
+    renderCheckoutSummary();
+    clearPaymentFields();
+    paymentAmount.value = total;
+    showPage("paymentPage");
+  });
+
+  function renderCheckoutSummary() {
+    if (!checkoutSnapshot) return;
+
+    const meta = groupMeta[checkoutSnapshot.groupId] || {};
+
+    if (isCombinedGroup(checkoutSnapshot.groupId)) {
       const grouped = {};
 
-      checkoutSnapshot.products
-        .forEach(item => {
-          const source =
-            item.sourceActivity ||
-            item.sourceGroupId ||
-            "團務";
-
-          if (!grouped[source]) {
-            grouped[source] = [];
-          }
-
-          grouped[source].push(item);
-        });
+      checkoutSnapshot.products.forEach(item => {
+        const source = item.sourceActivity || item.sourceGroupId || "團務";
+        if (!grouped[source]) grouped[source] = [];
+        grouped[source].push(item);
+      });
 
       checkoutSummary.innerHTML = `
-        <div class="checkout-group">
-          ${escapeHTML(
-            meta.activity ||
-            "合併訂單"
-          )}
-        </div>
+        <div class="checkout-group">${escapeHTML(meta.activity || "合併訂單")}</div>
 
-        ${Object.entries(grouped)
-          .map(([source, items]) => `
-            <div class="checkout-source-title">
-              ${escapeHTML(source)}
+        ${Object.entries(grouped).map(([source, items]) => `
+          <div class="checkout-source-title">${escapeHTML(source)}</div>
+          ${items.map(item => `
+            <div class="checkout-product">
+              ${escapeHTML(item.name)} ・NT$ ${Number(item.price).toLocaleString("zh-TW")}
             </div>
-
-            ${items
-              .map(item => `
-                <div class="checkout-product">
-                  ${escapeHTML(item.name)}
-                  ・NT$
-                  ${Number(item.price)
-                    .toLocaleString("zh-TW")
-                  }
-                </div>
-              `)
-              .join("")
-            }
-          `)
-          .join("")
-        }
+          `).join("")}
+        `).join("")}
 
         <div class="checkout-total">
-          <span>
-            合併匯款總金額
-          </span>
-
-          <span>
-            NT$
-            ${checkoutSnapshot.total
-              .toLocaleString("zh-TW")
-            }
-          </span>
+          <span>合併匯款總金額</span>
+          <span>NT$ ${checkoutSnapshot.total.toLocaleString("zh-TW")}</span>
         </div>
       `;
 
@@ -4157,504 +2660,227 @@
     }
 
     checkoutSummary.innerHTML = `
-      <div class="checkout-group">
-        ${escapeHTML(
-          meta.activity ||
-          ""
-        )}
-      </div>
+      <div class="checkout-group">${escapeHTML(meta.activity || "")}</div>
 
-      ${checkoutSnapshot.products
-        .map(item => `
-          <div class="checkout-product">
-            ${escapeHTML(item.name)}
-            ・NT$
-            ${Number(item.price)
-              .toLocaleString("zh-TW")
-            }
-          </div>
-        `)
-        .join("")
-      }
+      ${checkoutSnapshot.products.map(item => `
+        <div class="checkout-product">
+          ${escapeHTML(item.name)} ・NT$ ${Number(item.price).toLocaleString("zh-TW")}
+        </div>
+      `).join("")}
 
       <div class="checkout-total">
-        <span>
-          商品總金額
-        </span>
-
-        <span>
-          NT$
-          ${checkoutSnapshot.total
-            .toLocaleString("zh-TW")
-          }
-        </span>
+        <span>商品總金額</span>
+        <span>NT$ ${checkoutSnapshot.total.toLocaleString("zh-TW")}</span>
       </div>
     `;
   }
 
-  document
-    .getElementById("paymentBackButton")
-    .addEventListener("click", () => {
-      showPage("productPage");
-    });
+  document.getElementById("paymentBackButton").addEventListener("click", () => {
+    showPage("productPage");
+  });
 
-  async function copyBankAccount(
-    account,
-    button
-  ) {
-    const originalText =
-      button.textContent;
+  async function copyBankAccount(account, button) {
+    const originalText = button.textContent;
 
     try {
-      await navigator.clipboard
-        .writeText(account);
+      await navigator.clipboard.writeText(account);
     } catch {
-      const area =
-        document.createElement("textarea");
-
+      const area = document.createElement("textarea");
       area.value = account;
-
       document.body.appendChild(area);
-
       area.select();
-
       document.execCommand("copy");
-
       area.remove();
     }
 
     button.textContent = "✓ 已複製";
-
     button.classList.add("copied");
 
-    setTimeout(
-      () => {
-        button.textContent =
-          originalText;
-
-        button.classList.remove(
-          "copied"
-        );
-      },
-      1200
-    );
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("copied");
+    }, 1200);
   }
 
-  paymentForm.addEventListener(
-    "submit",
-    async event => {
-      event.preventDefault();
+  paymentForm.addEventListener("submit", async event => {
+    event.preventDefault();
 
-      if (!checkoutSnapshot) {
-        alert(
-          "找不到商品資料，請重新選擇。"
-        );
+    if (!checkoutSnapshot) {
+      alert("找不到商品資料，請重新選擇。");
+      return;
+    }
 
-        return;
-      }
+    const groupId = checkoutSnapshot.groupId;
 
-      const groupId =
-        checkoutSnapshot.groupId;
+    if (upcomingGroups.has(groupId)) {
+      alert("此團務目前尚未開放。");
+      return;
+    }
 
-      if (upcomingGroups.has(groupId)) {
-        alert("此團務目前尚未開放。");
-        return;
-      }
+    const accountLastFive = document.getElementById("accountLastFive").value.trim();
 
-      const accountLastFive =
-        document
-          .getElementById("accountLastFive")
-          .value
-          .trim();
+    if (!/^\d{5}$/.test(accountLastFive)) {
+      alert("匯款帳號後五碼必須是 5 位數字。");
+      return;
+    }
 
-      if (
-        !/^\d{5}$/.test(accountLastFive)
-      ) {
-        alert(
-          "匯款帳號後五碼必須是 5 位數字。"
-        );
+    const meta = groupMeta[groupId] || {};
 
-        return;
-      }
+    const formData = {
+      groupId,
+      facebookName: document.getElementById("facebookName").value.trim(),
+      community: meta.activity || "",
+      groupType: meta.groupType || "",
+      group: meta.group || "",
+      activity: meta.activity || "",
+      products: checkoutSnapshot.products,
+      paymentDate: document.getElementById("paymentDate").value,
+      paymentTime: document.getElementById("paymentTime").value,
+      paymentBank: document.getElementById("paymentBank").value,
+      paymentAmount: checkoutSnapshot.total,
+      accountLastFive,
+      note: document.getElementById("note").value.trim()
+    };
 
-      const meta =
-        groupMeta[groupId] ||
-        {};
+    const submitButton = paymentForm.querySelector(".submit-button");
+    submitButton.disabled = true;
+    submitButton.textContent = stockManagedGroups.has(groupId)
+      ? "確認庫存並送出中…"
+      : "送出中…";
 
-      const formData = {
-        groupId,
+    try {
+      const response = await fetch(WORKER_URL + "/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-        facebookName:
-          document
-            .getElementById("facebookName")
-            .value
-            .trim(),
+      const result = await response.json();
 
-        community:
-          meta.activity ||
-          "",
+      if (!response.ok || !result.success) {
+        if (stockManagedGroups.has(groupId)) {
+          alert((result.message || "庫存可能已經變更。") + "\n請重新選擇商品。");
 
-        groupType:
-          meta.groupType ||
-          "",
+          clearPaymentFields();
+          readNoticeCheckbox.checked = false;
+          nextPaymentButton.disabled = true;
+          checkoutSnapshot = null;
+          checkoutSummary.innerHTML = "";
 
-        group:
-          meta.group ||
-          "",
-
-        activity:
-          meta.activity ||
-          "",
-
-        products:
-          checkoutSnapshot.products,
-
-        paymentDate:
-          document
-            .getElementById("paymentDate")
-            .value,
-
-        paymentTime:
-          document
-            .getElementById("paymentTime")
-            .value,
-
-        paymentBank:
-          document
-            .getElementById("paymentBank")
-            .value,
-
-        paymentAmount:
-          checkoutSnapshot.total,
-
-        accountLastFive,
-
-        note:
-          document
-            .getElementById("note")
-            .value
-            .trim()
-      };
-
-      const submitButton =
-        paymentForm.querySelector(
-          ".submit-button"
-        );
-
-      submitButton.disabled = true;
-
-      submitButton.textContent =
-        stockManagedGroups.has(groupId)
-          ? "確認庫存並送出中…"
-          : "送出中…";
-
-      try {
-        const response = await fetch(
-          WORKER_URL + "/submit",
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-
-            body:
-              JSON.stringify(formData)
-          }
-        );
-
-        const result =
-          await response.json();
-
-        if (
-          !response.ok ||
-          !result.success
-        ) {
-          if (
-            stockManagedGroups.has(groupId)
-          ) {
-            alert(
-              (
-                result.message ||
-                "庫存可能已經變更。"
-              ) +
-              "\n請重新選擇商品。"
-            );
-
-            clearPaymentFields();
-
-            readNoticeCheckbox.checked = false;
-            nextPaymentButton.disabled = true;
-
-            checkoutSnapshot = null;
-            checkoutSummary.innerHTML = "";
-
-            showPage(
-              "productPage",
-              {
-                skipPaymentReset: true
-              }
-            );
-
-            await renderProducts(groupId);
-
-            return;
-          }
-
-          alert(
-            result.message ||
-            "送出失敗，請稍後再試。"
-          );
-
+          showPage("productPage", { skipPaymentReset: true });
+          await renderProducts(groupId);
           return;
         }
 
-        resetOrderFlow();
-
-        paymentGroupSelect.value = "";
-        paymentGroupStartButton.disabled = true;
-
-        await loadPublicProgress();
-
-        showPage(
-          "successPage",
-          {
-            skipPaymentReset: true
-          }
-        );
-      } catch (error) {
-        console.error(error);
-
-        alert(
-          "目前無法送出資料，請稍後再試。"
-        );
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent =
-          "送出匯款資料";
+        alert(result.message || "送出失敗，請稍後再試。");
+        return;
       }
+
+      resetOrderFlow();
+      paymentGroupSelect.value = "";
+      paymentGroupStartButton.disabled = true;
+      await loadPublicProgress();
+      showPage("successPage", { skipPaymentReset: true });
+    } catch (error) {
+      console.error(error);
+      alert("目前無法送出資料，請稍後再試。");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "送出匯款資料";
     }
-  );
+  });
 
   function getPublicProductHTML(item) {
-    const products =
-      Array.isArray(item.products)
-        ? item.products
-        : [];
+    const products = Array.isArray(item.products) ? item.products : [];
+    if (!products.length) return "";
 
-    if (!products.length) {
-      return "";
-    }
-
-    if (
-      isCombinedGroup(item.groupId) ||
-      item.groupType === "現貨"
-    ) {
+    if (isCombinedGroup(item.groupId)) {
       let lastSource = "";
 
-      return products
-        .map(product => {
-          const source =
-            String(
-              product.sourceActivity ||
-              "團務"
-            ).trim();
+      return products.map(product => {
+        const source = String(product.sourceActivity || "團務").trim();
+        const productName = String(product.productName || "").trim();
+        const variant = String(product.variant || "").trim();
+        const quantity = Math.max(1, Number(product.quantity || 1));
 
-          const productName =
-            String(
-              product.productName ||
-              ""
-            ).trim();
+        let line = productName;
+        if (variant) line += `｜${variant}`;
+        line += ` ×${quantity}`;
 
-          const variant =
-            String(
-              product.variant ||
-              ""
-            ).trim();
+        const sourceHTML = source && source !== lastSource
+          ? `<span class="public-product-source">${escapeHTML(source)}</span>`
+          : "";
 
-          const quantity =
-            Math.max(
-              1,
-              Number(
-                product.quantity ||
-                1
-              )
-            );
+        lastSource = source;
 
-          let line =
-            productName;
-
-          if (variant) {
-            line += `｜${variant}`;
-          }
-
-          line += ` ×${quantity}`;
-
-          const sourceHTML =
-            source &&
-            source !== lastSource
-              ? `
-                <span class="public-product-source">
-                  ${escapeHTML(source)}
-                </span>
-              `
-              : "";
-
-          lastSource = source;
-
-          return `
-            ${sourceHTML}
-
-            <div class="public-product-line">
-              ${escapeHTML(line)}
-            </div>
-          `;
-        })
-        .join("");
+        return `${sourceHTML}<div class="public-product-line">${escapeHTML(line)}</div>`;
+      }).join("");
     }
 
-    const activity =
-      String(
-        item.activity ||
-        item.community ||
-        ""
-      ).trim();
+    const activity = String(item.activity || item.community || "").trim();
 
-    return products
-      .map(product => {
-        const productName =
-          String(
-            product.productName ||
-            ""
-          ).trim();
+    return products.map(product => {
+      const productName = String(product.productName || "").trim();
+      const variant = String(product.variant || "").trim();
+      const quantity = Math.max(1, Number(product.quantity || 1));
+      let text = "";
 
-        const variant =
-          String(
-            product.variant ||
-            ""
-          ).trim();
-
-        const quantity =
-          Math.max(
-            1,
-            Number(
-              product.quantity ||
-              1
-            )
-          );
-
-        let text = "";
-
-        if (
-          productName &&
-          activity &&
-          productName === activity
-        ) {
-          text = variant
-            ? `${variant} ×${quantity}`
-            : `×${quantity}`;
-        } else if (productName) {
-          text = productName;
-
-          if (variant) {
-            text += `｜${variant}`;
-          }
-
-          text += ` ×${quantity}`;
-        } else if (product.name) {
-          text =
-            String(product.name);
-
-          if (
-            activity &&
-            text.startsWith(
-              activity + "｜"
-            )
-          ) {
-            text =
-              text.slice(
-                activity.length + 1
-              );
-          }
-        } else {
-          text =
-            `商品 ×${quantity}`;
+      if (productName && activity && productName === activity) {
+        text = variant ? `${variant} ×${quantity}` : `×${quantity}`;
+      } else if (productName) {
+        text = productName;
+        if (variant) text += `｜${variant}`;
+        text += ` ×${quantity}`;
+      } else if (product.name) {
+        text = String(product.name);
+        if (activity && text.startsWith(activity + "｜")) {
+          text = text.slice(activity.length + 1);
         }
+      } else {
+        text = `商品 ×${quantity}`;
+      }
 
-        return `
-          <div class="public-product-line">
-            ${escapeHTML(text)}
-          </div>
-        `;
-      })
-      .join("");
+      return `<div class="public-product-line">${escapeHTML(text)}</div>`;
+    }).join("");
   }
 
   let defaultProgressData = [];
   let currentTypeFilter = "all";
   let currentGroupFilter = "all";
 
-  const progressList =
-    document.getElementById("progressList");
-
-  const communitySearch =
-    document.getElementById("communitySearch");
+  const progressList = document.getElementById("progressList");
+  const communitySearch = document.getElementById("communitySearch");
 
   async function loadPublicProgress() {
-    progressList.innerHTML = `
-      <div class="card empty-message">
-        讀取進度中… 🦊
-      </div>
-    `;
+    progressList.innerHTML = `<div class="card empty-message">讀取進度中… 🦊</div>`;
 
     try {
-      const response = await fetch(
-        WORKER_URL + "/public/list",
-        {
-          cache: "no-store"
-        }
-      );
+      const response = await fetch(WORKER_URL + "/public/list", {
+        cache: "no-store"
+      });
 
-      const result =
-        await response.json();
+      const result = await response.json();
 
-      if (
-        !response.ok ||
-        !result.success
-      ) {
-        throw new Error(
-          result.message ||
-          "讀取失敗"
-        );
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "讀取失敗");
       }
 
-      defaultProgressData =
-        Array.isArray(result.submissions)
-          ? result.submissions
-          : [];
+      defaultProgressData = Array.isArray(result.submissions)
+        ? result.submissions
+        : [];
 
       renderProgress();
     } catch (error) {
       console.error(error);
-
-      progressList.innerHTML = `
-        <div class="card empty-message">
-          暫時無法讀取進度 🦊
-        </div>
-      `;
+      progressList.innerHTML = `<div class="card empty-message">暫時無法讀取進度 🦊</div>`;
     }
   }
 
   function getPaymentClass(status) {
-    if (status === "已匯款") {
-      return "status-paid";
-    }
-
-    if (status === "需確認") {
-      return "status-waiting";
-    }
-
+    if (status === "已匯款") return "status-paid";
+    if (status === "需確認") return "status-waiting";
     return "status-unpaid";
   }
 
@@ -4667,71 +2893,31 @@
       "已完成": "stage-complete"
     };
 
-    return (
-      map[status] ||
-      "stage-registered"
-    );
+    return map[status] || "stage-registered";
   }
 
   function getOrderTypeClass(groupType) {
-    if (groupType === "現貨") {
-      return "stock";
-    }
-
-    if (groupType === "單特典") {
-      return "special";
-    }
-
+    if (groupType === "現貨") return "stock";
+    if (groupType === "單特典") return "special";
     return "";
   }
 
   function renderProgress() {
-    const searchText =
-      communitySearch
-        .value
-        .trim()
-        .toLowerCase();
+    const searchText = communitySearch.value.trim().toLowerCase();
 
-    const filtered =
-      defaultProgressData.filter(item => {
-        const matchesType =
-          currentTypeFilter === "all" ||
-          item.groupType ===
-            currentTypeFilter;
+    const filtered = defaultProgressData.filter(item => {
+      const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
+      const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
+      const facebook = String(item.facebookName || "").trim().toLowerCase();
+      const matchesName = !searchText || facebook.includes(searchText);
 
-        const matchesGroup =
-          currentGroupFilter === "all" ||
-          item.group ===
-            currentGroupFilter;
-
-        const facebook =
-          String(
-            item.facebookName ||
-            ""
-          )
-            .trim()
-            .toLowerCase();
-
-        const matchesName =
-          !searchText ||
-          facebook.includes(searchText);
-
-        return (
-          matchesType &&
-          matchesGroup &&
-          matchesName
-        );
-      });
+      return matchesType && matchesGroup && matchesName;
+    });
 
     progressList.innerHTML = "";
 
     if (!filtered.length) {
-      progressList.innerHTML = `
-        <div class="card empty-message">
-          目前沒有符合的團務資料 🦊
-        </div>
-      `;
-
+      progressList.innerHTML = `<div class="card empty-message">目前沒有符合的團務資料 🦊</div>`;
       return;
     }
 
@@ -4739,78 +2925,35 @@
       const groups = {};
 
       filtered.forEach(item => {
-        const activity =
-          item.activity ||
-          item.community ||
-          "團務";
-
-        if (!groups[activity]) {
-          groups[activity] = [];
-        }
-
+        const activity = item.activity || item.community || "團務";
+        if (!groups[activity]) groups[activity] = [];
         groups[activity].push(item);
       });
 
-      progressList.innerHTML =
-        Object.entries(groups)
-          .map(([activity, items]) => `
-            <div class="progress-group">
-              <div class="progress-group-header">
-                ${escapeHTML(activity)}
-              </div>
+      progressList.innerHTML = Object.entries(groups).map(([activity, items]) => `
+        <div class="progress-group">
+          <div class="progress-group-header">${escapeHTML(activity)}</div>
 
-              <div class="progress-group-body">
-                ${items
-                  .map(item => {
-                    const paymentStatus =
-                      item.paymentStatus ||
-                      "待對帳";
+          <div class="progress-group-body">
+            ${items.map(item => {
+              const paymentStatus = item.paymentStatus || "待對帳";
+              const progress = item.progress || "已登記";
 
-                    const progress =
-                      item.progress ||
-                      "已登記";
+              return `
+                <div class="progress-member-row">
+                  <div>
+                    <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
+                    <div class="community-small">${getPublicProductHTML(item)}</div>
+                  </div>
 
-                    return `
-                      <div class="progress-member-row">
-                        <div>
-                          <div class="facebook-name">
-                            ${escapeHTML(
-                              item.facebookName ||
-                              "未填名稱"
-                            )}
-                          </div>
-
-                          <div class="community-small">
-                            ${getPublicProductHTML(item)}
-                          </div>
-                        </div>
-
-                        <div
-                          class="
-                            status-pill
-                            ${getPaymentClass(paymentStatus)}
-                          "
-                        >
-                          ${escapeHTML(paymentStatus)}
-                        </div>
-
-                        <div
-                          class="
-                            stage-pill
-                            ${getProgressClass(progress)}
-                          "
-                        >
-                          ${escapeHTML(progress)}
-                        </div>
-                      </div>
-                    `;
-                  })
-                  .join("")
-                }
-              </div>
-            </div>
-          `)
-          .join("");
+                  <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
+                  <div class="stage-pill ${getProgressClass(progress)}">${escapeHTML(progress)}</div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      `).join("");
 
       return;
     }
@@ -4818,164 +2961,70 @@
     const people = {};
 
     filtered.forEach(item => {
-      const name =
-        String(
-          item.facebookName ||
-          "未填名稱"
-        ).trim();
-
-      if (!people[name]) {
-        people[name] = [];
-      }
-
+      const name = String(item.facebookName || "未填名稱").trim();
+      if (!people[name]) people[name] = [];
       people[name].push(item);
     });
 
-    progressList.innerHTML =
-      Object.entries(people)
-        .map(([name, items]) => `
-          <div class="public-person-group">
-            <div class="public-person-header">
-              <div class="public-person-name">
-                ${escapeHTML(name)}
+    progressList.innerHTML = Object.entries(people).map(([name, items]) => `
+      <div class="public-person-group">
+        <div class="public-person-header">
+          <div class="public-person-name">${escapeHTML(name)}</div>
+          <div class="public-person-count">共參加 ${items.length} 筆團務</div>
+        </div>
+
+        <div class="public-person-orders">
+          ${items.map(item => {
+            const paymentStatus = item.paymentStatus || "待對帳";
+            const progress = item.progress || "已登記";
+
+            return `
+              <div class="public-person-order">
+                <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}</div>
+
+                <span class="public-order-type ${getOrderTypeClass(item.groupType)}">
+                  ${escapeHTML(item.groupType || "")}
+                </span>
+
+                <div class="public-search-products">${getPublicProductHTML(item)}</div>
+
+                <div class="public-order-statuses">
+                  <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
+                  <div class="stage-pill ${getProgressClass(progress)}">${escapeHTML(progress)}</div>
+                </div>
               </div>
-
-              <div class="public-person-count">
-                共參加 ${items.length} 筆團務
-              </div>
-            </div>
-
-            <div class="public-person-orders">
-              ${items
-                .map(item => {
-                  const paymentStatus =
-                    item.paymentStatus ||
-                    "待對帳";
-
-                  const progress =
-                    item.progress ||
-                    "已登記";
-
-                  return `
-                    <div class="public-person-order">
-                      <div class="public-order-name">
-                        ${escapeHTML(
-                          item.activity ||
-                          item.community ||
-                          "團務"
-                        )}
-                      </div>
-
-                      <span
-                        class="
-                          public-order-type
-                          ${getOrderTypeClass(item.groupType)}
-                        "
-                      >
-                        ${escapeHTML(
-                          item.groupType ||
-                          ""
-                        )}
-                      </span>
-
-                      <div class="public-search-products">
-                        ${getPublicProductHTML(item)}
-                      </div>
-
-                      <div class="public-order-statuses">
-                        <div
-                          class="
-                            status-pill
-                            ${getPaymentClass(paymentStatus)}
-                          "
-                        >
-                          ${escapeHTML(paymentStatus)}
-                        </div>
-
-                        <div
-                          class="
-                            stage-pill
-                            ${getProgressClass(progress)}
-                          "
-                        >
-                          ${escapeHTML(progress)}
-                        </div>
-                      </div>
-                    </div>
-                  `;
-                })
-                .join("")
-              }
-            </div>
-          </div>
-        `)
-        .join("");
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `).join("");
   }
 
-  document
-    .querySelectorAll(
-      "#typeFilters .filter-button"
-    )
-    .forEach(button => {
-      button.addEventListener(
-        "click",
-        () => {
-          document
-            .querySelectorAll(
-              "#typeFilters .filter-button"
-            )
-            .forEach(item => {
-              item.classList.remove(
-                "selected"
-              );
-            });
+  document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
+        item.classList.remove("selected");
+      });
 
-          button.classList.add(
-            "selected"
-          );
-
-          currentTypeFilter =
-            button.dataset.filter;
-
-          renderProgress();
-        }
-      );
+      button.classList.add("selected");
+      currentTypeFilter = button.dataset.filter;
+      renderProgress();
     });
+  });
 
-  document
-    .querySelectorAll(
-      "#groupFilters .filter-button"
-    )
-    .forEach(button => {
-      button.addEventListener(
-        "click",
-        () => {
-          document
-            .querySelectorAll(
-              "#groupFilters .filter-button"
-            )
-            .forEach(item => {
-              item.classList.remove(
-                "selected"
-              );
-            });
+  document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
+        item.classList.remove("selected");
+      });
 
-          button.classList.add(
-            "selected"
-          );
-
-          currentGroupFilter =
-            button.dataset.filter;
-
-          renderProgress();
-        }
-      );
+      button.classList.add("selected");
+      currentGroupFilter = button.dataset.filter;
+      renderProgress();
     });
+  });
 
-  communitySearch.addEventListener(
-    "input",
-    renderProgress
-  );
+  communitySearch.addEventListener("input", renderProgress);
 
   resetScroll();
   loadPublicProgress();
