@@ -208,9 +208,6 @@
     }
 
     .submission-main {
-      display: grid;
-      grid-template-columns: minmax(230px, 1.35fr) minmax(220px, 1fr) minmax(180px, 0.85fr);
-      gap: 18px;
       padding: 18px;
     }
 
@@ -233,12 +230,27 @@
     }
 
     .activity-name {
-      margin-top: 7px;
       color: #6842b3;
       font-size: 15px;
       font-weight: 700;
       line-height: 1.5;
       word-break: break-word;
+    }
+
+    .order-heading-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 15px;
+    }
+
+    .order-amount {
+      flex-shrink: 0;
+      color: #6842b3;
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
     .meta-pills {
@@ -263,7 +275,11 @@
     }
 
     .product-list {
-      margin-top: 5px;
+      margin-top: 9px;
+      padding: 11px 13px;
+      background: #faf8ff;
+      border: 1px solid #eee6ff;
+      border-radius: 12px;
     }
 
     .source-title {
@@ -295,11 +311,14 @@
     }
 
     .payment-inline-value {
-      min-width: max-content;
       color: #62576d;
       font-size: 13px;
       line-height: 1.6;
-      white-space: nowrap;
+      word-break: break-word;
+    }
+
+    .payment-detail-line + .payment-detail-line {
+      margin-top: 3px;
     }
 
     .note-box {
@@ -316,6 +335,7 @@
     .status-grid {
       display: grid;
       gap: 9px;
+      margin-top: 14px;
     }
 
     .status-label {
@@ -457,11 +477,11 @@
   <script>
     const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
     const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
+    const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
+    const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
 
-    const inStockSourceGroups = new Set([
-      "run-it-japan-kuji",
-      "fans-luck-draw-and-ver",
-      "nagoya-0905"
+    const alwaysStockGroups = new Set([
+      "run-it-japan-kuji"
     ]);
 
     const stockManagedGroups = new Set([
@@ -470,7 +490,9 @@
       "osaka-0919",
       "osaka-0920",
       "fans-luck-draw-and-ver",
-      COMBINED_STOCK_GROUP_ID
+      COMBINED_STOCK_GROUP_ID,
+      COMBINED_OSAKA_GROUP_ID,
+      COMBINED_SODA_GROUP_ID
     ]);
 
     let adminPassword = "";
@@ -526,7 +548,7 @@
 
       if (
         groupId === COMBINED_STOCK_GROUP_ID
-        || inStockSourceGroups.has(groupId)
+        || alwaysStockGroups.has(groupId)
       ) {
         return {
           ...item,
@@ -597,7 +619,6 @@
       const activity = item.activity || item.community || "團務";
       const groupType = item.groupType || "";
       const group = item.group || "";
-      const createdAt = formatCreatedAt(item.createdAt);
       const note = String(item.note || "").trim();
 
       return `
@@ -606,30 +627,31 @@
             <div class="submission-section">
               <div class="small-label">Facebook 名稱</div>
               <div class="main-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
-              <div class="activity-name">${escapeHTML(activity)}</div>
 
               <div class="meta-pills">
                 ${groupType ? `<span class="meta-pill ${getTypeClass(groupType)}">${escapeHTML(groupType)}</span>` : ""}
                 ${group ? `<span class="meta-pill">${escapeHTML(group)}</span>` : ""}
-                ${createdAt ? `<span class="meta-pill">${escapeHTML(createdAt)}</span>` : ""}
               </div>
-            </div>
 
-            <div class="submission-section">
-              <div class="small-label">商品</div>
+              <div class="order-heading-row">
+                <div class="activity-name">${escapeHTML(activity)}</div>
+                <div class="order-amount">${escapeHTML(formatMoney(item.paymentAmount || 0))}</div>
+              </div>
+
               <div class="product-list">${getAdminProductHTML(item)}</div>
 
               <div class="small-label" style="margin-top:13px;">匯款資料</div>
               <div class="payment-inline">
-                <div class="payment-inline-value">
-                  ${escapeHTML(item.paymentBank || "未填銀行")}｜後五碼 ${escapeHTML(item.accountLastFive || "-")}｜${escapeHTML(item.paymentDate || "-")}｜${escapeHTML(item.paymentTime || "-")}｜${escapeHTML(formatMoney(item.paymentAmount || 0))}
+                <div class="payment-inline-value payment-detail-line">
+                  ${escapeHTML(item.paymentBank || "未填銀行")}＋後五碼 ${escapeHTML(item.accountLastFive || "-")}
+                </div>
+                <div class="payment-inline-value payment-detail-line">
+                  ${escapeHTML(item.paymentDate || "-")}＋${escapeHTML(item.paymentTime || "-")}
                 </div>
               </div>
 
               ${note ? `<div class="note-box">備註：${escapeHTML(note)}</div>` : ""}
-            </div>
 
-            <div class="submission-section">
               <div class="status-grid">
                 <label class="status-label">
                   對帳狀態
@@ -655,13 +677,13 @@
           </div>
 
           <div class="submission-actions">
-            <button type="button" class="save-button" data-save-index="${realIndex}">儲存狀態</button>
+            <button type="button" class="save-button" data-save-index="${realIndex}">儲存進度</button>
             <button
               type="button"
               class="delete-button ${stockManaged ? "stock-delete" : ""}"
               data-delete-index="${realIndex}"
             >
-              ${stockManaged ? "刪除並恢復庫存" : "刪除資料"}
+              刪除並恢復庫存
             </button>
           </div>
         </article>
@@ -806,7 +828,7 @@
         }
 
         submissions = Array.isArray(result.submissions)
-          ? result.submissions
+          ? result.submissions.map(normalizeAdminSubmission)
           : [];
 
         passwordInput.value = "";
