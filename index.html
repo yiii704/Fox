@@ -1357,6 +1357,24 @@
       <div class="card order-card">
         <div class="order-top">
           <div class="order-group">Stray Kids・代購</div>
+          <div class="order-name">RUN it 2.0 &amp; SANRIO聯名2.0</div>
+          <div class="order-status">開放中</div>
+
+          <div class="stock-combined-list">
+            <div class="stock-combined-item">RUN it 日本周邊 2.0</div>
+            <div class="stock-combined-item">三麗鷗聯名 2.0</div>
+          </div>
+
+          <div class="stock-combined-help">
+            兩團可以一起選購，最後只需要匯款及填單一次。
+          </div>
+        </div>
+        <button type="button" class="order-action" data-order="run-it-sanrio-2" data-return="groupPage">填寫匯款表單</button>
+      </div>
+
+      <div class="card order-card">
+        <div class="order-top">
+          <div class="order-group">Stray Kids・代購</div>
           <div class="order-name">Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團</div>
           <div class="order-status">開放中</div>
         </div>
@@ -1386,7 +1404,7 @@
           </div>
 
           <div class="stock-combined-help">
-             
+            兩天的場限可以一起選購，最後只需要匯款及填單一次。
           </div>
         </div>
         <button type="button" class="order-action" data-order="osaka-combined" data-return="groupPage">填寫匯款表單</button>
@@ -1407,7 +1425,7 @@
           </div>
 
           <div class="stock-combined-help">
-             
+            可以同時選購以上不同現貨團務的商品，最後會自動合併總金額，只需要匯款及填單一次。
           </div>
         </div>
 
@@ -1461,6 +1479,7 @@
       <option value="">請選擇團務</option>
 
       <optgroup label="代購">
+        <option value="run-it-sanrio-2">RUN it 2.0 &amp; SANRIO聯名2.0</option>
         <option value="run-it-japan">Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團</option>
       </optgroup>
 
@@ -1470,7 +1489,7 @@
       </optgroup>
 
       <optgroup label="現貨">
-        <option value="in-stock-combined">現貨商品</option>
+        <option value="in-stock-combined">現貨商品合併結帳</option>
       </optgroup>
     </select>
 
@@ -1720,6 +1739,7 @@
   const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
   const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
   const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
+  const COMBINED_RUN_SANRIO_GROUP_ID = "run-it-sanrio-2";
 
   const upcomingGroups = new Set([]);
 
@@ -1749,6 +1769,10 @@
     [COMBINED_SODA_GROUP_ID]: [
       "soda-soda-wvs",
       "soda-soda-universal"
+    ],
+    [COMBINED_RUN_SANRIO_GROUP_ID]: [
+      "run-it-japan-2",
+      "sanrio-2"
     ]
   };
 
@@ -1919,6 +1943,17 @@
     "炅潣"
   ];
 
+  const skzooMembers = [
+    "Wolf Chan",
+    "Leebit",
+    "Dwaekki",
+    "Jiniret",
+    "HAN QUOKKA",
+    "BbokAri",
+    "PuppyM",
+    "FoxI.Ny"
+  ];
+
   const productData = {
     "run-it-japan": [
       { name: "T-shirt", price: 990, variants: tShirtVariants },
@@ -1948,6 +1983,23 @@
       { name: "耳環", price: 450, variants: skzMembers },
       { name: "毛巾掛帶", price: 330, variants: skzMembers },
       { name: "扇套", price: 660, variants: skzMembers }
+    ],
+
+    "run-it-japan-2": [
+      { name: "應援毛巾", price: 615 },
+      { name: "隨機小卡", price: 110 },
+      { name: "扇子", price: 175, variants: skzMembers },
+      { name: "壓克力立牌", price: 330, variants: skzMembers },
+      { name: "徽章", price: 135, variants: skzMembers },
+      { name: "小卡冊", price: 485 }
+    ],
+
+    "sanrio-2": [
+      { name: "雙面收納包", price: 770, variants: skzooMembers },
+      { name: "徽章收納包", price: 615, variants: skzooMembers },
+      { name: "吊飾延展扣", price: 530, variants: skzooMembers },
+      { name: "鑰匙圈", price: 400, variants: skzooMembers },
+      { name: "立體貼紙", price: 285, variants: skzooMembers }
     ],
 
     "run-it-japan-kuji": [
@@ -1991,6 +2043,18 @@
       groupType: "代購",
       group: "Stray Kids",
       activity: "Stray Kids World Tour ＜RUN IT JAPAN＞ OFFICIAL GOODS 線上團"
+    },
+
+    "run-it-japan-2": {
+      groupType: "代購",
+      group: "Stray Kids",
+      activity: "RUN it 日本周邊 2.0"
+    },
+
+    "sanrio-2": {
+      groupType: "代購",
+      group: "Stray Kids",
+      activity: "三麗鷗聯名 2.0"
     },
 
     "run-it-japan-kuji": {
@@ -2053,10 +2117,10 @@
       activity: "9/19、9/20 大阪場限"
     },
 
-    [COMBINED_SODA_GROUP_ID]: {
-      groupType: "單特典",
-      group: "TWS",
-      activity: "SODA SODA 冬季限定"
+    [COMBINED_RUN_SANRIO_GROUP_ID]: {
+      groupType: "代購",
+      group: "Stray Kids",
+      activity: "RUN it 2.0 & SANRIO聯名2.0"
     }
   };
 
@@ -2066,6 +2130,18 @@
         { src: "run-it-1.jpg", alt: "RUN IT JAPAN 商品圖 1" },
         { src: "run-it-2.jpg", alt: "RUN IT JAPAN 商品圖 2" },
         { src: "run-it-3.jpg", alt: "RUN IT JAPAN 商品圖 3" }
+      ]
+    },
+
+    "run-it-japan-2": {
+      images: [
+        { src: "run-it-4.jpg", alt: "RUN it 日本周邊 2.0 商品圖" }
+      ]
+    },
+
+    "sanrio-2": {
+      images: [
+        { src: "sanrio.jpg", alt: "三麗鷗聯名 2.0 商品圖" }
       ]
     },
 
@@ -2086,7 +2162,8 @@
       images: [
         {
           src: "大阪場限1-1.JPG",
-          alt: "9/19大阪場限"
+          alt: "9/19大阪場限",
+          caption: "9/19大阪場限"
         }
       ]
     },
@@ -2095,7 +2172,8 @@
       images: [
         {
           src: "大阪場限2-1.JPG",
-          alt: "9/20大阪場限"
+          alt: "9/20大阪場限",
+          caption: "9/20大阪場限"
         }
       ]
     },
@@ -2104,7 +2182,8 @@
       images: [
         {
           src: "SODA WVS.JPG",
-          alt: "SODA SODA 冬季限定 WVS"
+          alt: "SODA SODA 冬季限定 WVS",
+          caption: "WVS"
         }
       ]
     },
@@ -2113,7 +2192,8 @@
       images: [
         {
           src: "SODA 環球.JPG",
-          alt: "SODA SODA 冬季限定 環球"
+          alt: "SODA SODA 冬季限定 環球",
+          caption: "環球"
         }
       ]
     },
