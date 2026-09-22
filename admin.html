@@ -566,7 +566,11 @@
         return `<div class="product-line">沒有商品資料</div>`;
       }
 
-      if (item.groupId === COMBINED_STOCK_GROUP_ID || item.groupType === "現貨") {
+      if (
+        item.groupId === COMBINED_STOCK_GROUP_ID
+        || item.groupType === "現貨"
+        || products.some(product => String(product.sourceActivity || "").trim())
+      ) {
         let lastSource = "";
 
         return products.map(product => {
