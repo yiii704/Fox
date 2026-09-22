@@ -1645,11 +1645,6 @@
         <div class="field-note">麻煩請填自己的帳號後五碼</div>
       </div>
 
-      <div class="form-group">
-        <label for="note">備註</label>
-        <textarea id="note" placeholder="沒有備註可以留空"></textarea>
-      </div>
-
       <button type="submit" class="submit-button">送出匯款資料</button>
     </div>
   </form>
@@ -2815,7 +2810,7 @@
       paymentBank: document.getElementById("paymentBank").value,
       paymentAmount: checkoutSnapshot.total,
       accountLastFive,
-      note: document.getElementById("note").value.trim()
+      note: ""
     };
 
     const submitButton = paymentForm.querySelector(".submit-button");
@@ -3023,98 +3018,3 @@
           <div class="progress-group-body">
             ${items.map(item => {
               const paymentStatus = item.paymentStatus || "待對帳";
-              const progress = item.progress || "已登記";
-
-              return `
-                <div class="progress-member-row">
-                  <div>
-                    <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
-                    <div class="community-small">${getPublicProductHTML(item)}</div>
-                  </div>
-
-                  <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
-                  <div class="stage-pill ${getProgressClass(progress)}">${escapeHTML(progress)}</div>
-                </div>
-              `;
-            }).join("")}
-          </div>
-        </div>
-      `).join("");
-
-      return;
-    }
-
-    const people = {};
-
-    filtered.forEach(item => {
-      const name = String(item.facebookName || "未填名稱").trim();
-      if (!people[name]) people[name] = [];
-      people[name].push(item);
-    });
-
-    progressList.innerHTML = Object.entries(people).map(([name, items]) => `
-      <div class="public-person-group">
-        <div class="public-person-header">
-          <div class="public-person-name">${escapeHTML(name)}</div>
-          <div class="public-person-count">共參加 ${items.length} 筆團務</div>
-        </div>
-
-        <div class="public-person-orders">
-          ${items.map(item => {
-            const paymentStatus = item.paymentStatus || "待對帳";
-            const progress = item.progress || "已登記";
-
-            return `
-              <div class="public-person-order">
-                <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}</div>
-
-                <span class="public-order-type ${getOrderTypeClass(item.groupType)}">
-                  ${escapeHTML(item.groupType || "")}
-                </span>
-
-                <div class="public-search-products">${getPublicProductHTML(item)}</div>
-
-                <div class="public-order-statuses">
-                  <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
-                  <div class="stage-pill ${getProgressClass(progress)}">${escapeHTML(progress)}</div>
-                </div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      </div>
-    `).join("");
-  }
-
-  document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
-    button.addEventListener("click", () => {
-      document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
-        item.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-      currentTypeFilter = button.dataset.filter;
-      renderProgress();
-    });
-  });
-
-  document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
-    button.addEventListener("click", () => {
-      document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
-        item.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-      currentGroupFilter = button.dataset.filter;
-      renderProgress();
-    });
-  });
-
-  communitySearch.addEventListener("input", renderProgress);
-
-  resetScroll();
-  loadPublicProgress();
-</script>
-
-</body>
-</html>
