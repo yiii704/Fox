@@ -1,0 +1,10 @@
+{
+  "id": "/Fox/admin.html",
+  "name": "狐狸管理後台",
+  "short_name": "狐狸後台",
+  "start_url": "/Fox/admin.html",
+  "scope": "/Fox/",
+  "display": "standalone",
+  "background_color": "#faf8ff",
+  "theme_color": "#6b46c1"
+}
