@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <title>狐狸🦊管理後台</title>
+  <link rel="manifest" href="admin.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="狐狸管理後台">
 
   <style>
     * {
@@ -51,6 +55,13 @@
       border: 1px solid #eee6ff;
       border-radius: 20px;
       box-shadow: 0 5px 16px rgba(116, 82, 165, 0.08);
+    }
+
+    .card-title {
+      margin-bottom: 10px;
+      color: #59349e;
+      font-size: 19px;
+      font-weight: 700;
     }
 
     .login-card {
@@ -443,6 +454,16 @@
       </div>
 
       <div class="card">
+        <div class="card-title">🔔 新訂單通知</div>
+        <p id="pushStatus" style="line-height:1.7;margin-bottom:12px;">請先從手機主畫面開啟管理後台，再開啟通知。</p>
+        <div class="top-button-group">
+          <button id="enablePushButton" type="button" class="secondary-button">開啟通知</button>
+          <button id="testPushButton" type="button" class="secondary-button" hidden>發送測試通知</button>
+          <button id="disablePushButton" type="button" class="secondary-button" hidden>關閉通知</button>
+        </div>
+      </div>
+
+      <div class="card">
         <div class="filter-grid">
           <div class="filter-block">
             <div class="filter-title">依團務分類</div>
@@ -647,11 +668,16 @@
               <div class="small-label" style="margin-top:13px;">匯款資料</div>
               <div class="payment-inline">
                 <div class="payment-inline-value payment-detail-line">
-                  ${escapeHTML(item.paymentBank || "未填銀行")}｜${escapeHTML(item.accountLastFive || "-")}
+                  ${escapeHTML(item.paymentBank || "未填銀行")}｜${item.noCard === true ? "無卡" : escapeHTML(item.accountLastFive || "-")}
                 </div>
                 <div class="payment-inline-value payment-detail-line">
                   ${escapeHTML(item.paymentDate || "-")}｜${escapeHTML(item.paymentTime || "-")}
                 </div>
+                ${item.noCard === true ? `
+                  <div class="payment-inline-value payment-detail-line">
+                    無卡金額｜${escapeHTML(formatMoney(item.noCardAmount || 0))}
+                  </div>
+                ` : ""}
               </div>
 
               ${note ? `<div class="note-box">備註：${escapeHTML(note)}</div>` : ""}
@@ -839,6 +865,7 @@
         loginArea.style.display = "none";
         adminArea.style.display = "block";
         renderSubmissions();
+        refreshPushStatus().catch(error => console.error(error));
       } catch (error) {
         adminPassword = "";
         alert(error.message || "登入失敗");
@@ -952,6 +979,116 @@
       }
     }
 
+    const pushStatus = document.getElementById('pushStatus');
+    const enablePushButton = document.getElementById('enablePushButton');
+    const testPushButton = document.getElementById('testPushButton');
+    const disablePushButton = document.getElementById('disablePushButton');
+
+    function setPushStatus(message, enabled = false) {
+      pushStatus.textContent = message;
+      enablePushButton.hidden = enabled;
+      testPushButton.hidden = !enabled;
+      disablePushButton.hidden = !enabled;
+    }
+
+    function decodePushKey(value) {
+      const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+      const raw = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));
+      return Uint8Array.from(raw, character => character.charCodeAt(0));
+    }
+
+    async function pushRequest(path, data = {}) {
+      const response = await fetch(WORKER_URL + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': adminPassword },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.message || '通知設定失敗');
+      return result;
+    }
+
+    async function refreshPushStatus() {
+      if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+        setPushStatus('這個瀏覽器不支援推播通知。');
+        return;
+      }
+      if (!window.matchMedia('(display-mode: standalone)').matches &&
+          !navigator.standalone) {
+        setPushStatus('請先把這個管理後台加入主畫面，並從主畫面的圖示開啟。');
+        return;
+      }
+      const registration = await navigator.serviceWorker.getRegistration('./');
+      const subscription = await registration?.pushManager.getSubscription();
+      setPushStatus(subscription && Notification.permission === 'granted'
+        ? '這支手機已開啟新訂單通知。'
+        : '通知尚未開啟。', Boolean(subscription && Notification.permission === 'granted'));
+    }
+
+    enablePushButton.addEventListener('click', async () => {
+      if (!adminPassword) return;
+      if (!window.matchMedia('(display-mode: standalone)').matches && !navigator.standalone) {
+        setPushStatus('請從主畫面的管理後台圖示開啟，再點「開啟通知」。');
+        return;
+      }
+      if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+        setPushStatus('這個瀏覽器不支援推播通知。');
+        return;
+      }
+      // iPhone 要求此呼叫直接接在使用者點擊動作後。
+      const permissionPromise = Notification.requestPermission();
+      enablePushButton.disabled = true;
+      try {
+        if (await permissionPromise !== 'granted') {
+          throw new Error('未允許通知。請在 iPhone 設定中的「通知」允許狐狸管理後台。');
+        }
+        const config = await pushRequest('/admin/push/config');
+        const registration = await navigator.serviceWorker.register('./admin-sw.js', { scope: './' });
+        const ready = await navigator.serviceWorker.ready;
+        const existing = await ready.pushManager.getSubscription();
+        const subscription = existing || await ready.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: decodePushKey(config.publicKey)
+        });
+        await pushRequest('/admin/push/subscribe', { subscription: subscription.toJSON() });
+        setPushStatus('這支手機已開啟新訂單通知。', true);
+      } catch (error) {
+        console.error(error);
+        setPushStatus(error.message || '開啟通知失敗。');
+      } finally {
+        enablePushButton.disabled = false;
+      }
+    });
+
+    testPushButton.addEventListener('click', async () => {
+      testPushButton.disabled = true;
+      try {
+        await pushRequest('/admin/push/test');
+        setPushStatus('測試通知已送出，請留意手機通知。', true);
+      } catch (error) {
+        setPushStatus(error.message || '測試通知失敗。', true);
+      } finally {
+        testPushButton.disabled = false;
+      }
+    });
+
+    disablePushButton.addEventListener('click', async () => {
+      disablePushButton.disabled = true;
+      try {
+        const registration = await navigator.serviceWorker.getRegistration('./');
+        const subscription = await registration?.pushManager.getSubscription();
+        if (subscription) {
+          await pushRequest('/admin/push/unsubscribe', { endpoint: subscription.endpoint });
+          await subscription.unsubscribe();
+        }
+        setPushStatus('通知已關閉。');
+      } catch (error) {
+        setPushStatus(error.message || '關閉通知失敗。', true);
+      } finally {
+        disablePushButton.disabled = false;
+      }
+    });
+
     loginButton.addEventListener("click", login);
 
     passwordInput.addEventListener("keydown", event => {
@@ -992,8 +1129,7 @@
 
         button.classList.add("selected");
         currentGroupFilter = button.dataset.filter;
-        renderSubmissions();
-      });
+        renderSubmissions();      });
     });
 
     nameSearch.addEventListener("input", renderSubmissions);
