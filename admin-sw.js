@@ -1,6 +1,7 @@
 self.addEventListener('push', event => {
   event.waitUntil(self.registration.showNotification('🦊 新的匯款表單', {
     body: '有一筆新的匯款資料，點這裡查看後台。',
+    icon: './admin-icon-192.png',
     data: { url: './admin.html' }
   }));
 });
