@@ -1348,6 +1348,24 @@
     </head>
 
     <body class="home-mode">
+        <script>
+  (() => {
+    const isStandalone =
+      window.navigator.standalone === true ||
+      window.matchMedia("(display-mode: standalone)").matches;
+
+    if (!isStandalone) return;
+
+    const url = new URL(window.location.href);
+    const lastRefresh = Number(url.searchParams.get("fresh") || 0);
+    const oneMinute = 60 * 1000;
+
+    if (!lastRefresh || Date.now() - lastRefresh > oneMinute) {
+      url.searchParams.set("fresh", Date.now().toString());
+      window.location.replace(url.toString());
+    }
+  })();
+</script>
 
     <h1>狐狸🦊日韓通路代購｜拆車</h1>
 
