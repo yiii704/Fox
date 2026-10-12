@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -1380,9 +1380,9 @@
             <div class="order-top">
               <div class="order-group">Stray Kids・代購</div>
               <div class="order-name">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</div>
-              <div class="order-status upcoming">價格待定</div>
+              <div class="order-status">開放中</div>
             </div>
-            <button type="button" class="order-action upcoming" disabled>價格待定，暫未開放填單</button>
+            <button type="button" class="order-action" data-order="this-that-market-skzoo" data-return="groupPage">填寫匯款表單</button>
           </div>
 
           <div class="card order-card">
@@ -1498,7 +1498,7 @@
           <option value="">請選擇團務</option>
 
           <optgroup label="代購">
-            <option value="this-that-market-skzoo" disabled>&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.（價格待定）</option>
+            <option value="this-that-market-skzoo">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</option>
             <option value="skz-japan-seasons-greetings">Stray Kids JAPAN SEASON’S GREETINGS</option>
             <option value="fans-lucky-draw-2">FANS LUCKY DRAW 2.0（電子專）</option>
             <option value="skz-seasons-greetings-2027">Stray Kids 2027 Season’s Greetings</option>
@@ -1768,9 +1768,7 @@
       const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
       const COMBINED_RUN_SANRIO_GROUP_ID = "run-it-sanrio-2";
 
-      const upcomingGroups = new Set([
-        "this-that-market-skzoo"
-      ]);
+      const upcomingGroups = new Set([]);
 
       const stockManagedGroups = new Set([
         "run-it-japan-kuji",
@@ -2006,7 +2004,7 @@
 
       const productData = {
         "this-that-market-skzoo": [
-          { name: "+TASY", price: 0, variants: skzMembers }
+          { name: "MARKET SKZOO VER.", price: 1000, variants: [...skzMembers, "TASY"] }
         ],
 
         "skz-japan-seasons-greetings": [
