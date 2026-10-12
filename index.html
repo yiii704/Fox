@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -1348,24 +1348,6 @@
     </head>
 
     <body class="home-mode">
-        <script>
-  (() => {
-    const isStandalone =
-      window.navigator.standalone === true ||
-      window.matchMedia("(display-mode: standalone)").matches;
-
-    if (!isStandalone) return;
-
-    const url = new URL(window.location.href);
-    const lastRefresh = Number(url.searchParams.get("fresh") || 0);
-    const oneMinute = 60 * 1000;
-
-    if (!lastRefresh || Date.now() - lastRefresh > oneMinute) {
-      url.searchParams.set("fresh", Date.now().toString());
-      window.location.replace(url.toString());
-    }
-  })();
-</script>
 
     <h1>狐狸🦊日韓通路代購｜拆車</h1>
 
@@ -1394,6 +1376,15 @@
         </div>
 
         <div class="group-type-content active" data-group-content="代購">
+          <div class="card order-card">
+            <div class="order-top">
+              <div class="order-group">Stray Kids・代購</div>
+              <div class="order-name">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</div>
+              <div class="order-status upcoming">價格待定</div>
+            </div>
+            <button type="button" class="order-action upcoming" disabled>價格待定，暫未開放填單</button>
+          </div>
+
           <div class="card order-card">
             <div class="order-top">
               <div class="order-group">Stray Kids・代購</div>
@@ -1507,6 +1498,7 @@
           <option value="">請選擇團務</option>
 
           <optgroup label="代購">
+            <option value="this-that-market-skzoo" disabled>&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.（價格待定）</option>
             <option value="skz-japan-seasons-greetings">Stray Kids JAPAN SEASON’S GREETINGS</option>
             <option value="fans-lucky-draw-2">FANS LUCKY DRAW 2.0（電子專）</option>
             <option value="skz-seasons-greetings-2027">Stray Kids 2027 Season’s Greetings</option>
@@ -1776,7 +1768,9 @@
       const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
       const COMBINED_RUN_SANRIO_GROUP_ID = "run-it-sanrio-2";
 
-      const upcomingGroups = new Set([]);
+      const upcomingGroups = new Set([
+        "this-that-market-skzoo"
+      ]);
 
       const stockManagedGroups = new Set([
         "run-it-japan-kuji",
@@ -2011,6 +2005,10 @@
       ];
 
       const productData = {
+        "this-that-market-skzoo": [
+          { name: "+TASY", price: 0, variants: skzMembers }
+        ],
+
         "skz-japan-seasons-greetings": [
           { name: "FC", price: 1420, image: "skz-japan-sg-fc.jpg" },
           { name: "JYP JAPAN ONLINE STORE", price: 1420, image: "skz-japan-sg-jyp.jpg" },
@@ -2131,6 +2129,12 @@
       };
 
       const groupMeta = {
+        "this-that-market-skzoo": {
+          groupType: "代購",
+          group: "Stray Kids",
+          activity: "\"THIS & THAT\" MARKET SKZOO VER."
+        },
+
         "skz-japan-seasons-greetings": {
           groupType: "代購",
           group: "Stray Kids",
@@ -2247,6 +2251,12 @@
       };
 
       const catalogData = {
+        "this-that-market-skzoo": {
+          images: [
+            { src: "this-that-market-skzoo.jpg", alt: "THIS & THAT MARKET SKZOO VER. 商品圖" }
+          ]
+        },
+
         "skz-japan-seasons-greetings": {
           images: [
             { src: "skz-japan-sg-1.jpg", alt: "Stray Kids JAPAN SEASON’S GREETINGS 商品圖 1" },
@@ -3270,4 +3280,6 @@
 
     <!-- 完整檔案結尾保護區：看到這一行代表程式碼沒有被截斷 -->
     <!-- 請保留以上的 script、body 與 html 結束標籤 -->
+    <!-- END OF COMPLETE INDEX FILE -->
+    <!-- END OF COMPLETE INDEX FILE -->
     <!-- END OF COMPLETE INDEX FILE -->
