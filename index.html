@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -984,6 +984,7 @@
         }
 
         .filter-label {
+          display: block;
           margin: 14px 0 8px;
           color: #8b8295;
           font-size: 14px;
@@ -1703,6 +1704,11 @@
 
         <div class="filter-label">依名稱搜尋</div>
         <input id="communitySearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
+
+        <label class="filter-label" for="activityFilter">依團務搜尋</label>
+        <select id="activityFilter">
+          <option value="">全部團務</option>
+        </select>
       </div>
 
       <div id="progressList"></div>
@@ -3099,6 +3105,7 @@
 
       const progressList = document.getElementById("progressList");
       const communitySearch = document.getElementById("communitySearch");
+      const activityFilter = document.getElementById("activityFilter");
       const PUBLIC_PROGRESS_CACHE_MS = 60 * 1000;
       let progressLoadedAt = 0;
       let progressRequest = null;
@@ -3127,6 +3134,7 @@
               : [];
             progressLoadedAt = Date.now();
 
+            updateActivityOptions();
             renderProgress();
           } catch (error) {
             console.error(error);
@@ -3165,16 +3173,32 @@
         return "";
       }
 
+      function updateActivityOptions() {
+        const selected = activityFilter.value;
+        const activities = [...new Set(defaultProgressData
+          .map(item => String(item.activity || item.community || "").trim())
+          .filter(Boolean))]
+          .sort((a, b) => a.localeCompare(b, "zh-TW"));
+
+        activityFilter.innerHTML = `<option value="">全部團務</option>` + activities
+          .map(activity => `<option value="${escapeHTML(activity)}">${escapeHTML(activity)}</option>`)
+          .join("");
+        activityFilter.value = activities.includes(selected) ? selected : "";
+      }
+
       function renderProgress() {
         const searchText = communitySearch.value.trim().toLowerCase();
+        const selectedActivity = activityFilter.value;
 
         const filtered = defaultProgressData.filter(item => {
           const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
           const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
+          const activity = String(item.activity || item.community || "").trim();
+          const matchesActivity = !selectedActivity || activity === selectedActivity;
           const facebook = String(item.facebookName || "").trim().toLowerCase();
           const matchesName = !searchText || facebook.includes(searchText);
 
-          return matchesType && matchesGroup && matchesName;
+          return matchesType && matchesGroup && matchesActivity && matchesName;
         });
 
         progressList.innerHTML = "";
@@ -3288,6 +3312,7 @@
       });
 
       communitySearch.addEventListener("input", renderProgress);
+      activityFilter.addEventListener("change", renderProgress);
 
       resetScroll();
     </script>
