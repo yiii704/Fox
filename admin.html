@@ -6,7 +6,7 @@
   <meta name="format-detection" content="telephone=no">
   <title>狐狸🦊管理後台</title>
   <link rel="manifest" href="admin.webmanifest">
-  <link rel="apple-touch-icon" sizes="192x192" href="admin-icon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="狐狸管理後台">
 
@@ -487,6 +487,11 @@
           <div class="filter-block">
             <div class="filter-title">依名稱搜尋</div>
             <input id="nameSearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
+
+            <div class="filter-title" style="margin-top:16px;">依團務搜尋</div>
+            <select id="activityFilter" aria-label="依團務搜尋">
+              <option value="">全部團務</option>
+            </select>
           </div>
         </div>
       </div>
@@ -530,6 +535,7 @@
     const submissionList = document.getElementById("submissionList");
     const summaryText = document.getElementById("summaryText");
     const nameSearch = document.getElementById("nameSearch");
+    const activityFilter = document.getElementById("activityFilter");
 
     function escapeHTML(value) {
       return String(value ?? "")
@@ -722,17 +728,33 @@
 
     function getFilteredSubmissions() {
       const searchText = nameSearch.value.trim().toLowerCase();
+      const selectedActivity = activityFilter.value;
 
       return submissions
         .map((item, realIndex) => ({ item, realIndex }))
         .filter(({ item }) => {
           const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
           const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
+          const activity = String(item.activity || item.community || "").trim();
+          const matchesActivity = !selectedActivity || activity === selectedActivity;
           const name = String(item.facebookName || "").trim().toLowerCase();
           const matchesSearch = !searchText || name.includes(searchText);
 
-          return matchesType && matchesGroup && matchesSearch;
+          return matchesType && matchesGroup && matchesActivity && matchesSearch;
         });
+    }
+
+    function updateActivityOptions() {
+      const selected = activityFilter.value;
+      const activities = [...new Set(submissions
+        .map(item => String(item.activity || item.community || "").trim())
+        .filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "zh-TW"));
+
+      activityFilter.innerHTML = `<option value="">全部團務</option>` + activities
+        .map(activity => `<option value="${escapeHTML(activity)}">${escapeHTML(activity)}</option>`)
+        .join("");
+      activityFilter.value = activities.includes(selected) ? selected : "";
     }
 
     function bindRenderedActions() {
@@ -821,6 +843,7 @@
           ? result.submissions.map(normalizeAdminSubmission)
           : [];
 
+        updateActivityOptions();
         renderSubmissions();
       } catch (error) {
         console.error(error);
@@ -843,7 +866,7 @@
       loginButton.textContent = "登入中…";
 
       try {
-        const response = await fetch(WORKER_URL + "/admin/list", {
+        const response = await fetch(WORKER_URL + "/admin/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -857,14 +880,11 @@
           throw new Error(result.message || "登入失敗");
         }
 
-        submissions = Array.isArray(result.submissions)
-          ? result.submissions.map(normalizeAdminSubmission)
-          : [];
-
         passwordInput.value = "";
         loginArea.style.display = "none";
         adminArea.style.display = "block";
-        renderSubmissions();
+        summaryText.textContent = "正在讀取資料…";
+        loadSubmissions();
         refreshPushStatus().catch(error => console.error(error));
       } catch (error) {
         adminPassword = "";
@@ -1133,6 +1153,7 @@
     });
 
     nameSearch.addEventListener("input", renderSubmissions);
+    activityFilter.addEventListener("change", renderSubmissions);
   </script>
 </body>
 </html>
