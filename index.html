@@ -1,13 +1,13 @@
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="format-detection" content="telephone=no">
-      <title>狐狸🦊日韓通路代購｜拆車</title>
+      <title>狐狸🦊日韓通路代購/拆車</title>
       <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 
-      <meta property="og:title" content="狐狸🦊日韓通路代購｜拆車">
+      <meta property="og:title" content="狐狸🦊日韓通路代購/拆車">
       <meta property="og:description" content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢">
       <meta property="og:type" content="website">
       <meta property="og:url" content="https://yiii704.github.io/Fox/">
@@ -1349,7 +1349,7 @@
 
     <body class="home-mode">
 
-    <h1>狐狸🦊日韓通路代購｜拆車</h1>
+    <h1>狐狸🦊日韓通路代購/拆車</h1>
 
     <main id="homePage" class="page active-page">
       <div class="home-background" aria-hidden="true"></div>
@@ -1922,6 +1922,10 @@
           document.body.classList.add("home-mode");
         }
 
+        if (pageId === "progressPage") {
+          loadPublicProgress();
+        }
+
         resetScroll();
       }
 
@@ -2003,7 +2007,7 @@
 
       const productData = {
         "this-that-market-skzoo": [
-          { name: "MARKET SKZOO VER.", price: 900, variants: [...skzMembers, "TASY"] },
+          { name: "MARKET SKZOO VER.", price: 1000, variants: [...skzMembers, "TASY"] },
           { name: "一套九隻", price: 8100 }
         ],
 
@@ -3014,8 +3018,8 @@
           resetOrderFlow();
           paymentGroupSelect.value = "";
           paymentGroupStartButton.disabled = true;
-          await loadPublicProgress();
           showPage("successPage", { skipPaymentReset: true });
+          loadPublicProgress({ force: true });
         } catch (error) {
           console.error(error);
           alert("目前無法送出資料，請稍後再試。");
@@ -3095,29 +3099,45 @@
 
       const progressList = document.getElementById("progressList");
       const communitySearch = document.getElementById("communitySearch");
+      const PUBLIC_PROGRESS_CACHE_MS = 60 * 1000;
+      let progressLoadedAt = 0;
+      let progressRequest = null;
 
-      async function loadPublicProgress() {
+      async function loadPublicProgress({ force = false } = {}) {
+        const cacheIsFresh = Date.now() - progressLoadedAt < PUBLIC_PROGRESS_CACHE_MS;
+        if (!force && progressLoadedAt && cacheIsFresh) return;
+        if (progressRequest) return progressRequest;
+
         progressList.innerHTML = `<div class="card empty-message">讀取進度中… 🦊</div>`;
 
-        try {
-          const response = await fetch(WORKER_URL + "/public/list", {
-            cache: "no-store"
-          });
+        progressRequest = (async () => {
+          try {
+            const response = await fetch(WORKER_URL + "/public/list", {
+              cache: "no-store"
+            });
 
-          const result = await response.json();
+            const result = await response.json();
 
-          if (!response.ok || !result.success) {
-            throw new Error(result.message || "讀取失敗");
+            if (!response.ok || !result.success) {
+              throw new Error(result.message || "讀取失敗");
+            }
+
+            defaultProgressData = Array.isArray(result.submissions)
+              ? result.submissions
+              : [];
+            progressLoadedAt = Date.now();
+
+            renderProgress();
+          } catch (error) {
+            console.error(error);
+            progressList.innerHTML = `<div class="card empty-message">暫時無法讀取進度 🦊</div>`;
           }
+        })();
 
-          defaultProgressData = Array.isArray(result.submissions)
-            ? result.submissions
-            : [];
-
-          renderProgress();
-        } catch (error) {
-          console.error(error);
-          progressList.innerHTML = `<div class="card empty-message">暫時無法讀取進度 🦊</div>`;
+        try {
+          await progressRequest;
+        } finally {
+          progressRequest = null;
         }
       }
 
@@ -3270,7 +3290,6 @@
       communitySearch.addEventListener("input", renderProgress);
 
       resetScroll();
-      loadPublicProgress();
     </script>
 
     </body>
