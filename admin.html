@@ -285,6 +285,11 @@
       color: #287747;
     }
 
+    .meta-pill.round {
+      background: #fceaf3;
+      color: #a34d72;
+    }
+
     .product-list {
       margin-top: 9px;
       padding: 11px 13px;
@@ -356,6 +361,10 @@
     }
 
     .status-label select {
+      margin-top: 5px;
+    }
+
+    .status-label input {
       margin-top: 5px;
     }
 
@@ -647,6 +656,8 @@
       const stockManaged = stockManagedGroups.has(item.groupId);
       const paymentStatus = item.paymentStatus || "待對帳";
       const progress = item.progress || "已登記";
+      const saleRound = item.saleRound || "";
+      const shippingEstimate = String(item.shippingEstimate || "");
       const activity = item.activity || item.community || "團務";
       const groupType = item.groupType || "";
       const group = item.group || "";
@@ -662,6 +673,7 @@
               <div class="meta-pills">
                 ${groupType ? `<span class="meta-pill ${getTypeClass(groupType)}">${escapeHTML(groupType)}</span>` : ""}
                 ${group ? `<span class="meta-pill">${escapeHTML(group)}</span>` : ""}
+                ${saleRound ? `<span class="meta-pill round">［${escapeHTML(saleRound)}］</span>` : ""}
               </div>
 
               <div class="order-heading-row">
@@ -708,12 +720,27 @@
                     <option value="已完成" ${progress === "已完成" ? "selected" : ""}>已完成</option>
                   </select>
                 </label>
+
+                <label class="status-label">
+                  販售批次
+                  <select class="sale-round-select" data-index="${realIndex}">
+                    <option value="" ${saleRound === "" ? "selected" : ""}>尚未設定</option>
+                    <option value="一販" ${saleRound === "一販" ? "selected" : ""}>一販</option>
+                    <option value="二販" ${saleRound === "二販" ? "selected" : ""}>二販</option>
+                    <option value="三販" ${saleRound === "三販" ? "selected" : ""}>三販</option>
+                  </select>
+                </label>
+
+                <label class="status-label">
+                  預計出貨（選填）
+                  <input class="shipping-estimate-input" data-index="${realIndex}" type="text" maxlength="80" placeholder="例如：2027 年 3 月" value="${escapeHTML(shippingEstimate)}">
+                </label>
               </div>
             </div>
           </div>
 
           <div class="submission-actions">
-            <button type="button" class="save-button" data-save-index="${realIndex}">儲存進度</button>
+            <button type="button" class="save-button" data-save-index="${realIndex}">儲存狀態與販售資訊</button>
             <button
               type="button"
               class="delete-button ${stockManaged ? "stock-delete" : ""}"
@@ -904,6 +931,8 @@
 
       const paymentStatus = card.querySelector(".payment-status-select")?.value || "待對帳";
       const progress = card.querySelector(".progress-select")?.value || "已登記";
+      const saleRound = card.querySelector(".sale-round-select")?.value || "";
+      const shippingEstimate = card.querySelector(".shipping-estimate-input")?.value.trim() || "";
 
       button.disabled = true;
       const oldText = button.textContent;
@@ -919,7 +948,9 @@
           body: JSON.stringify({
             path: item._path,
             paymentStatus,
-            progress
+            progress,
+            saleRound,
+            shippingEstimate
           })
         });
 
@@ -931,7 +962,10 @@
 
         submissions[realIndex].paymentStatus = paymentStatus;
         submissions[realIndex].progress = progress;
-        alert("狀態已儲存");
+        submissions[realIndex].saleRound = saleRound;
+        submissions[realIndex].shippingEstimate = shippingEstimate;
+        renderSubmissions();
+        alert("狀態與販售資訊已儲存");
       } catch (error) {
         alert(error.message || "儲存失敗");
       } finally {
