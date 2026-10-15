@@ -1060,6 +1060,27 @@
           word-break: break-word;
         }
 
+        .sale-round-tag {
+          display: inline-block;
+          margin-left: 5px;
+          padding: 2px 7px;
+          background: #fceaf3;
+          color: #a34d72;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 700;
+          vertical-align: middle;
+          white-space: nowrap;
+        }
+
+        .shipping-estimate {
+          display: block;
+          margin-top: 4px;
+          color: #8d6880;
+          font-size: 12px;
+          line-height: 1.4;
+        }
+
         .community-small {
           margin-top: 4px;
           color: #8b8295;
@@ -3211,6 +3232,17 @@
         return "";
       }
 
+      function getSaleRoundHTML(item) {
+        const round = String(item.saleRound || "");
+        if (!["一販", "二販", "三販"].includes(round)) return "";
+        return `<span class="sale-round-tag">［${escapeHTML(round)}］</span>`;
+      }
+
+      function getShippingEstimateHTML(item) {
+        const estimate = String(item.shippingEstimate || "").trim();
+        return estimate ? `<span class="shipping-estimate">預計出貨：${escapeHTML(estimate)}</span>` : "";
+      }
+
       function updateActivityOptions() {
         const selected = activityFilter.value;
         const activities = [...new Set(defaultProgressData
@@ -3267,7 +3299,8 @@
                   return `
                     <div class="progress-member-row">
                       <div>
-                        <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
+                        <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}${getSaleRoundHTML(item)}</div>
+                        ${getShippingEstimateHTML(item)}
                         <div class="community-small">${getPublicProductHTML(item)}</div>
                       </div>
 
@@ -3305,7 +3338,8 @@
 
                 return `
                   <div class="public-person-order">
-                    <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}</div>
+                    <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}${getSaleRoundHTML(item)}</div>
+                    ${getShippingEstimateHTML(item)}
 
                     <span class="public-order-type ${getOrderTypeClass(item.groupType)}">
                       ${escapeHTML(item.groupType || "")}
