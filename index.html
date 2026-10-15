@@ -3127,7 +3127,7 @@
 
             lastSource = source;
 
-            return `${sourceHTML}<div class="public-product-line">${escapeHTML(line)}</div>`;
+            return `${sourceHTML}<div class="public-product-line">${escapeHTML(line)}${getSaleRoundHTML(product)}</div>`;
           }).join("");
         }
 
@@ -3154,7 +3154,7 @@
             text = `商品 ×${quantity}`;
           }
 
-          return `<div class="public-product-line">${escapeHTML(text)}</div>`;
+          return `<div class="public-product-line">${escapeHTML(text)}${getSaleRoundHTML(product)}</div>`;
         }).join("");
       }
 
@@ -3235,7 +3235,7 @@
       function getSaleRoundHTML(item) {
         const round = String(item.saleRound || "");
         if (!["一販", "二販", "三販"].includes(round)) return "";
-        return `<span class="sale-round-tag">［${escapeHTML(round)}］</span>`;
+        return `<span class="sale-round-tag">${escapeHTML(round)}</span>`;
       }
 
       function getShippingEstimateHTML(item) {
@@ -3299,9 +3299,9 @@
                   return `
                     <div class="progress-member-row">
                       <div>
-                        <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}${getSaleRoundHTML(item)}</div>
-                        ${getShippingEstimateHTML(item)}
+                        <div class="facebook-name">${escapeHTML(item.facebookName || "未填名稱")}</div>
                         <div class="community-small">${getPublicProductHTML(item)}</div>
+                        ${getShippingEstimateHTML(item)}
                       </div>
 
                       <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
@@ -3338,14 +3338,14 @@
 
                 return `
                   <div class="public-person-order">
-                    <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}${getSaleRoundHTML(item)}</div>
-                    ${getShippingEstimateHTML(item)}
+                    <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}</div>
 
                     <span class="public-order-type ${getOrderTypeClass(item.groupType)}">
                       ${escapeHTML(item.groupType || "")}
                     </span>
 
                     <div class="public-search-products">${getPublicProductHTML(item)}</div>
+                    ${getShippingEstimateHTML(item)}
 
                     <div class="public-order-statuses">
                       <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
