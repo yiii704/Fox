@@ -317,6 +317,32 @@
       word-break: break-word;
     }
 
+    .admin-product-entry {
+      padding: 7px 0;
+      border-bottom: 1px dashed #e8dff5;
+    }
+
+    .admin-product-entry:last-child {
+      border-bottom: none;
+    }
+
+    .product-round-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 6px;
+      color: #837493;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .product-round-row select {
+      width: auto;
+      min-width: 112px;
+      padding: 6px 9px;
+      font-size: 13px;
+    }
+
     .payment-inline {
       overflow-x: auto;
       margin-top: 5px;
@@ -602,6 +628,24 @@
         return `<div class="product-line">沒有商品資料</div>`;
       }
 
+      function renderProductEntry(product, index, text) {
+        const round = product.saleRound || "";
+        return `
+          <div class="admin-product-entry">
+            <div class="product-line">${escapeHTML(text)}</div>
+            <label class="product-round-row">
+              販售批次
+              <select class="product-round-select" data-product-index="${index}">
+                <option value="" ${round === "" ? "selected" : ""}>尚未設定</option>
+                <option value="一販" ${round === "一販" ? "selected" : ""}>一販</option>
+                <option value="二販" ${round === "二販" ? "selected" : ""}>二販</option>
+                <option value="三販" ${round === "三販" ? "selected" : ""}>三販</option>
+              </select>
+            </label>
+          </div>
+        `;
+      }
+
       if (
         item.groupId === COMBINED_STOCK_GROUP_ID
         || item.groupType === "現貨"
@@ -609,7 +653,7 @@
       ) {
         let lastSource = "";
 
-        return products.map(product => {
+        return products.map((product, index) => {
           const source = String(product.sourceActivity || "現貨").trim();
           const productName = String(product.productName || "商品").trim();
           const variant = String(product.variant || "").trim();
@@ -626,11 +670,11 @@
             : "";
 
           lastSource = source;
-          return `${sourceHTML}<div class="product-line">${escapeHTML(text)}</div>`;
+          return `${sourceHTML}${renderProductEntry(product, index, text)}`;
         }).join("");
       }
 
-      return products.map(product => {
+      return products.map((product, index) => {
         const productName = String(product.productName || "").trim();
         const variant = String(product.variant || "").trim();
         const quantity = Math.max(1, Number(product.quantity || 1));
@@ -648,7 +692,7 @@
 
         if (price > 0) text += `・${formatMoney(price)}`;
 
-        return `<div class="product-line">${escapeHTML(text)}</div>`;
+        return renderProductEntry(product, index, text);
       }).join("");
     }
 
@@ -656,7 +700,6 @@
       const stockManaged = stockManagedGroups.has(item.groupId);
       const paymentStatus = item.paymentStatus || "待對帳";
       const progress = item.progress || "已登記";
-      const saleRound = item.saleRound || "";
       const shippingEstimate = String(item.shippingEstimate || "");
       const activity = item.activity || item.community || "團務";
       const groupType = item.groupType || "";
@@ -673,7 +716,6 @@
               <div class="meta-pills">
                 ${groupType ? `<span class="meta-pill ${getTypeClass(groupType)}">${escapeHTML(groupType)}</span>` : ""}
                 ${group ? `<span class="meta-pill">${escapeHTML(group)}</span>` : ""}
-                ${saleRound ? `<span class="meta-pill round">［${escapeHTML(saleRound)}］</span>` : ""}
               </div>
 
               <div class="order-heading-row">
@@ -718,16 +760,6 @@
                     <option value="已到貨" ${progress === "已到貨" ? "selected" : ""}>已到貨</option>
                     <option value="已寄出" ${progress === "已寄出" ? "selected" : ""}>已寄出</option>
                     <option value="已完成" ${progress === "已完成" ? "selected" : ""}>已完成</option>
-                  </select>
-                </label>
-
-                <label class="status-label">
-                  販售批次
-                  <select class="sale-round-select" data-index="${realIndex}">
-                    <option value="" ${saleRound === "" ? "selected" : ""}>尚未設定</option>
-                    <option value="一販" ${saleRound === "一販" ? "selected" : ""}>一販</option>
-                    <option value="二販" ${saleRound === "二販" ? "selected" : ""}>二販</option>
-                    <option value="三販" ${saleRound === "三販" ? "selected" : ""}>三販</option>
                   </select>
                 </label>
 
@@ -931,7 +963,8 @@
 
       const paymentStatus = card.querySelector(".payment-status-select")?.value || "待對帳";
       const progress = card.querySelector(".progress-select")?.value || "已登記";
-      const saleRound = card.querySelector(".sale-round-select")?.value || "";
+      const productRounds = [...card.querySelectorAll(".product-round-select")]
+        .map(select => select.value);
       const shippingEstimate = card.querySelector(".shipping-estimate-input")?.value.trim() || "";
 
       button.disabled = true;
@@ -949,7 +982,7 @@
             path: item._path,
             paymentStatus,
             progress,
-            saleRound,
+            productRounds,
             shippingEstimate
           })
         });
@@ -962,7 +995,9 @@
 
         submissions[realIndex].paymentStatus = paymentStatus;
         submissions[realIndex].progress = progress;
-        submissions[realIndex].saleRound = saleRound;
+        submissions[realIndex].saleRound = "";
+        submissions[realIndex].products = (submissions[realIndex].products || [])
+          .map((product, index) => ({ ...product, saleRound: productRounds[index] }));
         submissions[realIndex].shippingEstimate = shippingEstimate;
         renderSubmissions();
         alert("狀態與販售資訊已儲存");
