@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -326,6 +326,13 @@
           line-height: 1.45;
         }
 
+        .stock-combined-note {
+          display: block;
+          margin-top: 3px;
+          color: #8b8295;
+          font-size: 12px;
+        }
+
         .payment-start-help {
           margin-bottom: 16px;
           color: #71657d;
@@ -596,6 +603,12 @@
           font-size: 19px;
           font-weight: 700;
           line-height: 1.5;
+        }
+
+        .combined-source-note {
+          margin: -6px 0 12px;
+          color: #81758d;
+          font-size: 14px;
         }
 
         .combined-source-gallery {
@@ -1425,7 +1438,8 @@
               <div class="order-status">開放中</div>
 
               <div class="stock-combined-list">
-                <div class="stock-combined-item">Run it JAPAN 一番賞</div>
+                <div class="stock-combined-item">Run it JAPAN 一番賞<span class="stock-combined-note">官方預計12月出貨</span></div>
+                <div class="stock-combined-item">Run it JAPAN 一番賞 2.0<span class="stock-combined-note">官方預計2027年3月出貨</span></div>
                 <div class="stock-combined-item">FANS LUCK DRAW（&amp; ver）</div>
                 <div class="stock-combined-item">9/5 名古屋場限</div>
               </div>
@@ -1777,6 +1791,7 @@
 
       const stockManagedGroups = new Set([
         "run-it-japan-kuji",
+        "run-it-japan-kuji-2",
         "nagoya-0905",
         "osaka-0919",
         "osaka-0920",
@@ -1791,6 +1806,7 @@
       const combinedGroupSources = {
         [COMBINED_STOCK_GROUP_ID]: [
           "run-it-japan-kuji",
+          "run-it-japan-kuji-2",
           "fans-luck-draw-and-ver",
           "nagoya-0905"
         ],
@@ -2106,6 +2122,12 @@
           { name: "SKZOO 收納盒", price: 150, stockManaged: true }
         ],
 
+        "run-it-japan-kuji-2": [
+          { name: "貼紙A", price: 80, stockManaged: true },
+          { name: "貼紙B", price: 80, stockManaged: true },
+          { name: "鑰匙圈", price: 150, stockManaged: true }
+        ],
+
         "nagoya-0905": [
           { name: "9/5 名古屋場限", price: 325, stockManaged: true }
         ],
@@ -2188,7 +2210,15 @@
         "run-it-japan-kuji": {
           groupType: "現貨",
           group: "Stray Kids",
-          activity: "Run it JAPAN 一番賞"
+          activity: "Run it JAPAN 一番賞",
+          note: "官方預計12月出貨"
+        },
+
+        "run-it-japan-kuji-2": {
+          groupType: "現貨",
+          group: "Stray Kids",
+          activity: "Run it JAPAN 一番賞 2.0",
+          note: "官方預計2027年3月出貨"
         },
 
         "nagoya-0905": {
@@ -2650,6 +2680,7 @@
           return `
             <section class="combined-source-section" data-source-section="${escapeHTML(sourceGroupId)}">
               <div class="combined-source-title">${escapeHTML(meta.activity || sourceGroupId)}</div>
+              ${meta.note ? `<div class="combined-source-note">${escapeHTML(meta.note)}</div>` : ""}
               <div class="combined-source-gallery">
                 ${buildImageGalleryHTML(sourceGroupId)}
               </div>
