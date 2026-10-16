@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -1060,17 +1060,44 @@
           word-break: break-word;
         }
 
-        .sale-round-tag {
-          display: inline-block;
-          margin-left: 5px;
-          padding: 2px 7px;
+        .public-round-row {
+          display: grid;
+          grid-template-columns: 46px minmax(0, 1fr);
+          align-items: start;
+          gap: 9px;
+          padding: 7px 0;
+          border-bottom: 1px dashed #e8dff5;
+        }
+
+        .public-round-row:last-child {
+          border-bottom: 0;
+        }
+
+        .public-round-row.unassigned {
+          display: block;
+        }
+
+        .public-round-label {
+          padding: 3px 5px;
           background: #fceaf3;
           color: #a34d72;
           border-radius: 999px;
           font-size: 12px;
           font-weight: 700;
-          vertical-align: middle;
+          text-align: center;
           white-space: nowrap;
+        }
+
+        .public-round-products {
+          min-width: 0;
+        }
+
+        .product-shipping-estimate {
+          display: block;
+          margin-top: 2px;
+          color: #8d6880;
+          font-size: 12px;
+          line-height: 1.4;
         }
 
         .shipping-estimate {
@@ -1094,6 +1121,10 @@
           margin-top: 2px;
           line-height: 1.45;
           word-break: break-word;
+        }
+
+        .public-product-name {
+          min-width: 0;
         }
 
         .public-product-source {
@@ -3098,63 +3129,65 @@
         const products = Array.isArray(item.products) ? item.products : [];
         if (!products.length) return "";
 
-        if (
-          isCombinedGroup(item.groupId)
-          || item.groupId === "run-it-japan-kuji"
-        ) {
-          let lastSource = "";
+        function renderProductRows(roundProducts) {
+          if (isCombinedGroup(item.groupId) || item.groupId === "run-it-japan-kuji") {
+            let lastSource = "";
 
-          return products.map(product => {
-            const source = String(
-              product.sourceActivity
-              || (
-                item.groupId === "run-it-japan-kuji"
-                  ? "Run it JAPAN 一番賞"
-                  : "團務"
-              )
-            ).trim();
+            return roundProducts.map(product => {
+              const source = String(product.sourceActivity || (
+                item.groupId === "run-it-japan-kuji" ? "Run it JAPAN 一番賞" : "團務"
+              )).trim();
+              const productName = String(product.productName || "").trim();
+              const variant = String(product.variant || "").trim();
+              const quantity = Math.max(1, Number(product.quantity || 1));
+              const line = `${productName}${variant ? `｜${variant}` : ""} ×${quantity}`;
+              const sourceHTML = source && source !== lastSource
+                ? `<span class="public-product-source">${escapeHTML(source)}</span>`
+                : "";
+
+              lastSource = source;
+              return `${sourceHTML}<div class="public-product-entry"><div class="public-product-line">${escapeHTML(line)}</div>${getProductShippingHTML(product)}</div>`;
+            }).join("");
+          }
+
+          const activity = String(item.activity || item.community || "").trim();
+
+          return roundProducts.map(product => {
             const productName = String(product.productName || "").trim();
             const variant = String(product.variant || "").trim();
             const quantity = Math.max(1, Number(product.quantity || 1));
+            let text = "";
 
-            let line = productName;
-            if (variant) line += `｜${variant}`;
-            line += ` ×${quantity}`;
+            if (productName && activity && productName === activity) {
+              text = variant ? `${variant} ×${quantity}` : `×${quantity}`;
+            } else if (productName) {
+              text = productName;
+              if (variant) text += `｜${variant}`;
+              text += ` ×${quantity}`;
+            } else if (product.name) {
+              text = String(product.name);
+              if (activity && text.startsWith(activity + "｜")) {
+                text = text.slice(activity.length + 1);
+              }
+            } else {
+              text = `商品 ×${quantity}`;
+            }
 
-            const sourceHTML = source && source !== lastSource
-              ? `<span class="public-product-source">${escapeHTML(source)}</span>`
-              : "";
-
-            lastSource = source;
-
-            return `${sourceHTML}<div class="public-product-line">${escapeHTML(line)}${getSaleRoundHTML(product)}</div>`;
+            return `<div class="public-product-entry"><div class="public-product-line">${escapeHTML(text)}</div>${getProductShippingHTML(product)}</div>`;
           }).join("");
         }
 
-        const activity = String(item.activity || item.community || "").trim();
-
-        return products.map(product => {
-          const productName = String(product.productName || "").trim();
-          const variant = String(product.variant || "").trim();
-          const quantity = Math.max(1, Number(product.quantity || 1));
-          let text = "";
-
-          if (productName && activity && productName === activity) {
-            text = variant ? `${variant} ×${quantity}` : `×${quantity}`;
-          } else if (productName) {
-            text = productName;
-            if (variant) text += `｜${variant}`;
-            text += ` ×${quantity}`;
-          } else if (product.name) {
-            text = String(product.name);
-            if (activity && text.startsWith(activity + "｜")) {
-              text = text.slice(activity.length + 1);
-            }
-          } else {
-            text = `商品 ×${quantity}`;
+        return ["一販", "二販", "三販", ""].map(round => {
+          const roundProducts = products.filter(product =>
+            ["一販", "二販", "三販"].includes(String(product.saleRound || ""))
+              ? product.saleRound === round
+              : round === ""
+          );
+          if (!roundProducts.length) return "";
+          if (!round) {
+            return `<div class="public-round-row unassigned"><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
           }
-
-          return `<div class="public-product-line">${escapeHTML(text)}${getSaleRoundHTML(product)}</div>`;
+          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
         }).join("");
       }
 
@@ -3232,10 +3265,12 @@
         return "";
       }
 
-      function getSaleRoundHTML(item) {
-        const round = String(item.saleRound || "");
-        if (!["一販", "二販", "三販"].includes(round)) return "";
-        return `<span class="sale-round-tag">${escapeHTML(round)}</span>`;
+      function getProductShippingHTML(product) {
+        if (product.saleRound !== "二販") return "";
+        const estimate = String(product.shippingEstimate || "").trim();
+        return estimate
+          ? `<span class="product-shipping-estimate">二販預計出貨：${escapeHTML(estimate)}</span>`
+          : "";
       }
 
       function getShippingEstimateHTML(item) {
