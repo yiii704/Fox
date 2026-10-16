@@ -343,6 +343,22 @@
       font-size: 13px;
     }
 
+    .product-shipping-row {
+      display: block;
+      margin-top: 7px;
+      color: #837493;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .product-shipping-row[hidden] {
+      display: none;
+    }
+
+    .product-shipping-row input {
+      margin-top: 5px;
+    }
+
     .payment-inline {
       overflow-x: auto;
       margin-top: 5px;
@@ -630,6 +646,7 @@
 
       function renderProductEntry(product, index, text) {
         const round = product.saleRound || "";
+        const productShippingEstimate = String(product.shippingEstimate || "");
         return `
           <div class="admin-product-entry">
             <div class="product-line">${escapeHTML(text)}</div>
@@ -641,6 +658,10 @@
                 <option value="二販" ${round === "二販" ? "selected" : ""}>二販</option>
                 <option value="三販" ${round === "三販" ? "selected" : ""}>三販</option>
               </select>
+            </label>
+            <label class="product-shipping-row" ${round === "二販" ? "" : "hidden"}>
+              個別二販出貨備註（選填）
+              <input class="product-shipping-input" data-product-index="${index}" type="text" maxlength="80" placeholder="例如：2027 年 3 月" value="${escapeHTML(productShippingEstimate)}" ${round === "二販" ? "" : "disabled"}>
             </label>
           </div>
         `;
@@ -701,6 +722,7 @@
       const paymentStatus = item.paymentStatus || "待對帳";
       const progress = item.progress || "已登記";
       const shippingEstimate = String(item.shippingEstimate || "");
+      const secondRoundShipDate = String(item.secondRoundShipDate || "");
       const activity = item.activity || item.community || "團務";
       const groupType = item.groupType || "";
       const group = item.group || "";
@@ -758,13 +780,21 @@
                     <option value="已登記" ${progress === "已登記" ? "selected" : ""}>已登記</option>
                     <option value="已下單" ${progress === "已下單" ? "selected" : ""}>已下單</option>
                     <option value="已到貨" ${progress === "已到貨" ? "selected" : ""}>已到貨</option>
+                    <option value="一販已到貨" ${progress === "一販已到貨" ? "selected" : ""}>一販已到貨</option>
+                    <option value="二販已到貨" ${progress === "二販已到貨" ? "selected" : ""}>二販已到貨</option>
+                    <option value="三販已到貨" ${progress === "三販已到貨" ? "selected" : ""}>三販已到貨</option>
                     <option value="已寄出" ${progress === "已寄出" ? "selected" : ""}>已寄出</option>
                     <option value="已完成" ${progress === "已完成" ? "selected" : ""}>已完成</option>
                   </select>
                 </label>
 
                 <label class="status-label">
-                  預計出貨（選填）
+                  二販預計出貨日（選填）
+                  <input class="second-round-ship-date" data-index="${realIndex}" type="date" value="${escapeHTML(secondRoundShipDate)}">
+                </label>
+
+                <label class="status-label">
+                  整筆訂單預計出貨（選填）
                   <input class="shipping-estimate-input" data-index="${realIndex}" type="text" maxlength="80" placeholder="例如：2027 年 3 月" value="${escapeHTML(shippingEstimate)}">
                 </label>
               </div>
@@ -817,6 +847,18 @@
     }
 
     function bindRenderedActions() {
+      document.querySelectorAll(".product-round-select").forEach(select => {
+        select.addEventListener("change", () => {
+          const row = select.closest(".admin-product-entry")?.querySelector(".product-shipping-row");
+          const input = row?.querySelector(".product-shipping-input");
+          if (!row || !input) return;
+          const isSecondRound = select.value === "二販";
+          row.hidden = !isSecondRound;
+          input.disabled = !isSecondRound;
+          if (!isSecondRound) input.value = "";
+        });
+      });
+
       document.querySelectorAll("[data-save-index]").forEach(button => {
         button.addEventListener("click", () => {
           saveSubmission(Number(button.dataset.saveIndex), button);
@@ -965,7 +1007,10 @@
       const progress = card.querySelector(".progress-select")?.value || "已登記";
       const productRounds = [...card.querySelectorAll(".product-round-select")]
         .map(select => select.value);
+      const productShippingEstimates = [...card.querySelectorAll(".product-shipping-input")]
+        .map((input, index) => productRounds[index] === "二販" ? input.value.trim() : "");
       const shippingEstimate = card.querySelector(".shipping-estimate-input")?.value.trim() || "";
+      const secondRoundShipDate = card.querySelector(".second-round-ship-date")?.value || "";
 
       button.disabled = true;
       const oldText = button.textContent;
@@ -983,7 +1028,9 @@
             paymentStatus,
             progress,
             productRounds,
-            shippingEstimate
+            productShippingEstimates,
+            shippingEstimate,
+            secondRoundShipDate
           })
         });
 
@@ -997,8 +1044,13 @@
         submissions[realIndex].progress = progress;
         submissions[realIndex].saleRound = "";
         submissions[realIndex].products = (submissions[realIndex].products || [])
-          .map((product, index) => ({ ...product, saleRound: productRounds[index] }));
+          .map((product, index) => ({
+            ...product,
+            saleRound: productRounds[index],
+            shippingEstimate: productShippingEstimates[index]
+          }));
         submissions[realIndex].shippingEstimate = shippingEstimate;
+        submissions[realIndex].secondRoundShipDate = secondRoundShipDate;
         renderSubmissions();
         alert("狀態與販售資訊已儲存");
       } catch (error) {
