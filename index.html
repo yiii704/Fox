@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
@@ -1100,15 +1100,6 @@
           line-height: 1.4;
         }
 
-        .second-round-date {
-          display: block;
-          margin-top: 7px;
-          color: #8d6880;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-
         .shipping-estimate {
           display: block;
           margin-top: 4px;
@@ -1451,44 +1442,11 @@
         </div>
 
         <div class="group-type-content active" data-group-content="代購">
-          <div class="card order-card">
-            <div class="order-top">
-              <div class="order-group">Stray Kids・代購</div>
-              <div class="order-name">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</div>
-              <div class="order-status">開放中</div>
-            </div>
-            <button type="button" class="order-action" data-order="this-that-market-skzoo" data-return="groupPage">填寫匯款表單</button>
-          </div>
-
-          <div class="card order-card">
-            <div class="order-top">
-              <div class="order-group">Stray Kids・代購</div>
-              <div class="order-name">Stray Kids JAPAN SEASON’S GREETINGS</div>
-              <div class="order-status">開放中</div>
-            </div>
-            <button type="button" class="order-action" data-order="skz-japan-seasons-greetings" data-return="groupPage">填寫匯款表單</button>
-          </div>
-
-          <div class="card order-card">
-            <div class="order-top">
-              <div class="order-group">Stray Kids・代購</div>
-              <div class="order-name">Stray Kids 2027 Season’s Greetings</div>
-              <div class="order-status">開放中</div>
-            </div>
-            <button type="button" class="order-action" data-order="skz-seasons-greetings-2027" data-return="groupPage">填寫匯款表單</button>
-          </div>
+          <div class="card empty-message">目前沒有開放中的代購團務 🦊</div>
         </div>
 
         <div class="group-type-content" data-group-content="單特典">
-          <div class="card order-card">
-            <div class="order-top">
-              <div class="order-group">TWS・單特典</div>
-              <div class="order-name">SODA SODA 冬季限定</div>
-              <div class="order-status">開放中</div>
-            </div>
-            <button type="button" class="order-action" data-order="soda-soda-winter" data-return="groupPage">填寫匯款表單</button>
-          </div>
-
+          <div class="card empty-message">目前沒有開放中的單特典團務 🦊</div>
         </div>
 
         <div class="group-type-content" data-group-content="現貨">
@@ -1501,8 +1459,6 @@
               <div class="stock-combined-list">
                 <div class="stock-combined-item">Run it JAPAN 一番賞<span class="stock-combined-note">官方預計12月出貨</span></div>
                 <div class="stock-combined-item">Run it JAPAN 一番賞 2.0<span class="stock-combined-note">官方預計2027年3月出貨</span></div>
-                <div class="stock-combined-item">FANS LUCK DRAW（&amp; ver）</div>
-                <div class="stock-combined-item">9/5 名古屋場限</div>
               </div>
             </div>
 
@@ -1515,6 +1471,42 @@
     <section id="closedGroupPage" class="page">
       <button type="button" class="back-button" data-target="homePage">← 返回首頁</button>
       <h2>🗃️ 已結束團務</h2>
+
+      <div class="card order-card">
+        <div class="order-top">
+          <div class="order-group">TWS・單特典</div>
+          <div class="order-name">SODA SODA 冬季限定</div>
+          <div class="order-status closed">已結束</div>
+        </div>
+        <button type="button" class="order-action closed" disabled>已結束</button>
+      </div>
+
+      <div class="card order-card">
+        <div class="order-top">
+          <div class="order-group">Stray Kids・代購</div>
+          <div class="order-name">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</div>
+          <div class="order-status closed">已結束</div>
+        </div>
+        <button type="button" class="order-action closed" disabled>已結束</button>
+      </div>
+
+      <div class="card order-card">
+        <div class="order-top">
+          <div class="order-group">Stray Kids・代購</div>
+          <div class="order-name">Stray Kids JAPAN SEASON’S GREETINGS</div>
+          <div class="order-status closed">已結束</div>
+        </div>
+        <button type="button" class="order-action closed" disabled>已結束</button>
+      </div>
+
+      <div class="card order-card">
+        <div class="order-top">
+          <div class="order-group">Stray Kids・代購</div>
+          <div class="order-name">Stray Kids 2027 Season’s Greetings</div>
+          <div class="order-status closed">已結束</div>
+        </div>
+        <button type="button" class="order-action closed" disabled>已結束</button>
+      </div>
 
       <div class="card order-card">
         <div class="order-top">
@@ -1572,16 +1564,6 @@
 
         <select id="paymentGroupSelect">
           <option value="">請選擇團務</option>
-
-          <optgroup label="代購">
-            <option value="this-that-market-skzoo">&quot;THIS &amp; THAT&quot; MARKET SKZOO VER.</option>
-            <option value="skz-japan-seasons-greetings">Stray Kids JAPAN SEASON’S GREETINGS</option>
-            <option value="skz-seasons-greetings-2027">Stray Kids 2027 Season’s Greetings</option>
-          </optgroup>
-
-          <optgroup label="單特典">
-            <option value="soda-soda-winter">SODA SODA 冬季限定</option>
-          </optgroup>
 
           <optgroup label="現貨">
             <option value="in-stock-combined">現貨商品</option>
@@ -1843,12 +1825,21 @@
 
     <script>
       const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
+      const SALE_ROUNDS = ["一販", "二販", "三販", "四販", "五販", "六販", "七販", "八販", "九販", "十販"];
       const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
       const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
       const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
       const COMBINED_RUN_SANRIO_GROUP_ID = "run-it-sanrio-2";
 
       const upcomingGroups = new Set([]);
+      const closedGroups = new Set([
+        "this-that-market-skzoo",
+        "skz-japan-seasons-greetings",
+        "skz-seasons-greetings-2027",
+        "soda-soda-winter",
+        "soda-soda-wvs",
+        "soda-soda-universal"
+      ]);
 
       const stockManagedGroups = new Set([
         "run-it-japan-kuji",
@@ -1867,9 +1858,7 @@
       const combinedGroupSources = {
         [COMBINED_STOCK_GROUP_ID]: [
           "run-it-japan-kuji",
-          "run-it-japan-kuji-2",
-          "fans-luck-draw-and-ver",
-          "nagoya-0905"
+          "run-it-japan-kuji-2"
         ],
         [COMBINED_OSAKA_GROUP_ID]: [
           "osaka-0919",
@@ -2474,6 +2463,11 @@
         const groupId = paymentGroupSelect.value;
         if (!groupId) return;
 
+        if (closedGroups.has(groupId)) {
+          alert("此團務已結束。");
+          return;
+        }
+
         if (upcomingGroups.has(groupId)) {
           alert("此團務目前尚未開放。");
           return;
@@ -2490,6 +2484,11 @@
       document.querySelectorAll("[data-order]").forEach(button => {
         button.addEventListener("click", async () => {
           const groupId = button.dataset.order;
+
+          if (closedGroups.has(groupId)) {
+            alert("此團務已結束。");
+            return;
+          }
 
           if (upcomingGroups.has(groupId)) {
             alert("此團務目前尚未開放。");
@@ -2765,6 +2764,11 @@
       }
 
       async function renderProducts(groupId) {
+        if (closedGroups.has(groupId)) {
+          productContainer.innerHTML = `<div class="product-placeholder">此團務已結束 🦊</div>`;
+          return;
+        }
+
         if (upcomingGroups.has(groupId)) {
           productContainer.innerHTML = `<div class="product-placeholder">此團務即將開放 🦊</div>`;
           return;
@@ -2919,7 +2923,8 @@
       function updateNextButton() {
         nextPaymentButton.disabled = !(
           collectSelectedProducts().length > 0 &&
-          readNoticeCheckbox.checked
+          readNoticeCheckbox.checked &&
+          !closedGroups.has(currentGroupId)
         );
       }
 
@@ -2935,6 +2940,11 @@
 
         if (!readNoticeCheckbox.checked) {
           alert("請先勾選「已閱讀注意事項」。");
+          return;
+        }
+
+        if (closedGroups.has(currentGroupId)) {
+          alert("此團務已結束。");
           return;
         }
 
@@ -3044,6 +3054,11 @@
         }
 
         const groupId = checkoutSnapshot.groupId;
+
+        if (closedGroups.has(groupId)) {
+          alert("此團務已結束。");
+          return;
+        }
 
         if (upcomingGroups.has(groupId)) {
           alert("此團務目前尚未開放。");
@@ -3155,7 +3170,7 @@
                 : "";
 
               lastSource = source;
-              return `${sourceHTML}<div class="public-product-entry"><div class="public-product-line">${escapeHTML(line)}</div>${getProductShippingHTML(product, item)}</div>`;
+              return `${sourceHTML}<div class="public-product-entry"><div class="public-product-line">${escapeHTML(line)}</div>${getProductShippingHTML(product)}</div>`;
             }).join("");
           }
 
@@ -3182,13 +3197,13 @@
               text = `商品 ×${quantity}`;
             }
 
-            return `<div class="public-product-entry"><div class="public-product-line">${escapeHTML(text)}</div>${getProductShippingHTML(product, item)}</div>`;
+            return `<div class="public-product-entry"><div class="public-product-line">${escapeHTML(text)}</div>${getProductShippingHTML(product)}</div>`;
           }).join("");
         }
 
-        return ["一販", "二販", "三販", ""].map(round => {
+        return [...SALE_ROUNDS, ""].map(round => {
           const roundProducts = products.filter(product =>
-            ["一販", "二販", "三販"].includes(String(product.saleRound || ""))
+            SALE_ROUNDS.includes(String(product.saleRound || ""))
               ? product.saleRound === round
               : round === ""
           );
@@ -3196,10 +3211,7 @@
           if (!round) {
             return `<div class="public-round-row unassigned"><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
           }
-          const secondRoundDate = round === "二販" && item.secondRoundShipDate
-            ? `<span class="second-round-date">二販預計出貨日：${escapeHTML(String(item.secondRoundShipDate).replace(/-/g, "/"))}</span>`
-            : "";
-          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}${secondRoundDate}</div></div>`;
+          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
         }).join("");
       }
 
@@ -3267,6 +3279,13 @@
           "一販已到貨": "stage-arrived",
           "二販已到貨": "stage-arrived",
           "三販已到貨": "stage-arrived",
+          "四販已到貨": "stage-arrived",
+          "五販已到貨": "stage-arrived",
+          "六販已到貨": "stage-arrived",
+          "七販已到貨": "stage-arrived",
+          "八販已到貨": "stage-arrived",
+          "九販已到貨": "stage-arrived",
+          "十販已到貨": "stage-arrived",
           "已寄出": "stage-shipped",
           "已完成": "stage-complete"
         };
@@ -3280,11 +3299,11 @@
         return "";
       }
 
-      function getProductShippingHTML(product, item) {
-        if (product.saleRound !== "二販" || item.secondRoundShipDate) return "";
+      function getProductShippingHTML(product) {
+        if (!SALE_ROUNDS.includes(product.saleRound) || product.saleRound === "一販") return "";
         const estimate = String(product.shippingEstimate || "").trim();
         return estimate
-          ? `<span class="product-shipping-estimate">二販預計出貨：${escapeHTML(estimate)}</span>`
+          ? `<span class="product-shipping-estimate">${escapeHTML(product.saleRound)}出貨備註：${escapeHTML(estimate)}</span>`
           : "";
       }
 
@@ -3364,83 +3383,3 @@
           `).join("");
 
           return;
-        }
-
-        const people = {};
-
-        filtered.forEach(item => {
-          const name = String(item.facebookName || "未填名稱").trim();
-          if (!people[name]) people[name] = [];
-          people[name].push(item);
-        });
-
-        progressList.innerHTML = Object.entries(people).map(([name, items]) => `
-          <div class="public-person-group">
-            <div class="public-person-header">
-              <div class="public-person-name">${escapeHTML(name)}</div>
-              <div class="public-person-count">共參加 ${items.length} 筆團務</div>
-            </div>
-
-            <div class="public-person-orders">
-              ${items.map(item => {
-                const paymentStatus = item.paymentStatus || "待對帳";
-                const progress = item.progress || "已登記";
-
-                return `
-                  <div class="public-person-order">
-                    <div class="public-order-name">${escapeHTML(item.activity || item.community || "團務")}</div>
-
-                    <span class="public-order-type ${getOrderTypeClass(item.groupType)}">
-                      ${escapeHTML(item.groupType || "")}
-                    </span>
-
-                    <div class="public-search-products">${getPublicProductHTML(item)}</div>
-                    ${getShippingEstimateHTML(item)}
-
-                    <div class="public-order-statuses">
-                      <div class="status-pill ${getPaymentClass(paymentStatus)}">${escapeHTML(paymentStatus)}</div>
-                      <div class="stage-pill ${getProgressClass(progress)}">${escapeHTML(progress)}</div>
-                    </div>
-                  </div>
-                `;
-              }).join("")}
-            </div>
-          </div>
-        `).join("");
-      }
-
-      document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-          currentTypeFilter = button.dataset.filter;
-          renderProgress();
-        });
-      });
-
-      document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-          currentGroupFilter = button.dataset.filter;
-          renderProgress();
-        });
-      });
-
-      communitySearch.addEventListener("input", renderProgress);
-      activityFilter.addEventListener("change", renderProgress);
-
-      resetScroll();
-    </script>
-
-    </body>
-    </html>
-
-    <!-- 完整檔案結尾保護區：看到這一行代表程式碼沒有被截斷 -->
-    <!-- 請保留以上的 script、body 與 html 結束標
