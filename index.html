@@ -1744,23 +1744,10 @@
       <h2>📊 對帳表＆進度表</h2>
 
       <div class="card">
-        <div class="filter-label">依團務分類</div>
-        <div id="typeFilters" class="filter-row">
-          <button type="button" class="filter-button selected" data-filter="all">全部</button>
-          <button type="button" class="filter-button" data-filter="代購">代購</button>
-          <button type="button" class="filter-button" data-filter="單特典">單特典</button>
-          <button type="button" class="filter-button" data-filter="現貨">現貨</button>
-        </div>
-
-        <div class="filter-label">依團體</div>
-        <div id="groupFilters" class="filter-row">
-          <button type="button" class="filter-button selected" data-filter="all">全部</button>
-          <button type="button" class="filter-button" data-filter="TWS">TWS</button>
-          <button type="button" class="filter-button" data-filter="Stray Kids">Stray Kids</button>
-        </div>
-
-        <div class="filter-label">依名稱搜尋</div>
-        <input id="communitySearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
+        <label class="filter-label" for="communitySearch">依名稱搜尋</label>
+        <select id="communitySearch" aria-label="依名稱搜尋">
+          <option value="">全部名稱</option>
+        </select>
 
         <label class="filter-label" for="activityFilter">依團務搜尋</label>
         <select id="activityFilter">
@@ -1995,7 +1982,7 @@
         }
 
         if (pageId === "progressPage") {
-          loadPublicProgress();
+          loadPublicProgress({ force: true });
         }
 
         resetScroll();
@@ -3216,8 +3203,6 @@
       }
 
       let defaultProgressData = [];
-      let currentTypeFilter = "all";
-      let currentGroupFilter = "all";
 
       const progressList = document.getElementById("progressList");
       const communitySearch = document.getElementById("communitySearch");
@@ -3251,6 +3236,7 @@
             progressLoadedAt = Date.now();
 
             updateActivityOptions();
+            updateNameOptions();
             renderProgress();
           } catch (error) {
             console.error(error);
@@ -3325,19 +3311,30 @@
         activityFilter.value = activities.includes(selected) ? selected : "";
       }
 
+      function updateNameOptions() {
+        const selected = communitySearch.value;
+        const names = [...new Set(defaultProgressData
+          .map(item => String(item.facebookName || "").trim())
+          .filter(Boolean))]
+          .sort((a, b) => a.localeCompare(b, "zh-TW"));
+
+        communitySearch.innerHTML = `<option value="">全部名稱</option>` + names
+          .map(name => `<option value="${escapeHTML(name)}">${escapeHTML(name)}</option>`)
+          .join("");
+        communitySearch.value = names.includes(selected) ? selected : "";
+      }
+
       function renderProgress() {
-        const searchText = communitySearch.value.trim().toLowerCase();
+        const selectedName = communitySearch.value;
         const selectedActivity = activityFilter.value;
 
         const filtered = defaultProgressData.filter(item => {
-          const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
-          const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
           const activity = String(item.activity || item.community || "").trim();
           const matchesActivity = !selectedActivity || activity === selectedActivity;
-          const facebook = String(item.facebookName || "").trim().toLowerCase();
-          const matchesName = !searchText || facebook.includes(searchText);
+          const facebook = String(item.facebookName || "").trim();
+          const matchesName = !selectedName || facebook === selectedName;
 
-          return matchesType && matchesGroup && matchesActivity && matchesName;
+          return matchesActivity && matchesName;
         });
 
         progressList.innerHTML = "";
@@ -3347,7 +3344,7 @@
           return;
         }
 
-        if (!searchText) {
+        if (!selectedName) {
           const groups = {};
 
           filtered.forEach(item => {
@@ -3428,31 +3425,7 @@
         `).join("");
       }
 
-      document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-          currentTypeFilter = button.dataset.filter;
-          renderProgress();
-        });
-      });
-
-      document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-          currentGroupFilter = button.dataset.filter;
-          renderProgress();
-        });
-      });
-
-      communitySearch.addEventListener("input", renderProgress);
+      communitySearch.addEventListener("change", renderProgress);
       activityFilter.addEventListener("change", renderProgress);
 
       resetScroll();
