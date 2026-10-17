@@ -3205,7 +3205,15 @@
           if (!round) {
             return `<div class="public-round-row unassigned"><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
           }
-          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
+          const secondRoundDates = round === "二販"
+            ? [...new Set(roundProducts
+                .map(product => String(product.shippingEstimate || "").trim())
+                .filter(Boolean))]
+            : [];
+          const secondRoundDateHTML = secondRoundDates.length
+            ? `<span class="product-shipping-estimate">二販預計出貨日：${secondRoundDates.map(escapeHTML).join("、")}</span>`
+            : "";
+          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}${secondRoundDateHTML}</div></div>`;
         }).join("");
       }
 
@@ -3293,7 +3301,7 @@
       }
 
       function getProductShippingHTML(product) {
-        if (!SALE_ROUNDS.includes(product.saleRound) || product.saleRound === "一販") return "";
+        if (!SALE_ROUNDS.includes(product.saleRound) || product.saleRound === "一販" || product.saleRound === "二販") return "";
         const estimate = String(product.shippingEstimate || "").trim();
         return estimate
           ? `<span class="product-shipping-estimate">${escapeHTML(product.saleRound)}出貨備註：${escapeHTML(estimate)}</span>`
