@@ -143,6 +143,7 @@
     }
 
     .filter-title {
+      display: block;
       margin-bottom: 8px;
       color: #6b46c1;
       font-size: 15px;
@@ -151,7 +152,7 @@
 
     .filter-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -517,29 +518,14 @@
       <div class="card">
         <div class="filter-grid">
           <div class="filter-block">
-            <div class="filter-title">依團務分類</div>
-            <div id="typeFilters" class="filter-buttons">
-              <button type="button" class="filter-button selected" data-filter="all">全部</button>
-              <button type="button" class="filter-button" data-filter="代購">代購</button>
-              <button type="button" class="filter-button" data-filter="單特典">單特典</button>
-              <button type="button" class="filter-button" data-filter="現貨">現貨</button>
-            </div>
+            <label class="filter-title" for="nameSearch">依名稱搜尋</label>
+            <select id="nameSearch" aria-label="依名稱搜尋">
+              <option value="">全部名稱</option>
+            </select>
           </div>
 
           <div class="filter-block">
-            <div class="filter-title">依團體</div>
-            <div id="groupFilters" class="filter-buttons">
-              <button type="button" class="filter-button selected" data-filter="all">全部</button>
-              <button type="button" class="filter-button" data-filter="TWS">TWS</button>
-              <button type="button" class="filter-button" data-filter="Stray Kids">Stray Kids</button>
-            </div>
-          </div>
-
-          <div class="filter-block">
-            <div class="filter-title">依名稱搜尋</div>
-            <input id="nameSearch" type="search" placeholder="輸入 Facebook 名稱" autocomplete="off">
-
-            <div class="filter-title" style="margin-top:16px;">依團務搜尋</div>
+            <label class="filter-title" for="activityFilter">依團務搜尋</label>
             <select id="activityFilter" aria-label="依團務搜尋">
               <option value="">全部團務</option>
             </select>
@@ -553,6 +539,7 @@
 
   <script>
     const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
+    const SALE_ROUNDS = ["一販", "二販", "三販", "四販", "五販", "六販", "七販", "八販", "九販", "十販"];
     const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
     const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
     const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
@@ -574,8 +561,6 @@
 
     let adminPassword = "";
     let submissions = [];
-    let currentTypeFilter = "all";
-    let currentGroupFilter = "all";
 
     const loginArea = document.getElementById("loginArea");
     const adminArea = document.getElementById("adminArea");
@@ -647,6 +632,7 @@
       function renderProductEntry(product, index, text) {
         const round = product.saleRound || "";
         const productShippingEstimate = String(product.shippingEstimate || "");
+        const hasSeparateShipping = SALE_ROUNDS.includes(round) && round !== "一販";
         return `
           <div class="admin-product-entry">
             <div class="product-line">${escapeHTML(text)}</div>
@@ -654,14 +640,12 @@
               販售批次
               <select class="product-round-select" data-product-index="${index}">
                 <option value="" ${round === "" ? "selected" : ""}>尚未設定</option>
-                <option value="一販" ${round === "一販" ? "selected" : ""}>一販</option>
-                <option value="二販" ${round === "二販" ? "selected" : ""}>二販</option>
-                <option value="三販" ${round === "三販" ? "selected" : ""}>三販</option>
+                ${SALE_ROUNDS.map(value => `<option value="${value}" ${round === value ? "selected" : ""}>${value}</option>`).join("")}
               </select>
             </label>
-            <label class="product-shipping-row" ${round === "二販" ? "" : "hidden"}>
-              個別二販出貨備註（選填）
-              <input class="product-shipping-input" data-product-index="${index}" type="text" maxlength="80" placeholder="例如：2027 年 3 月" value="${escapeHTML(productShippingEstimate)}" ${round === "二販" ? "" : "disabled"}>
+            <label class="product-shipping-row" ${hasSeparateShipping ? "" : "hidden"}>
+              個別出貨備註（選填）
+              <input class="product-shipping-input" data-product-index="${index}" type="text" maxlength="80" placeholder="例如：2027 年 3 月" value="${escapeHTML(productShippingEstimate)}" ${hasSeparateShipping ? "" : "disabled"}>
             </label>
           </div>
         `;
@@ -722,7 +706,6 @@
       const paymentStatus = item.paymentStatus || "待對帳";
       const progress = item.progress || "已登記";
       const shippingEstimate = String(item.shippingEstimate || "");
-      const secondRoundShipDate = String(item.secondRoundShipDate || "");
       const activity = item.activity || item.community || "團務";
       const groupType = item.groupType || "";
       const group = item.group || "";
@@ -780,17 +763,10 @@
                     <option value="已登記" ${progress === "已登記" ? "selected" : ""}>已登記</option>
                     <option value="已下單" ${progress === "已下單" ? "selected" : ""}>已下單</option>
                     <option value="已到貨" ${progress === "已到貨" ? "selected" : ""}>已到貨</option>
-                    <option value="一販已到貨" ${progress === "一販已到貨" ? "selected" : ""}>一販已到貨</option>
-                    <option value="二販已到貨" ${progress === "二販已到貨" ? "selected" : ""}>二販已到貨</option>
-                    <option value="三販已到貨" ${progress === "三販已到貨" ? "selected" : ""}>三販已到貨</option>
+                    ${SALE_ROUNDS.map(round => `<option value="${round}已到貨" ${progress === round + "已到貨" ? "selected" : ""}>${round}已到貨</option>`).join("")}
                     <option value="已寄出" ${progress === "已寄出" ? "selected" : ""}>已寄出</option>
                     <option value="已完成" ${progress === "已完成" ? "selected" : ""}>已完成</option>
                   </select>
-                </label>
-
-                <label class="status-label">
-                  二販預計出貨日（選填）
-                  <input class="second-round-ship-date" data-index="${realIndex}" type="date" value="${escapeHTML(secondRoundShipDate)}">
                 </label>
 
                 <label class="status-label">
@@ -816,20 +792,18 @@
     }
 
     function getFilteredSubmissions() {
-      const searchText = nameSearch.value.trim().toLowerCase();
+      const selectedName = nameSearch.value;
       const selectedActivity = activityFilter.value;
 
       return submissions
         .map((item, realIndex) => ({ item, realIndex }))
         .filter(({ item }) => {
-          const matchesType = currentTypeFilter === "all" || item.groupType === currentTypeFilter;
-          const matchesGroup = currentGroupFilter === "all" || item.group === currentGroupFilter;
           const activity = String(item.activity || item.community || "").trim();
           const matchesActivity = !selectedActivity || activity === selectedActivity;
-          const name = String(item.facebookName || "").trim().toLowerCase();
-          const matchesSearch = !searchText || name.includes(searchText);
+          const name = String(item.facebookName || "").trim();
+          const matchesName = !selectedName || name === selectedName;
 
-          return matchesType && matchesGroup && matchesActivity && matchesSearch;
+          return matchesActivity && matchesName;
         });
     }
 
@@ -846,16 +820,29 @@
       activityFilter.value = activities.includes(selected) ? selected : "";
     }
 
+    function updateNameOptions() {
+      const selected = nameSearch.value;
+      const names = [...new Set(submissions
+        .map(item => String(item.facebookName || "").trim())
+        .filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "zh-TW"));
+
+      nameSearch.innerHTML = `<option value="">全部名稱</option>` + names
+        .map(name => `<option value="${escapeHTML(name)}">${escapeHTML(name)}</option>`)
+        .join("");
+      nameSearch.value = names.includes(selected) ? selected : "";
+    }
+
     function bindRenderedActions() {
       document.querySelectorAll(".product-round-select").forEach(select => {
         select.addEventListener("change", () => {
           const row = select.closest(".admin-product-entry")?.querySelector(".product-shipping-row");
           const input = row?.querySelector(".product-shipping-input");
           if (!row || !input) return;
-          const isSecondRound = select.value === "二販";
-          row.hidden = !isSecondRound;
-          input.disabled = !isSecondRound;
-          if (!isSecondRound) input.value = "";
+          const hasSeparateShipping = SALE_ROUNDS.includes(select.value) && select.value !== "一販";
+          row.hidden = !hasSeparateShipping;
+          input.disabled = !hasSeparateShipping;
+          if (!hasSeparateShipping) input.value = "";
         });
       });
 
@@ -874,7 +861,7 @@
 
     function renderSubmissions() {
       const filtered = getFilteredSubmissions();
-      const searchText = nameSearch.value.trim().toLowerCase();
+      const selectedName = nameSearch.value;
 
       summaryText.textContent = `目前共 ${submissions.length} 筆資料・顯示 ${filtered.length} 筆`;
 
@@ -883,7 +870,7 @@
         return;
       }
 
-      if (!searchText) {
+      if (!selectedName) {
         submissionList.innerHTML = filtered
           .map(({ item, realIndex }) => renderSubmissionCard(item, realIndex))
           .join("");
@@ -945,6 +932,7 @@
           : [];
 
         updateActivityOptions();
+        updateNameOptions();
         renderSubmissions();
       } catch (error) {
         console.error(error);
@@ -1008,9 +996,8 @@
       const productRounds = [...card.querySelectorAll(".product-round-select")]
         .map(select => select.value);
       const productShippingEstimates = [...card.querySelectorAll(".product-shipping-input")]
-        .map((input, index) => productRounds[index] === "二販" ? input.value.trim() : "");
+        .map((input, index) => SALE_ROUNDS.includes(productRounds[index]) && productRounds[index] !== "一販" ? input.value.trim() : "");
       const shippingEstimate = card.querySelector(".shipping-estimate-input")?.value.trim() || "";
-      const secondRoundShipDate = card.querySelector(".second-round-ship-date")?.value || "";
 
       button.disabled = true;
       const oldText = button.textContent;
@@ -1029,8 +1016,7 @@
             progress,
             productRounds,
             productShippingEstimates,
-            shippingEstimate,
-            secondRoundShipDate
+            shippingEstimate
           })
         });
 
@@ -1050,7 +1036,6 @@
             shippingEstimate: productShippingEstimates[index]
           }));
         submissions[realIndex].shippingEstimate = shippingEstimate;
-        submissions[realIndex].secondRoundShipDate = secondRoundShipDate;
         renderSubmissions();
         alert("狀態與販售資訊已儲存");
       } catch (error) {
@@ -1250,30 +1235,7 @@
       summaryText.textContent = "目前共 0 筆資料";
     });
 
-    document.querySelectorAll("#typeFilters .filter-button").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll("#typeFilters .filter-button").forEach(item => {
-          item.classList.remove("selected");
-        });
-
-        button.classList.add("selected");
-        currentTypeFilter = button.dataset.filter;
-        renderSubmissions();
-      });
-    });
-
-    document.querySelectorAll("#groupFilters .filter-button").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll("#groupFilters .filter-button").forEach(item => {
-          item.classList.remove("selected");
-        });
-
-        button.classList.add("selected");
-        currentGroupFilter = button.dataset.filter;
-        renderSubmissions();      });
-    });
-
-    nameSearch.addEventListener("input", renderSubmissions);
+    nameSearch.addEventListener("change", renderSubmissions);
     activityFilter.addEventListener("change", renderSubmissions);
   </script>
 </body>
