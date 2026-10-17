@@ -1,13 +1,13 @@
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="format-detection" content="telephone=no">
-      <title>狐狸🦊日韓通路代購｜拆車</title>
+      <title>狐狸🦊日韓通路代購/拆車</title>
       <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 
-      <meta property="og:title" content="狐狸🦊日韓通路代購｜拆車">
+      <meta property="og:title" content="狐狸🦊日韓通路代購/拆車">
       <meta property="og:description" content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢">
       <meta property="og:type" content="website">
       <meta property="og:url" content="https://yiii704.github.io/Fox/">
@@ -1100,15 +1100,6 @@
           line-height: 1.4;
         }
 
-        .second-round-date {
-          display: block;
-          margin-top: 7px;
-          color: #8d6880;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-
         .shipping-estimate {
           display: block;
           margin-top: 4px;
@@ -1424,7 +1415,7 @@
 
     <body class="home-mode">
 
-    <h1>狐狸🦊日韓通路代購｜拆車</h1>
+    <h1>狐狸🦊日韓通路代購/拆車</h1>
 
     <main id="homePage" class="page active-page">
       <div class="home-background" aria-hidden="true"></div>
@@ -1843,6 +1834,7 @@
 
     <script>
       const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
+      const SALE_ROUNDS = ["一販", "二販", "三販", "四販", "五販", "六販", "七販", "八販", "九販", "十販"];
       const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
       const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
       const COMBINED_SODA_GROUP_ID = "soda-soda-winter";
@@ -3155,7 +3147,7 @@
                 : "";
 
               lastSource = source;
-              return `${sourceHTML}<div class="public-product-entry"><div class="public-product-line">${escapeHTML(line)}</div>${getProductShippingHTML(product, item)}</div>`;
+              return `${sourceHTML}<div class="public-product-entry"><div class="public-product-line">${escapeHTML(line)}</div>${getProductShippingHTML(product)}</div>`;
             }).join("");
           }
 
@@ -3182,13 +3174,13 @@
               text = `商品 ×${quantity}`;
             }
 
-            return `<div class="public-product-entry"><div class="public-product-line">${escapeHTML(text)}</div>${getProductShippingHTML(product, item)}</div>`;
+            return `<div class="public-product-entry"><div class="public-product-line">${escapeHTML(text)}</div>${getProductShippingHTML(product)}</div>`;
           }).join("");
         }
 
-        return ["一販", "二販", "三販", ""].map(round => {
+        return [...SALE_ROUNDS, ""].map(round => {
           const roundProducts = products.filter(product =>
-            ["一販", "二販", "三販"].includes(String(product.saleRound || ""))
+            SALE_ROUNDS.includes(String(product.saleRound || ""))
               ? product.saleRound === round
               : round === ""
           );
@@ -3196,10 +3188,7 @@
           if (!round) {
             return `<div class="public-round-row unassigned"><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
           }
-          const secondRoundDate = round === "二販" && item.secondRoundShipDate
-            ? `<span class="second-round-date">二販預計出貨日：${escapeHTML(String(item.secondRoundShipDate).replace(/-/g, "/"))}</span>`
-            : "";
-          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}${secondRoundDate}</div></div>`;
+          return `<div class="public-round-row"><span class="public-round-label">${escapeHTML(round)}</span><div class="public-round-products">${renderProductRows(roundProducts)}</div></div>`;
         }).join("");
       }
 
@@ -3267,6 +3256,13 @@
           "一販已到貨": "stage-arrived",
           "二販已到貨": "stage-arrived",
           "三販已到貨": "stage-arrived",
+          "四販已到貨": "stage-arrived",
+          "五販已到貨": "stage-arrived",
+          "六販已到貨": "stage-arrived",
+          "七販已到貨": "stage-arrived",
+          "八販已到貨": "stage-arrived",
+          "九販已到貨": "stage-arrived",
+          "十販已到貨": "stage-arrived",
           "已寄出": "stage-shipped",
           "已完成": "stage-complete"
         };
@@ -3280,11 +3276,11 @@
         return "";
       }
 
-      function getProductShippingHTML(product, item) {
-        if (product.saleRound !== "二販" || item.secondRoundShipDate) return "";
+      function getProductShippingHTML(product) {
+        if (!SALE_ROUNDS.includes(product.saleRound) || product.saleRound === "一販") return "";
         const estimate = String(product.shippingEstimate || "").trim();
         return estimate
-          ? `<span class="product-shipping-estimate">二販預計出貨：${escapeHTML(estimate)}</span>`
+          ? `<span class="product-shipping-estimate">${escapeHTML(product.saleRound)}出貨備註：${escapeHTML(estimate)}</span>`
           : "";
       }
 
