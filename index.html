@@ -4,10 +4,10 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="format-detection" content="telephone=no">
-      <title>狐狸🦊日韓通路代購/拆車</title>
+      <title>狐狸🦊日韓通路代購｜拆車</title>
       <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 
-      <meta property="og:title" content="狐狸🦊日韓通路代購/拆車">
+      <meta property="og:title" content="狐狸🦊日韓通路代購｜拆車">
       <meta property="og:description" content="日韓通路代購・拆車・單特典｜團務、匯款及進度查詢">
       <meta property="og:type" content="website">
       <meta property="og:url" content="https://yiii704.github.io/Fox/">
@@ -1422,7 +1422,7 @@
 
     <body class="home-mode">
 
-    <h1>狐狸🦊日韓通路代購/拆車</h1>
+    <h1>狐狸🦊日韓通路代購｜拆車</h1>
 
     <main id="homePage" class="page active-page">
       <div class="home-background" aria-hidden="true"></div>
@@ -1819,6 +1819,64 @@
 
     <script>
       const WORKER_URL = "https://fox-form-api.a0983707826.workers.dev";
+      // Store the original page structure before the order and progress views update the DOM.
+      function getPageSignature(doc) {
+        const pages = [...doc.querySelectorAll(".page")]
+          .map(page => page.outerHTML).join("");
+        const scripts = [...doc.querySelectorAll("script:not([src])")]
+          .map(script => script.textContent).join("");
+        return `${doc.head.innerHTML}\n${pages}\n${scripts}`;
+      }
+
+      const initialPageSignature = getPageSignature(document);
+      let checkingPageUpdate = false;
+      let lastPageCheckAt = 0;
+
+      async function checkForPageUpdate() {
+        if (document.visibilityState === "hidden" || checkingPageUpdate) return;
+        if (Date.now() - lastPageCheckAt < 3000) return;
+        const activePage = document.querySelector(".page.active-page")?.id;
+        if (activePage === "productPage" || activePage === "paymentPage" || activePage === "noticePage") return;
+
+        checkingPageUpdate = true;
+        lastPageCheckAt = Date.now();
+        try {
+          const checkUrl = new URL(window.location.href);
+          checkUrl.searchParams.set("fox_check", String(Date.now()));
+          const response = await fetch(checkUrl.href, { cache: "no-store" });
+          if (!response.ok) return;
+          const latestPage = new DOMParser().parseFromString(await response.text(), "text/html");
+          if (!latestPage.querySelector("#homePage")) return;
+          const latestSignature = getPageSignature(latestPage);
+          if (latestSignature === initialPageSignature) return;
+          const currentPage = document.querySelector(".page.active-page")?.id;
+          if (currentPage === "productPage" || currentPage === "paymentPage" || currentPage === "noticePage") return;
+
+          // Limit repeat reloads while allowing a later retry if the network was stale.
+          let fingerprint = 0;
+          for (let i = 0; i < latestSignature.length; i++) {
+            fingerprint = Math.imul(fingerprint ^ latestSignature.charCodeAt(i), 16777619);
+          }
+          const version = `${latestSignature.length}:${fingerprint >>> 0}`;
+          try {
+            const [previousVersion, previousTime] = (localStorage.getItem("fox-last-auto-update") || "").split("|");
+            if (previousVersion === version && Date.now() - Number(previousTime) < 60000) return;
+            localStorage.setItem("fox-last-auto-update", `${version}|${Date.now()}`);
+          } catch (_) {
+            // Browsers with disabled storage can still attempt a fresh navigation.
+          }
+
+          const freshUrl = new URL(window.location.href);
+          freshUrl.searchParams.delete("fox_check");
+          freshUrl.searchParams.set("fox_fresh", String(Date.now()));
+          window.location.replace(freshUrl.href);
+        } catch (error) {
+          console.debug("Page update check unavailable", error);
+        } finally {
+          checkingPageUpdate = false;
+        }
+      }
+
       const SALE_ROUNDS = ["一販", "二販", "三販", "四販", "五販", "六販", "七販", "八販", "九販", "十販"];
       const COMBINED_STOCK_GROUP_ID = "in-stock-combined";
       const COMBINED_OSAKA_GROUP_ID = "osaka-combined";
@@ -1986,6 +2044,7 @@
 
         if (pageId === "homePage") {
           document.body.classList.add("home-mode");
+          checkForPageUpdate();
         }
 
         if (pageId === "progressPage") {
@@ -3442,6 +3501,12 @@
 
       communitySearch.addEventListener("change", renderProgress);
       activityFilter.addEventListener("change", renderProgress);
+
+      window.addEventListener("pageshow", checkForPageUpdate);
+      window.addEventListener("focus", checkForPageUpdate);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") checkForPageUpdate();
+      });
 
       resetScroll();
     </script>
